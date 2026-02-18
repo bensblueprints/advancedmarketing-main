@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/services"
+  to = "https://website.advancedmarketing.co"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/services/local"
+  to = "https://website.advancedmarketing.co"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/services/local/*"
+  to = "https://website.advancedmarketing.co/:splat"
+  status = 200
+  force = true

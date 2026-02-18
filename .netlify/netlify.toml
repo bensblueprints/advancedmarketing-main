@@ -1,0 +1,64 @@
+functionsDirectory = "C:\\Users\\admin\\Desktop\\Github Repo Backup 2-18-2026\\advancedmarketing\\main-site-static\\netlify\\functions"
+functionsDirectoryOrigin = "config"
+redirectsOrigin = "config"
+plugins = []
+headers = []
+
+[build]
+publish = "C:\\Users\\admin\\Desktop\\Github Repo Backup 2-18-2026\\advancedmarketing\\main-site-static"
+publishOrigin = "config"
+functions = "C:\\Users\\admin\\Desktop\\Github Repo Backup 2-18-2026\\advancedmarketing\\main-site-static\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+
+[[redirects]]
+from = "/services"
+to = "https://website.advancedmarketing.co"
+status = 200.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/services/local"
+to = "https://website.advancedmarketing.co"
+status = 200.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/services/local/*"
+to = "https://website.advancedmarketing.co/:splat"
+status = 200.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

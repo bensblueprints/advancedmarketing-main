@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Marketing | Full-Service Marketing Agency</title>
+    <meta name="description" content="Advanced Marketing - Full-service marketing agency specializing in Facebook advertising, PR, e-commerce, AI software, and local business websites. 500+ clients, 3.2x avg ROI.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --gold: #c9a962;
+            --gold-light: #d4b978;
+            --gold-dark: #a88c4a;
+            --gold-glow: rgba(201, 169, 98, 0.15);
+            --text: #f5f3ef;
+            --text-muted: #8a8880;
+            --border: rgba(255,255,255,0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Typography */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-label {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1.25rem 0;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        nav .container { display: flex; align-items: center; justify-content: space-between; }
+        nav img { height: 36px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-muted); font-size: 0.85rem; text-decoration: none;
+            transition: color 0.3s; font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            background: var(--gold) !important; color: var(--bg) !important;
+            padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600;
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .nav-cta:hover { background: var(--gold-light) !important; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            position: relative; padding-top: 80px; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(201,169,98,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(201,169,98,0.04) 0%, transparent 60%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 2.5rem; }
+        .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 0.9rem 2rem; border-radius: 6px; font-weight: 600;
+            font-size: 0.85rem; text-decoration: none; cursor: pointer;
+            transition: all 0.3s; border: none; text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-primary { background: var(--gold); color: var(--bg); }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,169,98,0.25); }
+        .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        .hero-stats {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+            padding-top: 2.5rem; border-top: 1px solid var(--border); margin-top: 1rem;
+        }
+        .hero-stats .stat-value { font-family: var(--font-display); font-size: 2rem; font-weight: 600; }
+        .hero-stats .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+        /* Sections */
+        .section { padding: 100px 0; }
+        .section-alt { background: var(--bg-card); }
+        .section-header { max-width: 700px; margin-bottom: 4rem; }
+        .section-header h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-top: 0.75rem; }
+        .section-header p { color: var(--text-muted); margin-top: 1rem; font-size: 1.05rem; }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .service-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 2.5rem; transition: all 0.4s; text-decoration: none; color: inherit;
+            display: block;
+        }
+        .service-card:hover { border-color: rgba(201,169,98,0.3); transform: translateY(-4px); background: var(--bg-card-hover); }
+        .service-icon {
+            width: 52px; height: 52px; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;
+        }
+        .service-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; transition: color 0.3s; }
+        .service-card:hover h3 { color: var(--gold); }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+
+        /* Case Studies */
+        .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+        .case-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            overflow: hidden; transition: all 0.4s; text-decoration: none; color: inherit; display: block;
+        }
+        .case-card:hover { border-color: rgba(201,169,98,0.3); transform: translateY(-4px); }
+        .case-card img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.6s; }
+        .case-card:hover img { transform: scale(1.05); }
+        .case-card .case-img { overflow: hidden; position: relative; }
+        .case-card .case-badge {
+            position: absolute; top: 1rem; left: 1rem; background: rgba(10,10,10,0.8);
+            backdrop-filter: blur(8px); padding: 0.3rem 0.8rem; border-radius: 4px;
+        }
+        .case-card .case-content { padding: 2rem; }
+        .case-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; transition: color 0.3s; }
+        .case-card:hover h3 { color: var(--gold); }
+        .case-card .case-subtitle { color: var(--text-muted); margin-bottom: 1.5rem; }
+        .case-stats { display: flex; gap: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+        .case-stats .stat-value { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--gold); }
+        .case-stats .stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        /* Testimonial */
+        .testimonial-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            overflow: hidden; display: grid; grid-template-columns: 3fr 2fr;
+        }
+        .testimonial-card video { width: 100%; height: 100%; object-fit: cover; }
+        .testimonial-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .testimonial-content blockquote {
+            font-family: var(--font-display); font-size: 1.15rem; font-style: italic;
+            line-height: 1.6; margin-bottom: 1.5rem; color: var(--text);
+        }
+        .testimonial-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .testimonial-tags span {
+            font-size: 0.7rem; padding: 0.3rem 0.75rem; background: rgba(201,169,98,0.1);
+            color: var(--gold); border-radius: 4px;
+        }
+
+        /* Why Us */
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .why-image { border-radius: 8px; overflow: hidden; position: relative; }
+        .why-image img { width: 100%; height: auto; display: block; }
+        .why-items { display: flex; flex-direction: column; gap: 1.5rem; }
+        .why-item { display: flex; gap: 1rem; }
+        .why-item-icon {
+            width: 48px; height: 48px; border-radius: 8px; background: rgba(201,169,98,0.1);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold);
+        }
+        .why-item h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .why-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201,169,98,0.1) 0%, transparent 70%);
+        }
+        .cta-section .container { position: relative; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem; }
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            padding-top: 3rem; border-top: 1px solid var(--border); margin-top: 3rem;
+        }
+        .contact-item { text-align: center; }
+        .contact-item-icon {
+            width: 48px; height: 48px; border-radius: 8px; background: rgba(201,169,98,0.1);
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; color: var(--gold);
+        }
+        .contact-item h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .contact-item p, .contact-item a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; }
+        .contact-item a:hover { color: var(--gold); }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--border); background: rgba(17,17,17,0.5); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 2rem; padding: 5rem 0; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; max-width: 280px; }
+        .footer-col h4 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.25rem; }
+        .footer-col a { display: block; color: var(--text-muted); font-size: 0.85rem; text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { padding: 1.5rem 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--text-muted); }
+        .footer-bottom a { font-size: 0.75rem; color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; }
+        .footer-bottom a:hover { color: var(--gold); }
+
+        /* Voice Button */
+        .voice-ctas { display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+        .btn-voice {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 700;
+            font-size: 0.8rem; letter-spacing: 0.5px; text-transform: uppercase;
+            cursor: pointer; text-decoration: none; transition: all 0.3s;
+            background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(52,211,153,0.15));
+            border: 1px solid rgba(16,185,129,0.4); color: #6ee7b7;
+        }
+        .btn-voice:hover {
+            background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(52,211,153,0.3));
+            border-color: rgba(16,185,129,0.7); transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16,185,129,0.25);
+        }
+        .pulse-dot {
+            width: 6px; height: 6px; border-radius: 50%; background: #34d399;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
+
+        /* Voice Modal */
+        .voice-modal-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            z-index: 10000; justify-content: center; align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        .voice-modal-overlay.active { display: flex; }
+        .voice-modal {
+            background: linear-gradient(145deg, #1a1a2e, #16162a);
+            border: 1px solid rgba(99,102,241,0.2); border-radius: 20px;
+            padding: 2.5rem 2rem; width: 90%; max-width: 480px; position: relative;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.6); text-align: center;
+            animation: modalIn 0.3s ease-out;
+        }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .voice-modal-close {
+            position: absolute; top: 16px; right: 20px; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 36px; height: 36px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem; cursor: pointer; transition: all 0.2s;
+        }
+        .voice-modal-close:hover { background: rgba(255,255,255,0.1); }
+        .voice-modal h3 { color: #fff; margin-bottom: 0.25rem; font-size: 1.35rem; }
+        .voice-modal p { color: #8b8fa3; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        /* Local Services Banner */
+        .local-banner {
+            background: linear-gradient(135deg, rgba(201,169,98,0.08), rgba(201,169,98,0.02));
+            border: 1px solid rgba(201,169,98,0.15); border-radius: 12px;
+            padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+            margin-top: 3rem; gap: 2rem;
+        }
+        .local-banner h3 { font-size: 1.3rem; margin-bottom: 0.25rem; }
+        .local-banner p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .case-studies-grid { grid-template-columns: 1fr; }
+            .testimonial-card { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .why-image { order: -1; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .hero-ctas { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .voice-ctas { flex-direction: column; }
+            .btn-voice { width: 100%; justify-content: center; }
+            .local-banner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/"><img src="/logo.png" alt="Advanced Marketing"></a>
+            <div class="nav-links">
+                <a href="/services">Services</a>
+                <a href="/case-studies">Case Studies</a>
+                <a href="/team">Team</a>
+                <a href="/about">About</a>
+                <a href="#contact" class="nav-cta">Book a Call</a>
+            </div>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="text-label">Full-Service Marketing Agency</span>
+                <h1>We Build Brands<br><span class="text-gradient">That Dominate</span></h1>
+                <p>From Facebook advertising to AI-powered automation, we deliver measurable growth through data-driven marketing strategies.</p>
+
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">Book Free Strategy Call &rarr;</a>
+                    <a href="/case-studies" class="btn btn-outline">View Our Work &nearr;</a>
+                </div>
+                <div class="voice-ctas">
+                    <a href="javascript:void(0)" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk To Our Sales Team', 'Chat with our AI specialist about growing your business')" class="btn-voice">
+                        &#x1F4DE; Talk To Sales <span class="pulse-dot"></span>
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div><div class="stat-value text-gradient">500+</div><div class="stat-label">Clients</div></div>
+                    <div><div class="stat-value text-gradient">$50M</div><div class="stat-label">Ad Spend</div></div>
+                    <div><div class="stat-value text-gradient">3.2x</div><div class="stat-label">Avg. ROI</div></div>
+                    <div><div class="stat-value text-gradient">98%</div><div class="stat-label">Retention</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="text-label">What We Do</span>
+                <h2>Full-Service Marketing Solutions</h2>
+                <p>We combine creative excellence with analytical precision to deliver campaigns that drive real business results.</p>
+            </div>
+
+            <div class="services-grid">
+                <a href="/services/facebook-ads" class="service-card">
+                    <div class="service-icon" style="background: rgba(59,130,246,0.15);">&#x1F4E3;</div>
+                    <h3>Facebook Advertising</h3>
+                    <p>Expert campaign management with proven ROI. From account setup to optimization and scaling.</p>
+                </a>
+                <a href="/services/pr-press" class="service-card">
+                    <div class="service-icon" style="background: rgba(245,158,11,0.15);">&#x1F4F0;</div>
+                    <h3>PR & Press Relations</h3>
+                    <p>Strategic PR campaigns and media outreach that builds credibility and drives sales.</p>
+                </a>
+                <a href="/services/google-ads" class="service-card">
+                    <div class="service-icon" style="background: rgba(16,185,129,0.15);">&#x1F50D;</div>
+                    <h3>Google AdWords</h3>
+                    <p>Maximize visibility with expertly managed search and display advertising campaigns.</p>
+                </a>
+                <a href="/services/ecommerce-website" class="service-card">
+                    <div class="service-icon" style="background: rgba(168,85,247,0.15);">&#x1F6D2;</div>
+                    <h3>E-commerce Websites</h3>
+                    <p>High-converting Shopify stores with custom design and complete payment integration.</p>
+                </a>
+                <a href="/services/ai-software" class="service-card">
+                    <div class="service-icon" style="background: rgba(6,182,212,0.15);">&#x1F916;</div>
+                    <h3>AI Software</h3>
+                    <p>Custom AI tools and automation that give your business a competitive edge.</p>
+                </a>
+                <a href="/services/cro" class="service-card">
+                    <div class="service-icon" style="background: rgba(244,63,94,0.15);">&#x1F4C8;</div>
+                    <h3>Conversion Rate Optimization</h3>
+                    <p>Data-driven A/B testing and UX improvements that turn visitors into customers.</p>
+                </a>
+            </div>
+
+            <!-- Local Business Services Banner -->
+            <div class="local-banner">
+                <div>
+                    <h3>Websites for Local Businesses</h3>
+                    <p>Professional websites with AI receptionists for 15+ industries. Starting at $1,000.</p>
+                </div>
+                <a href="https://website.advancedmarketing.co" class="btn btn-primary" style="white-space: nowrap;">View Industries &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Course -->
+    <section class="section">
+        <div class="container">
+            <div class="why-grid">
+                <div>
+                    <span class="text-label" style="display:block;margin-bottom:1.5rem;">&#x2728; Featured Course</span>
+                    <h2 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">Run Your E-commerce Brand Like an Agency</h2>
+                    <p style="color:var(--text-muted);font-size:1.05rem;margin-bottom:2rem;">The exact playbook that generated $35,000+ in 90 days. Learn the systems, team building, and marketing strategies that actually work.</p>
+                    <ul style="list-style:none;margin-bottom:2rem;">
+                        <li style="display:flex;gap:0.75rem;margin-bottom:0.75rem;align-items:start;"><span style="color:var(--gold);">&#x2713;</span> 8 comprehensive modules on product, team, marketing & scale</li>
+                        <li style="display:flex;gap:0.75rem;margin-bottom:0.75rem;align-items:start;"><span style="color:var(--gold);">&#x2713;</span> 5 bonus templates & resources for immediate implementation</li>
+                        <li style="display:flex;gap:0.75rem;align-items:start;"><span style="color:var(--gold);">&#x2713;</span> 90-day action plan from stuck to scaling</li>
+                    </ul>
+                    <div style="margin-bottom:2rem;">
+                        <span style="font-family:var(--font-display);font-size:3rem;font-weight:600;" class="text-gradient">$27</span>
+                        <span style="color:var(--text-muted);margin-left:0.5rem;">one-time</span>
+                    </div>
+                    <a href="/ecommerce-blueprint" class="btn btn-primary">Get Instant Access &rarr;</a>
+                </div>
+                <div class="why-image">
+                    <img src="/herban-bud-revenue.png" alt="$35,149 in 90 days" style="border-radius:8px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section section-alt">
+        <div class="container">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:1rem;">
+                <div class="section-header" style="margin-bottom:0;">
+                    <span class="text-label">Case Studies</span>
+                    <h2>Proven Results, Real Growth</h2>
+                </div>
+                <a href="/case-studies" class="btn btn-outline">View All &rarr;</a>
+            </div>
+
+            <div class="case-studies-grid">
+                <a href="/case-study/herban-bud" class="case-card">
+                    <div class="case-img">
+                        <img src="/herban-bud-ad.png" alt="Herban Bud">
+                        <div class="case-badge"><span class="text-label" style="color:var(--gold);">Cannabis E-commerce</span></div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Herban Bud</h3>
+                        <p class="case-subtitle">$30K in 30 Days</p>
+                        <div class="case-stats">
+                            <div><div class="stat-value">$30K</div><div class="stat-label">Revenue</div></div>
+                            <div><div class="stat-value">1:1</div><div class="stat-label">ROAS</div></div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/case-study/burger" class="case-card">
+                    <div class="case-img">
+                        <img src="/burger-ad-1.png" alt="Quarter Pounder Campaign">
+                        <div class="case-badge"><span class="text-label" style="color:var(--gold);">Strategic Marketing</span></div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Quarter Pounder</h3>
+                        <p class="case-subtitle">Creative Cannabis Campaign</p>
+                        <div class="case-stats">
+                            <div><div class="stat-value">$99</div><div class="stat-label">CAC</div></div>
+                            <div><div class="stat-value">$99</div><div class="stat-label">AOV</div></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonial -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:3rem;">
+                <span class="text-label">Client Success</span>
+                <h2 style="font-size:clamp(2rem,4vw,3rem);margin-top:0.75rem;">Hear From Our Clients</h2>
+            </div>
+            <div class="testimonial-card" style="max-width:1000px;margin:0 auto;">
+                <div>
+                    <video controls poster="/marta-testimonial-thumbnail.jpg" style="width:100%;height:100%;object-fit:cover;">
+                        <source src="/marta-testimonial.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="testimonial-content">
+                    <blockquote>"Ben didn't just build my website &mdash; he was my business strategist. He helped me with everything from communication to video production, creating an amazing online presence."</blockquote>
+                    <div style="margin-bottom:1rem;">
+                        <div style="font-family:var(--font-display);font-size:1.25rem;font-weight:600;">Marta Metrass</div>
+                        <div style="font-size:0.85rem;color:var(--text-muted);">Founder, Yoga of Emotions School</div>
+                    </div>
+                    <div class="testimonial-tags">
+                        <span>Website Design</span>
+                        <span>Business Strategy</span>
+                        <span>Video Production</span>
+                    </div>
+                    <a href="https://yogaofemotions.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%;justify-content:center;">View Live Website &nearr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-image">
+                    <img src="/facebook-ads.jpg" alt="Facebook Ads Management">
+                </div>
+                <div>
+                    <span class="text-label" style="display:block;margin-bottom:1rem;">Why Us</span>
+                    <h2 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;">Results-Driven Marketing Partners</h2>
+                    <p style="color:var(--text-muted);margin-bottom:2rem;">We're not just another agency. We're your growth partners, committed to delivering measurable results that matter.</p>
+                    <div class="why-items">
+                        <div class="why-item">
+                            <div class="why-item-icon">&#x1F4CA;</div>
+                            <div><h3>Data-Driven Approach</h3><p>Every decision backed by analytics and performance metrics</p></div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-item-icon">&#x1F465;</div>
+                            <div><h3>Experienced Team</h3><p>Seasoned marketers with proven track records across industries</p></div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-item-icon">&#x1F310;</div>
+                            <div><h3>Full-Service Solutions</h3><p>From strategy to execution, we handle everything end-to-end</p></div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-item-icon">&#x1F4C8;</div>
+                            <div><h3>Proven Results</h3><p>Average 3.2x ROI for clients across all marketing channels</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Scale Your Business?</h2>
+            <p>Book a free strategy call to discuss how we can help you achieve your marketing goals and drive measurable growth.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                <a href="mailto:ben@advancedmarketing.co" class="btn btn-primary">Schedule Free Consultation &rarr;</a>
+                <a href="/case-studies" class="btn btn-outline">View Case Studies</a>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-item-icon">&#x2709;</div>
+                    <h3>Email Us</h3>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">&#x1F4AC;</div>
+                    <h3>AI Sales Chat</h3>
+                    <p><a href="javascript:void(0)" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk To Sales', 'Chat with our AI specialist')" style="color:var(--gold);cursor:pointer;">Talk to our AI now</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">&#x1F3E2;</div>
+                    <h3>Visit Us</h3>
+                    <p>Hong Kong</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/logo.png" alt="Advanced Marketing" style="height:36px;">
+                    <p>Full-service marketing agency. We help ambitious brands grow through strategic digital marketing, advertising, and business development.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR & Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/ecommerce-blueprint">E-commerce Blueprint</a>
+                    <a href="/case-studies">Case Studies</a>
+                    <a href="https://website.advancedmarketing.co">Local Business Sites</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Voice Modal -->
+    <div class="voice-modal-overlay" id="voiceModal">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>
