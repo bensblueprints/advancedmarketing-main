@@ -37,22 +37,35 @@ exports.handler = async (event) => {
       };
     }
 
-    // Create contact in GHL
+    // Create/upsert contact in GHL
     const contact = await createGHLContact(conversationData);
-    console.log("GHL contact created:", JSON.stringify(contact, null, 2));
+    console.log("GHL contact result:", JSON.stringify(contact, null, 2));
 
-    // Create opportunity in pipeline
-    if (contact && contact.contact && contact.contact.id) {
-      const opportunity = await createGHLOpportunity(contact.contact.id, conversationData);
-      console.log("GHL opportunity created:", JSON.stringify(opportunity, null, 2));
+    const contactId = contact?.contact?.id;
+
+    if (contactId) {
+      // Create opportunity in pipeline with industry info
+      try {
+        const opportunity = await createGHLOpportunity(contactId, conversationData);
+        console.log("GHL opportunity created:", JSON.stringify(opportunity, null, 2));
+      } catch (oppErr) {
+        console.error("Opportunity creation error (continuing):", oppErr.message);
+      }
+
+      // Update contact notes with transcript, recording link, and all collected data
+      const fullNotes = buildContactNotes(conversationData);
+      if (fullNotes) {
+        await updateContactNotes(contactId, fullNotes);
+        console.log("Contact notes updated with call data");
+      }
     }
 
     return {
       statusCode: 200,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        message: "Contact created successfully",
-        contactId: contact?.contact?.id,
+        message: "Contact processed successfully",
+        contactId,
       }),
     };
   } catch (error) {
@@ -73,14 +86,30 @@ function extractConversationData(payload) {
     phone: "",
     businessType: "",
     goals: "",
-    notes: "",
+    transcript: "",
+    summary: "",
+    conversationId: "",
+    agentId: "",
+    agentName: "",
+    recordingUrl: "",
+    callDuration: "",
     source: "ElevenLabs Voice Agent",
   };
 
+  // Conversation ID and agent info (top-level fields)
+  if (payload.conversation_id) data.conversationId = payload.conversation_id;
+  if (payload.agent_id) data.agentId = payload.agent_id;
+  if (payload.agent_name) data.agentName = payload.agent_name;
+  if (payload.recording_url) data.recordingUrl = payload.recording_url;
+  if (payload.call_duration_secs) data.callDuration = `${Math.round(payload.call_duration_secs / 60)} min ${payload.call_duration_secs % 60} sec`;
+
+  // Build recording URL from conversation_id if not provided directly
+  if (data.conversationId && !data.recordingUrl) {
+    data.recordingUrl = `https://elevenlabs.io/app/conversational-ai/conversations/${data.conversationId}`;
+  }
+
   // Handle ElevenLabs conversation data format
-  // The payload may contain collected data or transcript
   if (payload.data) {
-    // Direct data fields from agent data collection
     if (payload.data.name) data.name = payload.data.name;
     if (payload.data.first_name) data.firstName = payload.data.first_name;
     if (payload.data.last_name) data.lastName = payload.data.last_name;
@@ -88,7 +117,7 @@ function extractConversationData(payload) {
     if (payload.data.phone) data.phone = payload.data.phone;
     if (payload.data.business_type) data.businessType = payload.data.business_type;
     if (payload.data.goals) data.goals = payload.data.goals;
-    if (payload.data.business_name) data.notes += `Business: ${payload.data.business_name}\n`;
+    if (payload.data.business_name) data.businessType = data.businessType || payload.data.business_name;
   }
 
   // Handle analysis/collection fields
@@ -102,21 +131,20 @@ function extractConversationData(payload) {
       if (dc.goals && !data.goals) data.goals = dc.goals;
     }
     if (payload.analysis.transcript_summary) {
-      data.notes += `Summary: ${payload.analysis.transcript_summary}\n`;
+      data.summary = payload.analysis.transcript_summary;
     }
   }
 
   // Handle transcript
   if (payload.transcript) {
-    const transcript = Array.isArray(payload.transcript)
+    data.transcript = Array.isArray(payload.transcript)
       ? payload.transcript.map((t) => `${t.role}: ${t.message}`).join("\n")
       : payload.transcript;
-    data.notes += `\nTranscript:\n${transcript}`;
 
     // Try to extract info from transcript text if not already found
-    if (!data.name) data.name = extractFromText(transcript, /(?:my name is|i'm|i am)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i);
-    if (!data.email) data.email = extractFromText(transcript, /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/);
-    if (!data.phone) data.phone = extractFromText(transcript, /(\+?1?\s*\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})/);
+    if (!data.name) data.name = extractFromText(data.transcript, /(?:my name is|i'm|i am)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i);
+    if (!data.email) data.email = extractFromText(data.transcript, /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/);
+    if (!data.phone) data.phone = extractFromText(data.transcript, /(\+?1?\s*\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})/);
   }
 
   // Split name into first/last if we have full name but not split
@@ -132,6 +160,36 @@ function extractConversationData(payload) {
 function extractFromText(text, regex) {
   const match = text.match(regex);
   return match ? match[1] : "";
+}
+
+function buildContactNotes(data) {
+  const lines = [];
+  const timestamp = new Date().toISOString();
+
+  lines.push(`--- Voice Call ${timestamp} ---`);
+
+  if (data.agentName) lines.push(`Agent: ${data.agentName}`);
+  if (data.callDuration) lines.push(`Duration: ${data.callDuration}`);
+  if (data.recordingUrl) lines.push(`Recording: ${data.recordingUrl}`);
+  if (data.conversationId) lines.push(`Conversation ID: ${data.conversationId}`);
+
+  lines.push("");
+
+  if (data.businessType) lines.push(`Business Type: ${data.businessType}`);
+  if (data.goals) lines.push(`Goals: ${data.goals}`);
+
+  if (data.summary) {
+    lines.push("");
+    lines.push(`Summary: ${data.summary}`);
+  }
+
+  if (data.transcript) {
+    lines.push("");
+    lines.push("Transcript:");
+    lines.push(data.transcript);
+  }
+
+  return lines.join("\n");
 }
 
 async function createGHLContact(data) {
@@ -173,14 +231,19 @@ async function createGHLContact(data) {
 }
 
 async function createGHLOpportunity(contactId, data) {
+  const industryLabel = data.businessType || "Voice Lead";
+  const oppName = `${data.firstName || "Voice"} ${data.lastName || "Lead"} - ${industryLabel}`.trim();
+
   const opportunityPayload = {
     pipelineId: GHL_PIPELINE_ID,
     locationId: GHL_LOCATION_ID,
-    name: `${data.firstName || "Voice"} ${data.lastName || "Lead"} - Voice Agent`,
-    stageId: GHL_NEW_LEAD_STAGE,
+    name: oppName,
+    pipelineStageId: GHL_NEW_LEAD_STAGE,
     contactId: contactId,
     status: "open",
-    source: "ElevenLabs Voice Agent",
+    source: data.recordingUrl
+      ? `ElevenLabs Voice Agent | Recording: ${data.recordingUrl}`
+      : "ElevenLabs Voice Agent",
   };
 
   const response = await fetch(`${GHL_API_BASE}/opportunities/`, {
@@ -195,8 +258,47 @@ async function createGHLOpportunity(contactId, data) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`GHL opportunity creation failed: ${response.status} ${errorText}`);
+    console.error("Opportunity creation failed:", response.status, errorText);
+    // Try upsert as fallback
+    const upsertRes = await fetch(`${GHL_API_BASE}/opportunities/upsert`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${GHL_API_KEY}`,
+        "Content-Type": "application/json",
+        Version: "2021-07-28",
+      },
+      body: JSON.stringify({
+        ...opportunityPayload,
+        pipelineStageId: GHL_NEW_LEAD_STAGE,
+      }),
+    });
+    if (!upsertRes.ok) {
+      const upsertErr = await upsertRes.text();
+      throw new Error(`GHL opportunity upsert failed: ${upsertRes.status} ${upsertErr}`);
+    }
+    return upsertRes.json();
   }
 
   return response.json();
+}
+
+async function updateContactNotes(contactId, newNotes) {
+  try {
+    const res = await fetch(`${GHL_API_BASE}/contacts/${contactId}/notes`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${GHL_API_KEY}`,
+        "Content-Type": "application/json",
+        Version: "2021-07-28",
+      },
+      body: JSON.stringify({ body: newNotes }),
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("Contact note creation failed:", res.status, errorText);
+    }
+  } catch (error) {
+    console.error("Error adding contact note:", error);
+  }
 }
