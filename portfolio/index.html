@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Advanced Marketing</title>
+    <meta name="description" content="Explore our portfolio of professional websites built for local businesses across 15+ industries. High-converting designs that drive results.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --gold: #c9a962;
+            --gold-light: #d4b978;
+            --gold-dark: #a88c4a;
+            --gold-glow: rgba(201, 169, 98, 0.15);
+            --text: #f5f3ef;
+            --text-muted: #8a8880;
+            --border: rgba(255,255,255,0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-label {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1.25rem 0;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        nav .container { display: flex; align-items: center; justify-content: space-between; }
+        nav img { height: 36px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-muted); font-size: 0.85rem; text-decoration: none;
+            transition: color 0.3s; font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            background: var(--gold) !important; color: var(--bg) !important;
+            padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600;
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .nav-cta:hover { background: var(--gold-light) !important; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 0.9rem 2rem; border-radius: 6px; font-weight: 600;
+            font-size: 0.85rem; text-decoration: none; cursor: pointer;
+            transition: all 0.3s; border: none; text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-primary { background: var(--gold); color: var(--bg); }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,169,98,0.25); }
+        .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* Page Header */
+        .page-hero {
+            padding: 160px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(201,169,98,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(201,169,98,0.04) 0%, transparent 60%);
+        }
+        .page-hero .container { position: relative; z-index: 2; }
+        .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-top: 0.75rem; margin-bottom: 1rem; }
+        .page-hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 650px; }
+
+        /* Portfolio Grid */
+        .portfolio-section { padding: 0 0 100px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+        .portfolio-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            overflow: hidden; transition: all 0.4s; text-decoration: none; color: inherit; display: block;
+        }
+        .portfolio-card:hover { border-color: rgba(201,169,98,0.3); transform: translateY(-4px); }
+        .portfolio-preview {
+            width: 100%; height: 220px; overflow: hidden; position: relative;
+            background: linear-gradient(135deg, #111, #1a1a1a);
+        }
+        .portfolio-preview .industry-icon {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; opacity: 0.5;
+        }
+        .portfolio-preview .overlay {
+            position: absolute; inset: 0; background: rgba(10,10,10,0.6);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .portfolio-card:hover .overlay { opacity: 1; }
+        .overlay span {
+            background: var(--gold); color: var(--bg); padding: 0.6rem 1.5rem;
+            border-radius: 6px; font-weight: 600; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .portfolio-badge {
+            position: absolute; top: 1rem; left: 1rem; background: rgba(10,10,10,0.8);
+            backdrop-filter: blur(8px); padding: 0.3rem 0.8rem; border-radius: 4px;
+            z-index: 2;
+        }
+        .portfolio-content { padding: 1.75rem; }
+        .portfolio-content h3 { font-size: 1.35rem; margin-bottom: 0.4rem; transition: color 0.3s; }
+        .portfolio-card:hover h3 { color: var(--gold); }
+        .portfolio-content p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+        .portfolio-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+        .portfolio-tags span {
+            font-size: 0.65rem; padding: 0.25rem 0.6rem; background: rgba(201,169,98,0.1);
+            color: var(--gold); border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center; position: relative; overflow: hidden; padding: 100px 0;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201,169,98,0.1) 0%, transparent 70%);
+        }
+        .cta-section .container { position: relative; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem; }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--border); background: rgba(17,17,17,0.5); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 2rem; padding: 5rem 0; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; max-width: 280px; }
+        .footer-col h4 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.25rem; }
+        .footer-col a { display: block; color: var(--text-muted); font-size: 0.85rem; text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { padding: 1.5rem 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--text-muted); }
+        .footer-bottom a { font-size: 0.75rem; color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; }
+        .footer-bottom a:hover { color: var(--gold); }
+
+        /* Voice Modal */
+        .voice-modal-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            z-index: 10000; justify-content: center; align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        .voice-modal-overlay.active { display: flex; }
+        .voice-modal {
+            background: linear-gradient(145deg, #1a1a2e, #16162a);
+            border: 1px solid rgba(99,102,241,0.2); border-radius: 20px;
+            padding: 2.5rem 2rem; width: 90%; max-width: 480px; position: relative;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.6); text-align: center;
+            animation: modalIn 0.3s ease-out;
+        }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .voice-modal-close {
+            position: absolute; top: 16px; right: 20px; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 36px; height: 36px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem; cursor: pointer; transition: all 0.2s;
+        }
+        .voice-modal-close:hover { background: rgba(255,255,255,0.1); }
+        .voice-modal h3 { color: #fff; margin-bottom: 0.25rem; font-size: 1.35rem; }
+        .voice-modal p { color: #8b8fa3; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        /* Floating Call Widget */
+        .floating-call-btn {
+            position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+            width: 64px; height: 64px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(201,169,98,0.4), 0 0 40px rgba(201,169,98,0.15);
+            transition: all 0.3s ease; animation: floatPulse 3s ease-in-out infinite;
+        }
+        .floating-call-btn:hover {
+            transform: scale(1.1); box-shadow: 0 6px 30px rgba(201,169,98,0.6), 0 0 60px rgba(201,169,98,0.25);
+        }
+        .floating-call-btn svg { width: 28px; height: 28px; fill: #0a0a0a; }
+        .floating-call-label {
+            position: fixed; bottom: 36px; right: 100px; z-index: 9999;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 8px 14px; color: var(--text); font-family: var(--font-body);
+            font-size: 0.8rem; font-weight: 500; white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); pointer-events: none;
+            opacity: 0; transform: translateX(10px); transition: all 0.3s ease;
+        }
+        .floating-call-btn:hover + .floating-call-label,
+        .floating-call-label.show { opacity: 1; transform: translateX(0); }
+        .floating-call-label::after {
+            content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+            border: 6px solid transparent; border-left-color: var(--bg-card);
+        }
+        @keyframes floatPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(201,169,98,0.4), 0 0 40px rgba(201,169,98,0.15); }
+            50% { box-shadow: 0 4px 25px rgba(201,169,98,0.55), 0 0 50px rgba(201,169,98,0.25); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .floating-call-btn { width: 56px; height: 56px; bottom: 20px; right: 20px; }
+            .floating-call-btn svg { width: 24px; height: 24px; }
+            .floating-call-label { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/"><img src="/logo.png" alt="Advanced Marketing"></a>
+            <div class="nav-links">
+                <a href="/services">Services</a>
+                <a href="/case-studies">Case Studies</a>
+                <a href="/team">Team</a>
+                <a href="/about">About</a>
+                <a href="/#contact" class="nav-cta">Book a Call</a>
+            </div>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="text-label">Portfolio</span>
+            <h1>Our Work<br><span class="text-gradient">Speaks for Itself</span></h1>
+            <p>We build high-converting websites and digital experiences for local businesses across every industry. Each site is designed to generate leads, build trust, and dominate local search.</p>
+        </div>
+    </section>
+
+    <!-- Client Websites -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div style="margin-bottom:2.5rem;">
+                <span class="text-label">Live Client Sites</span>
+                <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);margin-top:0.5rem;">Websites We've Built <span class="text-gradient">for Real Businesses</span></h2>
+            </div>
+            <div class="portfolio-grid">
+
+                <a href="https://smlwickedstriper.com" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F3A3;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Fishing Charter</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>SML Wicked Striper Guide Service</h3>
+                        <p>Professional fishing charter website for Captain Tommy Moore on Smith Mountain Lake, VA. Online booking, photo gallery, and local SEO optimized for striper fishing guides.</p>
+                        <div class="portfolio-tags"><span>Online Booking</span><span>Local SEO</span><span>Photo Gallery</span><span>Blog</span></div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Templates -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div style="margin-bottom:2.5rem;">
+                <span class="text-label">Industry Templates</span>
+                <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);margin-top:0.5rem;">Ready-to-Launch <span class="text-gradient">Website Templates</span></h2>
+                <p style="color:var(--text-muted);margin-top:0.75rem;max-width:600px;">Pre-built, high-converting website templates for 15+ industries. Each comes with AI voice agents, lead capture, and SEO built in.</p>
+            </div>
+            <div class="portfolio-grid">
+
+                <a href="https://website.advancedmarketing.co/roofer" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F3E0;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Roofing</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Elite Roofing Co.</h3>
+                        <p>Professional roofing company website with emergency service CTAs, before/after galleries, and automated lead capture.</p>
+                        <div class="portfolio-tags"><span>Lead Generation</span><span>Local SEO</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/lawyer" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x2696;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Legal</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Law Firm Website</h3>
+                        <p>Authority-driven legal website with practice area pages, client testimonials, and consultation booking integration.</p>
+                        <div class="portfolio-tags"><span>Trust Signals</span><span>Consultation CTA</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/doctor" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1FA7A;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Healthcare</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Medical Practice Website</h3>
+                        <p>HIPAA-friendly medical practice site with online appointment booking, provider bios, and patient resources.</p>
+                        <div class="portfolio-tags"><span>Appointment Booking</span><span>Patient Portal</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/plumber" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F527;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Plumbing</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Plumbing Services</h3>
+                        <p>Emergency-focused plumbing website with click-to-call, service area maps, and real-time availability indicators.</p>
+                        <div class="portfolio-tags"><span>Emergency CTA</span><span>Click-to-Call</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/electrician" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x26A1;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Electrical</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Electrician Website</h3>
+                        <p>Professional electrician site with service breakdowns, licensing credentials, and instant quote request forms.</p>
+                        <div class="portfolio-tags"><span>Quote Forms</span><span>Credentials</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/dentist" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F9B7;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Dental</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Dental Practice</h3>
+                        <p>Modern dental practice website with smile galleries, insurance information, and new patient booking system.</p>
+                        <div class="portfolio-tags"><span>Patient Booking</span><span>Insurance Info</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/hvac" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x2744;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">HVAC</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>HVAC Services</h3>
+                        <p>Heating and cooling company website with seasonal promotions, maintenance plans, and emergency service dispatch.</p>
+                        <div class="portfolio-tags"><span>Seasonal Promos</span><span>Service Plans</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/auto-repair" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F697;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Automotive</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Auto Repair Shop</h3>
+                        <p>Trusted auto repair website with service menus, transparent pricing, and online appointment scheduling.</p>
+                        <div class="portfolio-tags"><span>Online Booking</span><span>Service Menu</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/restaurant" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F37D;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Restaurant</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Restaurant Website</h3>
+                        <p>Appetizing restaurant site with digital menus, online ordering integration, and reservation management.</p>
+                        <div class="portfolio-tags"><span>Online Ordering</span><span>Reservations</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/real-estate" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F3E2;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Real Estate</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Real Estate Agency</h3>
+                        <p>Premium real estate website with property listings, virtual tours, and automated lead nurturing sequences.</p>
+                        <div class="portfolio-tags"><span>Property Listings</span><span>Lead Nurturing</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/chiropractor" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F9D1;&zwj;&#x2695;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Chiropractic</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Chiropractic Clinic</h3>
+                        <p>Patient-focused chiropractic website with treatment explanations, provider credentials, and new patient intake forms.</p>
+                        <div class="portfolio-tags"><span>Patient Forms</span><span>Treatment Info</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/financial-advisor" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F4B0;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Financial</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Financial Advisor</h3>
+                        <p>Trust-building financial advisor website with compliance-ready content, retirement calculators, and consultation booking.</p>
+                        <div class="portfolio-tags"><span>Compliance Ready</span><span>Calculators</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/personal-trainer" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F4AA;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Fitness</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Personal Trainer</h3>
+                        <p>Dynamic personal training website with transformation galleries, program packages, and class scheduling.</p>
+                        <div class="portfolio-tags"><span>Transformations</span><span>Booking</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/landscaper" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x1F33F;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Landscaping</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Landscaping Company</h3>
+                        <p>Visual-first landscaping website with project galleries, seasonal service packages, and free estimate requests.</p>
+                        <div class="portfolio-tags"><span>Project Gallery</span><span>Free Estimates</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/cleaning-service" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <div class="industry-icon">&#x2728;</div>
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Cleaning</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Cleaning Service</h3>
+                        <p>Clean and professional cleaning service website with instant quoting, service packages, and recurring booking options.</p>
+                        <div class="portfolio-tags"><span>Instant Quotes</span><span>Recurring Booking</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Want a Website Like These?</h2>
+            <p>We build high-converting websites for local businesses at a fraction of the cost. Every site includes AI voice agents, SEO optimization, and lead generation built in.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                <a href="mailto:ben@advancedmarketing.co" class="btn btn-primary">Book Free Strategy Call &rarr;</a>
+                <a href="/case-studies" class="btn btn-outline">View Case Studies</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/logo.png" alt="Advanced Marketing" style="height:36px;">
+                    <p>Full-service marketing agency. We help ambitious brands grow through strategic digital marketing, advertising, and business development.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR & Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/ecommerce-blueprint">E-commerce Blueprint</a>
+                    <a href="/case-studies">Case Studies</a>
+                    <a href="https://website.advancedmarketing.co">Local Business Sites</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="/#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Call Widget -->
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+    <div class="floating-call-label show">Talk to AI 24/7</div>
+    <script>
+    setTimeout(function() {
+        document.querySelector('.floating-call-label').classList.remove('show');
+    }, 5000);
+    </script>
+
+    <!-- Voice Modal -->
+    <div class="voice-modal-overlay" id="voiceModal">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>
