@@ -118,10 +118,11 @@
             width: 100%; height: 220px; overflow: hidden; position: relative;
             background: linear-gradient(135deg, #111, #1a1a1a);
         }
-        .portfolio-preview .industry-icon {
-            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-            font-size: 4rem; opacity: 0.5;
+        .portfolio-preview img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top;
+            transition: transform 0.4s;
         }
+        .portfolio-card:hover .portfolio-preview img { transform: scale(1.05); }
         .portfolio-preview .overlay {
             position: absolute; inset: 0; background: rgba(10,10,10,0.6);
             display: flex; align-items: center; justify-content: center;
@@ -278,13 +279,13 @@
 
                 <a href="https://smlwickedstriper.com" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F3A3;</div>
+                        <img src="/portfolio/screenshots/sml-wicked-striper.jpg" alt="SML Wicked Striper Guide Service website" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Fishing Charter</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
                     <div class="portfolio-content">
                         <h3>SML Wicked Striper Guide Service</h3>
-                        <p>Professional fishing charter website for Captain Tommy Moore on Smith Mountain Lake, VA. Online booking, photo gallery, and local SEO optimized for striper fishing guides.</p>
+                        <p>Professional fishing charter website for Captain Tommy Moore on Smith Mountain Lake, VA. Online booking, photo gallery, blog, and local SEO optimized for striper fishing guides.</p>
                         <div class="portfolio-tags"><span>Online Booking</span><span>Local SEO</span><span>Photo Gallery</span><span>Blog</span></div>
                     </div>
                 </a>
@@ -293,19 +294,32 @@
         </div>
     </section>
 
-    <!-- Demo Templates -->
+    <!-- Industry Templates -->
     <section class="portfolio-section">
         <div class="container">
             <div style="margin-bottom:2.5rem;">
                 <span class="text-label">Industry Templates</span>
                 <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);margin-top:0.5rem;">Ready-to-Launch <span class="text-gradient">Website Templates</span></h2>
-                <p style="color:var(--text-muted);margin-top:0.75rem;max-width:600px;">Pre-built, high-converting website templates for 15+ industries. Each comes with AI voice agents, lead capture, and SEO built in.</p>
+                <p style="color:var(--text-muted);margin-top:0.75rem;max-width:600px;">Pre-built, high-converting website templates for 16+ industries. Each comes with AI voice agents, lead capture, and SEO built in.</p>
             </div>
             <div class="portfolio-grid">
 
+                <a href="https://smlwickedstriper.com" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <img src="/portfolio/screenshots/sml-wicked-striper.jpg" alt="Fishing guide website template" loading="lazy">
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Fishing Guide</span></div>
+                        <div class="overlay"><span>View Example &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Fishing Guide Website</h3>
+                        <p>Charter and guide service websites with trip booking, photo galleries, rate tables, reviews, and blog. Built for SEO dominance in local fishing markets.</p>
+                        <div class="portfolio-tags"><span>Trip Booking</span><span>Photo Gallery</span><span>Local SEO</span><span>Blog</span></div>
+                    </div>
+                </a>
+
                 <a href="https://website.advancedmarketing.co/roofer" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F3E0;</div>
+                        <img src="/portfolio/screenshots/roofer.jpg" alt="Roofing company website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Roofing</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -318,7 +332,7 @@
 
                 <a href="https://website.advancedmarketing.co/lawyer" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x2696;</div>
+                        <img src="/portfolio/screenshots/lawyer.jpg" alt="Law firm website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Legal</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -331,7 +345,7 @@
 
                 <a href="https://website.advancedmarketing.co/doctor" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1FA7A;</div>
+                        <img src="/portfolio/screenshots/doctor.jpg" alt="Medical practice website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Healthcare</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -344,7 +358,7 @@
 
                 <a href="https://website.advancedmarketing.co/plumber" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F527;</div>
+                        <img src="/portfolio/screenshots/plumber.jpg" alt="Plumbing services website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Plumbing</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -355,22 +369,9 @@
                     </div>
                 </a>
 
-                <a href="https://website.advancedmarketing.co/electrician" class="portfolio-card" target="_blank" rel="noopener">
-                    <div class="portfolio-preview">
-                        <div class="industry-icon">&#x26A1;</div>
-                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Electrical</span></div>
-                        <div class="overlay"><span>View Live Site &nearr;</span></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Electrician Website</h3>
-                        <p>Professional electrician site with service breakdowns, licensing credentials, and instant quote request forms.</p>
-                        <div class="portfolio-tags"><span>Quote Forms</span><span>Credentials</span><span>AI Voice Agent</span></div>
-                    </div>
-                </a>
-
                 <a href="https://website.advancedmarketing.co/dentist" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F9B7;</div>
+                        <img src="/portfolio/screenshots/dentist.jpg" alt="Dental practice website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Dental</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -383,7 +384,7 @@
 
                 <a href="https://website.advancedmarketing.co/hvac" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x2744;</div>
+                        <img src="/portfolio/screenshots/hvac.jpg" alt="HVAC services website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">HVAC</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -396,7 +397,7 @@
 
                 <a href="https://website.advancedmarketing.co/auto-repair" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F697;</div>
+                        <img src="/portfolio/screenshots/auto-repair.jpg" alt="Auto repair shop website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Automotive</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -409,7 +410,7 @@
 
                 <a href="https://website.advancedmarketing.co/restaurant" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F37D;</div>
+                        <img src="/portfolio/screenshots/restaurant.jpg" alt="Restaurant website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Restaurant</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -422,7 +423,7 @@
 
                 <a href="https://website.advancedmarketing.co/real-estate" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F3E2;</div>
+                        <img src="/portfolio/screenshots/real-estate.jpg" alt="Real estate agency website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Real Estate</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -435,7 +436,7 @@
 
                 <a href="https://website.advancedmarketing.co/chiropractor" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F9D1;&zwj;&#x2695;</div>
+                        <img src="/portfolio/screenshots/chiropractor.jpg" alt="Chiropractic clinic website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Chiropractic</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -448,7 +449,7 @@
 
                 <a href="https://website.advancedmarketing.co/financial-advisor" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F4B0;</div>
+                        <img src="/portfolio/screenshots/financial-advisor.jpg" alt="Financial advisor website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Financial</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -461,7 +462,7 @@
 
                 <a href="https://website.advancedmarketing.co/personal-trainer" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F4AA;</div>
+                        <img src="/portfolio/screenshots/personal-trainer.jpg" alt="Personal trainer website template" loading="lazy">
                         <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Fitness</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
@@ -472,29 +473,42 @@
                     </div>
                 </a>
 
-                <a href="https://website.advancedmarketing.co/landscaper" class="portfolio-card" target="_blank" rel="noopener">
+                <a href="https://website.advancedmarketing.co/accountant" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x1F33F;</div>
-                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Landscaping</span></div>
+                        <img src="/portfolio/screenshots/accountant.jpg" alt="Accountant website template" loading="lazy">
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Accounting</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Landscaping Company</h3>
-                        <p>Visual-first landscaping website with project galleries, seasonal service packages, and free estimate requests.</p>
-                        <div class="portfolio-tags"><span>Project Gallery</span><span>Free Estimates</span><span>AI Voice Agent</span></div>
+                        <h3>Accounting Firm</h3>
+                        <p>Professional accounting firm website with service breakdowns, tax deadline reminders, and client portal integration.</p>
+                        <div class="portfolio-tags"><span>Client Portal</span><span>Service Pages</span><span>AI Voice Agent</span></div>
                     </div>
                 </a>
 
-                <a href="https://website.advancedmarketing.co/cleaning-service" class="portfolio-card" target="_blank" rel="noopener">
+                <a href="https://website.advancedmarketing.co/aesthetician" class="portfolio-card" target="_blank" rel="noopener">
                     <div class="portfolio-preview">
-                        <div class="industry-icon">&#x2728;</div>
-                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Cleaning</span></div>
+                        <img src="/portfolio/screenshots/aesthetician.jpg" alt="Aesthetician website template" loading="lazy">
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Aesthetics</span></div>
                         <div class="overlay"><span>View Live Site &nearr;</span></div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Cleaning Service</h3>
-                        <p>Clean and professional cleaning service website with instant quoting, service packages, and recurring booking options.</p>
-                        <div class="portfolio-tags"><span>Instant Quotes</span><span>Recurring Booking</span><span>AI Voice Agent</span></div>
+                        <h3>Aesthetics & Med Spa</h3>
+                        <p>Elegant aesthetician website with treatment menus, before/after galleries, and online appointment booking.</p>
+                        <div class="portfolio-tags"><span>Treatment Menu</span><span>Before/After</span><span>AI Voice Agent</span></div>
+                    </div>
+                </a>
+
+                <a href="https://website.advancedmarketing.co/wedding-photographer" class="portfolio-card" target="_blank" rel="noopener">
+                    <div class="portfolio-preview">
+                        <img src="/portfolio/screenshots/wedding-photographer.jpg" alt="Wedding photographer website template" loading="lazy">
+                        <div class="portfolio-badge"><span class="text-label" style="color:var(--gold);">Photography</span></div>
+                        <div class="overlay"><span>View Live Site &nearr;</span></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Wedding Photographer</h3>
+                        <p>Stunning photography portfolio website with full-screen galleries, package pricing, and inquiry forms for bookings.</p>
+                        <div class="portfolio-tags"><span>Photo Gallery</span><span>Packages</span><span>AI Voice Agent</span></div>
                     </div>
                 </a>
 
