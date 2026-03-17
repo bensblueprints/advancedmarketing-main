@@ -327,6 +327,108 @@
         .local-banner h3 { font-size: 1.3rem; margin-bottom: 0.25rem; }
         .local-banner p { color: var(--text-muted); font-size: 0.9rem; }
 
+        /* Newsletter Popup */
+        .nl-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+            z-index: 10001; justify-content: center; align-items: center;
+            backdrop-filter: blur(6px); padding: 1rem;
+        }
+        .nl-overlay.active { display: flex; }
+        .nl-popup {
+            background: linear-gradient(165deg, #141414, #0d0d0d);
+            border: 1px solid rgba(201,169,98,0.2); border-radius: 16px;
+            padding: 2.5rem; width: 100%; max-width: 440px; position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: modalIn 0.35s ease-out;
+        }
+        .nl-close {
+            position: absolute; top: 14px; right: 16px; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 32px; height: 32px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; cursor: pointer; transition: all 0.2s;
+        }
+        .nl-close:hover { background: rgba(255,255,255,0.1); }
+        .nl-badge {
+            display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--gold); background: rgba(201,169,98,0.1);
+            padding: 0.3rem 0.8rem; border-radius: 4px; margin-bottom: 1rem;
+        }
+        .nl-popup h3 {
+            font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
+            color: #fff; margin-bottom: 0.5rem; line-height: 1.2;
+        }
+        .nl-popup .nl-sub {
+            color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.5;
+        }
+        .nl-input-group { position: relative; margin-bottom: 0.75rem; }
+        .nl-input {
+            width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm);
+            color: #fff; font-size: 0.9rem; font-family: var(--font-body);
+            transition: border-color 0.2s;
+        }
+        .nl-input:focus { outline: none; border-color: var(--gold); }
+        .nl-input::placeholder { color: rgba(255,255,255,0.3); }
+        .nl-phone-row { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+        .nl-country-code {
+            width: 80px; padding: 0.85rem 0.5rem; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm);
+            color: #fff; font-size: 0.9rem; font-family: var(--font-body);
+        }
+        .nl-country-code:focus { outline: none; border-color: var(--gold); }
+        .nl-phone-input { flex: 1; }
+        .nl-checkbox-group { margin-bottom: 1rem; }
+        .nl-checkbox {
+            display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer;
+            margin-bottom: 0.6rem; font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;
+        }
+        .nl-checkbox input[type="checkbox"] {
+            appearance: none; -webkit-appearance: none; width: 16px; height: 16px; min-width: 16px;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 3px; background: rgba(255,255,255,0.05);
+            cursor: pointer; position: relative; margin-top: 1px; transition: all 0.2s;
+        }
+        .nl-checkbox input[type="checkbox"]:checked {
+            background: var(--gold); border-color: var(--gold);
+        }
+        .nl-checkbox input[type="checkbox"]:checked::after {
+            content: '✓'; position: absolute; top: -1px; left: 2px;
+            font-size: 12px; color: #0a0a0a; font-weight: 700;
+        }
+        .nl-checkbox a { color: var(--gold); text-decoration: underline; }
+        .nl-btn {
+            width: 100%; padding: 0.9rem; background: var(--gold); color: var(--bg);
+            border: none; border-radius: var(--radius-sm); font-weight: 700;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+            cursor: pointer; transition: all var(--transition-fast); font-family: var(--font-body);
+        }
+        .nl-btn:hover { background: var(--gold-light); }
+        .nl-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .nl-btn:disabled:hover { background: var(--gold); }
+        .nl-error { color: #ef4444; font-size: 0.78rem; margin-top: 0.25rem; display: none; }
+        .nl-success-icon {
+            width: 64px; height: 64px; border-radius: 50%; background: rgba(201,169,98,0.15);
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+            font-size: 1.8rem;
+        }
+        .nl-step { display: none; }
+        .nl-step.active { display: block; }
+        .nl-skip {
+            background: none; border: none; color: var(--text-muted); font-size: 0.8rem;
+            cursor: pointer; margin-top: 0.75rem; text-decoration: underline;
+            font-family: var(--font-body);
+        }
+        .nl-skip:hover { color: var(--gold); }
+        .nl-legal {
+            font-size: 0.68rem; color: rgba(255,255,255,0.25); margin-top: 1rem; line-height: 1.5;
+        }
+        .nl-legal a { color: rgba(201,169,98,0.6); }
+        .nl-spinner {
+            display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(10,10,10,0.3);
+            border-top-color: var(--bg); border-radius: 50%; animation: nlSpin 0.6s linear infinite;
+            vertical-align: middle; margin-right: 6px;
+        }
+        @keyframes nlSpin { to { transform: rotate(360deg); } }
+
         /* Mobile */
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -816,5 +918,207 @@
     });
     </script>
     <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+
+    <!-- Newsletter Signup Popup -->
+    <div class="nl-overlay" id="nlPopup" role="dialog" aria-modal="true" aria-label="Newsletter signup">
+        <div class="nl-popup">
+            <button class="nl-close" onclick="nlClose()" aria-label="Close newsletter popup">&times;</button>
+
+            <!-- Step 1: Email -->
+            <div class="nl-step active" id="nlStep1">
+                <span class="nl-badge">Free Insights</span>
+                <h3>Get Marketing Strategies That <span class="text-gradient">Actually Work</span></h3>
+                <p class="nl-sub">AI automation tips, growth tactics, and campaign breakdowns from 500+ client engagements. No fluff.</p>
+                <form id="nlEmailForm" onsubmit="return nlSubmitEmail(event)">
+                    <div class="nl-input-group">
+                        <input type="email" class="nl-input" id="nlEmail" placeholder="Enter your email" required autocomplete="email">
+                        <div class="nl-error" id="nlEmailError"></div>
+                    </div>
+                    <div class="nl-checkbox-group">
+                        <label class="nl-checkbox">
+                            <input type="checkbox" id="nlEmailConsent" required>
+                            <span>I agree to receive marketing emails from Advanced Marketing. I can unsubscribe anytime. <a href="/privacy-policy" target="_blank">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="nl-btn" id="nlEmailBtn">Subscribe</button>
+                </form>
+                <p class="nl-legal">We respect your inbox. Typically 1-2 emails per week. Unsubscribe with one click.</p>
+            </div>
+
+            <!-- Step 2: SMS (optional) -->
+            <div class="nl-step" id="nlStep2">
+                <span class="nl-badge">One More Thing</span>
+                <h3>Want SMS Updates Too?</h3>
+                <p class="nl-sub">Get time-sensitive tips and exclusive offers straight to your phone.</p>
+                <form id="nlSmsForm" onsubmit="return nlSubmitSms(event)">
+                    <div class="nl-phone-row">
+                        <input type="text" class="nl-country-code nl-input" id="nlCountryCode" value="+1" placeholder="+1">
+                        <input type="tel" class="nl-input nl-phone-input" id="nlPhone" placeholder="Phone number" autocomplete="tel">
+                    </div>
+                    <div class="nl-error" id="nlPhoneError"></div>
+                    <div class="nl-checkbox-group">
+                        <label class="nl-checkbox">
+                            <input type="checkbox" id="nlSmsConsent" required>
+                            <span>I consent to receive recurring SMS/MMS marketing messages (including cart reminders) from Advanced Marketing at this number. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. Reply HELP for help. <a href="/terms-of-service" target="_blank">Terms</a> &amp; <a href="/privacy-policy" target="_blank">Privacy Policy</a></span>
+                        </label>
+                        <label class="nl-checkbox">
+                            <input type="checkbox" id="nlTcpaConsent" required>
+                            <span>By checking this box, I provide my express written consent to receive automated text messages. This consent is not a condition of any purchase.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="nl-btn" id="nlSmsBtn">Subscribe to SMS</button>
+                </form>
+                <button class="nl-skip" onclick="nlShowStep3()">No thanks, skip</button>
+                <p class="nl-legal">You are subscribed to Benjamin Boyce SMS updates and promotions. Recurring texts may include service alerts and marketing messages. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. Reply HELP for help.</p>
+            </div>
+
+            <!-- Step 3: Success -->
+            <div class="nl-step" id="nlStep3" style="text-align:center;">
+                <div class="nl-success-icon">✓</div>
+                <h3>You're In!</h3>
+                <p class="nl-sub">Check your inbox for a welcome message. We'll keep the good stuff coming.</p>
+                <button class="nl-btn" onclick="nlClose()" style="margin-top:0.5rem;">Got It</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var NL_DELAY = 8000;
+        var NL_STORAGE_KEY = 'nl_popup_dismissed';
+        var storedEmail = '';
+
+        function nlInit() {
+            if (localStorage.getItem(NL_STORAGE_KEY)) return;
+            setTimeout(function() {
+                if (!localStorage.getItem(NL_STORAGE_KEY)) {
+                    document.getElementById('nlPopup').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, NL_DELAY);
+        }
+
+        window.nlClose = function() {
+            document.getElementById('nlPopup').classList.remove('active');
+            document.body.style.overflow = '';
+            localStorage.setItem(NL_STORAGE_KEY, Date.now());
+        };
+
+        document.getElementById('nlPopup').addEventListener('click', function(e) {
+            if (e.target === this) nlClose();
+        });
+
+        window.nlSubmitEmail = function(e) {
+            e.preventDefault();
+            var email = document.getElementById('nlEmail').value.trim();
+            var consent = document.getElementById('nlEmailConsent').checked;
+            var errEl = document.getElementById('nlEmailError');
+            var btn = document.getElementById('nlEmailBtn');
+
+            errEl.style.display = 'none';
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errEl.textContent = 'Please enter a valid email address.';
+                errEl.style.display = 'block';
+                return false;
+            }
+            if (!consent) {
+                errEl.textContent = 'Please agree to receive emails to continue.';
+                errEl.style.display = 'block';
+                return false;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="nl-spinner"></span> Subscribing...';
+            storedEmail = email;
+
+            fetch('/.netlify/functions/newsletter-signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    document.getElementById('nlStep1').classList.remove('active');
+                    document.getElementById('nlStep2').classList.add('active');
+                } else {
+                    errEl.textContent = data.error || 'Something went wrong. Please try again.';
+                    errEl.style.display = 'block';
+                }
+            })
+            .catch(function() {
+                errEl.textContent = 'Network error. Please try again.';
+                errEl.style.display = 'block';
+            })
+            .finally(function() {
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+            });
+            return false;
+        };
+
+        window.nlSubmitSms = function(e) {
+            e.preventDefault();
+            var code = document.getElementById('nlCountryCode').value.trim();
+            var phone = document.getElementById('nlPhone').value.trim().replace(/\D/g, '');
+            var smsConsent = document.getElementById('nlSmsConsent').checked;
+            var tcpaConsent = document.getElementById('nlTcpaConsent').checked;
+            var errEl = document.getElementById('nlPhoneError');
+            var btn = document.getElementById('nlSmsBtn');
+
+            errEl.style.display = 'none';
+            if (!phone || phone.length < 7) {
+                errEl.textContent = 'Please enter a valid phone number.';
+                errEl.style.display = 'block';
+                return false;
+            }
+            if (!smsConsent || !tcpaConsent) {
+                errEl.textContent = 'Please check both consent boxes to subscribe to SMS.';
+                errEl.style.display = 'block';
+                return false;
+            }
+
+            var fullPhone = code + phone;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="nl-spinner"></span> Subscribing...';
+
+            fetch('/.netlify/functions/newsletter-signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: storedEmail, phone: fullPhone, smsOptIn: true })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    nlShowStep3();
+                } else {
+                    errEl.textContent = data.error || 'Something went wrong. Please try again.';
+                    errEl.style.display = 'block';
+                }
+            })
+            .catch(function() {
+                errEl.textContent = 'Network error. Please try again.';
+                errEl.style.display = 'block';
+            })
+            .finally(function() {
+                btn.disabled = false;
+                btn.textContent = 'Subscribe to SMS';
+            });
+            return false;
+        };
+
+        window.nlShowStep3 = function() {
+            document.getElementById('nlStep2').classList.remove('active');
+            document.getElementById('nlStep3').classList.add('active');
+            localStorage.setItem(NL_STORAGE_KEY, Date.now());
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', nlInit);
+        } else {
+            nlInit();
+        }
+    })();
+    </script>
 </body>
 </html>
