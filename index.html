@@ -958,12 +958,12 @@
                     <div class="nl-error" id="nlPhoneError"></div>
                     <div class="nl-checkbox-group">
                         <label class="nl-checkbox">
-                            <input type="checkbox" id="nlSmsConsent" required>
-                            <span>I consent to receive recurring SMS/MMS marketing messages (including cart reminders) from Advanced Marketing at this number. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. Reply HELP for help. <a href="/terms-of-service" target="_blank">Terms</a> &amp; <a href="/privacy-policy" target="_blank">Privacy Policy</a></span>
+                            <input type="checkbox" id="nlSmsConsent">
+                            <span>I consent to receive recurring SMS/MMS marketing messages (including service alerts and promotional offers) from Advanced Marketing at this number. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. Reply HELP for help. <a href="/terms-of-service" target="_blank">Terms</a> &amp; <a href="/privacy-policy" target="_blank">Privacy Policy</a></span>
                         </label>
                         <label class="nl-checkbox">
-                            <input type="checkbox" id="nlTcpaConsent" required>
-                            <span>By checking this box, I provide my express written consent to receive automated text messages. This consent is not a condition of any purchase.</span>
+                            <input type="checkbox" id="nlTcpaConsent">
+                            <span>By checking this box, I provide my express written consent to receive automated text messages. This consent is not a condition of any purchase. I am 18 years of age or older.</span>
                         </label>
                     </div>
                     <button type="submit" class="nl-btn" id="nlSmsBtn">Subscribe to SMS</button>
@@ -1073,7 +1073,7 @@
                 return false;
             }
             if (!smsConsent || !tcpaConsent) {
-                errEl.textContent = 'Please check both consent boxes to subscribe to SMS.';
+                errEl.textContent = 'Please check both consent boxes to subscribe to SMS updates.';
                 errEl.style.display = 'block';
                 return false;
             }
