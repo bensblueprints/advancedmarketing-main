@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>PR Publication Placement Service | Advanced Marketing</title>
+    <meta name="description" content="Get your clients featured in 1,200+ vetted publications including Bloomberg, Forbes, TechCrunch and more. White-glove PR placement service for agencies.">
+    <link rel="canonical" href="https://advancedmarketing.co/press/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/logo.webp" as="image" type="image/webp">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --gold: #c9a962;
+            --gold-light: #d4b978;
+            --gold-dark: #a88c4a;
+            --gold-glow: rgba(201, 169, 98, 0.15);
+            --text: #f5f3ef;
+            --text-muted: #8a8880;
+            --border: rgba(255,255,255,0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --transition-fast: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Typography */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-label {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; }
+
+        /* Navigation */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1.25rem 0;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all var(--transition-fast);
+        }
+        .site-nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .site-nav img { height: 36px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); font-size: 0.85rem; text-decoration: none;
+            transition: color var(--transition-fast); font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            background: var(--gold) !important; color: var(--bg) !important;
+            padding: 0.6rem 1.5rem; border-radius: var(--radius-sm); font-weight: 600;
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .nav-cta:hover { background: var(--gold-light) !important; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh; display: flex; align-items: center;
+            position: relative; padding-top: 100px; padding-bottom: 60px; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(201,169,98,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(201,169,98,0.04) 0%, transparent 60%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; }
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(201,169,98,0.1);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(201,169,98,0.2);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 2.5rem; line-height: 1.8; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 0.9rem 2rem; border-radius: var(--radius-sm); font-weight: 600;
+            font-size: 0.85rem; text-decoration: none; cursor: pointer;
+            transition: all var(--transition-fast); border: none; text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-primary { background: var(--gold); color: var(--bg); }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,169,98,0.25); }
+
+        /* Logo Bar */
+        .logo-bar {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .logo-bar-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .logo-bar-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: rgba(245, 243, 239, 0.35);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            transition: color var(--transition-fast);
+            user-select: none;
+        }
+        .logo-bar-name:hover {
+            color: rgba(245, 243, 239, 0.6);
+        }
+        .logo-bar-sub {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section-alt { background: var(--bg-card); }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .benefit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .benefit-card:hover {
+            border-color: rgba(201,169,98,0.3);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+        }
+        .benefit-card:hover::before { opacity: 1; }
+        .benefit-icon {
+            width: 52px; height: 52px; border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.25rem; font-size: 1.5rem;
+            background: rgba(201,169,98,0.1);
+        }
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            transition: color var(--transition-fast);
+        }
+        .benefit-card:hover h3 { color: var(--gold); }
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .benefit-highlight {
+            border-color: rgba(201,169,98,0.25);
+            background: linear-gradient(145deg, rgba(201,169,98,0.05), transparent);
+        }
+        .benefit-highlight .benefit-icon {
+            background: rgba(201,169,98,0.2);
+        }
+
+        /* Form Section */
+        .form-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .form-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201,169,98,0.08) 0%, transparent 70%);
+        }
+        .form-section .container { position: relative; }
+        .form-wrapper {
+            max-width: 520px;
+            margin: 0 auto;
+            background: linear-gradient(165deg, #141414, #0d0d0d);
+            border: 1px solid rgba(201,169,98,0.15);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+        .form-wrapper h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .form-wrapper .form-sub {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-sm);
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            transition: border-color 0.2s;
+        }
+        .form-input:focus { outline: none; border-color: var(--gold); }
+        .form-input::placeholder { color: rgba(255,255,255,0.25); }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .form-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gold);
+            color: var(--bg);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-body);
+            margin-top: 0.5rem;
+        }
+        .form-btn:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(201,169,98,0.3); }
+        .form-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+        .form-btn:disabled:hover { background: var(--gold); }
+        .form-fine {
+            text-align: center;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: 1rem;
+            line-height: 1.5;
+        }
+        .form-error {
+            color: #ef4444;
+            font-size: 0.78rem;
+            margin-top: 0.5rem;
+            display: none;
+            text-align: center;
+        }
+        .form-spinner {
+            display: inline-block; width: 16px; height: 16px;
+            border: 2px solid rgba(10,10,10,0.3); border-top-color: var(--bg);
+            border-radius: 50%; animation: formSpin 0.6s linear infinite;
+            vertical-align: middle; margin-right: 6px;
+        }
+        @keyframes formSpin { to { transform: rotate(360deg); } }
+
+        /* Success State */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .form-success-icon {
+            width: 72px; height: 72px; border-radius: 50%;
+            background: rgba(201,169,98,0.15);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        .form-success h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .form-success p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .site-footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .site-footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        .site-footer a:hover { color: var(--gold-light); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-nav.active {
+                display: block; position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(10,10,10,0.98); border-bottom: 1px solid var(--border); padding: 1rem 0;
+            }
+            .mobile-nav ul { list-style: none; text-align: center; }
+            .mobile-nav ul li { padding: 0.75rem 0; }
+            .mobile-nav ul li a { color: var(--text-muted); text-decoration: none; font-size: 1rem; font-weight: 500; }
+            .mobile-nav ul li a:hover { color: var(--gold); }
+
+            .hero { min-height: auto; padding-top: 120px; padding-bottom: 50px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+
+            .logo-bar-inner { gap: 1.25rem 2rem; }
+            .logo-bar-name { font-size: 1rem; }
+
+            .benefits-grid { grid-template-columns: 1fr; }
+
+            .form-row { grid-template-columns: 1fr; }
+            .form-wrapper { padding: 2rem 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .section { padding: 60px 0; }
+            .container { padding: 0 1rem; }
+            .logo-bar { padding: 40px 0; }
+            .logo-bar-name { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero" aria-label="PR Publication Placement Service">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-badge">PR &amp; Media Placement Service</span>
+                    <h1>Get Your Clients Featured in <span class="text-gradient">1,200+ Publications</span></h1>
+                    <p>Access our curated list of vetted industry publications, from niche trade outlets to high-authority digital media. Real placements that build credibility, support SEO, and deliver third-party proof that paid ads cannot buy.</p>
+                    <a href="#get-access" class="btn btn-primary">Get Instant Access &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logo Bar -->
+        <section class="logo-bar" aria-label="Featured publications">
+            <div class="container">
+                <div class="logo-bar-inner">
+                    <span class="logo-bar-name">Bloomberg</span>
+                    <span class="logo-bar-name">Forbes</span>
+                    <span class="logo-bar-name">Wall Street Journal</span>
+                    <span class="logo-bar-name">Rolling Stone</span>
+                    <span class="logo-bar-name">TechCrunch</span>
+                    <span class="logo-bar-name">Wired</span>
+                    <span class="logo-bar-name">USA Today</span>
+                    <span class="logo-bar-name">Variety</span>
+                    <span class="logo-bar-name">Vogue</span>
+                    <span class="logo-bar-name">Entrepreneur</span>
+                    <span class="logo-bar-name">CNET</span>
+                    <span class="logo-bar-name">LA Times</span>
+                </div>
+                <p class="logo-bar-sub">...plus 1,200+ more across tech, business, lifestyle, fashion, finance &amp; entertainment</p>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="section" aria-label="Benefits">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">&#x1F91D;</div>
+                        <h3>White-Glove Placement Coordination</h3>
+                        <p>We handle everything from pitch to publication. You bring the client, we deliver the coverage. No heavy lifting on your end.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">&#x1F4BC;</div>
+                        <h3>Perfect Add-On for Your Clients</h3>
+                        <p>Instantly increase the value of every client engagement by offering PR placements alongside your existing services.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">&#x1F4B0;</div>
+                        <h3>New Revenue Stream for Your Agency</h3>
+                        <p>Earn on every placement without building a PR team. A plug-and-play profit center you can add today.</p>
+                    </div>
+                    <div class="benefit-card benefit-highlight">
+                        <div class="benefit-icon" aria-hidden="true">&#x1F525;</div>
+                        <h3>25% Discount This Month</h3>
+                        <p>Orders placed this month receive an exclusive 25% discount on all publication placements. Limited availability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Form -->
+        <section class="section form-section" id="get-access" aria-label="Get access form">
+            <div class="container">
+                <div class="form-wrapper">
+                    <div id="formContent">
+                        <h2 class="text-gradient">Get Instant Access</h2>
+                        <p class="form-sub">Enter your details to view the full publication list</p>
+
+                        <form id="pressForm" onsubmit="return handleSubmit(event)" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="firstName">First Name *</label>
+                                    <input type="text" class="form-input" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="lastName">Last Name *</label>
+                                    <input type="text" class="form-input" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email *</label>
+                                <input type="email" class="form-input" id="email" name="email" placeholder="john@agency.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+                                <input type="tel" class="form-input" id="phone" name="phone" placeholder="+1 555 123 4567" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="company">Company / Agency Name <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+                                <input type="text" class="form-input" id="company" name="company" placeholder="Acme Marketing" autocomplete="organization">
+                            </div>
+
+                            <button type="submit" class="form-btn" id="submitBtn">Get Instant Access &rarr;</button>
+
+                            <div class="form-error" id="formError"></div>
+                        </form>
+
+                        <p class="form-fine">You'll receive a magic link to access your client portal with the full list.</p>
+                    </div>
+
+                    <div class="form-success" id="formSuccess">
+                        <div class="form-success-icon">&#x2709;</div>
+                        <h3>Check Your Email!</h3>
+                        <p>We've sent you a magic link to access the full publication list. Check your inbox (and spam folder, just in case).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Advanced Marketing Limited &middot; <a href="https://advancedmarketing.co">advancedmarketing.co</a></p>
+        </div>
+    </footer>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        var firstName = document.getElementById('firstName').value.trim();
+        var lastName = document.getElementById('lastName').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var company = document.getElementById('company').value.trim();
+        var errEl = document.getElementById('formError');
+        var btn = document.getElementById('submitBtn');
+
+        errEl.style.display = 'none';
+
+        if (!firstName) {
+            errEl.textContent = 'Please enter your first name.';
+            errEl.style.display = 'block';
+            document.getElementById('firstName').focus();
+            return false;
+        }
+        if (!lastName) {
+            errEl.textContent = 'Please enter your last name.';
+            errEl.style.display = 'block';
+            document.getElementById('lastName').focus();
+            return false;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            errEl.textContent = 'Please enter a valid email address.';
+            errEl.style.display = 'block';
+            document.getElementById('email').focus();
+            return false;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="form-spinner"></span> Sending...';
+
+        var payload = {
+            email: email,
+            firstName: firstName,
+            lastName: lastName,
+            company: company || undefined,
+            signup: true,
+            tags: ["press-list"],
+            source: "Press Landing Page"
+        };
+
+        if (phone) {
+            payload.phone = phone;
+        }
+
+        fetch('https://clients.advancedmarketing.co/.netlify/functions/auth-send-link', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (data.error) {
+                errEl.textContent = data.error;
+                errEl.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Get Instant Access \u2192';
+                return;
+            }
+            document.getElementById('formContent').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        })
+        .catch(function() {
+            errEl.textContent = 'Something went wrong. Please try again.';
+            errEl.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Get Instant Access \u2192';
+        });
+
+        return false;
+    }
+    </script>
+</body>
+</html>
