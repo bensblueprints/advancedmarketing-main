@@ -63,12 +63,9 @@
     Content-Type = "application/manifest+json"
 
 # Redirects
-[[redirects]]
-  from = "/services"
-  to = "https://website.advancedmarketing.co"
-  status = 200
-  force = true
-
+# NOTE: /services and /services/* are now real pages in this repo, so the old
+# proxy of /services -> website.advancedmarketing.co has been removed.
+# Local-business sites still live on the website. subdomain.
 [[redirects]]
   from = "/services/local"
   to = "https://website.advancedmarketing.co"
