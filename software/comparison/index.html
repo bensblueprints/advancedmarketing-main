@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>SaaS Alternatives — Honest Pay-Once Comparisons (2026) | Advanced Marketing</title>
+    <meta name="description" content="Honest comparisons of 25 subscription tools — SmallPDF, Otter.ai, Loom, Bitly, Calendly, Typeform and more — vs our pay-once desktop and self-hosted alternatives.">
+    <link rel="canonical" href="https://advancedmarketing.co/software/comparison/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SaaS Alternatives — Honest Pay-Once Comparisons (2026) | Advanced Marketing">
+    <meta property="og:description" content="Honest comparisons of 25 subscription tools — SmallPDF, Otter.ai, Loom, Bitly, Calendly, Typeform and more — vs our pay-once desktop and self-hosted alternatives.">
+    <meta property="og:url" content="https://advancedmarketing.co/software/comparison/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /software section additions ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .sw-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .sw-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:all 0.4s; text-decoration:none; color:inherit; }
+        .sw-card:hover { border-color:rgba(201,169,98,0.35); transform:translateY(-4px); background:var(--bg-card-hover); }
+        .sw-card .sw-icon { font-size:1.9rem; margin-bottom:1rem; }
+        .sw-card h3 { font-size:1.35rem; margin-bottom:0.4rem; }
+        .sw-card .sw-tag { color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:1.25rem; flex:1; }
+        .sw-card .sw-meta { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; border-top:1px solid var(--border); padding-top:1rem; }
+        .sw-card .sw-price { color:var(--gold); font-weight:700; font-size:1.05rem; white-space:nowrap; }
+        .sw-card .sw-replaces { font-size:0.75rem; color:var(--text-muted); text-align:right; }
+        .soon-strip { display:flex; flex-wrap:wrap; gap:0.6rem; }
+        .soon-pill { font-size:0.78rem; padding:0.5rem 0.95rem; border:1px dashed var(--border); border-radius:999px; color:var(--text-muted); opacity:0.75; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://advancedmarketing.co/software/comparison/smallpdf-alternative/"},{"@type":"ListItem","position":2,"url":"https://advancedmarketing.co/software/comparison/ilovepdf-alternative/"},{"@type":"ListItem","position":3,"url":"https://advancedmarketing.co/software/comparison/adobe-acrobat-online-alternative/"},{"@type":"ListItem","position":4,"url":"https://advancedmarketing.co/software/comparison/remove-bg-alternative/"},{"@type":"ListItem","position":5,"url":"https://advancedmarketing.co/software/comparison/photoroom-alternative/"},{"@type":"ListItem","position":6,"url":"https://advancedmarketing.co/software/comparison/otter-ai-alternative/"},{"@type":"ListItem","position":7,"url":"https://advancedmarketing.co/software/comparison/rev-alternative/"},{"@type":"ListItem","position":8,"url":"https://advancedmarketing.co/software/comparison/descript-transcription-alternative/"},{"@type":"ListItem","position":9,"url":"https://advancedmarketing.co/software/comparison/tinypng-alternative/"},{"@type":"ListItem","position":10,"url":"https://advancedmarketing.co/software/comparison/kraken-io-alternative/"},{"@type":"ListItem","position":11,"url":"https://advancedmarketing.co/software/comparison/loom-alternative/"},{"@type":"ListItem","position":12,"url":"https://advancedmarketing.co/software/comparison/camtasia-alternative/"},{"@type":"ListItem","position":13,"url":"https://advancedmarketing.co/software/comparison/screen-studio-alternative/"},{"@type":"ListItem","position":14,"url":"https://advancedmarketing.co/software/comparison/uptimerobot-alternative/"},{"@type":"ListItem","position":15,"url":"https://advancedmarketing.co/software/comparison/pingdom-alternative/"},{"@type":"ListItem","position":16,"url":"https://advancedmarketing.co/software/comparison/statuscake-alternative/"},{"@type":"ListItem","position":17,"url":"https://advancedmarketing.co/software/comparison/bitly-alternative/"},{"@type":"ListItem","position":18,"url":"https://advancedmarketing.co/software/comparison/rebrandly-alternative/"},{"@type":"ListItem","position":19,"url":"https://advancedmarketing.co/software/comparison/short-io-alternative/"},{"@type":"ListItem","position":20,"url":"https://advancedmarketing.co/software/comparison/freshbooks-alternative/"},{"@type":"ListItem","position":21,"url":"https://advancedmarketing.co/software/comparison/invoice-ninja-alternative/"},{"@type":"ListItem","position":22,"url":"https://advancedmarketing.co/software/comparison/calendly-alternative/"},{"@type":"ListItem","position":23,"url":"https://advancedmarketing.co/software/comparison/cal-com-alternative/"},{"@type":"ListItem","position":24,"url":"https://advancedmarketing.co/software/comparison/typeform-alternative/"},{"@type":"ListItem","position":25,"url":"https://advancedmarketing.co/software/comparison/jotform-alternative/"}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Comparison blog">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>Comparisons</span></nav>
+                <span class="text-label">Honest Comparisons</span>
+                <h1>Subscription vs <span class="text-gradient">Pay-Once</span></h1>
+                <p class="lead">Straight-shooting breakdowns of 25 popular SaaS tools: what they do well, where the subscription model hurts, and when our pay-once apps are (and aren't) the better buy. If the competitor is the right choice for you, we'll say so.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-label="All comparison posts">
+            <div class="container">
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">📄 PDFsmith <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces SmallPDF · <a href="/software/pdfsmith/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/smallpdf-alternative/"><h3>Looking for a SmallPDF Alternative? Meet PDFsmith</h3><p>SmallPDF Pro costs $144+/year to merge and split PDFs in the cloud. PDFsmith does the same jobs offline on your own machine for a one-time $29. Honest comparison inside.</p></a>
+                        <a class="post-item" href="/software/comparison/ilovepdf-alternative/"><h3>Looking for a iLovePDF Alternative? Meet PDFsmith</h3><p>iLovePDF Premium is cheap — but it is still a subscription, and your documents still upload to the cloud. PDFsmith is $29 once, fully offline. An honest comparison.</p></a>
+                        <a class="post-item" href="/software/comparison/adobe-acrobat-online-alternative/"><h3>Looking for a Adobe Acrobat Online Alternative? Meet PDFsmith</h3><p>Adobe Acrobat costs $155+/year and is overkill for merging and splitting PDFs. PDFsmith does the everyday PDF jobs offline for $29 one-time. Honest comparison.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">🪄 Cutaway <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces remove.bg · <a href="/software/cutaway/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/remove-bg-alternative/"><h3>Looking for a remove.bg Alternative? Meet Cutaway</h3><p>remove.bg charges $9/mo for 40 credits and uploads every photo to their servers. Cutaway runs the same class of AI locally — unlimited images, $24 once. Honest comparison.</p></a>
+                        <a class="post-item" href="/software/comparison/photoroom-alternative/"><h3>Looking for a PhotoRoom Alternative? Meet Cutaway</h3><p>PhotoRoom Pro costs ~$90/year for background removal plus editing. If cutouts are what you actually need, Cutaway does unlimited local removal for $24 once. Honest comparison.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">🎙️ WhisperDesk <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces Otter.ai · <a href="/software/whisperdesk/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/otter-ai-alternative/"><h3>Looking for a Otter.ai Alternative? Meet WhisperDesk</h3><p>Otter.ai Pro costs $204/year with monthly minute caps. WhisperDesk runs OpenAI Whisper locally — unlimited transcription for $39 once. An honest comparison.</p></a>
+                        <a class="post-item" href="/software/comparison/rev-alternative/"><h3>Looking for a Rev Alternative? Meet WhisperDesk</h3><p>Rev charges $0.25/min for AI transcripts — a 10-hour interview archive costs $150. WhisperDesk transcribes unlimited audio locally for $39 once. Honest comparison.</p></a>
+                        <a class="post-item" href="/software/comparison/descript-transcription-alternative/"><h3>Looking for a Descript Alternative? Meet WhisperDesk</h3><p>Descript is a full editing suite — but if you only need transcription, its subscription and hour caps are overkill. WhisperDesk is $39 once, unlimited. Honest comparison.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">🗜️ Shrinkray <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces TinyPNG Pro · <a href="/software/shrinkray/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/tinypng-alternative/"><h3>Looking for a TinyPNG Alternative? Meet Shrinkray</h3><p>TinyPNG is great until you hit its upload caps and per-image API fees. Shrinkray compresses unlimited images locally — JPG, PNG, WebP, AVIF — for $19 once.</p></a>
+                        <a class="post-item" href="/software/comparison/kraken-io-alternative/"><h3>Looking for a Kraken.io Alternative? Meet Shrinkray</h3><p>Kraken.io meters image optimization by the megabyte, from $5 to $79+/month. Shrinkray compresses unlimited images locally for $19 one-time. Honest comparison.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">🎥 ClipDeck <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces Loom · <a href="/software/clipdeck/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/loom-alternative/"><h3>Looking for a Loom Alternative? Meet ClipDeck</h3><p>Loom costs up to $180/year and your videos live on their servers. ClipDeck records screen + mic locally with MP4/GIF export for $29 once. An honest comparison.</p></a>
+                        <a class="post-item" href="/software/comparison/camtasia-alternative/"><h3>Looking for a Camtasia Alternative? Meet ClipDeck</h3><p>Camtasia costs $179+/year and is a full video editor. If you just need clean screen recordings with MP4/GIF export, ClipDeck is $29 once. Honest comparison.</p></a>
+                        <a class="post-item" href="/software/comparison/screen-studio-alternative/"><h3>Looking for a Screen Studio Alternative? Meet ClipDeck</h3><p>Screen Studio makes gorgeous macOS-only recordings. If you are on Windows — or just want clean local MP4/GIF capture — ClipDeck is $29 once. Honest comparison.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">📡 Upwatch <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces UptimeRobot · <a href="/software/upwatch/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/uptimerobot-alternative/"><h3>Looking for a UptimeRobot Alternative? Meet Upwatch</h3><p>UptimeRobot costs $96+/year and caps your monitors. Upwatch is self-hosted uptime monitoring with a branded status page — $39 once, unlimited monitors.</p></a>
+                        <a class="post-item" href="/software/comparison/pingdom-alternative/"><h3>Looking for a Pingdom Alternative? Meet Upwatch</h3><p>Pingdom starts at $10+/month and climbs with check volume. Upwatch gives you self-hosted uptime monitoring and a public status page for $39 one-time.</p></a>
+                        <a class="post-item" href="/software/comparison/statuscake-alternative/"><h3>Looking for a StatusCake Alternative? Meet Upwatch</h3><p>StatusCake's useful features live in paid tiers from ~$20/month. Upwatch is a $39-once self-hosted uptime monitor with unlimited checks and a branded status page.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">🔗 Trimly <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces Bitly · <a href="/software/trimly/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/bitly-alternative/"><h3>Looking for a Bitly Alternative? Meet Trimly</h3><p>Bitly charges $348/year to use your own domain on short links. Trimly is a self-hosted shortener with QR codes and full analytics for $29 one-time.</p></a>
+                        <a class="post-item" href="/software/comparison/rebrandly-alternative/"><h3>Looking for a Rebrandly Alternative? Meet Trimly</h3><p>Rebrandly meters branded links by plan, from $13/month. Trimly is a self-hosted link shortener on your own domain — unlimited links, $29 once.</p></a>
+                        <a class="post-item" href="/software/comparison/short-io-alternative/"><h3>Looking for a Short.io Alternative? Meet Trimly</h3><p>Short.io's useful tiers run $19–99/month for branded short links. Trimly is a $29-once self-hosted shortener with QR codes and full click analytics.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">🧾 Billcraft <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces FreshBooks · <a href="/software/billcraft/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/freshbooks-alternative/"><h3>Looking for a FreshBooks Alternative? Meet Billcraft</h3><p>FreshBooks costs $228+/year and caps billable clients on its Lite plan. Billcraft is self-hosted invoicing — unlimited clients, recurring billing, $39 once.</p></a>
+                        <a class="post-item" href="/software/comparison/invoice-ninja-alternative/"><h3>Looking for a Invoice Ninja Alternative? Meet Billcraft</h3><p>Invoice Ninja is powerful but complex — 4 clients free, ~$120/yr hosted Pro, or a heavy self-host. Billcraft is simple self-hosted invoicing for $39 once.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">📅 Bookslot <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces Calendly · <a href="/software/bookslot/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/calendly-alternative/"><h3>Looking for a Calendly Alternative? Meet Bookslot</h3><p>Calendly costs $120+/user/year, forever, to rent your booking link. Bookslot is a self-hosted scheduling page on your own domain for $39 once.</p></a>
+                        <a class="post-item" href="/software/comparison/cal-com-alternative/"><h3>Looking for a Cal.com Alternative? Meet Bookslot</h3><p>Cal.com is open-source scheduling — free hosted for individuals, but heavy to self-host. Bookslot is a lightweight $39-once booking page for your own VPS.</p></a>
+                    </div>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <h2 style="font-size:1.5rem;margin-bottom:1rem;">📝 Formforge <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces Typeform · <a href="/software/formforge/" style="color:var(--gold);">product page</a></span></h2>
+                    <div class="post-list">
+                        <a class="post-item" href="/software/comparison/typeform-alternative/"><h3>Looking for a Typeform Alternative? Meet Formforge</h3><p>Typeform charges $348/year and caps responses at 100/month on Basic. Formforge is a self-hosted form builder with unlimited responses for $39 once.</p></a>
+                        <a class="post-item" href="/software/comparison/jotform-alternative/"><h3>Looking for a Jotform Alternative? Meet Formforge</h3><p>Jotform's free tier is generous but paid tiers run $348+/year with submission caps. Formforge is a $39-once self-hosted form builder with no caps at all.</p></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get the suite">
+            <div class="container">
+                <h2>Pay Once. Own It Forever.</h2>
+                <p>The whole suite is on Whop — one-time prices from $19, MIT source on GitHub.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="/software/" class="btn btn-primary">Browse the suite &rarr;</a>
+                    <a href="https://whop.com/onetime-suite" class="btn btn-outline" rel="noopener">Get it on Whop &nearr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>
