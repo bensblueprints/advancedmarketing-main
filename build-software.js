@@ -1,9 +1,9 @@
 /*
  * build-software.js — generates the /software section for advancedmarketing.co:
  *   /software/                              hub page (product cards + coming soon)
- *   /software/<brand>/                      10 product landing pages
+ *   /software/<brand>/                      25 product landing pages
  *   /software/comparison/                   blog hub
- *   /software/comparison/<slug>-alternative/  25 comparison posts
+ *   /software/comparison/<slug>-alternative/  50 comparison posts
  *
  * Reuses the site's shared chrome (nav/footer/voice widget) and /css/site.css,
  * with a small section-specific <style> block per page.
@@ -19,12 +19,15 @@ const WHOP = 'https://whop.com/onetime-suite';
 const GH = 'https://github.com/bensblueprints';
 
 const products = require('./software-src/products.js');
-const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js')];
+const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js'), ...require('./software-src/posts-4.js')];
 const bySlug = Object.fromEntries(products.map(p => [p.slug, p]));
 
 const COMING_SOON = [
-  'Statfox — analytics', 'Shipnotes — changelog', 'Hearback — feedback', 'Docwell — knowledge base', 'Chatlet — live chat',
-  'Boardly — kanban', 'Timevault — time tracking', 'Streakly — habits', 'Deepdesk — focus', 'Quillpad — notes',
+  'Pingcron', 'Hookscope', 'Snapfleet', 'Wrangle', 'Vaultkeeper',
+  'Queuecraft', 'Bravowall', 'Hawkwatch', 'Postbird', 'Keymaster',
+  'Castport', 'Inkpress', 'Feedloft', 'Reelsnag', 'Voicebarn',
+  'Droplink', 'Snipvault', 'Inkseal', 'Ledgerly', 'Dealstack',
+  'Overlayr', 'Signboard', 'Serpdeck', 'Chatterbox', 'Textract',
 ];
 
 /* "a" vs "an" for competitor names, by leading vowel sound */
@@ -66,6 +69,22 @@ const POST_TABLE = {
   'flowcode-alternative':            { price: '~$12–30+/mo', yr3: '~$432–1,080+', limits: 'Code limits + feature gates by plan; codes need active plan', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
   'bannerbear-alternative':          { price: '$49/mo (Starter)', yr3: '~$1,764', limits: '1,000 renders & 10 templates/mo on Starter', cloud: 'Every render through their servers', offline: 'No', src: 'Closed' },
   'placid-alternative':              { price: '$19+/mo', yr3: '~$684+', limits: 'Monthly render quota by plan', cloud: 'Templates & renders in their cloud', offline: 'No', src: 'Closed' },
+  'plausible-alternative':           { price: '$9–19/mo, tiered by traffic', yr3: '~$324–684', limits: '10k–100k pageviews/mo per tier', cloud: 'Their EU cloud (or heavy self-host stack)', offline: 'n/a (hosted)', src: 'Open source (AGPL), hosted paid' },
+  'google-analytics-alternative':    { price: 'Free (you pay with visitor data)', yr3: '$0 cash — plus consent banners & compliance risk', limits: 'Data sampling; 14-month retention default', cloud: 'Google’s servers', offline: 'No', src: 'Closed' },
+  'canny-alternative':               { price: '$79/mo', yr3: '~$2,844', limits: 'Features & integrations gated by plan', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'headway-alternative':             { price: '~$29/mo for custom branding', yr3: '~$1,044', limits: 'Changelog only — no roadmap or voting', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'hotjar-alternative':              { price: '$32/mo (Surveys entry plan)', yr3: '~$1,152', limits: '500 survey responses/mo on entry plan', cloud: 'Their cloud, third-party script', offline: 'No', src: 'Closed' },
+  'gitbook-alternative':             { price: '$79/site/mo (Premium)', yr3: '~$2,844 per site', limits: 'Per-site pricing; branding gated by tier', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'helpscout-docs-alternative':      { price: '$22+/user/mo (bundled in Plus)', yr3: '~$792+ per user', limits: 'Docs inseparable from help-desk seats', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'trello-alternative':              { price: '$5/user/mo (Standard)', yr3: '~$180/user ($1,800 for a team of 10)', limits: '10-board cap free; attachments & export plan-gated', cloud: 'Atlassian’s cloud', offline: 'No', src: 'Closed' },
+  'toggl-alternative':               { price: '$10/user/mo (Starter)', yr3: '~$360/user', limits: 'Rates & rounding on paid tiers', cloud: 'Their cloud', offline: 'Partial (apps cache)', src: 'Closed' },
+  'clockify-alternative':            { price: 'Free core / $4.99–14.99/user/mo', yr3: '$0–540/user', limits: 'Rounding, rates & invoicing gated by paid tiers', cloud: 'Their cloud only', offline: 'Partial (apps cache)', src: 'Closed' },
+  'habitify-alternative':            { price: '~$5/mo (Premium)', yr3: '~$180', limits: 'Habit cap on free tier; premium gates', cloud: 'Their cloud, behind an account', offline: 'Partially', src: 'Closed' },
+  'centered-alternative':            { price: '~$10/mo', yr3: '~$360', limits: 'Features tied to account & subscription', cloud: 'Their cloud', offline: 'Partly', src: 'Closed' },
+  'notion-alternative':              { price: '$12/mo per seat', yr3: '~$432/seat', limits: 'Per-seat pricing; AI is extra', cloud: 'Their cloud, proprietary block format', offline: 'Partial, unreliable', src: 'Closed' },
+  'obsidian-sync-alternative':       { price: '$4–8/mo (app itself free)', yr3: '~$144–288', limits: 'Sync is the paid part; commercial license extra', cloud: 'E2E-encrypted relay (their servers)', offline: 'App yes; sync needs internet', src: 'Closed (app); files are yours' },
+  'crisp-alternative':               { price: '$95/mo (Plus, per workspace)', yr3: '~$3,420', limits: 'Seats & features by plan; per-workspace pricing', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'intercom-alternative':            { price: '$39+/seat/mo + usage-based AI fees', yr3: '~$1,404+ per seat', limits: 'Per-seat + per-resolution + add-on modules', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
 };
 
 /* ---------- shared chrome ---------- */
@@ -324,7 +343,7 @@ function write(rel, html) {
             <div class="container">
                 <div class="section-header">
                     <span class="text-label">Shipped &amp; Ready</span>
-                    <h2>Fifteen Apps. Zero Subscriptions.</h2>
+                    <h2>Twenty-Five Apps. Zero Subscriptions.</h2>
                     <p>Each one replaces a tool that bills you monthly, forever.</p>
                 </div>
                 <div class="sw-grid">${cards}
@@ -336,8 +355,8 @@ function write(rel, html) {
             <div class="container">
                 <div class="section-header">
                     <span class="text-label">Coming Soon</span>
-                    <h2>More on the Bench</h2>
-                    <p>Same deal — pay once, own forever. In the workshop now:</p>
+                    <h2>25 More Planned</h2>
+                    <p>Same deal — pay once, own forever. On the roadmap:</p>
                 </div>
                 <div class="soon-strip">
                     ${COMING_SOON.map(s => `<span class="soon-pill">${s}</span>`).join('\n                    ')}
@@ -358,7 +377,7 @@ function write(rel, html) {
 
   write('software', page({
     title: 'Software — Pay Once, Own It Forever | Advanced Marketing',
-    desc: 'Fifteen desktop & self-hosted apps that replace monthly SaaS subscriptions — social scheduling, PDF tools, transcription, QR codes, OG images, uptime monitoring, invoicing and more. One-time prices from $15.',
+    desc: 'Twenty-five desktop & self-hosted apps that replace monthly SaaS subscriptions — analytics, live chat, kanban, changelog, time tracking, social scheduling, PDF tools, transcription and more. One-time prices from $15.',
     canonical: `${SITE}/software/`,
     jsonld: [{
       '@context': 'https://schema.org', '@type': 'ItemList',
@@ -516,7 +535,7 @@ products.forEach(p => {
         <section class="section cta-section" id="contact" aria-label="Get the suite">
             <div class="container">
                 <h2>Pay Once. Own It Forever.</h2>
-                <p>The whole suite is on Whop — one-time prices from $19, MIT source on GitHub.</p>
+                <p>The whole suite is on Whop — one-time prices from $15, MIT source on GitHub.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
                     <a href="/software/" class="btn btn-primary">Browse the suite &rarr;</a>
                     <a href="${WHOP}" class="btn btn-outline" rel="noopener">Get it on Whop &nearr;</a>
@@ -526,7 +545,7 @@ products.forEach(p => {
 
   write('software/comparison', page({
     title: 'SaaS Alternatives — Honest Pay-Once Comparisons (2026) | Advanced Marketing',
-    desc: 'Honest comparisons of 34 subscription tools — Buffer, Linktree, SmallPDF, Otter.ai, Loom, Bannerbear, Calendly, Typeform and more — vs our pay-once desktop and self-hosted alternatives.',
+    desc: 'Honest comparisons of 50 subscription tools — Plausible, Canny, Hotjar, Trello, Toggl, Notion, Crisp, Intercom, Buffer, Linktree, SmallPDF, Otter.ai and more — vs our pay-once desktop and self-hosted alternatives.',
     canonical: `${SITE}/software/comparison/`,
     jsonld: [{
       '@context': 'https://schema.org', '@type': 'ItemList',
@@ -605,7 +624,7 @@ posts.forEach(post => {
 
                     <h2>The bottom line</h2>
                     <p>Subscriptions make sense when a service does ongoing work for you — hosting, syncing, multi-region infrastructure, human labor. They make much less sense when the work happens on your own hardware and the monthly bill is just a toll booth. ${p.brand} is our bet that for this job, most people are better served owning the tool: $${p.price} once, ${esc(p.payback.charAt(0).toLowerCase() + p.payback.slice(1))}</p>
-                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — fifteen desktop and self-hosted apps (social scheduling, PDF tools, transcription, background removal, screen recording, QR codes, OG images, uptime monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry.</p>
+                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — twenty-five desktop and self-hosted apps (analytics, live chat, kanban, changelog, time tracking, notes, social scheduling, PDF tools, transcription, uptime monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry.</p>
 
                     <div class="post-cta">
                         <h3>Try ${p.brand} — $${p.price}, one time</h3>
