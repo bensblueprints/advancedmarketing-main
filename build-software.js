@@ -22,7 +22,7 @@ const products = require('./software-src/products.js');
 const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js')];
 const bySlug = Object.fromEntries(products.map(p => [p.slug, p]));
 
-const COMING_SOON = ['PostDock — social scheduling', 'Linkleaf — link-in-bio', 'Scantrail — QR codes', 'Cardsmith — OG images', 'SigCraft — email signatures'];
+const COMING_SOON = ['PostDock — social scheduling', 'Linkleaf — link-in-bio', 'Scantrail — QR codes', 'Cardsmith — OG images'];
 
 /* Competitor column data for the standard comparison table in each blog post */
 const POST_TABLE = {
@@ -51,6 +51,7 @@ const POST_TABLE = {
   'cal-com-alternative':             { price: 'Free solo hosted / ~$15/user/mo teams', yr3: '$0–540/user', limits: 'Self-host = heavy Next.js + Postgres', cloud: 'Hosted, or your server', offline: 'Self-host: yes', src: 'Open source' },
   'typeform-alternative':            { price: '$29/mo (Basic)', yr3: '~$1,044', limits: '100 responses/mo on Basic', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
   'jotform-alternative':             { price: '~$34+/mo (Bronze)', yr3: '~$1,224+', limits: 'Submissions, storage & views capped', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'wisestamp-alternative':           { price: '$6/mo/user', yr3: '~$216/user', limits: 'Per-user pricing; ad injected on free tier', cloud: 'Their cloud account', offline: 'No', src: 'Closed' },
 };
 
 /* ---------- shared chrome ---------- */

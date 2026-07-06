@@ -324,4 +324,31 @@ module.exports = [
     ],
     meetExtra: 'Formforge keeps the essentials sharp: a drag-orderable editor with 10 field types, per-form accent colors and success redirects, an open/closed toggle, iframe embedding, a clean submissions inbox with detail drawer and one-click CSV export — all in one Node process with SQLite.',
   },
+  {
+    slug: 'wisestamp-alternative', competitor: 'WiseStamp', product: 'sigcraft',
+    metaDesc: 'WiseStamp costs $72/user/year forever — for a block of HTML. SigCraft builds email-safe signatures locally for $15 one-time, whole team included. Honest comparison.',
+    intro: [
+      'WiseStamp is the best-known name in email signature generators, and for good reason: dozens of templates, one-click social icons, banners, and — its real differentiator — centralized team signature management that IT departments can roll out across a whole company from a dashboard.',
+      'Here is the uncomfortable truth about the category, though: an email signature is a block of HTML. It is generated once, pasted into your mail client, and then it just... exists. Paying $6 per user per month, forever, for a static artifact is one of the strangest recurring bills in software. SigCraft generates the same email-safe HTML on your desktop for $15, once, team included.',
+    ],
+    good: {
+      lead: 'WiseStamp has real strengths worth naming:',
+      items: [
+        'Around 50 templates with frequent additions — more visual variety than any local tool.',
+        'Centralized team management — update everyone\'s signature from one dashboard, with Google Workspace / Microsoft 365 integration that applies changes server-side.',
+        'Dynamic content: rotating banners, live social feeds, scheduling links embedded in signatures.',
+        'Zero-install, works from any browser on any machine.',
+      ],
+      after: 'If IT needs to push signature updates to 200 mailboxes centrally, WiseStamp\'s Teams product is doing genuinely ongoing work — that is a fair subscription.',
+    },
+    hurts: [
+      'For individuals and small teams the math is absurd: $6/month is $72/year and $216 over three years — per user. A five-person team pays over $1,000 in three years for HTML blocks that change maybe twice a year. And the free tier plants WiseStamp\'s own advertisement at the bottom of your signature, so every email you send markets their product, not yours.',
+      'There is also lock-in by design: your signature lives in their account system, rendered through their infrastructure. Stop paying and signatures degrade or revert to branded versions. A signature you generated locally as plain HTML, by contrast, is just yours — it keeps working in your mail client whether the tool that made it exists or not.',
+    ],
+    stay: [
+      'Stay with WiseStamp if you need centralized, server-side team signature management with Workspace/365 integration — SigCraft generates files; it does not push them into mailboxes remotely. Stay too if dynamic content (rotating banners, live feeds) is part of your marketing.',
+      'Switch if you are an individual, freelancer or small team whose signature changes a few times a year. Generate it locally, paste it once, own it forever — and put your logo in your signature instead of theirs.',
+    ],
+    meetExtra: 'SigCraft focuses on the part that actually matters: HTML that renders everywhere. Table layouts, inline styles and Outlook VML conditionals mean your signature survives Gmail, Outlook desktop and web, Apple Mail and Thunderbird — with 10 templates, 12 social badge styles, banner + CTA support, live preview, and a team CSV mode that batch-exports signatures for everyone at no extra cost.',
+  },
 ];
