@@ -19,10 +19,16 @@ const WHOP = 'https://whop.com/onetime-suite';
 const GH = 'https://github.com/bensblueprints';
 
 const products = require('./software-src/products.js');
-const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js')];
+const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js')];
 const bySlug = Object.fromEntries(products.map(p => [p.slug, p]));
 
-const COMING_SOON = ['PostDock — social scheduling', 'Linkleaf — link-in-bio', 'Scantrail — QR codes', 'Cardsmith — OG images'];
+const COMING_SOON = [
+  'Statfox — analytics', 'Shipnotes — changelog', 'Hearback — feedback', 'Docwell — knowledge base', 'Chatlet — live chat',
+  'Boardly — kanban', 'Timevault — time tracking', 'Streakly — habits', 'Deepdesk — focus', 'Quillpad — notes',
+];
+
+/* "a" vs "an" for competitor names, by leading vowel sound */
+const art = name => (/^[aeiou]/i.test(name) ? 'an' : 'a');
 
 /* Competitor column data for the standard comparison table in each blog post */
 const POST_TABLE = {
@@ -52,6 +58,14 @@ const POST_TABLE = {
   'typeform-alternative':            { price: '$29/mo (Basic)', yr3: '~$1,044', limits: '100 responses/mo on Basic', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
   'jotform-alternative':             { price: '~$34+/mo (Bronze)', yr3: '~$1,224+', limits: 'Submissions, storage & views capped', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
   'wisestamp-alternative':           { price: '$6/mo/user', yr3: '~$216/user', limits: 'Per-user pricing; ad injected on free tier', cloud: 'Their cloud account', offline: 'No', src: 'Closed' },
+  'buffer-alternative':              { price: '$6/channel/mo', yr3: '~$1,080 (5 channels)', limits: 'Pay per channel; post caps on cheap tiers', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'hootsuite-alternative':           { price: '$99/mo (Professional)', yr3: '~$3,564', limits: 'Channels & seats capped by plan', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'linktree-alternative':            { price: '$5–9/mo', yr3: '~$180–324', limits: 'Branding + feature gates on free tier', cloud: 'Their servers', offline: 'No', src: 'Closed' },
+  'beacons-alternative':             { price: '~$10/mo (Pro)', yr3: '~$360', limits: 'Transaction fees + upsells on free tier', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'qr-tiger-alternative':            { price: '$15+/mo', yr3: '~$540+', limits: 'Dynamic codes capped; codes die if you stop paying', cloud: 'Their cloud (qrco.de)', offline: 'No', src: 'Closed' },
+  'flowcode-alternative':            { price: '~$12–30+/mo', yr3: '~$432–1,080+', limits: 'Code limits + feature gates by plan; codes need active plan', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'bannerbear-alternative':          { price: '$49/mo (Starter)', yr3: '~$1,764', limits: '1,000 renders & 10 templates/mo on Starter', cloud: 'Every render through their servers', offline: 'No', src: 'Closed' },
+  'placid-alternative':              { price: '$19+/mo', yr3: '~$684+', limits: 'Monthly render quota by plan', cloud: 'Templates & renders in their cloud', offline: 'No', src: 'Closed' },
 };
 
 /* ---------- shared chrome ---------- */
@@ -310,7 +324,7 @@ function write(rel, html) {
             <div class="container">
                 <div class="section-header">
                     <span class="text-label">Shipped &amp; Ready</span>
-                    <h2>Ten Apps. Zero Subscriptions.</h2>
+                    <h2>Fifteen Apps. Zero Subscriptions.</h2>
                     <p>Each one replaces a tool that bills you monthly, forever.</p>
                 </div>
                 <div class="sw-grid">${cards}
@@ -344,7 +358,7 @@ function write(rel, html) {
 
   write('software', page({
     title: 'Software — Pay Once, Own It Forever | Advanced Marketing',
-    desc: 'Ten desktop & self-hosted apps that replace monthly SaaS subscriptions — PDF tools, transcription, screen recording, uptime monitoring, invoicing and more. One-time prices from $19.',
+    desc: 'Fifteen desktop & self-hosted apps that replace monthly SaaS subscriptions — social scheduling, PDF tools, transcription, QR codes, OG images, uptime monitoring, invoicing and more. One-time prices from $15.',
     canonical: `${SITE}/software/`,
     jsonld: [{
       '@context': 'https://schema.org', '@type': 'ItemList',
@@ -479,7 +493,7 @@ products.forEach(p => {
                 <div style="margin-bottom:2.5rem;">
                     <h2 style="font-size:1.5rem;margin-bottom:1rem;">${p.icon} ${p.brand} <span style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-body);">— replaces ${p.competitor} · <a href="/software/${p.slug}/" style="color:var(--gold);">product page</a></span></h2>
                     <div class="post-list">
-                        ${list.map(x => `<a class="post-item" href="/software/comparison/${x.slug}/"><h3>Looking for a ${x.competitor} Alternative? Meet ${p.brand}</h3><p>${esc(x.metaDesc)}</p></a>`).join('\n                        ')}
+                        ${list.map(x => `<a class="post-item" href="/software/comparison/${x.slug}/"><h3>Looking for ${art(x.competitor)} ${x.competitor} Alternative? Meet ${p.brand}</h3><p>${esc(x.metaDesc)}</p></a>`).join('\n                        ')}
                     </div>
                 </div>`;
   }).join('');
@@ -512,7 +526,7 @@ products.forEach(p => {
 
   write('software/comparison', page({
     title: 'SaaS Alternatives — Honest Pay-Once Comparisons (2026) | Advanced Marketing',
-    desc: 'Honest comparisons of 25 subscription tools — SmallPDF, Otter.ai, Loom, Bitly, Calendly, Typeform and more — vs our pay-once desktop and self-hosted alternatives.',
+    desc: 'Honest comparisons of 34 subscription tools — Buffer, Linktree, SmallPDF, Otter.ai, Loom, Bannerbear, Calendly, Typeform and more — vs our pay-once desktop and self-hosted alternatives.',
     canonical: `${SITE}/software/comparison/`,
     jsonld: [{
       '@context': 'https://schema.org', '@type': 'ItemList',
@@ -526,7 +540,7 @@ products.forEach(p => {
 posts.forEach(post => {
   const p = bySlug[post.product];
   const t = POST_TABLE[post.slug];
-  const title = `Looking for a ${post.competitor} Alternative? Meet ${p.brand} — Pay Once, Own It Forever (2026)`;
+  const title = `Looking for ${art(post.competitor)} ${post.competitor} Alternative? Meet ${p.brand} — Pay Once, Own It Forever (2026)`;
   const url = `${SITE}/software/comparison/${post.slug}/`;
   const related = posts.filter(x => x.product === post.product && x.slug !== post.slug);
 
@@ -553,7 +567,7 @@ posts.forEach(post => {
             <div class="container">
                 <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <a href="/software/comparison/">Comparisons</a> &nbsp;/&nbsp; <span>${post.competitor} Alternative</span></nav>
                 <span class="text-label">Honest Comparison · 2026</span>
-                <h1 style="font-size:clamp(2rem,4.5vw,3.25rem);">Looking for a ${post.competitor} Alternative? Meet <span class="text-gradient">${p.brand}</span> — Pay Once, Own It Forever</h1>
+                <h1 style="font-size:clamp(2rem,4.5vw,3.25rem);">Looking for ${art(post.competitor)} ${post.competitor} Alternative? Meet <span class="text-gradient">${p.brand}</span> — Pay Once, Own It Forever</h1>
             </div>
         </section>
 
@@ -591,7 +605,7 @@ posts.forEach(post => {
 
                     <h2>The bottom line</h2>
                     <p>Subscriptions make sense when a service does ongoing work for you — hosting, syncing, multi-region infrastructure, human labor. They make much less sense when the work happens on your own hardware and the monthly bill is just a toll booth. ${p.brand} is our bet that for this job, most people are better served owning the tool: $${p.price} once, ${esc(p.payback.charAt(0).toLowerCase() + p.payback.slice(1))}</p>
-                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — ten desktop and self-hosted apps (PDF tools, transcription, background removal, screen recording, uptime monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry.</p>
+                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — fifteen desktop and self-hosted apps (social scheduling, PDF tools, transcription, background removal, screen recording, QR codes, OG images, uptime monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry.</p>
 
                     <div class="post-cta">
                         <h3>Try ${p.brand} — $${p.price}, one time</h3>
