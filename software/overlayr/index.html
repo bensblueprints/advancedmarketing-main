@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Overlayr — StreamElements Alternative, $24 One-Time | Advanced Marketing</title>
+    <meta name="description" content="Self-hosted stream overlays — countdowns, goal bars, tickers, alerts — each just a URL in an OBS Browser Source. Pay once ($24), own it forever. Replaces StreamElements ($19/mo (Streamlabs Ultra)). MIT source on GitHub.">
+    <link rel="canonical" href="https://advancedmarketing.co/software/overlayr/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Overlayr — StreamElements Alternative, $24 One-Time | Advanced Marketing">
+    <meta property="og:description" content="Self-hosted stream overlays — countdowns, goal bars, tickers, alerts — each just a URL in an OBS Browser Source. Pay once ($24), own it forever. Replaces StreamElements ($19/mo (Streamlabs Ultra)). MIT source on GitHub.">
+    <meta property="og:url" content="https://advancedmarketing.co/software/overlayr/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /software section additions ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .sw-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .sw-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:all 0.4s; text-decoration:none; color:inherit; }
+        .sw-card:hover { border-color:rgba(201,169,98,0.35); transform:translateY(-4px); background:var(--bg-card-hover); }
+        .sw-card .sw-icon { font-size:1.9rem; margin-bottom:1rem; }
+        .sw-card h3 { font-size:1.35rem; margin-bottom:0.4rem; }
+        .sw-card .sw-tag { color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:1.25rem; flex:1; }
+        .sw-card .sw-meta { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; border-top:1px solid var(--border); padding-top:1rem; }
+        .sw-card .sw-price { color:var(--gold); font-weight:700; font-size:1.05rem; white-space:nowrap; }
+        .sw-card .sw-replaces { font-size:0.75rem; color:var(--text-muted); text-align:right; }
+        .soon-strip { display:flex; flex-wrap:wrap; gap:0.6rem; }
+        .soon-pill { font-size:0.78rem; padding:0.5rem 0.95rem; border:1px dashed var(--border); border-radius:999px; color:var(--text-muted); opacity:0.75; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Overlayr","description":"Self-hosted stream overlays — countdowns, goal bars, tickers, alerts — each just a URL in an OBS Browser Source.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/overlayr/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"24","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — the full source is MIT at github.com/bensblueprints/overlayr. The $24 buys the packaged installer, guided VPS deploy and lifetime updates instead of running npm and docker yourself."}},{"@type":"Question","name":"Isn't StreamElements free?","acceptedAnswer":{"@type":"Answer","text":"The core is, and it's genuinely good — that's the honest answer. But the polished themes, extras and watermark removal live in paid tiers (Streamlabs Ultra is $19/mo, OWN3D Pro $12.99/mo), and your overlays live on their cloud either way. Overlayr is for streamers who want to own the whole stack and never see a \"premium\" upsell again."}},{"@type":"Question","name":"Does it do follower/sub alerts from Twitch automatically?","acceptedAnswer":{"@type":"Answer","text":"Not natively — alerts fire from the dashboard or a webhook (POST /hook/:token). If you already run Streamer.bot or any EventSub relay, point it at the webhook and platform events flow through. If you want zero-setup native platform alerts, StreamElements still does that out of the box."}},{"@type":"Question","name":"Why don't my timers reset when OBS reloads the source?","acceptedAnswer":{"@type":"Answer","text":"Because the server owns the clock. Overlayr stores started_at/ends_at in SQLite and recomputes remaining time on every WebSocket reconnect — scene switches and Browser Source reloads always resync to the correct time."}},{"@type":"Question","name":"Do I need a VPS?","acceptedAnswer":{"@type":"Answer","text":"No — desktop mode runs the whole server locally and OBS points at 127.0.0.1 URLs. A $5 VPS only matters if you want to control overlays from another machine or keep them up while your PC reboots."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Overlayr">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>Overlayr</span></nav>
+                <span class="price-badge"><span class="amt">$24</span> one-time, forever</span>
+                <h1>🎛️ Overlayr</h1>
+                <p class="lead">Your OBS overlays, your server. No watermarks, no subscription, no desync.</p>
+                <p class="lead" style="font-size:1.02rem;">StreamElements and Streamlabs gate the good stuff — premium themes, watermark removal, extras — behind paid tiers like Streamlabs Ultra at $19/mo ($149/yr). Overlayr is a self-hosted overlay suite: countdown timers, goal bars, tickers, starting-soon scenes and alerts, each a tokenized URL you drop into an OBS Browser Source, updated live over WebSocket from your own server. $24 once, no watermark, no cloud lag.</p>
+                <div class="hero-ctas">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/overlayr" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">What You Get</span>
+                    <h2>Features</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card"><div class="fi" aria-hidden="true">⏱️</div><h3>Countdown timer</h3><p>Target datetime or duration mode, pause/resume/reset from the dashboard, custom end message, optional end sound.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🎯</div><h3>Goal bar</h3><p>Animated fill, +1/+5/+10 dashboard buttons, milestone flash on target — also settable via webhook.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📜</div><h3>Rotating ticker</h3><p>A list of messages with fade/slide transitions or a scrolling marquee mode.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🎬</div><h3>Starting-soon scene</h3><p>Full-screen headline + sub-text + embedded countdown, optional background image and looping audio.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🚨</div><h3>Alert box + webhook</h3><p>Fire alerts from a dashboard button or POST /hook/:token — wire it to Streamer.bot, Zapier, or anything that can make an HTTP request.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">👁️</div><h3>Live editor</h3><p>Config form on the left, a real iframe of the actual overlay over a transparent checkerboard on the right — exactly what OBS sees, updated instantly.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🔁</div><h3>Server-authoritative timers</h3><p>OBS reloads Browser Sources constantly; remaining time is computed server-side and resent on every reconnect, so a countdown never resets by accident.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🎨</div><h3>5 built-in themes</h3><p>Neon, minimal, retro, brutalist, glass — plus per-overlay font, accent color and scale overrides.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Comparison with StreamElements">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">The Math</span>
+                    <h2>Overlayr vs StreamElements</h2>
+                    <p>StreamElements at $19/mo (Streamlabs Ultra) costs roughly $149/year — $298 over two years. Overlayr is $24, once.</p>
+                </div>
+                
+                <div class="compare-wrap">
+                <table class="compare">
+                    <thead><tr><th></th><th class="us">Overlayr</th><th>StreamElements</th></tr></thead>
+                    <tbody>
+                        <tr><td>Price</td><td class="us">$24 once</td><td>Streamlabs Ultra $19/mo ($149/yr) · OWN3D Pro $12.99/mo</td></tr>
+                        <tr><td>Self-hosted, own your data</td><td class="us">Yes</td><td>Cloud only</td></tr>
+                        <tr><td>Watermark / branding</td><td class="us">None</td><td>On free tiers</td></tr>
+                        <tr><td>Webhook-triggered alerts</td><td class="us">Built in</td><td>Paid tier</td></tr>
+                        <tr><td>Timer survives OBS reconnects</td><td class="us">Yes — server-authoritative</td><td>Varies</td></tr>
+                        <tr><td>Themes</td><td class="us">5 presets + full overrides</td><td>Marketplace</td></tr>
+                        <tr><td>Cost over 3 years</td><td class="us">$24</td><td>$447+ (Ultra annual)</td></tr>
+                        <tr><td>Source code</td><td class="us">MIT, on GitHub</td><td>Closed</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="color:var(--text-muted);margin-top:1.25rem;font-size:0.95rem;">Streamlabs Ultra is $149/yr. Overlayr pays for itself in about 5 weeks — and saves you roughly $423 over 3 years.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">How It Works</span>
+                    <h2>Three Steps, No Subscription</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step"><div class="num">01</div><h3>Buy once on Whop</h3><p>One-time $24 for the packaged Windows desktop app plus a guided VPS deploy — lifetime updates included.</p></div>
+                    <div class="process-step"><div class="num">02</div><h3>Create an overlay, copy its URL</h3><p>Pick a type and theme in the dashboard, tweak it in the live editor, copy the tokenized OBS URL with its recommended Browser Source size.</p></div>
+                    <div class="process-step"><div class="num">03</div><h3>Paste into OBS and go live</h3><p>Edits push to the overlay instantly over WebSocket — no refreshing Browser Sources mid-stream. Run the Live Control panel for big one-tap buttons during the session.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Frequently asked questions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">FAQ</span>
+                    <h2>Honest Answers</h2>
+                </div>
+                <div style="max-width:760px;margin:0 auto;">
+                    <div class="faq-item"><h3>Is it really free on GitHub?</h3><p>Yes — the full source is MIT at github.com/bensblueprints/overlayr. The $24 buys the packaged installer, guided VPS deploy and lifetime updates instead of running npm and docker yourself.</p></div>
+                    <div class="faq-item"><h3>Isn't StreamElements free?</h3><p>The core is, and it's genuinely good — that's the honest answer. But the polished themes, extras and watermark removal live in paid tiers (Streamlabs Ultra is $19/mo, OWN3D Pro $12.99/mo), and your overlays live on their cloud either way. Overlayr is for streamers who want to own the whole stack and never see a "premium" upsell again.</p></div>
+                    <div class="faq-item"><h3>Does it do follower/sub alerts from Twitch automatically?</h3><p>Not natively — alerts fire from the dashboard or a webhook (POST /hook/:token). If you already run Streamer.bot or any EventSub relay, point it at the webhook and platform events flow through. If you want zero-setup native platform alerts, StreamElements still does that out of the box.</p></div>
+                    <div class="faq-item"><h3>Why don't my timers reset when OBS reloads the source?</h3><p>Because the server owns the clock. Overlayr stores started_at/ends_at in SQLite and recomputes remaining time on every WebSocket reconnect — scene switches and Browser Source reloads always resync to the correct time.</p></div>
+                    <div class="faq-item"><h3>Do I need a VPS?</h3><p>No — desktop mode runs the whole server locally and OBS points at 127.0.0.1 URLs. A $5 VPS only matters if you want to control overlays from another machine or keep them up while your PC reboots.</p></div>
+                </div>
+                <div style="max-width:760px;margin:2rem auto 0;">
+                    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem;">Deep-dive comparisons:</p>
+                    <div class="related-links">
+                        <a href="/software/comparison/streamelements-alternative/">StreamElements alternative</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get Overlayr">
+            <div class="container">
+                <h2>Own Overlayr Forever</h2>
+                <p>$24 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/overlayr" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

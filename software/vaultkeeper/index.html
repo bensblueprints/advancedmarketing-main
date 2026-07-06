@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Vaultkeeper — SimpleBackups Alternative, $39 One-Time | Advanced Marketing</title>
+    <meta name="description" content="Postgres, MySQL, SQLite & Mongo dumps on cron — encrypted, shipped to S3/FTP/disk, with failure alerts. Pay once ($39), own it forever. Replaces SimpleBackups ($29/mo). MIT source on GitHub.">
+    <link rel="canonical" href="https://advancedmarketing.co/software/vaultkeeper/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Vaultkeeper — SimpleBackups Alternative, $39 One-Time | Advanced Marketing">
+    <meta property="og:description" content="Postgres, MySQL, SQLite & Mongo dumps on cron — encrypted, shipped to S3/FTP/disk, with failure alerts. Pay once ($39), own it forever. Replaces SimpleBackups ($29/mo). MIT source on GitHub.">
+    <meta property="og:url" content="https://advancedmarketing.co/software/vaultkeeper/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /software section additions ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .sw-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .sw-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:all 0.4s; text-decoration:none; color:inherit; }
+        .sw-card:hover { border-color:rgba(201,169,98,0.35); transform:translateY(-4px); background:var(--bg-card-hover); }
+        .sw-card .sw-icon { font-size:1.9rem; margin-bottom:1rem; }
+        .sw-card h3 { font-size:1.35rem; margin-bottom:0.4rem; }
+        .sw-card .sw-tag { color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:1.25rem; flex:1; }
+        .sw-card .sw-meta { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; border-top:1px solid var(--border); padding-top:1rem; }
+        .sw-card .sw-price { color:var(--gold); font-weight:700; font-size:1.05rem; white-space:nowrap; }
+        .sw-card .sw-replaces { font-size:0.75rem; color:var(--text-muted); text-align:right; }
+        .soon-strip { display:flex; flex-wrap:wrap; gap:0.6rem; }
+        .soon-pill { font-size:0.78rem; padding:0.5rem 0.95rem; border:1px dashed var(--border); border-radius:999px; color:var(--text-muted); opacity:0.75; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vaultkeeper","description":"Postgres, MySQL, SQLite & Mongo dumps on cron — encrypted, shipped to S3/FTP/disk, with failure alerts.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/vaultkeeper/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"39","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — MIT source at github.com/bensblueprints/vaultkeeper, always. The $39 buys the packaged installer and funds development. One month of the competition, forever."}},{"@type":"Question","name":"What happens to my backups if Vaultkeeper disappears?","acceptedAnswer":{"@type":"Answer","text":"They still open. The VK1 encryption format is documented in the README (AES-256-GCM, scrypt key derivation) and the repo ships a zero-dependency decrypt script — plus you can use age instead. Your backups outlive the software by design."}},{"@type":"Question","name":"Do I need database tools installed?","acceptedAnswer":{"@type":"Answer","text":"For Postgres/MySQL/Mongo, yes — Vaultkeeper shells out to the official dump tools, and a tool-check panel shows what's found on PATH with install hints. SQLite needs nothing installed. The Docker image bundles all of them."}},{"@type":"Question","name":"Is restore one-click?","acceptedAnswer":{"@type":"Answer","text":"Deliberately not. The restore helper generates the exact command chain — download, decrypt, gunzip, psql/mysql/mongorestore — so you can read every command before it touches your production database. SimpleBackups' managed one-click restores are genuinely more convenient; we chose transparency."}},{"@type":"Question","name":"Why not just a cron script?","acceptedAnswer":{"@type":"Answer","text":"Because your script doesn't alert you when it silently breaks — the classic failure mode is a backup job that's been exiting 1 for six weeks. Vaultkeeper adds encryption, retention pruning, checksums, and loud failure alerts around the same dump tools you'd script by hand."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Vaultkeeper">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>Vaultkeeper</span></nav>
+                <span class="price-badge"><span class="amt">$39</span> one-time, forever</span>
+                <h1>🔐 Vaultkeeper</h1>
+                <p class="lead">Scheduled, encrypted database backups you actually own.</p>
+                <p class="lead" style="font-size:1.02rem;">SimpleBackups charges $29–$99 a month to run pg_dump on a timer — and wants your production database credentials on their cloud. The DIY cron script is free but fails silently until the day you need the backup. Vaultkeeper fixes both: scheduled, encrypted dumps of Postgres, MySQL, SQLite and MongoDB, shipped to disk, S3 or FTP, pruned by retention policy, with alerts the moment a run fails. $39, once, on your own hardware.</p>
+                <div class="hero-ctas">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/vaultkeeper" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">What You Get</span>
+                    <h2>Features</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🗄️</div><h3>Four engines</h3><p>PostgreSQL (pg_dump), MySQL/MariaDB (mysqldump), MongoDB (mongodump) — and SQLite via the online backup API, safe on live WAL databases with nothing installed.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">⏰</div><h3>Real scheduling</h3><p>Cron expressions with presets, per-job timezone, next-3-runs preview, and a per-job lock so runs never overlap.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🔐</div><h3>Encryption you can restore without us</h3><p>age if installed, or built-in AES-256-GCM with a documented open format and a dependency-free decrypt script — your backups are never hostage.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📦</div><h3>Three destination types</h3><p>Local disk, any S3-compatible bucket (AWS, Backblaze B2, Cloudflare R2, MinIO — multipart uploads), and FTP/FTPS.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">♻️</div><h3>GFS-lite retention</h3><p>Keep last N, plus daily-for-X-days and weekly-for-Y-weeks — pruned automatically on the destination after every successful run.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🚨</div><h3>Alerts that catch silent failures</h3><p>Webhook (Slack/Discord-compatible) + SMTP email on failure, with the dump tool's stderr tail included so you know why.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🧰</div><h3>Restore helper</h3><p>One click generates the exact download, decrypt, gunzip, psql/mysql/mongorestore command chain for any stored run.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🔒</div><h3>Secrets encrypted at rest</h3><p>Connection passwords, S3 keys and passphrases are AES-256-GCM encrypted in SQLite, and passwords are never passed on argv. No telemetry, no cloud.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Comparison with SimpleBackups">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">The Math</span>
+                    <h2>Vaultkeeper vs SimpleBackups</h2>
+                    <p>SimpleBackups at $29/mo costs roughly $348/year — $696 over two years. Vaultkeeper is $39, once.</p>
+                </div>
+                
+                <div class="compare-wrap">
+                <table class="compare">
+                    <thead><tr><th></th><th class="us">Vaultkeeper</th><th>SimpleBackups</th></tr></thead>
+                    <tbody>
+                        <tr><td>Price</td><td class="us">$39 once</td><td>$29–$99/mo ($348–$1,188/yr)</td></tr>
+                        <tr><td>Cost over 3 years</td><td class="us">$39</td><td>$1,044+</td></tr>
+                        <tr><td>Postgres / MySQL / Mongo / SQLite</td><td class="us">All four</td><td>Yes</td></tr>
+                        <tr><td>Your DB credentials</td><td class="us">Stay on your box, encrypted at rest</td><td>Stored on their cloud</td></tr>
+                        <tr><td>Encryption format you can decrypt yourself</td><td class="us">Documented VK1 + age, decrypt script included</td><td>Partial</td></tr>
+                        <tr><td>Works fully offline</td><td class="us">Yes</td><td>No</td></tr>
+                        <tr><td>Failure alerts (webhook + email)</td><td class="us">Yes</td><td>Yes</td></tr>
+                        <tr><td>Source code</td><td class="us">MIT, on GitHub</td><td>Closed</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="color:var(--text-muted);margin-top:1.25rem;font-size:0.95rem;">SimpleBackups is $348+ per year. Vaultkeeper pays for itself in 6 weeks — then your backups run free, forever.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">How It Works</span>
+                    <h2>Three Steps, No Subscription</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step"><div class="num">01</div><h3>Buy once on Whop</h3><p>One-time $39 for the packaged 1-click Windows installer with everything pre-wired, plus lifetime updates.</p></div>
+                    <div class="process-step"><div class="num">02</div><h3>Run it anywhere</h3><p>Desktop app for local databases, or docker compose up on a $5 VPS — the Docker image bundles all four engine CLIs and age.</p></div>
+                    <div class="process-step"><div class="num">03</div><h3>Schedule, encrypt, sleep</h3><p>Point it at your databases, pick a cron schedule and a destination. If a run ever fails, the webhook and email tell you immediately — with the actual error.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Frequently asked questions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">FAQ</span>
+                    <h2>Honest Answers</h2>
+                </div>
+                <div style="max-width:760px;margin:0 auto;">
+                    <div class="faq-item"><h3>Is it really free on GitHub?</h3><p>Yes — MIT source at github.com/bensblueprints/vaultkeeper, always. The $39 buys the packaged installer and funds development. One month of the competition, forever.</p></div>
+                    <div class="faq-item"><h3>What happens to my backups if Vaultkeeper disappears?</h3><p>They still open. The VK1 encryption format is documented in the README (AES-256-GCM, scrypt key derivation) and the repo ships a zero-dependency decrypt script — plus you can use age instead. Your backups outlive the software by design.</p></div>
+                    <div class="faq-item"><h3>Do I need database tools installed?</h3><p>For Postgres/MySQL/Mongo, yes — Vaultkeeper shells out to the official dump tools, and a tool-check panel shows what's found on PATH with install hints. SQLite needs nothing installed. The Docker image bundles all of them.</p></div>
+                    <div class="faq-item"><h3>Is restore one-click?</h3><p>Deliberately not. The restore helper generates the exact command chain — download, decrypt, gunzip, psql/mysql/mongorestore — so you can read every command before it touches your production database. SimpleBackups' managed one-click restores are genuinely more convenient; we chose transparency.</p></div>
+                    <div class="faq-item"><h3>Why not just a cron script?</h3><p>Because your script doesn't alert you when it silently breaks — the classic failure mode is a backup job that's been exiting 1 for six weeks. Vaultkeeper adds encryption, retention pruning, checksums, and loud failure alerts around the same dump tools you'd script by hand.</p></div>
+                </div>
+                <div style="max-width:760px;margin:2rem auto 0;">
+                    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem;">Deep-dive comparisons:</p>
+                    <div class="related-links">
+                        <a href="/software/comparison/simplebackups-alternative/">SimpleBackups alternative</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get Vaultkeeper">
+            <div class="container">
+                <h2>Own Vaultkeeper Forever</h2>
+                <p>$39 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/vaultkeeper" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Postbird — Mailchimp Alternative, $59 One-Time | Advanced Marketing</title>
+    <meta name="description" content="Lists, segments, a drag-block builder, throttled sending & open/click tracking — no per-contact pricing. Pay once ($59), own it forever. Replaces Mailchimp ($20+/mo (grows with your list)). MIT source on GitHub.">
+    <link rel="canonical" href="https://advancedmarketing.co/software/postbird/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Postbird — Mailchimp Alternative, $59 One-Time | Advanced Marketing">
+    <meta property="og:description" content="Lists, segments, a drag-block builder, throttled sending & open/click tracking — no per-contact pricing. Pay once ($59), own it forever. Replaces Mailchimp ($20+/mo (grows with your list)). MIT source on GitHub.">
+    <meta property="og:url" content="https://advancedmarketing.co/software/postbird/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /software section additions ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .sw-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .sw-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:all 0.4s; text-decoration:none; color:inherit; }
+        .sw-card:hover { border-color:rgba(201,169,98,0.35); transform:translateY(-4px); background:var(--bg-card-hover); }
+        .sw-card .sw-icon { font-size:1.9rem; margin-bottom:1rem; }
+        .sw-card h3 { font-size:1.35rem; margin-bottom:0.4rem; }
+        .sw-card .sw-tag { color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:1.25rem; flex:1; }
+        .sw-card .sw-meta { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; border-top:1px solid var(--border); padding-top:1rem; }
+        .sw-card .sw-price { color:var(--gold); font-weight:700; font-size:1.05rem; white-space:nowrap; }
+        .sw-card .sw-replaces { font-size:0.75rem; color:var(--text-muted); text-align:right; }
+        .soon-strip { display:flex; flex-wrap:wrap; gap:0.6rem; }
+        .soon-pill { font-size:0.78rem; padding:0.5rem 0.95rem; border:1px dashed var(--border); border-radius:999px; color:var(--text-muted); opacity:0.75; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Postbird","description":"Lists, segments, a drag-block builder, throttled sending & open/click tracking — no per-contact pricing.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/postbird/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"59","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — MIT source at github.com/bensblueprints/postbird, always. $59 buys the packaged installer, 1-click setup and updates — and funds the open-source version."}},{"@type":"Question","name":"Will my emails land in the inbox?","acceptedAnswer":{"@type":"Answer","text":"Deliverability is your SMTP provider's job, and Postbird is honest about that: use SES or Postmark credentials and you inherit their IP reputation. Mailchimp's managed sending infrastructure is genuinely convenient if you'd rather not think about SPF/DKIM at all — that's what the monthly fee buys."}},{"@type":"Question","name":"Is it actually CAN-SPAM / GDPR compliant?","acceptedAnswer":{"@type":"Answer","text":"The legal minimums are enforced in code, not suggested: the server returns a 400 if you try to send without a physical address configured, the compiler appends an unsubscribe footer if a template lacks one, and every email carries RFC 8058 one-click unsubscribe headers — which Gmail and Yahoo require for bulk senders."}},{"@type":"Question","name":"Does it do automations and A/B tests?","acceptedAnswer":{"@type":"Answer","text":"No — drip automations and A/B testing are deliberately out of scope for now. Postbird covers lists, segments, campaigns and tracking. If your marketing lives on complex journey builders, Mailchimp still wins there."}},{"@type":"Question","name":"Can I run it on my desktop?","acceptedAnswer":{"@type":"Answer","text":"Yes, for authoring and small sends — but tracking pixels and unsubscribe links only resolve while the app is running and reachable. For real campaigns, deploy to a $5 VPS with a public BASE_URL."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Postbird">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>Postbird</span></nav>
+                <span class="price-badge"><span class="amt">$59</span> one-time, forever</span>
+                <h1>🕊️ Postbird</h1>
+                <p class="lead">Self-hosted email campaigns over your own SMTP. Stop renting your audience back.</p>
+                <p class="lead" style="font-size:1.02rem;">Mailchimp Standard runs about $20/month at 1,000 contacts and climbs past $100/month at 10,000 — you're paying rent on your own audience. Postbird is the same core loop — lists, segments, a drag-block builder, throttled campaigns, open/click tracking — self-hosted over any SMTP provider, with CAN-SPAM compliance enforced in code. $59 once, no contact limits, ever.</p>
+                <div class="hero-ctas">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $59 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/postbird" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">What You Get</span>
+                    <h2>Features</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card"><div class="fi" aria-hidden="true">👥</div><h3>Lists &amp; subscribers</h3><p>CSV import with dedupe and invalid-email reporting, public signup endpoint per list, CSV export, full status tracking (pending → subscribed → unsubscribed/bounced/complained).</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">✅</div><h3>Double opt-in by default</h3><p>Signup → signed confirmation link; only confirmed subscribers get campaigns. Consent timestamp + IP stored for GDPR.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🎯</div><h3>Segments</h3><p>Saved AND/OR filters — domain, name, custom fields, signup date, opened/clicked recent campaigns — with a live count while you edit.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🧱</div><h3>Drag-block builder</h3><p>Heading, rich text, image, bulletproof button, columns, footer. Compiles to table-based inline-styled HTML — no flexbox, no grid, no Outlook surprises.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📤</div><h3>Throttled sending, any SMTP</h3><p>Default 30 msgs/min (configurable) over pooled nodemailer. Pause or cancel mid-send; the queue lives in SQLite, so a restart resumes where it left off.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📊</div><h3>Opens &amp; clicks</h3><p>Tracking pixel plus HMAC-signed rewritten links. Per-campaign report: delivered, unique/total opens and clicks, per-URL click map, recipient activity.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">⚖️</div><h3>Compliance, enforced</h3><p>Sending is blocked until it passes: non-removable unsubscribe footer, required physical address, RFC 8058 one-click List-Unsubscribe headers on every email.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">↩️</div><h3>Bounce handling</h3><p>Webhook endpoint for SES/Postmark/Mailgun/generic payloads plus SMTP-time 5xx detection. Bounced and complained addresses are suppressed forever.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Comparison with Mailchimp">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">The Math</span>
+                    <h2>Postbird vs Mailchimp</h2>
+                    <p>Mailchimp at $20+/mo (grows with your list) costs roughly $240/year — $480 over two years. Postbird is $59, once.</p>
+                </div>
+                
+                <div class="compare-wrap">
+                <table class="compare">
+                    <thead><tr><th></th><th class="us">Postbird</th><th>Mailchimp</th></tr></thead>
+                    <tbody>
+                        <tr><td>Price</td><td class="us">$59 once</td><td>~$20/mo @ 1k contacts, $100+/mo @ 10k</td></tr>
+                        <tr><td>Contact limits</td><td class="us">None</td><td>Priced per contact</td></tr>
+                        <tr><td>SMTP</td><td class="us">Any provider — BYO (SES, Postmark, Mailgun...)</td><td>Theirs only</td></tr>
+                        <tr><td>Your data</td><td class="us">Your SQLite file</td><td>Their cloud</td></tr>
+                        <tr><td>Compliance</td><td class="us">Hard send-block until compliant</td><td>Soft warnings</td></tr>
+                        <tr><td>RFC 8058 one-click unsubscribe</td><td class="us">Yes, every campaign</td><td>Yes</td></tr>
+                        <tr><td>Runs as a desktop app</td><td class="us">Yes</td><td>No</td></tr>
+                        <tr><td>Source code</td><td class="us">MIT, on GitHub</td><td>Closed</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="color:var(--text-muted);margin-top:1.25rem;font-size:0.95rem;">At 1,000 contacts, Mailchimp Standard costs more than Postbird every three months, forever. Break-even is ~2 months — and the bigger your list gets, the more you save.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">How It Works</span>
+                    <h2>Three Steps, No Subscription</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step"><div class="num">01</div><h3>Buy once on Whop</h3><p>One-time $59 for the packaged version — no per-contact pricing, no subscription to escalate as your list grows.</p></div>
+                    <div class="process-step"><div class="num">02</div><h3>Plug in your SMTP</h3><p>Amazon SES ($0.10 per 1,000 emails), Postmark or Mailgun credentials. You inherit their deliverability reputation; Postbird handles the queue and throttle.</p></div>
+                    <div class="process-step"><div class="num">03</div><h3>Import, build, send</h3><p>CSV-import your list, drag blocks into an email, and send throttled campaigns with live progress and open/click reports.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Frequently asked questions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">FAQ</span>
+                    <h2>Honest Answers</h2>
+                </div>
+                <div style="max-width:760px;margin:0 auto;">
+                    <div class="faq-item"><h3>Is it really free on GitHub?</h3><p>Yes — MIT source at github.com/bensblueprints/postbird, always. $59 buys the packaged installer, 1-click setup and updates — and funds the open-source version.</p></div>
+                    <div class="faq-item"><h3>Will my emails land in the inbox?</h3><p>Deliverability is your SMTP provider's job, and Postbird is honest about that: use SES or Postmark credentials and you inherit their IP reputation. Mailchimp's managed sending infrastructure is genuinely convenient if you'd rather not think about SPF/DKIM at all — that's what the monthly fee buys.</p></div>
+                    <div class="faq-item"><h3>Is it actually CAN-SPAM / GDPR compliant?</h3><p>The legal minimums are enforced in code, not suggested: the server returns a 400 if you try to send without a physical address configured, the compiler appends an unsubscribe footer if a template lacks one, and every email carries RFC 8058 one-click unsubscribe headers — which Gmail and Yahoo require for bulk senders.</p></div>
+                    <div class="faq-item"><h3>Does it do automations and A/B tests?</h3><p>No — drip automations and A/B testing are deliberately out of scope for now. Postbird covers lists, segments, campaigns and tracking. If your marketing lives on complex journey builders, Mailchimp still wins there.</p></div>
+                    <div class="faq-item"><h3>Can I run it on my desktop?</h3><p>Yes, for authoring and small sends — but tracking pixels and unsubscribe links only resolve while the app is running and reachable. For real campaigns, deploy to a $5 VPS with a public BASE_URL.</p></div>
+                </div>
+                <div style="max-width:760px;margin:2rem auto 0;">
+                    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem;">Deep-dive comparisons:</p>
+                    <div class="related-links">
+                        <a href="/software/comparison/mailchimp-alternative/">Mailchimp alternative</a>
+                        <a href="/software/comparison/sendy-alternative/">Sendy alternative</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get Postbird">
+            <div class="container">
+                <h2>Own Postbird Forever</h2>
+                <p>$59 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $59 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/postbird" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Chatterbox — Hyvor Talk Alternative, $24 One-Time | Advanced Marketing</title>
+    <meta name="description" content="Threaded comments, votes, moderation and Disqus import — embedded with one script tag, hosted by you. Pay once ($24), own it forever. Replaces Hyvor Talk ($8/mo). MIT source on GitHub.">
+    <link rel="canonical" href="https://advancedmarketing.co/software/chatterbox/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Chatterbox — Hyvor Talk Alternative, $24 One-Time | Advanced Marketing">
+    <meta property="og:description" content="Threaded comments, votes, moderation and Disqus import — embedded with one script tag, hosted by you. Pay once ($24), own it forever. Replaces Hyvor Talk ($8/mo). MIT source on GitHub.">
+    <meta property="og:url" content="https://advancedmarketing.co/software/chatterbox/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /software section additions ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .sw-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .sw-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:all 0.4s; text-decoration:none; color:inherit; }
+        .sw-card:hover { border-color:rgba(201,169,98,0.35); transform:translateY(-4px); background:var(--bg-card-hover); }
+        .sw-card .sw-icon { font-size:1.9rem; margin-bottom:1rem; }
+        .sw-card h3 { font-size:1.35rem; margin-bottom:0.4rem; }
+        .sw-card .sw-tag { color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:1.25rem; flex:1; }
+        .sw-card .sw-meta { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; border-top:1px solid var(--border); padding-top:1rem; }
+        .sw-card .sw-price { color:var(--gold); font-weight:700; font-size:1.05rem; white-space:nowrap; }
+        .sw-card .sw-replaces { font-size:0.75rem; color:var(--text-muted); text-align:right; }
+        .soon-strip { display:flex; flex-wrap:wrap; gap:0.6rem; }
+        .soon-pill { font-size:0.78rem; padding:0.5rem 0.95rem; border:1px dashed var(--border); border-radius:999px; color:var(--text-muted); opacity:0.75; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Chatterbox","description":"Threaded comments, votes, moderation and Disqus import — embedded with one script tag, hosted by you.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/chatterbox/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"24","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — the full source is MIT at github.com/bensblueprints/chatterbox-comments. The $24 buys the packaged installer and updates instead of npm-and-docker setup."}},{"@type":"Question","name":"Can I migrate from Disqus?","acceptedAnswer":{"@type":"Answer","text":"Yes — upload your Disqus XML export, dry-run to see the counts, then commit. The import is idempotent by disqus_id, so re-running the same file never double-imports."}},{"@type":"Question","name":"Do I need a server?","acceptedAnswer":{"@type":"Answer","text":"For a public site, yes — a $5 VPS with the included docker compose file covers it. That's the honest trade-off vs Hyvor Talk: they host everything for you, and if you never want to touch a server, a hosted service is genuinely simpler. Chatterbox is for people who'd rather own the data and skip the monthly bill."}},{"@type":"Question","name":"How does it handle spam without CAPTCHAs?","acceptedAnswer":{"@type":"Answer","text":"Layered, invisible defenses: a hidden honeypot field, a minimum time-to-submit, per-IP rate limiting (5 per 10 minutes by default), and a link-count threshold — plus an approve-first mode and blocklists when you want a human in the loop."}},{"@type":"Question","name":"Is it safe to embed on my site?","acceptedAnswer":{"@type":"Answer","text":"The widget runs in a shadow DOM so styles can't leak either way, and comment bodies are only ever rendered as text nodes — autolinked URLs are built as real anchor elements with rel=\"nofollow noopener ugc\", never concatenated HTML. The test suite includes an explicit XSS check."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Chatterbox">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>Chatterbox</span></nav>
+                <span class="price-badge"><span class="amt">$24</span> one-time, forever</span>
+                <h1>💬 Chatterbox</h1>
+                <p class="lead">Self-hosted threaded comments for any site. One script tag, one SQLite file, $24 once.</p>
+                <p class="lead" style="font-size:1.02rem;">Disqus puts ads next to your writing and sells your readers' data unless you pay $12-95/month. Hyvor Talk is ad-free but still $8-24+/month, forever. Chatterbox is the same idea — one script tag adds threaded comments, votes, moderation and reply-email notifications to any site — running on your server, with your SQLite file, for a one-time $24.</p>
+                <div class="hero-ctas">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/chatterbox-comments" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">What You Get</span>
+                    <h2>Features</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📎</div><h3>One-line embed</h3><p>A script tag plus a div. Dependency-free vanilla JS (~15 KB) in a shadow DOM — your site's styles never leak in, the widget's never leak out.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🧵</div><h3>Threaded comments</h3><p>Replies nested to depth 4 with collapse, relative timestamps, and a 15-minute self-edit/delete window for commenters.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">⬆️</div><h3>Voting with Wilson score</h3><p>One vote per browser token per comment, server-enforced. Sort by Best, Newest or Oldest.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🛡️</div><h3>Spam defenses that don't annoy humans</h3><p>Hidden honeypot, minimum time-to-submit, per-IP rate limiting, link-count threshold — all invisible unless you're a bot. No CAPTCHAs.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">👮</div><h3>Moderation dashboard</h3><p>Pending/Approved/Spam/Deleted queues, bulk actions, per-site approve-first toggle, email/IP blocklist — plus an RSS feed for moderating from any feed reader.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📧</div><h3>Reply-email notifications</h3><p>BYO SMTP; commenters who opt in get emailed on replies, with a signed one-click unsubscribe link.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📦</div><h3>Disqus import</h3><p>Upload your XML export, dry-run the counts, commit. Re-importing the same file is a no-op — idempotent by disqus_id.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🔐</div><h3>Privacy-first &amp; XSS-safe</h3><p>IPs are salted-hashed before touching disk, never stored raw. Comment bodies render as text nodes only — never string-concatenated HTML.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Comparison with Hyvor Talk">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">The Math</span>
+                    <h2>Chatterbox vs Hyvor Talk</h2>
+                    <p>Hyvor Talk at $8/mo costs roughly $96/year — $192 over two years. Chatterbox is $24, once.</p>
+                </div>
+                
+                <div class="compare-wrap">
+                <table class="compare">
+                    <thead><tr><th></th><th class="us">Chatterbox</th><th>Hyvor Talk</th></tr></thead>
+                    <tbody>
+                        <tr><td>Price</td><td class="us">$24 once</td><td>$8-24+/mo ($96+/yr)</td></tr>
+                        <tr><td>Cost over 3 years</td><td class="us">$24</td><td>$288-$864+</td></tr>
+                        <tr><td>Threaded comments + voting</td><td class="us">Yes</td><td>Yes</td></tr>
+                        <tr><td>Disqus import</td><td class="us">Dry-run first, idempotent</td><td>Partial</td></tr>
+                        <tr><td>Ads on your site</td><td class="us">Never</td><td>Never</td></tr>
+                        <tr><td>Your readers' data</td><td class="us">Your server, IPs hashed</td><td>Their cloud</td></tr>
+                        <tr><td>Reply-email notifications</td><td class="us">Yes (your SMTP)</td><td>Yes</td></tr>
+                        <tr><td>Source code</td><td class="us">MIT, on GitHub</td><td>Closed</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="color:var(--text-muted);margin-top:1.25rem;font-size:0.95rem;">Against Hyvor Talk's $8/mo starter tier, Chatterbox pays for itself in 3 months. Against Disqus Plus, 2 months. Then it's free forever.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">How It Works</span>
+                    <h2>Three Steps, No Subscription</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step"><div class="num">01</div><h3>Buy once on Whop</h3><p>One-time $24 for the packaged desktop installer and lifetime updates — no subscription, no per-pageview tiers.</p></div>
+                    <div class="process-step"><div class="num">02</div><h3>Deploy the server</h3><p>docker compose up on a $5 VPS makes the embed publicly reachable. The desktop app is great for local moderation of the same database.</p></div>
+                    <div class="process-step"><div class="num">03</div><h3>Paste the embed snippet</h3><p>Copy the script tag from the Embed tab into any page — blog, static site, anything. Comments, votes and moderation work immediately.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Frequently asked questions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">FAQ</span>
+                    <h2>Honest Answers</h2>
+                </div>
+                <div style="max-width:760px;margin:0 auto;">
+                    <div class="faq-item"><h3>Is it really free on GitHub?</h3><p>Yes — the full source is MIT at github.com/bensblueprints/chatterbox-comments. The $24 buys the packaged installer and updates instead of npm-and-docker setup.</p></div>
+                    <div class="faq-item"><h3>Can I migrate from Disqus?</h3><p>Yes — upload your Disqus XML export, dry-run to see the counts, then commit. The import is idempotent by disqus_id, so re-running the same file never double-imports.</p></div>
+                    <div class="faq-item"><h3>Do I need a server?</h3><p>For a public site, yes — a $5 VPS with the included docker compose file covers it. That's the honest trade-off vs Hyvor Talk: they host everything for you, and if you never want to touch a server, a hosted service is genuinely simpler. Chatterbox is for people who'd rather own the data and skip the monthly bill.</p></div>
+                    <div class="faq-item"><h3>How does it handle spam without CAPTCHAs?</h3><p>Layered, invisible defenses: a hidden honeypot field, a minimum time-to-submit, per-IP rate limiting (5 per 10 minutes by default), and a link-count threshold — plus an approve-first mode and blocklists when you want a human in the loop.</p></div>
+                    <div class="faq-item"><h3>Is it safe to embed on my site?</h3><p>The widget runs in a shadow DOM so styles can't leak either way, and comment bodies are only ever rendered as text nodes — autolinked URLs are built as real anchor elements with rel="nofollow noopener ugc", never concatenated HTML. The test suite includes an explicit XSS check.</p></div>
+                </div>
+                <div style="max-width:760px;margin:2rem auto 0;">
+                    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem;">Deep-dive comparisons:</p>
+                    <div class="related-links">
+                        <a href="/software/comparison/hyvor-talk-alternative/">Hyvor Talk alternative</a>
+                        <a href="/software/comparison/disqus-alternative/">Disqus alternative</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get Chatterbox">
+            <div class="container">
+                <h2>Own Chatterbox Forever</h2>
+                <p>$24 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/chatterbox-comments" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

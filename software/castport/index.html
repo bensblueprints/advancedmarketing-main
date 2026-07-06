@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Castport — Transistor Alternative, $39 One-Time | Advanced Marketing</title>
+    <meta name="description" content="Upload episodes, get a valid RSS feed, public pages, embeddable player & download stats. Pay once. Pay once ($39), own it forever. Replaces Transistor ($19/mo). MIT source on GitHub.">
+    <link rel="canonical" href="https://advancedmarketing.co/software/castport/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Castport — Transistor Alternative, $39 One-Time | Advanced Marketing">
+    <meta property="og:description" content="Upload episodes, get a valid RSS feed, public pages, embeddable player & download stats. Pay once. Pay once ($39), own it forever. Replaces Transistor ($19/mo). MIT source on GitHub.">
+    <meta property="og:url" content="https://advancedmarketing.co/software/castport/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /software section additions ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .sw-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .sw-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:all 0.4s; text-decoration:none; color:inherit; }
+        .sw-card:hover { border-color:rgba(201,169,98,0.35); transform:translateY(-4px); background:var(--bg-card-hover); }
+        .sw-card .sw-icon { font-size:1.9rem; margin-bottom:1rem; }
+        .sw-card h3 { font-size:1.35rem; margin-bottom:0.4rem; }
+        .sw-card .sw-tag { color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:1.25rem; flex:1; }
+        .sw-card .sw-meta { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; border-top:1px solid var(--border); padding-top:1rem; }
+        .sw-card .sw-price { color:var(--gold); font-weight:700; font-size:1.05rem; white-space:nowrap; }
+        .sw-card .sw-replaces { font-size:0.75rem; color:var(--text-muted); text-align:right; }
+        .soon-strip { display:flex; flex-wrap:wrap; gap:0.6rem; }
+        .soon-pill { font-size:0.78rem; padding:0.5rem 0.95rem; border:1px dashed var(--border); border-radius:999px; color:var(--text-muted); opacity:0.75; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Castport","description":"Upload episodes, get a valid RSS feed, public pages, embeddable player & download stats. Pay once.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/castport/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"39","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — MIT source at github.com/bensblueprints/castport, always. $39 buys the packaged installer, guided deploy and lifetime updates."}},{"@type":"Question","name":"Will Apple and Spotify actually accept the feed?","acceptedAnswer":{"@type":"Answer","text":"That's the part we sweated: exact enclosure byte counts (not estimates), permanent GUIDs, real probed audio durations, and proper HTTP Range support on audio — the exact details that get naive feeds rejected. Set BASE_URL to your real domain first; localhost feeds are rejected."}},{"@type":"Question","name":"Who pays for the bandwidth?","acceptedAnswer":{"@type":"Answer","text":"You do — that's the honest trade-off of self-hosting. A $5 VPS comfortably serves a typical indie show; a genuinely huge audience is where Transistor's managed CDN infrastructure earns its monthly fee."}},{"@type":"Question","name":"What about listener privacy?","acceptedAnswer":{"@type":"Answer","text":"Download stats hash IPs with a rotating daily salt, so you get unique-downloads-per-day trends without ever storing anything personal — and the data sits in your SQLite file, not a third party's dashboard."}},{"@type":"Question","name":"How do backups work?","acceptedAnswer":{"@type":"Answer","text":"Copy three things: one SQLite file, the audio folder and the artwork folder. That's the entire state of the app."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Castport">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>Castport</span></nav>
+                <span class="price-badge"><span class="amt">$39</span> one-time, forever</span>
+                <h1>📻 Castport</h1>
+                <p class="lead">Host your own podcast: Apple/Spotify-valid RSS, player, stats — on your $5 VPS.</p>
+                <p class="lead" style="font-size:1.02rem;">Podcast hosting is, under the hood, file storage plus an XML feed — and Transistor charges $19–99/month for it, forever. Castport runs the whole thing on your own $5 VPS or desktop: upload an episode, get an Apple/Spotify-valid RSS feed, clean public pages, an embeddable player and privacy-safe download stats. $39 once, and your audio files are never held hostage.</p>
+                <div class="hero-ctas">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/castport" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">What You Get</span>
+                    <h2>Features</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card"><div class="fi" aria-hidden="true">♾️</div><h3>Unlimited shows &amp; episodes</h3><p>Each show gets its own artwork, iTunes category, language, explicit flag and custom feed slug. No per-show pricing tiers.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📡</div><h3>Apple/Spotify-valid RSS</h3><p>RSS 2.0 with the full itunes namespace, exact enclosure byte lengths, permanent GUIDs and valid pubDates — the details that actually get feeds rejected, done right.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">⬆️</div><h3>Streaming uploads</h3><p>MP3 or M4A streamed straight to disk — no buffering 200 MB files in memory — with markdown show notes, episode/season numbers and per-episode artwork.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📖</div><h3>Podcasting 2.0 chapters</h3><p>A chapters editor (start time + title) that also emits the podcast:chapters JSON endpoint modern apps read.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📅</div><h3>Scheduling</h3><p>Set a future publish date and the episode stays hidden from the feed and public pages until then — no cron job needed.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🎧</div><h3>Public pages &amp; embed player</h3><p>Server-rendered show and episode pages with subscribe buttons and OG tags, plus an /embed iframe player with a copyable snippet.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📊</div><h3>Privacy-safe download stats</h3><p>Unique downloads per episode per day with a 30-day trend chart. Listener IPs are hashed with a rotating daily salt — nothing personal is ever stored.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">⏩</div><h3>Real HTTP Range support</h3><p>Proper Range handling on audio delivery — required by Apple Podcasts and virtually every podcast app, and easy to get silently wrong.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Comparison with Transistor">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">The Math</span>
+                    <h2>Castport vs Transistor</h2>
+                    <p>Transistor at $19/mo costs roughly $228/year — $456 over two years. Castport is $39, once.</p>
+                </div>
+                
+                <div class="compare-wrap">
+                <table class="compare">
+                    <thead><tr><th></th><th class="us">Castport</th><th>Transistor</th></tr></thead>
+                    <tbody>
+                        <tr><td>Price</td><td class="us">$39 once</td><td>$19–99/mo, forever</td></tr>
+                        <tr><td>Cost over 3 years</td><td class="us">$39</td><td>$684–3,564</td></tr>
+                        <tr><td>Shows</td><td class="us">Unlimited</td><td>1 to unlimited depending on tier</td></tr>
+                        <tr><td>Downloads</td><td class="us">Unlimited</td><td>Metered on lower tiers</td></tr>
+                        <tr><td>Your own domain</td><td class="us">Yes, natively</td><td>Paid plan only</td></tr>
+                        <tr><td>Audio files</td><td class="us">Always yours, on your disk</td><td>Hosted on their infra</td></tr>
+                        <tr><td>Podcasting 2.0 chapters</td><td class="us">Built in</td><td>Limited</td></tr>
+                        <tr><td>Source code</td><td class="us">MIT, on GitHub</td><td>Closed</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="color:var(--text-muted);margin-top:1.25rem;font-size:0.95rem;">Pays for itself in 2.1 months against Transistor Starter — or under a month against Growth. Over 3 years you keep $645–3,525.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">How It Works</span>
+                    <h2>Three Steps, No Subscription</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step"><div class="num">01</div><h3>Buy once on Whop</h3><p>One-time $39 for the packaged installer (Windows desktop app + guided VPS deploy) with lifetime updates.</p></div>
+                    <div class="process-step"><div class="num">02</div><h3>Deploy and point your domain</h3><p>docker compose up on a $5 VPS, put Caddy or nginx in front for TLS, and set BASE_URL to your real https:// domain.</p></div>
+                    <div class="process-step"><div class="num">03</div><h3>Upload and submit</h3><p>Upload your first episode, then submit /feed/your-show.xml to Apple Podcasts Connect and Spotify for Podcasters. Done.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Frequently asked questions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">FAQ</span>
+                    <h2>Honest Answers</h2>
+                </div>
+                <div style="max-width:760px;margin:0 auto;">
+                    <div class="faq-item"><h3>Is it really free on GitHub?</h3><p>Yes — MIT source at github.com/bensblueprints/castport, always. $39 buys the packaged installer, guided deploy and lifetime updates.</p></div>
+                    <div class="faq-item"><h3>Will Apple and Spotify actually accept the feed?</h3><p>That's the part we sweated: exact enclosure byte counts (not estimates), permanent GUIDs, real probed audio durations, and proper HTTP Range support on audio — the exact details that get naive feeds rejected. Set BASE_URL to your real domain first; localhost feeds are rejected.</p></div>
+                    <div class="faq-item"><h3>Who pays for the bandwidth?</h3><p>You do — that's the honest trade-off of self-hosting. A $5 VPS comfortably serves a typical indie show; a genuinely huge audience is where Transistor's managed CDN infrastructure earns its monthly fee.</p></div>
+                    <div class="faq-item"><h3>What about listener privacy?</h3><p>Download stats hash IPs with a rotating daily salt, so you get unique-downloads-per-day trends without ever storing anything personal — and the data sits in your SQLite file, not a third party's dashboard.</p></div>
+                    <div class="faq-item"><h3>How do backups work?</h3><p>Copy three things: one SQLite file, the audio folder and the artwork folder. That's the entire state of the app.</p></div>
+                </div>
+                <div style="max-width:760px;margin:2rem auto 0;">
+                    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem;">Deep-dive comparisons:</p>
+                    <div class="related-links">
+                        <a href="/software/comparison/transistor-alternative/">Transistor alternative</a>
+                        <a href="/software/comparison/buzzsprout-alternative/">Buzzsprout alternative</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get Castport">
+            <div class="container">
+                <h2>Own Castport Forever</h2>
+                <p>$39 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/castport" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

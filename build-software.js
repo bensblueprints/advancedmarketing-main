@@ -1,9 +1,9 @@
 /*
  * build-software.js — generates the /software section for advancedmarketing.co:
  *   /software/                              hub page (product cards + coming soon)
- *   /software/<brand>/                      25 product landing pages
+ *   /software/<brand>/                      49 product landing pages
  *   /software/comparison/                   blog hub
- *   /software/comparison/<slug>-alternative/  50 comparison posts
+ *   /software/comparison/<slug>-alternative/  76 comparison posts
  *
  * Reuses the site's shared chrome (nav/footer/voice widget) and /css/site.css,
  * with a small section-specific <style> block per page.
@@ -19,15 +19,11 @@ const WHOP = 'https://whop.com/onetime-suite';
 const GH = 'https://github.com/bensblueprints';
 
 const products = require('./software-src/products.js');
-const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js'), ...require('./software-src/posts-4.js')];
+const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js'), ...require('./software-src/posts-4.js'), ...require('./software-src/posts-5.js'), ...require('./software-src/posts-6.js')];
 const bySlug = Object.fromEntries(products.map(p => [p.slug, p]));
 
 const COMING_SOON = [
-  'Pingcron', 'Hookscope', 'Snapfleet', 'Wrangle', 'Vaultkeeper',
-  'Queuecraft', 'Bravowall', 'Hawkwatch', 'Postbird', 'Keymaster',
-  'Castport', 'Inkpress', 'Feedloft', 'Reelsnag', 'Voicebarn',
-  'Droplink', 'Snipvault', 'Inkseal', 'Ledgerly', 'Dealstack',
-  'Overlayr', 'Signboard', 'Serpdeck', 'Chatterbox', 'Textract',
+  'Dealstack',
 ];
 
 /* "a" vs "an" for competitor names, by leading vowel sound */
@@ -85,6 +81,32 @@ const POST_TABLE = {
   'obsidian-sync-alternative':       { price: '$4–8/mo (app itself free)', yr3: '~$144–288', limits: 'Sync is the paid part; commercial license extra', cloud: 'E2E-encrypted relay (their servers)', offline: 'App yes; sync needs internet', src: 'Closed (app); files are yours' },
   'crisp-alternative':               { price: '$95/mo (Plus, per workspace)', yr3: '~$3,420', limits: 'Seats & features by plan; per-workspace pricing', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
   'intercom-alternative':            { price: '$39+/seat/mo + usage-based AI fees', yr3: '~$1,404+ per seat', limits: 'Per-seat + per-resolution + add-on modules', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'cronitor-alternative':            { price: '$10/mo solo, $50/mo team', yr3: '~$360–1,800', limits: 'Monitors tiered by plan', cloud: 'Their cloud', offline: 'n/a (hosted)', src: 'Closed' },
+  'healthchecks-alternative':        { price: 'Free (20 checks) / $20/mo Business', yr3: '$0–720', limits: '20 checks free; tiered above', cloud: 'Hosted, or your Django/Postgres server', offline: 'Self-host: yes', src: 'Open source (BSD)' },
+  'urlbox-alternative':              { price: '$19/mo (2,000 renders)', yr3: '~$684+', limits: 'Renders metered monthly', cloud: 'Every URL through their servers', offline: 'No', src: 'Closed' },
+  'devutils-alternative':            { price: '~$29 one-time license', yr3: 'License (+ paid major updates)', limits: 'macOS only — no Windows version', cloud: 'Local', offline: 'Yes', src: 'Closed' },
+  'simplebackups-alternative':       { price: '$29+/mo', yr3: '~$1,044+', limits: 'Backup jobs tiered by plan', cloud: 'Your DB credentials on their cloud', offline: 'No', src: 'Closed' },
+  'launchlist-alternative':          { price: '$29/mo (Pro)', yr3: '~$1,044', limits: 'Waitlists & subscribers tiered; free tier capped', cloud: 'Your list in their cloud, their sender', offline: 'No', src: 'Closed' },
+  'senja-alternative':               { price: '$19/mo Starter, $39/mo Pro', yr3: '~$684–1,404', limits: '15 testimonials on free tier', cloud: 'Their cloud, their widget servers', offline: 'No', src: 'Closed' },
+  'distill-alternative':             { price: '$12/mo Starter, $28/mo Pro', yr3: '~$432–1,008', limits: 'Monitors & check frequency metered', cloud: 'Their cloud (free tier = browser-open only)', offline: 'Extension while browser open', src: 'Closed' },
+  'mailchimp-alternative':           { price: '~$20/mo @ 1k contacts, $100+/mo @ 10k', yr3: '~$720–3,600+ (grows with list)', limits: 'Priced per contact (incl. unsubscribed); sends capped', cloud: 'Their cloud', offline: 'No', src: 'Closed' },
+  'sendy-alternative':               { price: '$69 one-time + SES usage', yr3: '$69 + ~$0.10/1k emails', limits: 'Amazon SES only; PHP/MySQL stack', cloud: 'Your server (sending via SES)', offline: 'Self-host: yes', src: 'Closed (license key)' },
+  'keygen-alternative':              { price: 'from $99/mo hosted', yr3: '~$3,564+', limits: 'Licenses & usage metered by tier', cloud: 'Keys & activations in their cloud (CE self-host = Ruby+Postgres+Redis)', offline: 'CE self-host: yes', src: 'Fair-code CE available' },
+  'gumroad-alternative':             { price: '10% + 50¢ per sale', yr3: '~$3,000 at $10k/yr sales', limits: 'Cut scales with your revenue; server-only license checks', cloud: 'Their platform holds customers, keys & files', offline: 'No', src: 'Source-visible (restrictive license)' },
+  'transistor-alternative':          { price: '$19–99/mo', yr3: '~$684–3,564', limits: '20k downloads/mo on Starter', cloud: 'Audio + feed on their infra', offline: 'No', src: 'Closed' },
+  'buzzsprout-alternative':          { price: '$12–24/mo by upload hours', yr3: '~$432–864', limits: 'Upload hours metered; free tier deletes episodes after 90 days', cloud: 'Audio & feed on their servers', offline: 'No', src: 'Closed' },
+  'ghost-alternative':               { price: '$9/mo (Starter)', yr3: '~$324', limits: '1 staff user & limited integrations on Starter', cloud: 'Ghost(Pro) cloud (self-host = MySQL + Node DIY)', offline: 'No', src: 'Open source (hosted paid)' },
+  'feedly-alternative':              { price: '$8/mo (Pro)', yr3: '~$288', limits: 'Source caps & search gated on free tier', cloud: 'Subscriptions & reading data in their cloud', offline: 'Partial (mobile apps cache)', src: 'Closed' },
+  'inoreader-alternative':           { price: '~$7.50–9.99/mo (Pro)', yr3: '~$270–360', limits: 'Rules, monitoring & search gated by tier', cloud: 'Their cloud', offline: 'Partial (apps cache)', src: 'Closed' },
+  'wetransfer-alternative':          { price: '$12/mo (Pro)', yr3: '~$432', limits: 'Free tier ~2–3GB; no resumable uploads', cloud: 'Files stored on their servers until expiry', offline: 'No', src: 'Closed' },
+  'docusign-alternative':            { price: '$10–25/mo', yr3: '~$360–900', limits: '5 envelopes/mo on Personal', cloud: 'Documents & audit trail in their cloud', offline: 'No', src: 'Closed' },
+  'pandadoc-alternative':            { price: '$19–49/user/mo', yr3: '~$684–1,764 per user', limits: 'CRM hooks & approvals gated to higher tiers', cloud: 'Their cloud; history tied to active plan', offline: 'No', src: 'Closed' },
+  'streamelements-alternative':      { price: 'Free core (SE.Pay fees + premium upsells)', yr3: '$0 cash + fees on tips', limits: 'Overlays render from their cloud — outages hit your stream', cloud: 'Overlays & configs on their servers', offline: 'No', src: 'Closed' },
+  'yodeck-alternative':              { price: '$8/screen/mo', yr3: '~$1,440 (5 screens)', limits: 'Per-screen billing from screen 2; player app/Pi image required', cloud: 'Content & schedules in their cloud', offline: 'Players cache locally', src: 'Closed' },
+  'accuranker-alternative':          { price: '$129+/mo', yr3: '~$4,644+', limits: '1,000 keywords on the entry plan', cloud: 'Your keyword strategy in their cloud', offline: 'No', src: 'Closed' },
+  'hyvor-talk-alternative':          { price: '$8–24+/mo, tiered by pageviews', yr3: '~$288–864+', limits: 'Pageview tiers; SSO & extras on higher plans', cloud: 'Comments on their EU cloud', offline: 'No', src: 'Closed' },
+  'disqus-alternative':              { price: 'Free (ads + tracking) / $12/mo Plus / $95/mo Pro', yr3: '$0–3,420 (+ ads on your readers)', limits: 'Ads & third-party trackers on free tier; heavy embed', cloud: 'Comment history on their servers', offline: 'No', src: 'Closed' },
+  'expensify-alternative':           { price: '~$5+/user/mo', yr3: '~$180+ per user', limits: 'Per-seat pricing; cancel = lose access to history', cloud: 'Receipt photos uploaded to their cloud', offline: 'No', src: 'Closed' },
 };
 
 /* ---------- shared chrome ---------- */
@@ -343,7 +365,7 @@ function write(rel, html) {
             <div class="container">
                 <div class="section-header">
                     <span class="text-label">Shipped &amp; Ready</span>
-                    <h2>Twenty-Five Apps. Zero Subscriptions.</h2>
+                    <h2>Forty-Nine Apps. Zero Subscriptions.</h2>
                     <p>Each one replaces a tool that bills you monthly, forever.</p>
                 </div>
                 <div class="sw-grid">${cards}
@@ -355,8 +377,8 @@ function write(rel, html) {
             <div class="container">
                 <div class="section-header">
                     <span class="text-label">Coming Soon</span>
-                    <h2>25 More Planned</h2>
-                    <p>Same deal — pay once, own forever. On the roadmap:</p>
+                    <h2>Still on the Roadmap</h2>
+                    <p>Same deal — pay once, own forever. Next up:</p>
                 </div>
                 <div class="soon-strip">
                     ${COMING_SOON.map(s => `<span class="soon-pill">${s}</span>`).join('\n                    ')}
@@ -377,7 +399,7 @@ function write(rel, html) {
 
   write('software', page({
     title: 'Software — Pay Once, Own It Forever | Advanced Marketing',
-    desc: 'Twenty-five desktop & self-hosted apps that replace monthly SaaS subscriptions — analytics, live chat, kanban, changelog, time tracking, social scheduling, PDF tools, transcription and more. One-time prices from $15.',
+    desc: 'Forty-nine desktop & self-hosted apps that replace monthly SaaS subscriptions — analytics, uptime & cron monitoring, email campaigns, e-signatures, podcast hosting, rank tracking, backups, screenshots and more. One-time prices from $15.',
     canonical: `${SITE}/software/`,
     jsonld: [{
       '@context': 'https://schema.org', '@type': 'ItemList',
@@ -545,7 +567,7 @@ products.forEach(p => {
 
   write('software/comparison', page({
     title: 'SaaS Alternatives — Honest Pay-Once Comparisons (2026) | Advanced Marketing',
-    desc: 'Honest comparisons of 50 subscription tools — Plausible, Canny, Hotjar, Trello, Toggl, Notion, Crisp, Intercom, Buffer, Linktree, SmallPDF, Otter.ai and more — vs our pay-once desktop and self-hosted alternatives.',
+    desc: 'Honest comparisons of 76 subscription tools — Plausible, Canny, Hotjar, Trello, Notion, Crisp, Intercom, Buffer, Mailchimp, DocuSign, Ghost, Feedly, Cronitor, AccuRanker and more — vs our pay-once desktop and self-hosted alternatives.',
     canonical: `${SITE}/software/comparison/`,
     jsonld: [{
       '@context': 'https://schema.org', '@type': 'ItemList',
@@ -624,7 +646,7 @@ posts.forEach(post => {
 
                     <h2>The bottom line</h2>
                     <p>Subscriptions make sense when a service does ongoing work for you — hosting, syncing, multi-region infrastructure, human labor. They make much less sense when the work happens on your own hardware and the monthly bill is just a toll booth. ${p.brand} is our bet that for this job, most people are better served owning the tool: $${p.price} once, ${esc(p.payback.charAt(0).toLowerCase() + p.payback.slice(1))}</p>
-                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — twenty-five desktop and self-hosted apps (analytics, live chat, kanban, changelog, time tracking, notes, social scheduling, PDF tools, transcription, uptime monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry.</p>
+                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — forty-nine desktop and self-hosted apps (analytics, live chat, kanban, email campaigns, e-signatures, podcast hosting, rank tracking, backups, uptime & cron monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry.</p>
 
                     <div class="post-cta">
                         <h3>Try ${p.brand} — $${p.price}, one time</h3>
