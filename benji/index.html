@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benji — Links</title>
+<meta name="robots" content="noindex">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { min-height:100vh; background:#09090b; display:flex; justify-content:center; padding:32px 16px; }
+#link-in-bio-embed { width:100%; max-width:640px; border:0; display:block; margin:0 auto; height:800px; }
+</style>
+</head>
+<body>
+<iframe id="link-in-bio-embed" src="https://hf8px7yzbchql78srccab34y.212.28.184.24.sslip.io/benji" style="width:100%;max-width:640px;border:0;display:block;margin:0 auto;height:800px" loading="lazy" title="Link in bio"></iframe>
+<script>
+(function () {
+  window.addEventListener('message', function (e) {
+    if (e && e.data && e.data.source === 'link-in-bio') {
+      var f = document.getElementById('link-in-bio-embed');
+      if (f) f.style.height = e.data.height + 'px';
+    }
+  });
+})();
+</script>
+</body>
+</html>
