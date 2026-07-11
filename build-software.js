@@ -22,6 +22,20 @@ const products = require('./software-src/products.js');
 const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js'), ...require('./software-src/posts-4.js'), ...require('./software-src/posts-5.js'), ...require('./software-src/posts-6.js')];
 const bySlug = Object.fromEntries(products.map(p => [p.slug, p]));
 
+/* ---------- real app screenshots (software-src/shots/<slug>.png -> /software/assets/shots/) ---------- */
+const SHOTS_SRC = path.join(ROOT, 'software-src', 'shots');
+const SHOTS_OUT = path.join(ROOT, 'software', 'assets', 'shots');
+fs.mkdirSync(SHOTS_OUT, { recursive: true });
+const shotsAvailable = new Set();
+if (fs.existsSync(SHOTS_SRC)) {
+  for (const f of fs.readdirSync(SHOTS_SRC)) {
+    if (!/\.png$/i.test(f)) continue;
+    fs.copyFileSync(path.join(SHOTS_SRC, f), path.join(SHOTS_OUT, f));
+    shotsAvailable.add(f.replace(/\.png$/i, ''));
+  }
+}
+const hasShot = (slug) => shotsAvailable.has(slug);
+
 const COMING_SOON = [
   'Dealstack',
 ];
@@ -295,7 +309,32 @@ const SW_CSS = `
         .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
         .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
         .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
-        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }`;
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+        /* ===== app-row: alternating screenshot + feature walkthrough ===== */
+        .app-rows { display:flex; flex-direction:column; gap:5rem; }
+        .app-row { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+        .app-row.reverse .app-row-media { order:2; }
+        .app-row-media { border-radius:var(--radius-lg); border:1px solid var(--border); overflow:hidden; background:var(--bg-card); box-shadow:0 20px 50px -20px rgba(0,0,0,0.5); }
+        .app-row-chrome { display:flex; gap:0.4rem; padding:0.65rem 0.85rem; background:#0d0d0d; border-bottom:1px solid var(--border); }
+        .app-row-chrome span { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.15); }
+        .app-row-media img { width:100%; display:block; aspect-ratio:16/10; object-fit:cover; object-position:top; }
+        .app-row-placeholder { aspect-ratio:16/10; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; background:radial-gradient(circle at 50% 30%, var(--gold-glow), transparent 70%); }
+        .app-row-placeholder .icon { font-size:3rem; opacity:0.85; }
+        .app-row-placeholder .soon { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
+        .app-row-content .eyebrow { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
+        .app-row-content .eyebrow .icon { font-size:1.6rem; }
+        .app-row-content .eyebrow .brand { font-family:var(--font-body); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+        .app-row-content h3 { font-size:clamp(1.5rem,2.4vw,1.9rem); margin-bottom:0.6rem; }
+        .app-row-content h3 a { color:inherit; text-decoration:none; }
+        .app-row-content h3 a:hover { color:var(--gold); }
+        .btn-sm { padding:0.55rem 1.1rem; font-size:0.85rem; }
+        .app-row-content .tagline { color:var(--text-muted); line-height:1.65; margin-bottom:1.25rem; }
+        .app-row-features { display:grid; gap:0.55rem; margin-bottom:1.5rem; }
+        .app-row-features li { display:flex; gap:0.6rem; color:var(--text-muted); font-size:0.92rem; line-height:1.5; }
+        .app-row-features li .fi { color:var(--gold); flex-shrink:0; }
+        .app-row-meta { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+        .app-row-meta .replaces { font-size:0.8rem; color:var(--text-muted); }
+        @media (max-width:760px) { .app-row, .app-row.reverse { grid-template-columns:1fr; } .app-row.reverse .app-row-media { order:0; } }`;
 
 function esc(s) { return s.replace(/&(?![a-z#0-9]+;)/g, '&amp;'); }
 
@@ -344,6 +383,40 @@ function write(rel, html) {
   console.log('wrote', rel + '/index.html');
 }
 
+/* One alternating image+text "mini landing page" section per app — a real screenshot
+   when we have one, a tasteful placeholder when we don't (captured incrementally). */
+function appRow(p, i) {
+  const reverse = i % 2 === 1;
+  const media = hasShot(p.slug)
+    ? `<div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/${p.slug}.png" alt="${p.brand} screenshot" loading="lazy" width="1440" height="900">
+                </div>`
+    : `<div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">${p.icon}</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>`;
+  const features = p.features.slice(0, 4).map(f => `<li><span class="fi" aria-hidden="true">${f[0]}</span><span>${esc(f[1])} — ${esc(f[2])}</span></li>`).join('\n                    ');
+
+  return `
+        <div class="app-row${reverse ? ' reverse' : ''}">
+            ${media}
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">${p.icon}</span><span class="brand">${p.brand}</span></div>
+                <h3><a href="/software/${p.slug}/">${p.brand}</a></h3>
+                <p class="tagline">${esc(p.tagline)}</p>
+                <ul class="app-row-features">
+                    ${features}
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$${p.price}</span> once</span>
+                    <span class="replaces">replaces ${p.competitor} (${esc(p.compPrice)})</span>
+                    <a href="/software/${p.slug}/" class="btn btn-outline btn-sm">See ${p.brand} &rarr;</a>
+                </div>
+            </div>
+        </div>`;
+}
+
 /* ---------- 1. /software/ hub ---------- */
 (function hub() {
   const cards = products.map(p => `
@@ -383,7 +456,19 @@ function write(rel, html) {
             </div>
         </section>
 
-        <section class="section section-alt" aria-label="All-access bundle">
+        <section class="section section-alt" aria-label="A closer look at every app">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">Take A Closer Look</span>
+                    <h2>Every App, Screenshotted</h2>
+                    <p>Real screenshots from the actual software — not mockups.</p>
+                </div>
+                <div class="app-rows">${products.map((p, i) => appRow(p, i)).join('')}
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="All-access bundle">
             <div class="container">
                 <div class="post-cta" style="max-width:820px;margin:0 auto;text-align:center;">
                     <span class="text-label">All ${products.length} Apps, One Price</span>
@@ -470,6 +555,18 @@ function write(rel, html) {
                 <div class="section-header">
                     <span class="text-label">Everything, Included</span>
                     <h2>All ${products.length} Apps</h2>
+                    <p>Real screenshots from the actual software, not mockups — screenshots are being captured incrementally, so a few still show a placeholder.</p>
+                </div>
+                <div class="app-rows">${products.map((p, i) => appRow(p, i)).join('')}
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Price list at a glance">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">At A Glance</span>
+                    <h2>Full Price List</h2>
                 </div>
                 <div class="compare-wrap">
                 <table class="compare">

@@ -59,6 +59,31 @@
         .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
         .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
         .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+        /* ===== app-row: alternating screenshot + feature walkthrough ===== */
+        .app-rows { display:flex; flex-direction:column; gap:5rem; }
+        .app-row { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+        .app-row.reverse .app-row-media { order:2; }
+        .app-row-media { border-radius:var(--radius-lg); border:1px solid var(--border); overflow:hidden; background:var(--bg-card); box-shadow:0 20px 50px -20px rgba(0,0,0,0.5); }
+        .app-row-chrome { display:flex; gap:0.4rem; padding:0.65rem 0.85rem; background:#0d0d0d; border-bottom:1px solid var(--border); }
+        .app-row-chrome span { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.15); }
+        .app-row-media img { width:100%; display:block; aspect-ratio:16/10; object-fit:cover; object-position:top; }
+        .app-row-placeholder { aspect-ratio:16/10; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; background:radial-gradient(circle at 50% 30%, var(--gold-glow), transparent 70%); }
+        .app-row-placeholder .icon { font-size:3rem; opacity:0.85; }
+        .app-row-placeholder .soon { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
+        .app-row-content .eyebrow { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
+        .app-row-content .eyebrow .icon { font-size:1.6rem; }
+        .app-row-content .eyebrow .brand { font-family:var(--font-body); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+        .app-row-content h3 { font-size:clamp(1.5rem,2.4vw,1.9rem); margin-bottom:0.6rem; }
+        .app-row-content h3 a { color:inherit; text-decoration:none; }
+        .app-row-content h3 a:hover { color:var(--gold); }
+        .btn-sm { padding:0.55rem 1.1rem; font-size:0.85rem; }
+        .app-row-content .tagline { color:var(--text-muted); line-height:1.65; margin-bottom:1.25rem; }
+        .app-row-features { display:grid; gap:0.55rem; margin-bottom:1.5rem; }
+        .app-row-features li { display:flex; gap:0.6rem; color:var(--text-muted); font-size:0.92rem; line-height:1.5; }
+        .app-row-features li .fi { color:var(--gold); flex-shrink:0; }
+        .app-row-meta { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+        .app-row-meta .replaces { font-size:0.8rem; color:var(--text-muted); }
+        @media (max-width:760px) { .app-row, .app-row.reverse { grid-template-columns:1fr; } .app-row.reverse .app-row-media { order:0; } }
     </style>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Advanced Marketing 1 Time Suite","description":"Every app in the suite. One payment. Own it all, forever.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/onetime-suite-bundle/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"997","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
 </head>
@@ -132,6 +157,1250 @@
                 <div class="section-header">
                     <span class="text-label">Everything, Included</span>
                     <h2>All 56 Apps</h2>
+                    <p>Real screenshots from the actual software, not mockups — screenshots are being captured incrementally, so a few still show a placeholder.</p>
+                </div>
+                <div class="app-rows">
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">📄</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📄</span><span class="brand">PDFsmith</span></div>
+                <h3><a href="/software/pdfsmith/">PDFsmith</a></h3>
+                <p class="tagline">Every PDF tool you actually use — running 100% on your machine.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔗</span><span>Merge PDFs — Drag-drop any number of PDFs, reorder them in the list, combine into one file.</span></li>
+                    <li><span class="fi" aria-hidden="true">✂️</span><span>Split PDF — Extract any page ranges (1-2 | 3 | 4-6) into separate new PDFs.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔄</span><span>Rotate pages — 90° / 180° / 270°, all pages or a specific range, batched across files.</span></li>
+                    <li><span class="fi" aria-hidden="true">💧</span><span>Watermark — Text (position, size, opacity, diagonal) or image stamp — batch across files.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces SmallPDF ($12–15/mo)</span>
+                    <a href="/software/pdfsmith/" class="btn btn-outline btn-sm">See PDFsmith &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🪄</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🪄</span><span class="brand">Cutaway</span></div>
+                <h3><a href="/software/cutaway/">Cutaway</a></h3>
+                <p class="tagline">Remove image backgrounds with local AI. Unlimited images, full resolution, zero uploads.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag &amp; drop batches — Single images or whole folders — JPG, PNG and WebP.</span></li>
+                    <li><span class="fi" aria-hidden="true">👁️</span><span>Before / after preview — Checkerboard view of the transparent result, per image.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>Flexible output — Transparent PNG, white/black, or any custom background color.</span></li>
+                    <li><span class="fi" aria-hidden="true">📦</span><span>Batch export — Pick a folder, hit one button, watch the progress bar.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces remove.bg ($9/mo (40 credits))</span>
+                    <a href="/software/cutaway/" class="btn btn-outline btn-sm">See Cutaway &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🎙️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎙️</span><span class="brand">WhisperDesk</span></div>
+                <h3><a href="/software/whisperdesk/">WhisperDesk</a></h3>
+                <p class="tagline">Unlimited local audio &amp; video transcription. Your audio never leaves your machine.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎧</span><span>Drag &amp; drop anything — mp3, wav, m4a, mp4, mov, mkv, flac, ogg, webm — video audio is extracted automatically.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔒</span><span>100% private — Transcription runs entirely on your machine. Nothing is ever uploaded.</span></li>
+                    <li><span class="fi" aria-hidden="true">♾️</span><span>Unlimited minutes — No cap, no monthly quota. Transcribe 10 hours a day if you want.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧠</span><span>Model picker — Tiny / base / small / medium, English-only or multilingual — downloaded once from Hugging Face.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces Otter.ai ($16.99/mo)</span>
+                    <a href="/software/whisperdesk/" class="btn btn-outline btn-sm">See WhisperDesk &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🗜️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🗜️</span><span class="brand">Shrinkray</span></div>
+                <h3><a href="/software/shrinkray/">Shrinkray</a></h3>
+                <p class="tagline">Unlimited local batch image compression &amp; conversion.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🖼️</span><span>Drag &amp; drop batches — JPG, PNG, WebP, AVIF, TIFF. Drop a whole shoot at once.</span></li>
+                    <li><span class="fi" aria-hidden="true">📉</span><span>Live savings dashboard — Per-file and total before → after sizes with animated counters and % saved.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎚️</span><span>Quality slider — Full 1–100 control, powered by mozjpeg-grade encoders via sharp (libvips).</span></li>
+                    <li><span class="fi" aria-hidden="true">🔁</span><span>Format conversion — Keep the original format, or convert everything to JPG, PNG, WebP or AVIF in one pass.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces TinyPNG Pro (~$39/yr + API fees)</span>
+                    <a href="/software/shrinkray/" class="btn btn-outline btn-sm">See Shrinkray &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/clipdeck.png" alt="ClipDeck screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎥</span><span class="brand">ClipDeck</span></div>
+                <h3><a href="/software/clipdeck/">ClipDeck</a></h3>
+                <p class="tagline">The Loom replacement you buy once. Record, trim, export MP4 or GIF — all local.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🖥️</span><span>Source picker with live previews — Record any screen or individual window — thumbnails included.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎤</span><span>Microphone audio — One toggle, mixed cleanly with system audio into a single track.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏺️</span><span>Floating recording pill — Tiny always-on-top timer with a stop button, so the main window stays out of the shot.</span></li>
+                    <li><span class="fi" aria-hidden="true">📚</span><span>Local library — Every recording auto-saves to Videos/Screen Recorder with thumbnails, and plays right in the app.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Loom ($15/mo)</span>
+                    <a href="/software/clipdeck/" class="btn btn-outline btn-sm">See ClipDeck &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/upwatch.png" alt="Upwatch screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📡</span><span class="brand">Upwatch</span></div>
+                <h3><a href="/software/upwatch/">Upwatch</a></h3>
+                <p class="tagline">Self-hosted uptime monitoring + a beautiful public status page.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🌐</span><span>HTTP(S) monitors — URL, interval from 30s to 15m, expected status code, optional keyword match.</span></li>
+                    <li><span class="fi" aria-hidden="true">⚙️</span><span>In-process checker loop — No cron, no workers, no Redis — one Node process does everything.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗄️</span><span>SQLite storage — Check history with automatic 90-day retention pruning. One file to back up.</span></li>
+                    <li><span class="fi" aria-hidden="true">📈</span><span>Per-monitor detail — Uptime % for 24h / 7d / 30d, response-time sparkline, full incident log.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces UptimeRobot ($8/mo)</span>
+                    <a href="/software/upwatch/" class="btn btn-outline btn-sm">See Upwatch &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/trimly.png" alt="Trimly screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔗</span><span class="brand">Trimly</span></div>
+                <h3><a href="/software/trimly/">Trimly</a></h3>
+                <p class="tagline">Your own branded link shortener with full click analytics.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🏷️</span><span>Branded short links — Auto-generated or custom slugs on your own domain.</span></li>
+                    <li><span class="fi" aria-hidden="true">📊</span><span>Click analytics — Total + unique clicks, clicks-over-time chart, top referrers, devices, browsers, countries.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔲</span><span>QR code for every link — Downloadable PNG and SVG.</span></li>
+                    <li><span class="fi" aria-hidden="true">↪️</span><span>301 / 302 per link — SEO-permanent or trackable-temporary — your call, editable any time.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Bitly ($29/mo)</span>
+                    <a href="/software/trimly/" class="btn btn-outline btn-sm">See Trimly &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/billcraft.png" alt="Billcraft screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🧾</span><span class="brand">Billcraft</span></div>
+                <h3><a href="/software/billcraft/">Billcraft</a></h3>
+                <p class="tagline">Self-hosted invoicing for freelancers and small businesses.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🏢</span><span>Business profile — Name, logo, address, tax ID, currency and payment/bank instructions printed on every invoice.</span></li>
+                    <li><span class="fi" aria-hidden="true">👥</span><span>Unlimited clients — Full CRUD with company, email, address, notes. FreshBooks Lite caps you at 5 billable clients.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧾</span><span>Real invoices — Line items (qty × rate), tax %, discount %, notes, due dates, configurable numbering.</span></li>
+                    <li><span class="fi" aria-hidden="true">📄</span><span>Professional PDFs — Clean server-side template (pdfkit — no headless browser) with your logo and status pill.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces FreshBooks ($19/mo)</span>
+                    <a href="/software/billcraft/" class="btn btn-outline btn-sm">See Billcraft &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/bookslot.png" alt="Bookslot screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📅</span><span class="brand">Bookslot</span></div>
+                <h3><a href="/software/bookslot/">Bookslot</a></h3>
+                <p class="tagline">Your booking page. Your domain. No monthly fee.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📋</span><span>Event types — Name, duration, description, color, buffers, minimum notice, max days ahead — each with its own public link.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗓️</span><span>Weekly availability editor — Per-day time ranges in your timezone, plus one-off blocked dates and times.</span></li>
+                    <li><span class="fi" aria-hidden="true">🌍</span><span>Timezone-correct slot math — Stored in UTC, computed in your timezone (DST-safe, unit-tested), displayed in the visitor's.</span></li>
+                    <li><span class="fi" aria-hidden="true">🛡️</span><span>Double-booking protection — Slot validity re-checked inside a SQLite transaction at booking time.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces Calendly ($10/user/mo)</span>
+                    <a href="/software/bookslot/" class="btn btn-outline btn-sm">See Bookslot &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/formforge.png" alt="Formforge screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📝</span><span class="brand">Formforge</span></div>
+                <h3><a href="/software/formforge/">Formforge</a></h3>
+                <p class="tagline">Self-hosted form builder + submissions inbox. No response caps.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🧱</span><span>Drag-orderable field editor — 10 field types: short/long text, email, number, dropdown, radio, checkboxes, date, file upload, star rating.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎬</span><span>Two display modes — One-question-per-screen "Typeform-style" flow with keyboard navigation, or classic single page.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎛️</span><span>Form settings — Title, description, button text, success message or redirect URL, accent color, open/closed toggle.</span></li>
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Submissions inbox — Table view, detail drawer, one-click CSV export, downloadable file answers.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces Typeform ($29/mo)</span>
+                    <a href="/software/formforge/" class="btn btn-outline btn-sm">See Formforge &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">✒️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">✒️</span><span class="brand">SigCraft</span></div>
+                <h3><a href="/software/sigcraft/">SigCraft</a></h3>
+                <p class="tagline">Professional email signatures for your whole team — on your desktop, forever.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>10 polished templates — Classic, Modern Sidebar, Minimal, Bold Accent Bar, Card, Compact, Corporate, Creative, Photo Left, Photo Top.</span></li>
+                    <li><span class="fi" aria-hidden="true">📧</span><span>Email-safe HTML — Table layouts, 100% inline styles, Outlook (VML) conditional comments — renders correctly in Gmail, Outlook desktop &amp; web, Apple Mail, Thunderbird.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖼️</span><span>Headshot / logo upload — Drag &amp; drop, auto-resized and embedded as base64 — or use a hosted image URL for maximum client compatibility.</span></li>
+                    <li><span class="fi" aria-hidden="true">🌐</span><span>12 social networks — LinkedIn, X, Facebook, Instagram, YouTube, TikTok, GitHub and more — brand-colored or monochrome pure-HTML badges, no broken-image icons.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces WiseStamp ($6/mo/user)</span>
+                    <a href="/software/sigcraft/" class="btn btn-outline btn-sm">See SigCraft &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/postdock.png" alt="PostDock screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📣</span><span class="brand">PostDock</span></div>
+                <h3><a href="/software/postdock/">PostDock</a></h3>
+                <p class="tagline">Schedule to X, Facebook, Instagram, LinkedIn and Mastodon from your own box — pay once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔌</span><span>5 pluggable channels — X/Twitter, Facebook Page + Instagram Business, LinkedIn, Mastodon — all with your own API keys, every credential on your box.</span></li>
+                    <li><span class="fi" aria-hidden="true">🪝</span><span>Webhook escape hatch — POSTs the content JSON to Zapier, Make, n8n or your own endpoint with optional HMAC-SHA256 signing — your route to every other network.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Composer with live previews — Text + up to 4 images, per-network character counters (280/500/2200/3000) and preview cards per channel.</span></li>
+                    <li><span class="fi" aria-hidden="true">🕑</span><span>Timezone-aware scheduling — Pick any IANA timezone; DST handled correctly. Post now or schedule.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces Buffer ($6/channel/mo)</span>
+                    <a href="/software/postdock/" class="btn btn-outline btn-sm">See PostDock &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/linkleaf.png" alt="Linkleaf screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🌿</span><span class="brand">Linkleaf</span></div>
+                <h3><a href="/software/linkleaf/">Linkleaf</a></h3>
+                <p class="tagline">Your link-in-bio page on your own domain. No branding, no rent.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">👤</span><span>Full profile — Avatar upload, display name, bio and a social icon row covering 12 networks.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧱</span><span>Blocks — Links with optional thumbnails and hover animation, headers/dividers, embedded YouTube, and email-collect blocks.</span></li>
+                    <li><span class="fi" aria-hidden="true">✋</span><span>Drag to reorder — Grab the grip, drop, done — order saves automatically.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏰</span><span>Link scheduling — Give any block a start/end date — launch-day links and limited drops handle themselves.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces Linktree ($5–9/mo)</span>
+                    <a href="/software/linkleaf/" class="btn btn-outline btn-sm">See Linkleaf &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/scantrail.png" alt="Scantrail screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔳</span><span class="brand">Scantrail</span></div>
+                <h3><a href="/software/scantrail/">Scantrail</a></h3>
+                <p class="tagline">Dynamic QR codes you print once and re-point forever — with scan analytics you own.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔁</span><span>Dynamic codes — The QR encodes /q/your-slug on your domain and 302-redirects to an editable destination. Reprint nothing, ever.</span></li>
+                    <li><span class="fi" aria-hidden="true">📊</span><span>Scan analytics — Total + unique scans, scans-over-time chart, device/OS/browser breakdown, country, hour-of-day heatstrip and a recent-scan log.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Every QR type you need — URL (dynamic + tracked), vCard (serves a .vcf download, also tracked), WiFi, plain text, email and phone.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>Design studio — Foreground/background colors, square / rounded / dots module styles, error-correction level, center logo upload, live preview.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces QR Tiger ($15/mo)</span>
+                    <a href="/software/scantrail/" class="btn btn-outline btn-sm">See Scantrail &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/cardsmith.png" alt="Cardsmith screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎴</span><span class="brand">Cardsmith</span></div>
+                <h3><a href="/software/cardsmith/">Cardsmith</a></h3>
+                <p class="tagline">Design social-card templates visually, render them from a GET request. Your self-hosted Bannerbear.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>Visual template editor — Canvas with drag positioning + snap guides, layers panel, and a live preview that matches server output pixel-for-pixel.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧩</span><span>Layer types — Text (bundled fonts, weight, align, wrap, auto-shrink to fit), images (upload or URL, cover/contain/fill, radius, opacity), shapes and solid/gradient/image backgrounds.</span></li>
+                    <li><span class="fi" aria-hidden="true">📐</span><span>Sizes for every network — OG/blog 1200×630, X large card 1600×900, Instagram 1080×1080 and 1080×1920 story, LinkedIn 1200×627 — plus fully custom dimensions.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔤</span><span>{{variables}} — Type {{title}} in any text layer (or image URL) and the template instantly becomes an API endpoint with that parameter.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces Bannerbear ($49/mo)</span>
+                    <a href="/software/cardsmith/" class="btn btn-outline btn-sm">See Cardsmith &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/statfox.png" alt="Statfox screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🦊</span><span class="brand">Statfox</span></div>
+                <h3><a href="/software/statfox/">Statfox</a></h3>
+                <p class="tagline">Privacy-first web analytics on your own server. Unlimited sites, no cookies, no monthly bill.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🪶</span><span>< 2KB tracking snippet — One deferred script tag. Cookie-free and GDPR-friendly — no consent banner needed.</span></li>
+                    <li><span class="fi" aria-hidden="true">🕵️</span><span>Uniques without cookies — Daily-rotating salted hash of IP + user agent. Raw IPs are never stored; yesterday's salt is deleted so hashes can't be linked across days.</span></li>
+                    <li><span class="fi" aria-hidden="true">🌐</span><span>Unlimited sites — Track every client site from one dashboard — no per-site pricing, no traffic tiers.</span></li>
+                    <li><span class="fi" aria-hidden="true">📊</span><span>The numbers that matter — Visitors, pageviews, bounce rate, visit duration — each compared to the previous period.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces Plausible ($9–19/mo)</span>
+                    <a href="/software/statfox/" class="btn btn-outline btn-sm">See Statfox &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/shipnotes.png" alt="Shipnotes screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🚢</span><span class="brand">Shipnotes</span></div>
+                <h3><a href="/software/shipnotes/">Shipnotes</a></h3>
+                <p class="tagline">Changelog, public roadmap and feature-request voting — self-hosted, one-time price.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📰</span><span>Public changelog — Write posts in Markdown, tag them New / Improved / Fixed, publish with one click. Valid RSS 2.0 feed included.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗺️</span><span>Public roadmap board — Planned / In Progress / Shipped columns, sorted by votes, so users can see where things stand.</span></li>
+                    <li><span class="fi" aria-hidden="true">💡</span><span>Feature requests + voting — Visitors submit ideas and upvote — one vote per visitor, no account or signup wall — with comment threads.</span></li>
+                    <li><span class="fi" aria-hidden="true">🛡️</span><span>Moderation that scales — Approve, decline with a public reason, or merge duplicates — votes carry over and are deduped.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces Canny ($79/mo)</span>
+                    <a href="/software/shipnotes/" class="btn btn-outline btn-sm">See Shipnotes &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/hearback.png" alt="Hearback screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎧</span><span class="brand">Hearback</span></div>
+                <h3><a href="/software/hearback/">Hearback</a></h3>
+                <p class="tagline">Drop-in feedback &amp; NPS widget, self-hosted. Unlimited responses, one-time price.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">⚡</span><span>One-line embed — A single script tag. Self-contained JS + CSS in a shadow DOM, so your site's styles never leak in and the widget never leaks out.</span></li>
+                    <li><span class="fi" aria-hidden="true">😀</span><span>Feedback form — 1–5 emoji rating, Issue / Idea / Praise category, message, optional reply email.</span></li>
+                    <li><span class="fi" aria-hidden="true">📈</span><span>NPS surveys — The classic 0–10 with a follow-up question — shown once per visitor with a frequency cap enforced in the browser and on the server.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧾</span><span>Auto-captured context — Page URL, user agent, viewport, referrer and an anonymous visitor token arrive with every response.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Hotjar ($32/mo)</span>
+                    <a href="/software/hearback/" class="btn btn-outline btn-sm">See Hearback &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/docwell.png" alt="Docwell screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📚</span><span class="brand">Docwell</span></div>
+                <h3><a href="/software/docwell/">Docwell</a></h3>
+                <p class="tagline">A complete self-hosted help center — markdown in, branded SEO-ready docs out.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>Branded public help center — Your logo, brand color and hero search box — no "Powered by" badge to pay to remove.</span></li>
+                    <li><span class="fi" aria-hidden="true">⚡</span><span>Instant FTS5 search — Search-as-you-type with highlighted snippets, powered by SQLite FTS5.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Markdown editor with live preview — Split-pane editing rendered by the exact same pipeline as the public site — plus paste-to-upload images.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Collections → categories → articles — Reordering, slug control, and a draft / published workflow — drafts are invisible and excluded from search.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces GitBook ($79/mo (Premium))</span>
+                    <a href="/software/docwell/" class="btn btn-outline btn-sm">See Docwell &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/chatlet.png" alt="Chatlet screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">💬</span><span class="brand">Chatlet</span></div>
+                <h3><a href="/software/chatlet/">Chatlet</a></h3>
+                <p class="tagline">The live-chat bubble you own — unlimited agents, unlimited sites, no per-seat pricing.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">⚡</span><span>One-line embed — A single script tag. Shadow-DOM widget (~9 KB of dependency-free JS), so your site's CSS can't break it.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔌</span><span>Real-time over WebSockets — Automatic reconnect, an outgoing message queue, and a transparent HTTP-polling fallback when corporate firewalls block WS.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎛️</span><span>Agent dashboard — Live-updating inbox with open/closed states and unread badges, typing indicators both ways, sound + browser notifications.</span></li>
+                    <li><span class="fi" aria-hidden="true">🪪</span><span>Visitor context sidebar — Current page, referrer, browser and full past-conversation history beside every chat.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces Crisp ($95/mo (Plus))</span>
+                    <a href="/software/chatlet/" class="btn btn-outline btn-sm">See Chatlet &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/boardly.png" alt="Boardly screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📋</span><span class="brand">Boardly</span></div>
+                <h3><a href="/software/boardly/">Boardly</a></h3>
+                <p class="tagline">The self-hosted Trello replacement — unlimited boards, your data in one SQLite file.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Multiple boards — Color themes, emoji icons, starred favorites — organize work, clients or your whole life.</span></li>
+                    <li><span class="fi" aria-hidden="true">✋</span><span>Drag &amp; drop everything — Reorder lists, drag cards between lists — order persists exactly where you dropped it.</span></li>
+                    <li><span class="fi" aria-hidden="true">🃏</span><span>Rich cards — Markdown descriptions, due dates with overdue highlighting, colored board-scoped labels.</span></li>
+                    <li><span class="fi" aria-hidden="true">☑️</span><span>Checklists — With live progress bars right on the card front.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces Trello ($5/user/mo)</span>
+                    <a href="/software/boardly/" class="btn btn-outline btn-sm">See Boardly &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/timevault.png" alt="Timevault screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">⏱️</span><span class="brand">Timevault</span></div>
+                <h3><a href="/software/timevault/">Timevault</a></h3>
+                <p class="tagline">Time tracking for freelancers who bill clients — timers, rates and reports you own.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">▶️</span><span>One-click timer — Description, project, tags, Enter to start. The timer is server state — reload, close the tab, restart your browser, it keeps counting.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Manual entries — Start + end times, or start + duration ("1:30", "1.5", "90m"). Stop, discard mistakes, or one-click continue any previous entry.</span></li>
+                    <li><span class="fi" aria-hidden="true">💼</span><span>Projects, clients &amp; rates — Colors, billable flags and hourly rates per project. Archive finished projects without losing history.</span></li>
+                    <li><span class="fi" aria-hidden="true">📆</span><span>Weekly timesheet — A 7-day grid with inline editing of descriptions and durations right in the cell.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Toggl ($10/user/mo)</span>
+                    <a href="/software/timevault/" class="btn btn-outline btn-sm">See Timevault &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔥</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔥</span><span class="brand">Streakly</span></div>
+                <h3><a href="/software/streakly/">Streakly</a></h3>
+                <p class="tagline">The desktop habit tracker you buy once — streaks, heatmaps and schedules that match real life.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🗓️</span><span>Schedules that match real life — Every day, specific weekdays, or N times per week — with an icon and color per habit.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔢</span><span>Numeric goals — "8 glasses of water", "50 pushups" — increment through the day; only hitting the goal completes it, partial counts still tracked.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔥</span><span>A streak engine that's fair — Weekday-only habits survive the weekend, N-per-week habits count weekly quotas, and today doesn't break your streak just because it isn't done yet.</span></li>
+                    <li><span class="fi" aria-hidden="true">🏖️</span><span>Vacation mode — Skip days freeze your streaks instead of killing them.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Habitify ($5/mo)</span>
+                    <a href="/software/streakly/" class="btn btn-outline btn-sm">See Streakly &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🎯</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎯</span><span class="brand">Deepdesk</span></div>
+                <h3><a href="/software/deepdesk/">Deepdesk</a></h3>
+                <p class="tagline">A local-first deep-work dashboard — Pomodoro, intents, ambient noise, streaks. No account.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🍅</span><span>Pomodoro engine — Configurable focus / short break / long break lengths, auto-cycling, long break after every N sessions, pause and skip.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧭</span><span>Session intents — Answer "what are you working on?" before each session — every intent lands in your session log.</span></li>
+                    <li><span class="fi" aria-hidden="true">✅</span><span>Tasks with pomodoro tallies — Add tasks, pick the active one, and watch its 🍅 count grow as you complete sessions.</span></li>
+                    <li><span class="fi" aria-hidden="true">🪟</span><span>Always-on-top mini timer — A frameless, draggable floating widget with a live progress ring — hover to expand pause / skip / open controls.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Centered (~$10/mo)</span>
+                    <a href="/software/deepdesk/" class="btn btn-outline btn-sm">See Deepdesk &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🪶</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🪶</span><span class="brand">Quillpad</span></div>
+                <h3><a href="/software/quillpad/">Quillpad</a></h3>
+                <p class="tagline">Local-first markdown notes — your knowledge base is a folder of plain .md files you own.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📁</span><span>Your vault is just a folder — Notes are real .md files, folders are folders. Edit them in any other app — Quillpad watches the disk and refreshes live.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Live-styled markdown editor — CodeMirror 6 with inline preview styling — sized headings, rendered bold/italic, highlighted code. Ctrl+E toggles full preview.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔗</span><span>[[Wikilinks]] + backlinks — Type [[ for fuzzy autocomplete over every note; aliases supported; missing notes are created on click. Every note shows who links to it, with context.</span></li>
+                    <li><span class="fi" aria-hidden="true">#️⃣</span><span>Tags — #hashtags anywhere appear in the sidebar — click to filter.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Notion ($12/mo per seat)</span>
+                    <a href="/software/quillpad/" class="btn btn-outline btn-sm">See Quillpad &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/pingcron.png" alt="Pingcron screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🫀</span><span class="brand">Pingcron</span></div>
+                <h3><a href="/software/pingcron/">Pingcron</a></h3>
+                <p class="tagline">Dead-man's-switch monitoring for cron jobs &amp; backups. Pay once, own it forever.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">⏱️</span><span>Two schedule types — "Expected every N minutes/hours" or a full 5-field cron expression with timezone support and a live next-3-runs preview.</span></li>
+                    <li><span class="fi" aria-hidden="true">🕊️</span><span>Grace periods — Allow N seconds of lateness per check before alerting — no false alarms because a backup ran 40 seconds long.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔔</span><span>Alerts on transitions only — Webhook (Slack/Discord/ntfy-friendly JSON) + SMTP email on down, recovery and explicit failure. Never spams repeats, survives restarts without re-firing.</span></li>
+                    <li><span class="fi" aria-hidden="true">📟</span><span>Rich ping API — GET or POST /ping/:token, /start for run-duration tracking, /fail for explicit failures — ping bodies stored as logs.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Cronitor ($10/mo)</span>
+                    <a href="/software/pingcron/" class="btn btn-outline btn-sm">See Pingcron &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/hookscope.png" alt="Hookscope screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🪝</span><span class="brand">Hookscope</span></div>
+                <h3><a href="/software/hookscope/">Hookscope</a></h3>
+                <p class="tagline">See every webhook. Replay any of them. Pay once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Bins that accept anything — Named capture endpoints — every HTTP method, any content type, any subpath. Huge or malformed payloads get truncated and flagged, never rejected.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔍</span><span>Full capture — Method, path, query params, headers, raw body, pretty-printed JSON with syntax highlighting, source IP, size, timestamp.</span></li>
+                    <li><span class="fi" aria-hidden="true">👁️</span><span>Live inspector — Request list updates every 2 seconds. Detail tabs for headers / raw body / pretty body / query, plus method filter and body search.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔁</span><span>Replay — Send any captured request to any target URL — headers and body preserved, hop-by-hop headers stripped. Target's response shown inline, full replay history per request.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces Pipedream ($29/mo)</span>
+                    <a href="/software/hookscope/" class="btn btn-outline btn-sm">See Hookscope &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/snapfleet.png" alt="Snapfleet screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📸</span><span class="brand">Snapfleet</span></div>
+                <h3><a href="/software/snapfleet/">Snapfleet</a></h3>
+                <p class="tagline">Self-hosted screenshot API. Unlimited renders. Pay once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎯</span><span>One endpoint, every option — GET /api/v1/screenshot?url=... returns PNG, JPG or PDF — viewport, full-page, delay, wait conditions, dark-mode emulation, JPEG quality and retina scale.</span></li>
+                    <li><span class="fi" aria-hidden="true">✂️</span><span>Element clipping — Pass a CSS selector and get just that element — perfect for og-images and social cards.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔑</span><span>API keys built in — Named keys with per-key token-bucket rate limits and daily quotas, usage counters, revoke/regenerate.</span></li>
+                    <li><span class="fi" aria-hidden="true">⚡</span><span>Smart cache — Identical requests hit a SHA-256-keyed disk cache with HIT/MISS headers, default 24h TTL and per-request bypass.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces Urlbox ($19/mo)</span>
+                    <a href="/software/snapfleet/" class="btn btn-outline btn-sm">See Snapfleet &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🛠️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🛠️</span><span class="brand">Wrangle</span></div>
+                <h3><a href="/software/wrangle/">Wrangle</a></h3>
+                <p class="tagline">The offline developer data toolbox. Stop pasting API keys into random websites.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔁</span><span>Convert anything — Any-to-any JSON / CSV / YAML / XML with format auto-detect and documented dot-notation flatten rules for nested data.</span></li>
+                    <li><span class="fi" aria-hidden="true">✅</span><span>Validate &amp; format — Pretty-print or minify JSON, YAML and XML with precise error line &amp; column highlighting.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔐</span><span>JWT decoder — Header/payload decode, human-readable expiry with an expired badge, optional HS256 signature verification — your token never leaves the machine.</span></li>
+                    <li><span class="fi" aria-hidden="true">🆚</span><span>Smart diff — Side-by-side text diff plus a JSON mode that ignores key order and whitespace, so only real changes light up.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces DevUtils ($29 (macOS only))</span>
+                    <a href="/software/wrangle/" class="btn btn-outline btn-sm">See Wrangle &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/vaultkeeper.png" alt="Vaultkeeper screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔐</span><span class="brand">Vaultkeeper</span></div>
+                <h3><a href="/software/vaultkeeper/">Vaultkeeper</a></h3>
+                <p class="tagline">Scheduled, encrypted database backups you actually own.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🗄️</span><span>Four engines — PostgreSQL (pg_dump), MySQL/MariaDB (mysqldump), MongoDB (mongodump) — and SQLite via the online backup API, safe on live WAL databases with nothing installed.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏰</span><span>Real scheduling — Cron expressions with presets, per-job timezone, next-3-runs preview, and a per-job lock so runs never overlap.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔐</span><span>Encryption you can restore without us — age if installed, or built-in AES-256-GCM with a documented open format and a dependency-free decrypt script — your backups are never hostage.</span></li>
+                    <li><span class="fi" aria-hidden="true">📦</span><span>Three destination types — Local disk, any S3-compatible bucket (AWS, Backblaze B2, Cloudflare R2, MinIO — multipart uploads), and FTP/FTPS.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces SimpleBackups ($29/mo)</span>
+                    <a href="/software/vaultkeeper/" class="btn btn-outline btn-sm">See Vaultkeeper &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/queuecraft.png" alt="Queuecraft screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎟️</span><span class="brand">Queuecraft</span></div>
+                <h3><a href="/software/queuecraft/">Queuecraft</a></h3>
+                <p class="tagline">Self-hosted viral waitlist with referral queue-jumping. Pay once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🚀</span><span>Hosted page + embed widget — Every waitlist gets a page at /w/your-slug and a one-line script snippet — shadow-DOM isolated, so your site's CSS never bleeds in.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔗</span><span>Referral queue-jumping — Every signup gets a unique link; each verified referral moves them up N positions (you pick N). "You're #42 of 1,203 — refer 3 friends to jump the line."</span></li>
+                    <li><span class="fi" aria-hidden="true">✉️</span><span>Double opt-in via YOUR SMTP — Signed verification links through Nodemailer. Unverified signups never credit referrers — and your deliverability and sender reputation stay yours.</span></li>
+                    <li><span class="fi" aria-hidden="true">📣</span><span>Broadcasts — "We're live!" emails to everyone, verified-only, or your top-N superfans, with position and referral-link placeholders.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces LaunchList ($29/mo)</span>
+                    <a href="/software/queuecraft/" class="btn btn-outline btn-sm">See Queuecraft &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/bravowall.png" alt="Bravowall screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">👏</span><span class="brand">Bravowall</span></div>
+                <h3><a href="/software/bravowall/">Bravowall</a></h3>
+                <p class="tagline">Collect testimonials, moderate them, embed a Wall of Love anywhere — self-hosted.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📝</span><span>Collection forms — A hosted page per product at /collect/your-slug: name, company, photo upload, 1–5 stars, testimonial text, optional YouTube/Loom/Vimeo link, consent checkbox.</span></li>
+                    <li><span class="fi" aria-hidden="true">🛡️</span><span>Moderation queue — Everything lands as pending. Approve, reject, feature, or fix typos before publishing — the original text is always kept.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧱</span><span>Wall of Love embed — One script tag renders a masonry wall inside shadow DOM: your site's CSS can't break it, its styles never leak out. Theme, accent, max items via data attributes.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖼️</span><span>PNG card export — Turn any testimonial into a polished 1080×1080 or 1600×900 image card, rendered server-side with sharp — quote auto-sizing, stars, avatar, your accent color.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Senja ($19/mo)</span>
+                    <a href="/software/bravowall/" class="btn btn-outline btn-sm">See Bravowall &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/hawkwatch.png" alt="Hawkwatch screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🦅</span><span class="brand">Hawkwatch</span></div>
+                <h3><a href="/software/hawkwatch/">Hawkwatch</a></h3>
+                <p class="tagline">Watch any product page for price or stock changes. Unlimited watchers, your server.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎯</span><span>Auto price detection — Parses JSON-LD Product/Offer data with og:price and microdata fallbacks — most modern shops work with zero configuration.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖱️</span><span>CSS selector mode — For pages without structured data, paste a selector. Locale-aware parsing: $1,299.00, 1.299,00 €, 1 299,00 kr all parse correctly.</span></li>
+                    <li><span class="fi" aria-hidden="true">📦</span><span>Stock tracking — From JSON-LD availability, an element selector, or a keyword regex against page text — get pinged the second it flips.</span></li>
+                    <li><span class="fi" aria-hidden="true">🌐</span><span>Two fetch engines — Headless Playwright Chromium for JS-rendered shops, or a fast plain HTTP fetch for static pages.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$34</span> once</span>
+                    <span class="replaces">replaces Distill ($12/mo)</span>
+                    <a href="/software/hawkwatch/" class="btn btn-outline btn-sm">See Hawkwatch &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/postbird.png" alt="Postbird screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🕊️</span><span class="brand">Postbird</span></div>
+                <h3><a href="/software/postbird/">Postbird</a></h3>
+                <p class="tagline">Self-hosted email campaigns over your own SMTP. Stop renting your audience back.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">👥</span><span>Lists &amp; subscribers — CSV import with dedupe and invalid-email reporting, public signup endpoint per list, CSV export, full status tracking (pending → subscribed → unsubscribed/bounced/complained).</span></li>
+                    <li><span class="fi" aria-hidden="true">✅</span><span>Double opt-in by default — Signup → signed confirmation link; only confirmed subscribers get campaigns. Consent timestamp + IP stored for GDPR.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎯</span><span>Segments — Saved AND/OR filters — domain, name, custom fields, signup date, opened/clicked recent campaigns — with a live count while you edit.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧱</span><span>Drag-block builder — Heading, rich text, image, bulletproof button, columns, footer. Compiles to table-based inline-styled HTML — no flexbox, no grid, no Outlook surprises.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$59</span> once</span>
+                    <span class="replaces">replaces Mailchimp ($20+/mo (grows with your list))</span>
+                    <a href="/software/postbird/" class="btn btn-outline btn-sm">See Postbird &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/keymaster.png" alt="Keymaster screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔑</span><span class="brand">Keymaster</span></div>
+                <h3><a href="/software/keymaster/">Keymaster</a></h3>
+                <p class="tagline">Self-hosted license server: signed keys, seat limits, secure downloads — no platform cut.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔏</span><span>Ed25519-signed keys — KM1.<payload>.<signature> format — self-describing, verifiable offline with just the public key. The keypair is generated on first boot; you own it.</span></li>
+                    <li><span class="fi" aria-hidden="true">💺</span><span>Seat limits &amp; fingerprints — Activation API with machine fingerprints, idempotent re-activation, deactivate to free a seat, signed activation receipts for offline runs. Stable, versioned /api/v1.</span></li>
+                    <li><span class="fi" aria-hidden="true">📴</span><span>Offline validation snippets — Zero-dependency Node and browser/WebCrypto verifiers ship in the repo, and the key format is documented byte-for-byte so you can port it to any language.</span></li>
+                    <li><span class="fi" aria-hidden="true">📦</span><span>Products &amp; versions — Semver releases with artifact upload or external URLs. Customers download via signed URLs that expire in 15 minutes — artifacts are never exposed statically.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces Keygen (from $99/mo)</span>
+                    <a href="/software/keymaster/" class="btn btn-outline btn-sm">See Keymaster &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/castport.png" alt="Castport screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📻</span><span class="brand">Castport</span></div>
+                <h3><a href="/software/castport/">Castport</a></h3>
+                <p class="tagline">Host your own podcast: Apple/Spotify-valid RSS, player, stats — on your $5 VPS.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">♾️</span><span>Unlimited shows &amp; episodes — Each show gets its own artwork, iTunes category, language, explicit flag and custom feed slug. No per-show pricing tiers.</span></li>
+                    <li><span class="fi" aria-hidden="true">📡</span><span>Apple/Spotify-valid RSS — RSS 2.0 with the full itunes namespace, exact enclosure byte lengths, permanent GUIDs and valid pubDates — the details that actually get feeds rejected, done right.</span></li>
+                    <li><span class="fi" aria-hidden="true">⬆️</span><span>Streaming uploads — MP3 or M4A streamed straight to disk — no buffering 200 MB files in memory — with markdown show notes, episode/season numbers and per-episode artwork.</span></li>
+                    <li><span class="fi" aria-hidden="true">📖</span><span>Podcasting 2.0 chapters — A chapters editor (start time + title) that also emits the podcast:chapters JSON endpoint modern apps read.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces Transistor ($19/mo)</span>
+                    <a href="/software/castport/" class="btn btn-outline btn-sm">See Castport &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/inkpress.png" alt="Inkpress screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">✒️</span><span class="brand">Inkpress</span></div>
+                <h3><a href="/software/inkpress/">Inkpress</a></h3>
+                <p class="tagline">A self-hosted markdown blog with zero-JavaScript public pages. Pay once, publish forever.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">⚡</span><span>Zero-JS public pages — Pure HTML/CSS, no client framework, no hydration, no bundle — instant load and perfect Lighthouse scores by default.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>3 built-in themes — Paper (light serif classic), Carbon (dark dev-blog mono) and Editorial (magazine, large covers) — switch site-wide instantly in Settings.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖍️</span><span>Server-side syntax highlighting — Code blocks highlighted with Shiki at save time and cached — beautiful dev-blog code with no client-side library.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Split-pane live preview — The preview uses the exact same rendering pipeline as the public site, so what you see is literally what ships.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Ghost ($9/mo)</span>
+                    <a href="/software/inkpress/" class="btn btn-outline btn-sm">See Inkpress &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/feedloft.png" alt="Feedloft screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📰</span><span class="brand">Feedloft</span></div>
+                <h3><a href="/software/feedloft/">Feedloft</a></h3>
+                <p class="tagline">A fast, keyboard-first RSS reader you host yourself.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📡</span><span>Add feeds from any URL — Automatic feed discovery from any webpage (<link rel="alternate">), rename, move to folders, unsubscribe.</span></li>
+                    <li><span class="fi" aria-hidden="true">📂</span><span>OPML import/export — Import preserves your folder structure; export produces valid OPML 2.0 you can take anywhere.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏱️</span><span>Smart polling — Conditional GET (ETag / Last-Modified, honors 304s), per-feed interval overrides, automatic backoff for failing feeds.</span></li>
+                    <li><span class="fi" aria-hidden="true">⌨️</span><span>Keyboard-first — Full vim-style set: j/k to move, o to open, m read, s star, / search, ? for the cheat sheet, Shift+A mark all read.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces Feedly ($8/mo)</span>
+                    <a href="/software/feedloft/" class="btn btn-outline btn-sm">See Feedloft &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">📥</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📥</span><span class="brand">Reelsnag</span></div>
+                <h3><a href="/software/reelsnag/">Reelsnag</a></h3>
+                <p class="tagline">A clean desktop GUI for yt-dlp. Back up your own videos — $24 once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔗</span><span>Paste a URL → probe — Fetches title, thumbnail, duration, uploader and every available format via yt-dlp -J.</span></li>
+                    <li><span class="fi" aria-hidden="true">📊</span><span>Format &amp; quality picker — Grouped by resolution, audio-only option, "best" default, automatic video+audio merge via ffmpeg when needed.</span></li>
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Real download queue — Multiple jobs, 1–3 concurrent, live progress/speed/ETA, cancel, retry, remove, open-in-folder.</span></li>
+                    <li><span class="fi" aria-hidden="true">✂️</span><span>Trim per job — Optional start/end trim — fast stream-copy with an automatic accurate re-encode fallback.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces Downloader subscription sites ($10–15/mo)</span>
+                    <a href="/software/reelsnag/" class="btn btn-outline btn-sm">See Reelsnag &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🗣️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🗣️</span><span class="brand">Voicebarn</span></div>
+                <h3><a href="/software/voicebarn/">Voicebarn</a></h3>
+                <p class="tagline">Unlimited natural-sounding text-to-speech on your own machine.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎙️</span><span>Local neural TTS via Piper — Clean, natural narration voices, 100% offline after the one-time engine + voice download.</span></li>
+                    <li><span class="fi" aria-hidden="true">📝</span><span>Per-paragraph control — Every paragraph gets its own voice + speed override (0.5x–2.0x), inheriting document defaults when left blank.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏸️</span><span>Inline pause tags — Drop <pause 500ms> or [pause 1s] anywhere for a precise, sample-rate-matched silence gap.</span></li>
+                    <li><span class="fi" aria-hidden="true">▶️</span><span>Instant preview — Synthesize and play any single paragraph before you export, with results cached by content hash.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$34</span> once</span>
+                    <span class="replaces">replaces ElevenLabs (Creator) ($22/mo)</span>
+                    <a href="/software/voicebarn/" class="btn btn-outline btn-sm">See Voicebarn &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/droplink.png" alt="Droplink screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">💧</span><span class="brand">Droplink</span></div>
+                <h3><a href="/software/droplink/">Droplink</a></h3>
+                <p class="tagline">Send big files from your own server. Resumable uploads, expiring links, no subscription.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🧩</span><span>Chunked, resumable uploads — Files slice into 5MB chunks with per-chunk retry. Drop your connection mid-upload and it resumes exactly where it left off — a 50GB file is as safe as a 5MB one.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏳</span><span>Transfers with real terms — Expiry (default 7 days), optional bcrypt-hashed password, optional max-download count, optional message to the recipient.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔗</span><span>Clean share links — File list with sizes, live expiry countdown, password gate, inline preview for images and PDFs, per-file download plus streamed "Download all as ZIP".</span></li>
+                    <li><span class="fi" aria-hidden="true">📧</span><span>Email the link — Compose recipients + a note straight from the transfer page using your own SMTP credentials — no third-party mail service.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces WeTransfer ($12/mo)</span>
+                    <a href="/software/droplink/" class="btn btn-outline btn-sm">See Droplink &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/snipvault.png" alt="Snipvault screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📌</span><span class="brand">Snipvault</span></div>
+                <h3><a href="/software/snipvault/">Snipvault</a></h3>
+                <p class="tagline">Every snippet you've ever written, searchable in one place. Pay once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📄</span><span>Multi-file snippets — Title, description, and one or more files per snippet, with language auto-detected from the filename.</span></li>
+                    <li><span class="fi" aria-hidden="true">🌈</span><span>Highlighting for 100+ languages — highlight.js — server-side rendered on public pages, lazy-loaded in the editor.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Collections &amp; tags — Organize snippets into folders and filter by tag chips.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔍</span><span>Fuzzy + full-content search — Instant client-side fuzzy match over titles/filenames/tags, merged with server-side SQLite FTS5 across file content — content matches clearly labeled.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces Cacher ($6/mo)</span>
+                    <a href="/software/snipvault/" class="btn btn-outline btn-sm">See Snipvault &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔎</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔎</span><span class="brand">Textract</span></div>
+                <h3><a href="/software/textract/">Textract</a></h3>
+                <p class="tagline">Every scan, every screenshot, into text. Offline. Once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag-drop OCR — Drop images (PNG/JPG/WEBP/BMP/TIFF) or PDFs, get per-page extracted text — PDFs are rasterized page-by-page automatically.</span></li>
+                    <li><span class="fi" aria-hidden="true">📃</span><span>Per-page results — Page thumbnails, text pane, per-page copy and copy-all, confidence indicator, .txt export.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔍</span><span>Searchable-PDF export — Rebuilds the PDF with an invisible text layer positioned from OCR word bounding boxes — Ctrl-F-able and copy-able in any PDF reader.</span></li>
+                    <li><span class="fi" aria-hidden="true">📁</span><span>Batch folder mode — Point it at a folder (recursive optional), OCR everything, get a .txt per file and a summary of files/pages/words/failures.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces Adobe Acrobat Pro ($19.99/mo)</span>
+                    <a href="/software/textract/" class="btn btn-outline btn-sm">See Textract &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/inkseal.png" alt="Inkseal screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">✍️</span><span class="brand">Inkseal</span></div>
+                <h3><a href="/software/inkseal/">Inkseal</a></h3>
+                <p class="tagline">Self-hosted e-signatures. Unlimited envelopes, verifiable audit trail, pay once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag-and-drop fields — Render any PDF with pdf.js, drop signature / initials / date / text fields, assign each to a color-coded signer, mark required or optional.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔀</span><span>Sequential or parallel routing — Signer 2's link only activates after signer 1 finishes — or send to everyone at once.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖊️</span><span>Real signing experience — Signers open a unique link, see their fields highlighted, draw or type a signature, and must check "I agree to sign electronically" before finishing.</span></li>
+                    <li><span class="fi" aria-hidden="true">📄</span><span>Flattened final PDF — Signatures and text are embedded into the original PDF via pdf-lib at the exact recorded coordinates — plus an appended audit certificate page.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces DocuSign ($10/mo)</span>
+                    <a href="/software/inkseal/" class="btn btn-outline btn-sm">See Inkseal &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/overlayr.png" alt="Overlayr screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎛️</span><span class="brand">Overlayr</span></div>
+                <h3><a href="/software/overlayr/">Overlayr</a></h3>
+                <p class="tagline">Your OBS overlays, your server. No watermarks, no subscription, no desync.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">⏱️</span><span>Countdown timer — Target datetime or duration mode, pause/resume/reset from the dashboard, custom end message, optional end sound.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎯</span><span>Goal bar — Animated fill, +1/+5/+10 dashboard buttons, milestone flash on target — also settable via webhook.</span></li>
+                    <li><span class="fi" aria-hidden="true">📜</span><span>Rotating ticker — A list of messages with fade/slide transitions or a scrolling marquee mode.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎬</span><span>Starting-soon scene — Full-screen headline + sub-text + embedded countdown, optional background image and looping audio.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces StreamElements ($19/mo (Streamlabs Ultra))</span>
+                    <a href="/software/overlayr/" class="btn btn-outline btn-sm">See Overlayr &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/signboard.png" alt="Signboard screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📺</span><span class="brand">Signboard</span></div>
+                <h3><a href="/software/signboard/">Signboard</a></h3>
+                <p class="tagline">Every screen you own, one price, forever. Self-hosted digital signage.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Content library — Images, videos (mp4/webm), web-page URLs, and announcement slides built from 5 layout templates — a "Closed Friday" slide takes 20 seconds, no designer required.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎞️</span><span>Playlists — Ordered items with per-entry duration overrides, drag-to-reorder, cut/fade transitions, in-browser preview.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔢</span><span>6-character pairing — The player page shows a code; type it into the dashboard, name the screen, assign a playlist. Any smart-TV browser, a Pi in kiosk Chromium, or an old tablet all work — no player app.</span></li>
+                    <li><span class="fi" aria-hidden="true">🕐</span><span>Server-side dayparting — "Mon-Fri 07:00-11:00 → Breakfast Menu" — evaluated in the screen's own IANA timezone, not the kiosk's often-wrong clock. Priority-ordered rules, visual weekly grid.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces Yodeck ($8/screen/mo)</span>
+                    <a href="/software/signboard/" class="btn btn-outline btn-sm">See Signboard &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/serpdeck.png" alt="Serpdeck screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📈</span><span class="brand">Serpdeck</span></div>
+                <h3><a href="/software/serpdeck/">Serpdeck</a></h3>
+                <p class="tagline">Self-hosted rank tracking. Unlimited keywords, your own SERP API key, $39 once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">♾️</span><span>Unlimited everything — Unlimited projects, keywords and competitor domains — no per-seat or per-keyword pricing tiers.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏰</span><span>Daily automatic checks — Per-project schedule (pick the hour), plus manual "check now" for a single keyword or a whole project.</span></li>
+                    <li><span class="fi" aria-hidden="true">📉</span><span>Position history charts — Inverted axis (rank #1 at the top, like it should be) with competitor overlay lines on every keyword.</span></li>
+                    <li><span class="fi" aria-hidden="true">🥊</span><span>Competitor comparisons — Track any number of rival domains per project and see their position alongside yours on every check.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces AccuRanker ($129/mo)</span>
+                    <a href="/software/serpdeck/" class="btn btn-outline btn-sm">See Serpdeck &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/chatterbox.png" alt="Chatterbox screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">💬</span><span class="brand">Chatterbox</span></div>
+                <h3><a href="/software/chatterbox/">Chatterbox</a></h3>
+                <p class="tagline">Self-hosted threaded comments for any site. One script tag, one SQLite file, $24 once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📎</span><span>One-line embed — A script tag plus a div. Dependency-free vanilla JS (~15 KB) in a shadow DOM — your site's styles never leak in, the widget's never leak out.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧵</span><span>Threaded comments — Replies nested to depth 4 with collapse, relative timestamps, and a 15-minute self-edit/delete window for commenters.</span></li>
+                    <li><span class="fi" aria-hidden="true">⬆️</span><span>Voting with Wilson score — One vote per browser token per comment, server-enforced. Sort by Best, Newest or Oldest.</span></li>
+                    <li><span class="fi" aria-hidden="true">🛡️</span><span>Spam defenses that don't annoy humans — Hidden honeypot, minimum time-to-submit, per-IP rate limiting, link-count threshold — all invisible unless you're a bot. No CAPTCHAs.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces Hyvor Talk ($8/mo)</span>
+                    <a href="/software/chatterbox/" class="btn btn-outline btn-sm">See Chatterbox &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/ledgerly.png" alt="Ledgerly screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📒</span><span class="brand">Ledgerly</span></div>
+                <h3><a href="/software/ledgerly/">Ledgerly</a></h3>
+                <p class="tagline">Business expense tracking with local receipt OCR. Your data, your one-time price.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🧾</span><span>Local receipt OCR — Drop a JPG/PNG receipt and tesseract.js runs entirely in your browser — no image ever leaves your machine. Vendor, amount and date are parsed and prefilled for your review; OCR never auto-saves.</span></li>
+                    <li><span class="fi" aria-hidden="true">⚡</span><span>Fast expense entry — Quick-add row + full form: amount, currency, category, vendor, date, project, payment method, notes, receipt image.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔍</span><span>Filterable, sortable list — Date range, category, project, vendor/notes search, sortable columns.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎯</span><span>Categories &amp; budgets — Editable category set with color + icon. Monthly budgets per category with progress bars that shift amber past 80% and red past 100%.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Expensify ($5/user/mo)</span>
+                    <a href="/software/ledgerly/" class="btn btn-outline btn-sm">See Ledgerly &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/doortracker.png" alt="Door Tracker screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🚪</span><span class="brand">Door Tracker</span></div>
+                <h3><a href="/software/doortracker/">Door Tracker</a></h3>
+                <p class="tagline">Prove the route was actually walked — not just driven.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📡</span><span>5-minute GPS pings — Reps' phones report location automatically in the background — no manual check-ins to forget.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧠</span><span>Auto stop-clustering — A haversine-distance engine groups consecutive pings into stops the moment a rep parks or lingers, with a configurable radius per team.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏱️</span><span>Duration bands do the judging — Drive-by (<30s), likely knock (30s–5min), extended visit (>5min) — color-coded so a manager sees the shape of the day at a glance.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗺️</span><span>Full-day route map — A connected polyline through every ping plus numbered, timestamped stop pins — click any stop for arrival, departure and duration.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$49</span> once</span>
+                    <span class="replaces">replaces Badger Maps ($58–119/rep/mo)</span>
+                    <a href="/software/doortracker/" class="btn btn-outline btn-sm">See Door Tracker &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media">
+                    <div class="app-row-chrome"><span></span><span></span><span></span></div>
+                    <img src="/software/assets/shots/famping.png" alt="FamPing screenshot" loading="lazy" width="1440" height="900">
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📍</span><span class="brand">FamPing</span></div>
+                <h3><a href="/software/famping/">FamPing</a></h3>
+                <p class="tagline">Real-time family locations and place alerts — without selling your location data.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📡</span><span>5-minute location pings — Every family member's phone reports position automatically to your dashboard.</span></li>
+                    <li><span class="fi" aria-hidden="true">🏠</span><span>Named-place geofences — Mark home, school, work — get an alert the moment someone arrives or leaves, no third party ever sees the address.</span></li>
+                    <li><span class="fi" aria-hidden="true">🗺️</span><span>Full-day path per member — The same stop-clustering engine as Door Tracker draws each family member's day as a route with numbered, timed stops.</span></li>
+                    <li><span class="fi" aria-hidden="true">👨‍👩‍👧‍👦</span><span>Multiple family members, no per-seat fee — Add everyone in the household on one license — Life360 gates member count behind paid tiers.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$39</span> once</span>
+                    <span class="replaces">replaces Life360 ($99.99+/yr (Plus))</span>
+                    <a href="/software/famping/" class="btn btn-outline btn-sm">See FamPing &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">😂</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">😂</span><span class="brand">Memeforge</span></div>
+                <h3><a href="/software/memeforge/">Memeforge</a></h3>
+                <p class="tagline">Classic meme captioning with a real template library — no watermark, no upload.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Built-in template library — Dozens of classic formats ready to caption, plus upload your own base image.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Drag &amp; resize text boxes — Position, scale and rotate top/bottom or freeform text with live preview.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔤</span><span>Custom fonts &amp; stroke — Impact-style outline by default, swap fonts, adjust stroke width, color and shadow.</span></li>
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Upload your own image — Any JPG/PNG becomes a base template — not limited to the built-in set.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Imgflip Pro ($6.99/mo)</span>
+                    <a href="/software/memeforge/" class="btn btn-outline btn-sm">See Memeforge &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🌳</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🌳</span><span class="brand">Orgtree</span></div>
+                <h3><a href="/software/orgtree/">Orgtree</a></h3>
+                <p class="tagline">Build and maintain your org chart without a seat-priced diagram tool.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📋</span><span>CSV / spreadsheet import — Paste or upload name, title and manager columns — the chart builds itself.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧩</span><span>Auto-layout engine — Reporting lines position automatically as you add or reassign people.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag to reparent — Move anyone under a new manager by dragging their card — the tree re-flows instantly.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>Department color coding — Color-code by team or department so structure is visible at a glance.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces Lucidchart ($7.95/mo)</span>
+                    <a href="/software/orgtree/" class="btn btn-outline btn-sm">See Orgtree &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔔</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔔</span><span class="brand">Renewcheck</span></div>
+                <h3><a href="/software/renewcheck/">Renewcheck</a></h3>
+                <p class="tagline">Track every subscription's renewal date without linking your bank account.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Add subscriptions manually — No bank link, no Plaid, no OAuth to a financial account — just name, price and renewal date.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏰</span><span>Renewal countdown &amp; reminders — Native OS notifications before a charge hits, with enough lead time to actually cancel.</span></li>
+                    <li><span class="fi" aria-hidden="true">💰</span><span>Spend totals — Monthly and yearly totals calculated automatically as you add subscriptions.</span></li>
+                    <li><span class="fi" aria-hidden="true">📊</span><span>Category breakdown — See spend by category — streaming, software, fitness, whatever you define.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Rocket Money ($6–12/mo (Premium))</span>
+                    <a href="/software/renewcheck/" class="btn btn-outline btn-sm">See Renewcheck &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🎨</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎨</span><span class="brand">Paletteforge</span></div>
+                <h3><a href="/software/paletteforge/">Paletteforge</a></h3>
+                <p class="tagline">Generate, lock and export brand color palettes — no account, no export limits.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎲</span><span>Generate &amp; shuffle palettes — Spacebar-driven random palette generation, five colors at a time.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔒</span><span>Lock colors while regenerating — Keep the ones you like, reroll the rest until the palette clicks.</span></li>
+                    <li><span class="fi" aria-hidden="true">✅</span><span>WCAG contrast checker — Instant AA/AAA pass-fail for any foreground/background pairing in your palette.</span></li>
+                    <li><span class="fi" aria-hidden="true">📤</span><span>Export to CSS, Tailwind, ASE, PNG — Drop straight into a codebase or design tool — no manual re-typing of hex codes.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Coolors Pro ($5.99/mo)</span>
+                    <a href="/software/paletteforge/" class="btn btn-outline btn-sm">See Paletteforge &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔷</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔷</span><span class="brand">Iconforge</span></div>
+                <h3><a href="/software/iconforge/">Iconforge</a></h3>
+                <p class="tagline">One image in, every favicon and app-icon size out — batched, offline, no watermark.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Drop one source image — PNG, JPG or SVG in — every required size and format generated automatically.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧊</span><span>Full favicon set — 16×16, 32×32, 48×48 packed into a proper multi-resolution ICO, plus standalone PNGs.</span></li>
+                    <li><span class="fi" aria-hidden="true">🍎</span><span>Apple touch icons — All iOS home-screen sizes generated with correct naming and padding.</span></li>
+                    <li><span class="fi" aria-hidden="true">🤖</span><span>Android adaptive icons — Foreground/background layer support for Android's adaptive icon format.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Iconscout ($9.99/mo (Unlimited))</span>
+                    <a href="/software/iconforge/" class="btn btn-outline btn-sm">See Iconforge &rarr;</a>
+                </div>
+            </div>
+        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Price list at a glance">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">At A Glance</span>
+                    <h2>Full Price List</h2>
                 </div>
                 <div class="compare-wrap">
                 <table class="compare">
