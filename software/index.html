@@ -84,6 +84,22 @@
         .app-row-meta { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
         .app-row-meta .replaces { font-size:0.8rem; color:var(--text-muted); }
         @media (max-width:760px) { .app-row, .app-row.reverse { grid-template-columns:1fr; } .app-row.reverse .app-row-media { order:0; } }
+        /* ===== nav dropdown: Software > Desktop / Web Hosted / Bundle ===== */
+        .has-dropdown { position:relative; }
+        .nav-dropdown { list-style:none; margin:0; padding:0.5rem; position:absolute; top:calc(100% + 0.75rem); left:50%; transform:translateX(-50%); min-width:260px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:0 20px 40px -15px rgba(0,0,0,0.6); opacity:0; visibility:hidden; transition:opacity 0.2s ease, transform 0.2s ease; z-index:50; }
+        .has-dropdown:hover .nav-dropdown, .has-dropdown:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+        .nav-dropdown li { display:block; }
+        .nav-dropdown a { display:block; padding:0.65rem 0.9rem; border-radius:6px; font-size:0.88rem; white-space:nowrap; color:var(--text); text-decoration:none; }
+        .nav-dropdown a:hover { background:rgba(201,169,98,0.1); color:var(--gold); }
+        .mobile-subnav a { font-size:0.85rem; opacity:0.85; }
+        .category-anchor { scroll-margin-top:90px; }
+        .category-tabs { display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+        .category-tabs a { padding:0.6rem 1.1rem; border:1px solid var(--border); border-radius:999px; font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:all 0.25s; }
+        .category-tabs a:hover { border-color:rgba(201,169,98,0.4); color:var(--gold); }
+        .category-heading { display:flex; align-items:baseline; gap:0.75rem; margin:3.5rem 0 1.75rem; }
+        .category-heading:first-child { margin-top:0; }
+        .category-heading h3 { font-size:1.5rem; }
+        .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }
     </style>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://advancedmarketing.co/software/pdfsmith/","name":"PDFsmith"},{"@type":"ListItem","position":2,"url":"https://advancedmarketing.co/software/cutaway/","name":"Cutaway"},{"@type":"ListItem","position":3,"url":"https://advancedmarketing.co/software/whisperdesk/","name":"WhisperDesk"},{"@type":"ListItem","position":4,"url":"https://advancedmarketing.co/software/shrinkray/","name":"Shrinkray"},{"@type":"ListItem","position":5,"url":"https://advancedmarketing.co/software/clipdeck/","name":"ClipDeck"},{"@type":"ListItem","position":6,"url":"https://advancedmarketing.co/software/upwatch/","name":"Upwatch"},{"@type":"ListItem","position":7,"url":"https://advancedmarketing.co/software/trimly/","name":"Trimly"},{"@type":"ListItem","position":8,"url":"https://advancedmarketing.co/software/billcraft/","name":"Billcraft"},{"@type":"ListItem","position":9,"url":"https://advancedmarketing.co/software/bookslot/","name":"Bookslot"},{"@type":"ListItem","position":10,"url":"https://advancedmarketing.co/software/formforge/","name":"Formforge"},{"@type":"ListItem","position":11,"url":"https://advancedmarketing.co/software/sigcraft/","name":"SigCraft"},{"@type":"ListItem","position":12,"url":"https://advancedmarketing.co/software/postdock/","name":"PostDock"},{"@type":"ListItem","position":13,"url":"https://advancedmarketing.co/software/linkleaf/","name":"Linkleaf"},{"@type":"ListItem","position":14,"url":"https://advancedmarketing.co/software/scantrail/","name":"Scantrail"},{"@type":"ListItem","position":15,"url":"https://advancedmarketing.co/software/cardsmith/","name":"Cardsmith"},{"@type":"ListItem","position":16,"url":"https://advancedmarketing.co/software/statfox/","name":"Statfox"},{"@type":"ListItem","position":17,"url":"https://advancedmarketing.co/software/shipnotes/","name":"Shipnotes"},{"@type":"ListItem","position":18,"url":"https://advancedmarketing.co/software/hearback/","name":"Hearback"},{"@type":"ListItem","position":19,"url":"https://advancedmarketing.co/software/docwell/","name":"Docwell"},{"@type":"ListItem","position":20,"url":"https://advancedmarketing.co/software/chatlet/","name":"Chatlet"},{"@type":"ListItem","position":21,"url":"https://advancedmarketing.co/software/boardly/","name":"Boardly"},{"@type":"ListItem","position":22,"url":"https://advancedmarketing.co/software/timevault/","name":"Timevault"},{"@type":"ListItem","position":23,"url":"https://advancedmarketing.co/software/streakly/","name":"Streakly"},{"@type":"ListItem","position":24,"url":"https://advancedmarketing.co/software/deepdesk/","name":"Deepdesk"},{"@type":"ListItem","position":25,"url":"https://advancedmarketing.co/software/quillpad/","name":"Quillpad"},{"@type":"ListItem","position":26,"url":"https://advancedmarketing.co/software/pingcron/","name":"Pingcron"},{"@type":"ListItem","position":27,"url":"https://advancedmarketing.co/software/hookscope/","name":"Hookscope"},{"@type":"ListItem","position":28,"url":"https://advancedmarketing.co/software/snapfleet/","name":"Snapfleet"},{"@type":"ListItem","position":29,"url":"https://advancedmarketing.co/software/wrangle/","name":"Wrangle"},{"@type":"ListItem","position":30,"url":"https://advancedmarketing.co/software/vaultkeeper/","name":"Vaultkeeper"},{"@type":"ListItem","position":31,"url":"https://advancedmarketing.co/software/queuecraft/","name":"Queuecraft"},{"@type":"ListItem","position":32,"url":"https://advancedmarketing.co/software/bravowall/","name":"Bravowall"},{"@type":"ListItem","position":33,"url":"https://advancedmarketing.co/software/hawkwatch/","name":"Hawkwatch"},{"@type":"ListItem","position":34,"url":"https://advancedmarketing.co/software/postbird/","name":"Postbird"},{"@type":"ListItem","position":35,"url":"https://advancedmarketing.co/software/keymaster/","name":"Keymaster"},{"@type":"ListItem","position":36,"url":"https://advancedmarketing.co/software/castport/","name":"Castport"},{"@type":"ListItem","position":37,"url":"https://advancedmarketing.co/software/inkpress/","name":"Inkpress"},{"@type":"ListItem","position":38,"url":"https://advancedmarketing.co/software/feedloft/","name":"Feedloft"},{"@type":"ListItem","position":39,"url":"https://advancedmarketing.co/software/reelsnag/","name":"Reelsnag"},{"@type":"ListItem","position":40,"url":"https://advancedmarketing.co/software/voicebarn/","name":"Voicebarn"},{"@type":"ListItem","position":41,"url":"https://advancedmarketing.co/software/droplink/","name":"Droplink"},{"@type":"ListItem","position":42,"url":"https://advancedmarketing.co/software/snipvault/","name":"Snipvault"},{"@type":"ListItem","position":43,"url":"https://advancedmarketing.co/software/textract/","name":"Textract"},{"@type":"ListItem","position":44,"url":"https://advancedmarketing.co/software/inkseal/","name":"Inkseal"},{"@type":"ListItem","position":45,"url":"https://advancedmarketing.co/software/overlayr/","name":"Overlayr"},{"@type":"ListItem","position":46,"url":"https://advancedmarketing.co/software/signboard/","name":"Signboard"},{"@type":"ListItem","position":47,"url":"https://advancedmarketing.co/software/serpdeck/","name":"Serpdeck"},{"@type":"ListItem","position":48,"url":"https://advancedmarketing.co/software/chatterbox/","name":"Chatterbox"},{"@type":"ListItem","position":49,"url":"https://advancedmarketing.co/software/ledgerly/","name":"Ledgerly"},{"@type":"ListItem","position":50,"url":"https://advancedmarketing.co/software/doortracker/","name":"Door Tracker"},{"@type":"ListItem","position":51,"url":"https://advancedmarketing.co/software/famping/","name":"FamPing"},{"@type":"ListItem","position":52,"url":"https://advancedmarketing.co/software/memeforge/","name":"Memeforge"},{"@type":"ListItem","position":53,"url":"https://advancedmarketing.co/software/orgtree/","name":"Orgtree"},{"@type":"ListItem","position":54,"url":"https://advancedmarketing.co/software/renewcheck/","name":"Renewcheck"},{"@type":"ListItem","position":55,"url":"https://advancedmarketing.co/software/paletteforge/","name":"Paletteforge"},{"@type":"ListItem","position":56,"url":"https://advancedmarketing.co/software/iconforge/","name":"Iconforge"}]}</script>
 </head>
@@ -101,7 +117,14 @@
                 </a>
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="/services" role="menuitem">Services</a></li>
-                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none" class="has-dropdown">
+                        <a href="/software/" role="menuitem" aria-haspopup="true" aria-expanded="false">Software &#9662;</a>
+                        <ul class="nav-dropdown" role="menu">
+                            <li role="none"><a href="/software/#desktop" role="menuitem">Desktop Software Applications</a></li>
+                            <li role="none"><a href="/software/#web-hosted" role="menuitem">Web Hosted Applications</a></li>
+                            <li role="none"><a href="/software/onetime-suite-bundle/" role="menuitem">Advanced Marketing 1 Time Suite</a></li>
+                        </ul>
+                    </li>
                     <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
                     <li role="none"><a href="/team" role="menuitem">Team</a></li>
                     <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
@@ -114,6 +137,15 @@
                     <ul>
                         <li><a href="/services">Services</a></li>
                         <li><a href="/software/">Software</a></li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#desktop">&nbsp;&nbsp;Desktop Software Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#web-hosted">&nbsp;&nbsp;Web Hosted Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/onetime-suite-bundle/">&nbsp;&nbsp;Advanced Marketing 1 Time Suite</a>
+                        </li>
                         <li><a href="/case-studies">Case Studies</a></li>
                         <li><a href="/team">Team</a></li>
                         <li><a href="/#coaching">Coaching</a></li>
@@ -146,6 +178,17 @@
                     <span class="text-label">Shipped &amp; Ready</span>
                     <h2>56 Apps. Zero Subscriptions.</h2>
                     <p>Each one replaces a tool that bills you monthly, forever.</p>
+                </div>
+                <div class="category-tabs">
+                    <a href="#desktop">&#128421;&#65039; Desktop Software Applications (18)</a>
+                    <a href="#web-hosted">&#9729;&#65039; Web Hosted Applications (38)</a>
+                    <a href="/software/onetime-suite-bundle/">&#128230; Advanced Marketing 1 Time Suite</a>
+                </div>
+
+                <div class="category-anchor" id="desktop"></div>
+                <div class="category-heading">
+                    <h3>&#128421;&#65039; Desktop Software Applications</h3>
+                    <span class="count">18 apps — install once, run 100% offline</span>
                 </div>
                 <div class="sw-grid">
                     <a class="sw-card" href="/software/pdfsmith/">
@@ -193,6 +236,131 @@
                             <span class="sw-replaces">replaces Loom<br>$15/mo</span>
                         </div>
                     </a>
+                    <a class="sw-card" href="/software/sigcraft/">
+                        <div class="sw-icon" aria-hidden="true">✒️</div>
+                        <h3>SigCraft</h3>
+                        <p class="sw-tag">Email-safe HTML signatures with 10 templates and team CSV batch export — 100% local.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces WiseStamp<br>$6/mo/user</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/streakly/">
+                        <div class="sw-icon" aria-hidden="true">🔥</div>
+                        <h3>Streakly</h3>
+                        <p class="sw-tag">Local habit tracking with a fair streak engine, GitHub-style heatmaps and reminders.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces Habitify<br>$5/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/deepdesk/">
+                        <div class="sw-icon" aria-hidden="true">🎯</div>
+                        <h3>Deepdesk</h3>
+                        <p class="sw-tag">Pomodoro engine, session intents, floating mini timer, generated ambient noise &amp; focus stats.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces Centered<br>~$10/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/quillpad/">
+                        <div class="sw-icon" aria-hidden="true">🪶</div>
+                        <h3>Quillpad</h3>
+                        <p class="sw-tag">Fast desktop notes with wikilinks, backlinks, tags, daily notes and global quick capture.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$29 once</span>
+                            <span class="sw-replaces">replaces Notion<br>$12/mo per seat</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/wrangle/">
+                        <div class="sw-icon" aria-hidden="true">🛠️</div>
+                        <h3>Wrangle</h3>
+                        <p class="sw-tag">10 dev data tools — JSON convert, JWT decode, diff, regex, hash — 100% offline, one app.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces DevUtils<br>$29 (macOS only)</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/reelsnag/">
+                        <div class="sw-icon" aria-hidden="true">📥</div>
+                        <h3>Reelsnag</h3>
+                        <p class="sw-tag">Paste a URL, pick a quality, queue it. Trim, MP3, subtitles, batch — all local.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$24 once</span>
+                            <span class="sw-replaces">replaces Downloader subscription sites<br>$10–15/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/voicebarn/">
+                        <div class="sw-icon" aria-hidden="true">🗣️</div>
+                        <h3>Voicebarn</h3>
+                        <p class="sw-tag">Local neural TTS via Piper — unlimited characters, per-paragraph voices, WAV/MP3 export.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$34 once</span>
+                            <span class="sw-replaces">replaces ElevenLabs (Creator)<br>$22/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/textract/">
+                        <div class="sw-icon" aria-hidden="true">🔎</div>
+                        <h3>Textract</h3>
+                        <p class="sw-tag">Local OCR for images &amp; PDFs — searchable-PDF export, batch folders, screenshot hotkey.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$19 once</span>
+                            <span class="sw-replaces">replaces Adobe Acrobat Pro<br>$19.99/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/memeforge/">
+                        <div class="sw-icon" aria-hidden="true">😂</div>
+                        <h3>Memeforge</h3>
+                        <p class="sw-tag">Drag-drop meme captions, a built-in template library and custom fonts, instant PNG export — 100% offline.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces Imgflip Pro<br>$6.99/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/orgtree/">
+                        <div class="sw-icon" aria-hidden="true">🌳</div>
+                        <h3>Orgtree</h3>
+                        <p class="sw-tag">Drag-drop org chart builder with CSV import, auto-layout and PDF/PNG export — no login, no seats.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$19 once</span>
+                            <span class="sw-replaces">replaces Lucidchart<br>$7.95/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/renewcheck/">
+                        <div class="sw-icon" aria-hidden="true">🔔</div>
+                        <h3>Renewcheck</h3>
+                        <p class="sw-tag">Manual subscription tracker with renewal reminders, spend totals and category breakdowns — your card numbers never touch a server.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces Rocket Money<br>$6–12/mo (Premium)</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/paletteforge/">
+                        <div class="sw-icon" aria-hidden="true">🎨</div>
+                        <h3>Paletteforge</h3>
+                        <p class="sw-tag">Palette generator with lock/shuffle, contrast checking, and CSS/Tailwind/ASE export — fully offline.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces Coolors Pro<br>$5.99/mo</span>
+                        </div>
+                    </a>
+                    <a class="sw-card" href="/software/iconforge/">
+                        <div class="sw-icon" aria-hidden="true">🔷</div>
+                        <h3>Iconforge</h3>
+                        <p class="sw-tag">Drop one image, get a full favicon + app-icon set (ICO, PNG, Apple touch, Android, PWA manifest) — zero uploads.</p>
+                        <div class="sw-meta">
+                            <span class="sw-price">$15 once</span>
+                            <span class="sw-replaces">replaces Iconscout<br>$9.99/mo (Unlimited)</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="category-anchor" id="web-hosted"></div>
+                <div class="category-heading">
+                    <h3>&#9729;&#65039; Web Hosted Applications</h3>
+                    <span class="count">38 apps — self-hosted on your own VPS or server</span>
+                </div>
+                <div class="sw-grid">
                     <a class="sw-card" href="/software/upwatch/">
                         <div class="sw-icon" aria-hidden="true">📡</div>
                         <h3>Upwatch</h3>
@@ -236,15 +404,6 @@
                         <div class="sw-meta">
                             <span class="sw-price">$39 once</span>
                             <span class="sw-replaces">replaces Typeform<br>$29/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/sigcraft/">
-                        <div class="sw-icon" aria-hidden="true">✒️</div>
-                        <h3>SigCraft</h3>
-                        <p class="sw-tag">Email-safe HTML signatures with 10 templates and team CSV batch export — 100% local.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces WiseStamp<br>$6/mo/user</span>
                         </div>
                     </a>
                     <a class="sw-card" href="/software/postdock/">
@@ -346,33 +505,6 @@
                             <span class="sw-replaces">replaces Toggl<br>$10/user/mo</span>
                         </div>
                     </a>
-                    <a class="sw-card" href="/software/streakly/">
-                        <div class="sw-icon" aria-hidden="true">🔥</div>
-                        <h3>Streakly</h3>
-                        <p class="sw-tag">Local habit tracking with a fair streak engine, GitHub-style heatmaps and reminders.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces Habitify<br>$5/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/deepdesk/">
-                        <div class="sw-icon" aria-hidden="true">🎯</div>
-                        <h3>Deepdesk</h3>
-                        <p class="sw-tag">Pomodoro engine, session intents, floating mini timer, generated ambient noise &amp; focus stats.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces Centered<br>~$10/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/quillpad/">
-                        <div class="sw-icon" aria-hidden="true">🪶</div>
-                        <h3>Quillpad</h3>
-                        <p class="sw-tag">Fast desktop notes with wikilinks, backlinks, tags, daily notes and global quick capture.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$29 once</span>
-                            <span class="sw-replaces">replaces Notion<br>$12/mo per seat</span>
-                        </div>
-                    </a>
                     <a class="sw-card" href="/software/pingcron/">
                         <div class="sw-icon" aria-hidden="true">🫀</div>
                         <h3>Pingcron</h3>
@@ -398,15 +530,6 @@
                         <div class="sw-meta">
                             <span class="sw-price">$39 once</span>
                             <span class="sw-replaces">replaces Urlbox<br>$19/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/wrangle/">
-                        <div class="sw-icon" aria-hidden="true">🛠️</div>
-                        <h3>Wrangle</h3>
-                        <p class="sw-tag">10 dev data tools — JSON convert, JWT decode, diff, regex, hash — 100% offline, one app.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces DevUtils<br>$29 (macOS only)</span>
                         </div>
                     </a>
                     <a class="sw-card" href="/software/vaultkeeper/">
@@ -490,24 +613,6 @@
                             <span class="sw-replaces">replaces Feedly<br>$8/mo</span>
                         </div>
                     </a>
-                    <a class="sw-card" href="/software/reelsnag/">
-                        <div class="sw-icon" aria-hidden="true">📥</div>
-                        <h3>Reelsnag</h3>
-                        <p class="sw-tag">Paste a URL, pick a quality, queue it. Trim, MP3, subtitles, batch — all local.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$24 once</span>
-                            <span class="sw-replaces">replaces Downloader subscription sites<br>$10–15/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/voicebarn/">
-                        <div class="sw-icon" aria-hidden="true">🗣️</div>
-                        <h3>Voicebarn</h3>
-                        <p class="sw-tag">Local neural TTS via Piper — unlimited characters, per-paragraph voices, WAV/MP3 export.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$34 once</span>
-                            <span class="sw-replaces">replaces ElevenLabs (Creator)<br>$22/mo</span>
-                        </div>
-                    </a>
                     <a class="sw-card" href="/software/droplink/">
                         <div class="sw-icon" aria-hidden="true">💧</div>
                         <h3>Droplink</h3>
@@ -524,15 +629,6 @@
                         <div class="sw-meta">
                             <span class="sw-price">$19 once</span>
                             <span class="sw-replaces">replaces Cacher<br>$6/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/textract/">
-                        <div class="sw-icon" aria-hidden="true">🔎</div>
-                        <h3>Textract</h3>
-                        <p class="sw-tag">Local OCR for images &amp; PDFs — searchable-PDF export, batch folders, screenshot hotkey.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$19 once</span>
-                            <span class="sw-replaces">replaces Adobe Acrobat Pro<br>$19.99/mo</span>
                         </div>
                     </a>
                     <a class="sw-card" href="/software/inkseal/">
@@ -607,51 +703,6 @@
                             <span class="sw-replaces">replaces Life360<br>$99.99+/yr (Plus)</span>
                         </div>
                     </a>
-                    <a class="sw-card" href="/software/memeforge/">
-                        <div class="sw-icon" aria-hidden="true">😂</div>
-                        <h3>Memeforge</h3>
-                        <p class="sw-tag">Drag-drop meme captions, a built-in template library and custom fonts, instant PNG export — 100% offline.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces Imgflip Pro<br>$6.99/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/orgtree/">
-                        <div class="sw-icon" aria-hidden="true">🌳</div>
-                        <h3>Orgtree</h3>
-                        <p class="sw-tag">Drag-drop org chart builder with CSV import, auto-layout and PDF/PNG export — no login, no seats.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$19 once</span>
-                            <span class="sw-replaces">replaces Lucidchart<br>$7.95/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/renewcheck/">
-                        <div class="sw-icon" aria-hidden="true">🔔</div>
-                        <h3>Renewcheck</h3>
-                        <p class="sw-tag">Manual subscription tracker with renewal reminders, spend totals and category breakdowns — your card numbers never touch a server.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces Rocket Money<br>$6–12/mo (Premium)</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/paletteforge/">
-                        <div class="sw-icon" aria-hidden="true">🎨</div>
-                        <h3>Paletteforge</h3>
-                        <p class="sw-tag">Palette generator with lock/shuffle, contrast checking, and CSS/Tailwind/ASE export — fully offline.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces Coolors Pro<br>$5.99/mo</span>
-                        </div>
-                    </a>
-                    <a class="sw-card" href="/software/iconforge/">
-                        <div class="sw-icon" aria-hidden="true">🔷</div>
-                        <h3>Iconforge</h3>
-                        <p class="sw-tag">Drop one image, get a full favicon + app-icon set (ICO, PNG, Apple touch, Android, PWA manifest) — zero uploads.</p>
-                        <div class="sw-meta">
-                            <span class="sw-price">$15 once</span>
-                            <span class="sw-replaces">replaces Iconscout<br>$9.99/mo (Unlimited)</span>
-                        </div>
-                    </a>
                 </div>
             </div>
         </section>
@@ -662,6 +713,11 @@
                     <span class="text-label">Take A Closer Look</span>
                     <h2>Every App, Screenshotted</h2>
                     <p>Real screenshots from the actual software — not mockups.</p>
+                </div>
+
+                <div class="category-heading">
+                    <h3>&#128421;&#65039; Desktop Software Applications</h3>
+                    <span class="count">18 apps</span>
                 </div>
                 <div class="app-rows">
         <div class="app-row">
@@ -775,6 +831,299 @@
             </div>
         </div>
         <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">✒️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">✒️</span><span class="brand">SigCraft</span></div>
+                <h3><a href="/software/sigcraft/">SigCraft</a></h3>
+                <p class="tagline">Professional email signatures for your whole team — on your desktop, forever.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>10 polished templates — Classic, Modern Sidebar, Minimal, Bold Accent Bar, Card, Compact, Corporate, Creative, Photo Left, Photo Top.</span></li>
+                    <li><span class="fi" aria-hidden="true">📧</span><span>Email-safe HTML — Table layouts, 100% inline styles, Outlook (VML) conditional comments — renders correctly in Gmail, Outlook desktop &amp; web, Apple Mail, Thunderbird.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖼️</span><span>Headshot / logo upload — Drag &amp; drop, auto-resized and embedded as base64 — or use a hosted image URL for maximum client compatibility.</span></li>
+                    <li><span class="fi" aria-hidden="true">🌐</span><span>12 social networks — LinkedIn, X, Facebook, Instagram, YouTube, TikTok, GitHub and more — brand-colored or monochrome pure-HTML badges, no broken-image icons.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces WiseStamp ($6/mo/user)</span>
+                    <a href="/software/sigcraft/" class="btn btn-outline btn-sm">See SigCraft &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔥</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔥</span><span class="brand">Streakly</span></div>
+                <h3><a href="/software/streakly/">Streakly</a></h3>
+                <p class="tagline">The desktop habit tracker you buy once — streaks, heatmaps and schedules that match real life.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🗓️</span><span>Schedules that match real life — Every day, specific weekdays, or N times per week — with an icon and color per habit.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔢</span><span>Numeric goals — "8 glasses of water", "50 pushups" — increment through the day; only hitting the goal completes it, partial counts still tracked.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔥</span><span>A streak engine that's fair — Weekday-only habits survive the weekend, N-per-week habits count weekly quotas, and today doesn't break your streak just because it isn't done yet.</span></li>
+                    <li><span class="fi" aria-hidden="true">🏖️</span><span>Vacation mode — Skip days freeze your streaks instead of killing them.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Habitify ($5/mo)</span>
+                    <a href="/software/streakly/" class="btn btn-outline btn-sm">See Streakly &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🎯</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎯</span><span class="brand">Deepdesk</span></div>
+                <h3><a href="/software/deepdesk/">Deepdesk</a></h3>
+                <p class="tagline">A local-first deep-work dashboard — Pomodoro, intents, ambient noise, streaks. No account.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🍅</span><span>Pomodoro engine — Configurable focus / short break / long break lengths, auto-cycling, long break after every N sessions, pause and skip.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧭</span><span>Session intents — Answer "what are you working on?" before each session — every intent lands in your session log.</span></li>
+                    <li><span class="fi" aria-hidden="true">✅</span><span>Tasks with pomodoro tallies — Add tasks, pick the active one, and watch its 🍅 count grow as you complete sessions.</span></li>
+                    <li><span class="fi" aria-hidden="true">🪟</span><span>Always-on-top mini timer — A frameless, draggable floating widget with a live progress ring — hover to expand pause / skip / open controls.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Centered (~$10/mo)</span>
+                    <a href="/software/deepdesk/" class="btn btn-outline btn-sm">See Deepdesk &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🪶</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🪶</span><span class="brand">Quillpad</span></div>
+                <h3><a href="/software/quillpad/">Quillpad</a></h3>
+                <p class="tagline">Local-first markdown notes — your knowledge base is a folder of plain .md files you own.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📁</span><span>Your vault is just a folder — Notes are real .md files, folders are folders. Edit them in any other app — Quillpad watches the disk and refreshes live.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Live-styled markdown editor — CodeMirror 6 with inline preview styling — sized headings, rendered bold/italic, highlighted code. Ctrl+E toggles full preview.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔗</span><span>[[Wikilinks]] + backlinks — Type [[ for fuzzy autocomplete over every note; aliases supported; missing notes are created on click. Every note shows who links to it, with context.</span></li>
+                    <li><span class="fi" aria-hidden="true">#️⃣</span><span>Tags — #hashtags anywhere appear in the sidebar — click to filter.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$29</span> once</span>
+                    <span class="replaces">replaces Notion ($12/mo per seat)</span>
+                    <a href="/software/quillpad/" class="btn btn-outline btn-sm">See Quillpad &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🛠️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🛠️</span><span class="brand">Wrangle</span></div>
+                <h3><a href="/software/wrangle/">Wrangle</a></h3>
+                <p class="tagline">The offline developer data toolbox. Stop pasting API keys into random websites.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔁</span><span>Convert anything — Any-to-any JSON / CSV / YAML / XML with format auto-detect and documented dot-notation flatten rules for nested data.</span></li>
+                    <li><span class="fi" aria-hidden="true">✅</span><span>Validate &amp; format — Pretty-print or minify JSON, YAML and XML with precise error line &amp; column highlighting.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔐</span><span>JWT decoder — Header/payload decode, human-readable expiry with an expired badge, optional HS256 signature verification — your token never leaves the machine.</span></li>
+                    <li><span class="fi" aria-hidden="true">🆚</span><span>Smart diff — Side-by-side text diff plus a JSON mode that ignores key order and whitespace, so only real changes light up.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces DevUtils ($29 (macOS only))</span>
+                    <a href="/software/wrangle/" class="btn btn-outline btn-sm">See Wrangle &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">📥</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">📥</span><span class="brand">Reelsnag</span></div>
+                <h3><a href="/software/reelsnag/">Reelsnag</a></h3>
+                <p class="tagline">A clean desktop GUI for yt-dlp. Back up your own videos — $24 once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🔗</span><span>Paste a URL → probe — Fetches title, thumbnail, duration, uploader and every available format via yt-dlp -J.</span></li>
+                    <li><span class="fi" aria-hidden="true">📊</span><span>Format &amp; quality picker — Grouped by resolution, audio-only option, "best" default, automatic video+audio merge via ffmpeg when needed.</span></li>
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Real download queue — Multiple jobs, 1–3 concurrent, live progress/speed/ETA, cancel, retry, remove, open-in-folder.</span></li>
+                    <li><span class="fi" aria-hidden="true">✂️</span><span>Trim per job — Optional start/end trim — fast stream-copy with an automatic accurate re-encode fallback.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$24</span> once</span>
+                    <span class="replaces">replaces Downloader subscription sites ($10–15/mo)</span>
+                    <a href="/software/reelsnag/" class="btn btn-outline btn-sm">See Reelsnag &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🗣️</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🗣️</span><span class="brand">Voicebarn</span></div>
+                <h3><a href="/software/voicebarn/">Voicebarn</a></h3>
+                <p class="tagline">Unlimited natural-sounding text-to-speech on your own machine.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎙️</span><span>Local neural TTS via Piper — Clean, natural narration voices, 100% offline after the one-time engine + voice download.</span></li>
+                    <li><span class="fi" aria-hidden="true">📝</span><span>Per-paragraph control — Every paragraph gets its own voice + speed override (0.5x–2.0x), inheriting document defaults when left blank.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏸️</span><span>Inline pause tags — Drop <pause 500ms> or [pause 1s] anywhere for a precise, sample-rate-matched silence gap.</span></li>
+                    <li><span class="fi" aria-hidden="true">▶️</span><span>Instant preview — Synthesize and play any single paragraph before you export, with results cached by content hash.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$34</span> once</span>
+                    <span class="replaces">replaces ElevenLabs (Creator) ($22/mo)</span>
+                    <a href="/software/voicebarn/" class="btn btn-outline btn-sm">See Voicebarn &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔎</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔎</span><span class="brand">Textract</span></div>
+                <h3><a href="/software/textract/">Textract</a></h3>
+                <p class="tagline">Every scan, every screenshot, into text. Offline. Once.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag-drop OCR — Drop images (PNG/JPG/WEBP/BMP/TIFF) or PDFs, get per-page extracted text — PDFs are rasterized page-by-page automatically.</span></li>
+                    <li><span class="fi" aria-hidden="true">📃</span><span>Per-page results — Page thumbnails, text pane, per-page copy and copy-all, confidence indicator, .txt export.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔍</span><span>Searchable-PDF export — Rebuilds the PDF with an invisible text layer positioned from OCR word bounding boxes — Ctrl-F-able and copy-able in any PDF reader.</span></li>
+                    <li><span class="fi" aria-hidden="true">📁</span><span>Batch folder mode — Point it at a folder (recursive optional), OCR everything, get a .txt per file and a summary of files/pages/words/failures.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces Adobe Acrobat Pro ($19.99/mo)</span>
+                    <a href="/software/textract/" class="btn btn-outline btn-sm">See Textract &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">😂</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">😂</span><span class="brand">Memeforge</span></div>
+                <h3><a href="/software/memeforge/">Memeforge</a></h3>
+                <p class="tagline">Classic meme captioning with a real template library — no watermark, no upload.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Built-in template library — Dozens of classic formats ready to caption, plus upload your own base image.</span></li>
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Drag &amp; resize text boxes — Position, scale and rotate top/bottom or freeform text with live preview.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔤</span><span>Custom fonts &amp; stroke — Impact-style outline by default, swap fonts, adjust stroke width, color and shadow.</span></li>
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Upload your own image — Any JPG/PNG becomes a base template — not limited to the built-in set.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Imgflip Pro ($6.99/mo)</span>
+                    <a href="/software/memeforge/" class="btn btn-outline btn-sm">See Memeforge &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🌳</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🌳</span><span class="brand">Orgtree</span></div>
+                <h3><a href="/software/orgtree/">Orgtree</a></h3>
+                <p class="tagline">Build and maintain your org chart without a seat-priced diagram tool.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📋</span><span>CSV / spreadsheet import — Paste or upload name, title and manager columns — the chart builds itself.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧩</span><span>Auto-layout engine — Reporting lines position automatically as you add or reassign people.</span></li>
+                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag to reparent — Move anyone under a new manager by dragging their card — the tree re-flows instantly.</span></li>
+                    <li><span class="fi" aria-hidden="true">🎨</span><span>Department color coding — Color-code by team or department so structure is visible at a glance.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$19</span> once</span>
+                    <span class="replaces">replaces Lucidchart ($7.95/mo)</span>
+                    <a href="/software/orgtree/" class="btn btn-outline btn-sm">See Orgtree &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔔</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔔</span><span class="brand">Renewcheck</span></div>
+                <h3><a href="/software/renewcheck/">Renewcheck</a></h3>
+                <p class="tagline">Track every subscription's renewal date without linking your bank account.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">✍️</span><span>Add subscriptions manually — No bank link, no Plaid, no OAuth to a financial account — just name, price and renewal date.</span></li>
+                    <li><span class="fi" aria-hidden="true">⏰</span><span>Renewal countdown &amp; reminders — Native OS notifications before a charge hits, with enough lead time to actually cancel.</span></li>
+                    <li><span class="fi" aria-hidden="true">💰</span><span>Spend totals — Monthly and yearly totals calculated automatically as you add subscriptions.</span></li>
+                    <li><span class="fi" aria-hidden="true">📊</span><span>Category breakdown — See spend by category — streaming, software, fitness, whatever you define.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Rocket Money ($6–12/mo (Premium))</span>
+                    <a href="/software/renewcheck/" class="btn btn-outline btn-sm">See Renewcheck &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🎨</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🎨</span><span class="brand">Paletteforge</span></div>
+                <h3><a href="/software/paletteforge/">Paletteforge</a></h3>
+                <p class="tagline">Generate, lock and export brand color palettes — no account, no export limits.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">🎲</span><span>Generate &amp; shuffle palettes — Spacebar-driven random palette generation, five colors at a time.</span></li>
+                    <li><span class="fi" aria-hidden="true">🔒</span><span>Lock colors while regenerating — Keep the ones you like, reroll the rest until the palette clicks.</span></li>
+                    <li><span class="fi" aria-hidden="true">✅</span><span>WCAG contrast checker — Instant AA/AAA pass-fail for any foreground/background pairing in your palette.</span></li>
+                    <li><span class="fi" aria-hidden="true">📤</span><span>Export to CSS, Tailwind, ASE, PNG — Drop straight into a codebase or design tool — no manual re-typing of hex codes.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Coolors Pro ($5.99/mo)</span>
+                    <a href="/software/paletteforge/" class="btn btn-outline btn-sm">See Paletteforge &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="app-row reverse">
+            <div class="app-row-media app-row-placeholder">
+                    <span class="icon" aria-hidden="true">🔷</span>
+                    <span class="soon">Screenshot coming soon</span>
+                </div>
+            <div class="app-row-content">
+                <div class="eyebrow"><span class="icon" aria-hidden="true">🔷</span><span class="brand">Iconforge</span></div>
+                <h3><a href="/software/iconforge/">Iconforge</a></h3>
+                <p class="tagline">One image in, every favicon and app-icon size out — batched, offline, no watermark.</p>
+                <ul class="app-row-features">
+                    <li><span class="fi" aria-hidden="true">📥</span><span>Drop one source image — PNG, JPG or SVG in — every required size and format generated automatically.</span></li>
+                    <li><span class="fi" aria-hidden="true">🧊</span><span>Full favicon set — 16×16, 32×32, 48×48 packed into a proper multi-resolution ICO, plus standalone PNGs.</span></li>
+                    <li><span class="fi" aria-hidden="true">🍎</span><span>Apple touch icons — All iOS home-screen sizes generated with correct naming and padding.</span></li>
+                    <li><span class="fi" aria-hidden="true">🤖</span><span>Android adaptive icons — Foreground/background layer support for Android's adaptive icon format.</span></li>
+                </ul>
+                <div class="app-row-meta">
+                    <span class="price-badge"><span class="amt">$15</span> once</span>
+                    <span class="replaces">replaces Iconscout ($9.99/mo (Unlimited))</span>
+                    <a href="/software/iconforge/" class="btn btn-outline btn-sm">See Iconforge &rarr;</a>
+                </div>
+            </div>
+        </div>
+                </div>
+
+                <div class="category-heading">
+                    <h3>&#9729;&#65039; Web Hosted Applications</h3>
+                    <span class="count">38 apps</span>
+                </div>
+                <div class="app-rows">
+        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/upwatch.png" alt="Upwatch screenshot" loading="lazy" width="1440" height="900">
@@ -796,7 +1145,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row">
+        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/trimly.png" alt="Trimly screenshot" loading="lazy" width="1440" height="900">
@@ -818,7 +1167,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row reverse">
+        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/billcraft.png" alt="Billcraft screenshot" loading="lazy" width="1440" height="900">
@@ -840,7 +1189,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row">
+        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/bookslot.png" alt="Bookslot screenshot" loading="lazy" width="1440" height="900">
@@ -862,7 +1211,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row reverse">
+        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/formforge.png" alt="Formforge screenshot" loading="lazy" width="1440" height="900">
@@ -881,28 +1230,6 @@
                     <span class="price-badge"><span class="amt">$39</span> once</span>
                     <span class="replaces">replaces Typeform ($29/mo)</span>
                     <a href="/software/formforge/" class="btn btn-outline btn-sm">See Formforge &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">✒️</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">✒️</span><span class="brand">SigCraft</span></div>
-                <h3><a href="/software/sigcraft/">SigCraft</a></h3>
-                <p class="tagline">Professional email signatures for your whole team — on your desktop, forever.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🎨</span><span>10 polished templates — Classic, Modern Sidebar, Minimal, Bold Accent Bar, Card, Compact, Corporate, Creative, Photo Left, Photo Top.</span></li>
-                    <li><span class="fi" aria-hidden="true">📧</span><span>Email-safe HTML — Table layouts, 100% inline styles, Outlook (VML) conditional comments — renders correctly in Gmail, Outlook desktop &amp; web, Apple Mail, Thunderbird.</span></li>
-                    <li><span class="fi" aria-hidden="true">🖼️</span><span>Headshot / logo upload — Drag &amp; drop, auto-resized and embedded as base64 — or use a hosted image URL for maximum client compatibility.</span></li>
-                    <li><span class="fi" aria-hidden="true">🌐</span><span>12 social networks — LinkedIn, X, Facebook, Instagram, YouTube, TikTok, GitHub and more — brand-colored or monochrome pure-HTML badges, no broken-image icons.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces WiseStamp ($6/mo/user)</span>
-                    <a href="/software/sigcraft/" class="btn btn-outline btn-sm">See SigCraft &rarr;</a>
                 </div>
             </div>
         </div>
@@ -1149,72 +1476,6 @@
             </div>
         </div>
         <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🔥</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🔥</span><span class="brand">Streakly</span></div>
-                <h3><a href="/software/streakly/">Streakly</a></h3>
-                <p class="tagline">The desktop habit tracker you buy once — streaks, heatmaps and schedules that match real life.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🗓️</span><span>Schedules that match real life — Every day, specific weekdays, or N times per week — with an icon and color per habit.</span></li>
-                    <li><span class="fi" aria-hidden="true">🔢</span><span>Numeric goals — "8 glasses of water", "50 pushups" — increment through the day; only hitting the goal completes it, partial counts still tracked.</span></li>
-                    <li><span class="fi" aria-hidden="true">🔥</span><span>A streak engine that's fair — Weekday-only habits survive the weekend, N-per-week habits count weekly quotas, and today doesn't break your streak just because it isn't done yet.</span></li>
-                    <li><span class="fi" aria-hidden="true">🏖️</span><span>Vacation mode — Skip days freeze your streaks instead of killing them.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces Habitify ($5/mo)</span>
-                    <a href="/software/streakly/" class="btn btn-outline btn-sm">See Streakly &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row reverse">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🎯</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🎯</span><span class="brand">Deepdesk</span></div>
-                <h3><a href="/software/deepdesk/">Deepdesk</a></h3>
-                <p class="tagline">A local-first deep-work dashboard — Pomodoro, intents, ambient noise, streaks. No account.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🍅</span><span>Pomodoro engine — Configurable focus / short break / long break lengths, auto-cycling, long break after every N sessions, pause and skip.</span></li>
-                    <li><span class="fi" aria-hidden="true">🧭</span><span>Session intents — Answer "what are you working on?" before each session — every intent lands in your session log.</span></li>
-                    <li><span class="fi" aria-hidden="true">✅</span><span>Tasks with pomodoro tallies — Add tasks, pick the active one, and watch its 🍅 count grow as you complete sessions.</span></li>
-                    <li><span class="fi" aria-hidden="true">🪟</span><span>Always-on-top mini timer — A frameless, draggable floating widget with a live progress ring — hover to expand pause / skip / open controls.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces Centered (~$10/mo)</span>
-                    <a href="/software/deepdesk/" class="btn btn-outline btn-sm">See Deepdesk &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🪶</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🪶</span><span class="brand">Quillpad</span></div>
-                <h3><a href="/software/quillpad/">Quillpad</a></h3>
-                <p class="tagline">Local-first markdown notes — your knowledge base is a folder of plain .md files you own.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">📁</span><span>Your vault is just a folder — Notes are real .md files, folders are folders. Edit them in any other app — Quillpad watches the disk and refreshes live.</span></li>
-                    <li><span class="fi" aria-hidden="true">✍️</span><span>Live-styled markdown editor — CodeMirror 6 with inline preview styling — sized headings, rendered bold/italic, highlighted code. Ctrl+E toggles full preview.</span></li>
-                    <li><span class="fi" aria-hidden="true">🔗</span><span>[[Wikilinks]] + backlinks — Type [[ for fuzzy autocomplete over every note; aliases supported; missing notes are created on click. Every note shows who links to it, with context.</span></li>
-                    <li><span class="fi" aria-hidden="true">#️⃣</span><span>Tags — #hashtags anywhere appear in the sidebar — click to filter.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$29</span> once</span>
-                    <span class="replaces">replaces Notion ($12/mo per seat)</span>
-                    <a href="/software/quillpad/" class="btn btn-outline btn-sm">See Quillpad &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/pingcron.png" alt="Pingcron screenshot" loading="lazy" width="1440" height="900">
@@ -1236,7 +1497,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row">
+        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/hookscope.png" alt="Hookscope screenshot" loading="lazy" width="1440" height="900">
@@ -1258,7 +1519,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row reverse">
+        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/snapfleet.png" alt="Snapfleet screenshot" loading="lazy" width="1440" height="900">
@@ -1277,28 +1538,6 @@
                     <span class="price-badge"><span class="amt">$39</span> once</span>
                     <span class="replaces">replaces Urlbox ($19/mo)</span>
                     <a href="/software/snapfleet/" class="btn btn-outline btn-sm">See Snapfleet &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🛠️</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🛠️</span><span class="brand">Wrangle</span></div>
-                <h3><a href="/software/wrangle/">Wrangle</a></h3>
-                <p class="tagline">The offline developer data toolbox. Stop pasting API keys into random websites.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🔁</span><span>Convert anything — Any-to-any JSON / CSV / YAML / XML with format auto-detect and documented dot-notation flatten rules for nested data.</span></li>
-                    <li><span class="fi" aria-hidden="true">✅</span><span>Validate &amp; format — Pretty-print or minify JSON, YAML and XML with precise error line &amp; column highlighting.</span></li>
-                    <li><span class="fi" aria-hidden="true">🔐</span><span>JWT decoder — Header/payload decode, human-readable expiry with an expired badge, optional HS256 signature verification — your token never leaves the machine.</span></li>
-                    <li><span class="fi" aria-hidden="true">🆚</span><span>Smart diff — Side-by-side text diff plus a JSON mode that ignores key order and whitespace, so only real changes light up.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces DevUtils ($29 (macOS only))</span>
-                    <a href="/software/wrangle/" class="btn btn-outline btn-sm">See Wrangle &rarr;</a>
                 </div>
             </div>
         </div>
@@ -1501,50 +1740,6 @@
             </div>
         </div>
         <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">📥</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">📥</span><span class="brand">Reelsnag</span></div>
-                <h3><a href="/software/reelsnag/">Reelsnag</a></h3>
-                <p class="tagline">A clean desktop GUI for yt-dlp. Back up your own videos — $24 once.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🔗</span><span>Paste a URL → probe — Fetches title, thumbnail, duration, uploader and every available format via yt-dlp -J.</span></li>
-                    <li><span class="fi" aria-hidden="true">📊</span><span>Format &amp; quality picker — Grouped by resolution, audio-only option, "best" default, automatic video+audio merge via ffmpeg when needed.</span></li>
-                    <li><span class="fi" aria-hidden="true">📥</span><span>Real download queue — Multiple jobs, 1–3 concurrent, live progress/speed/ETA, cancel, retry, remove, open-in-folder.</span></li>
-                    <li><span class="fi" aria-hidden="true">✂️</span><span>Trim per job — Optional start/end trim — fast stream-copy with an automatic accurate re-encode fallback.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$24</span> once</span>
-                    <span class="replaces">replaces Downloader subscription sites ($10–15/mo)</span>
-                    <a href="/software/reelsnag/" class="btn btn-outline btn-sm">See Reelsnag &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row reverse">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🗣️</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🗣️</span><span class="brand">Voicebarn</span></div>
-                <h3><a href="/software/voicebarn/">Voicebarn</a></h3>
-                <p class="tagline">Unlimited natural-sounding text-to-speech on your own machine.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🎙️</span><span>Local neural TTS via Piper — Clean, natural narration voices, 100% offline after the one-time engine + voice download.</span></li>
-                    <li><span class="fi" aria-hidden="true">📝</span><span>Per-paragraph control — Every paragraph gets its own voice + speed override (0.5x–2.0x), inheriting document defaults when left blank.</span></li>
-                    <li><span class="fi" aria-hidden="true">⏸️</span><span>Inline pause tags — Drop <pause 500ms> or [pause 1s] anywhere for a precise, sample-rate-matched silence gap.</span></li>
-                    <li><span class="fi" aria-hidden="true">▶️</span><span>Instant preview — Synthesize and play any single paragraph before you export, with results cached by content hash.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$34</span> once</span>
-                    <span class="replaces">replaces ElevenLabs (Creator) ($22/mo)</span>
-                    <a href="/software/voicebarn/" class="btn btn-outline btn-sm">See Voicebarn &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/droplink.png" alt="Droplink screenshot" loading="lazy" width="1440" height="900">
@@ -1589,28 +1784,6 @@
             </div>
         </div>
         <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🔎</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🔎</span><span class="brand">Textract</span></div>
-                <h3><a href="/software/textract/">Textract</a></h3>
-                <p class="tagline">Every scan, every screenshot, into text. Offline. Once.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag-drop OCR — Drop images (PNG/JPG/WEBP/BMP/TIFF) or PDFs, get per-page extracted text — PDFs are rasterized page-by-page automatically.</span></li>
-                    <li><span class="fi" aria-hidden="true">📃</span><span>Per-page results — Page thumbnails, text pane, per-page copy and copy-all, confidence indicator, .txt export.</span></li>
-                    <li><span class="fi" aria-hidden="true">🔍</span><span>Searchable-PDF export — Rebuilds the PDF with an invisible text layer positioned from OCR word bounding boxes — Ctrl-F-able and copy-able in any PDF reader.</span></li>
-                    <li><span class="fi" aria-hidden="true">📁</span><span>Batch folder mode — Point it at a folder (recursive optional), OCR everything, get a .txt per file and a summary of files/pages/words/failures.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$19</span> once</span>
-                    <span class="replaces">replaces Adobe Acrobat Pro ($19.99/mo)</span>
-                    <a href="/software/textract/" class="btn btn-outline btn-sm">See Textract &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/inkseal.png" alt="Inkseal screenshot" loading="lazy" width="1440" height="900">
@@ -1632,7 +1805,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row">
+        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/overlayr.png" alt="Overlayr screenshot" loading="lazy" width="1440" height="900">
@@ -1654,7 +1827,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row reverse">
+        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/signboard.png" alt="Signboard screenshot" loading="lazy" width="1440" height="900">
@@ -1676,7 +1849,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row">
+        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/serpdeck.png" alt="Serpdeck screenshot" loading="lazy" width="1440" height="900">
@@ -1698,7 +1871,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row reverse">
+        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/chatterbox.png" alt="Chatterbox screenshot" loading="lazy" width="1440" height="900">
@@ -1720,7 +1893,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row">
+        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/ledgerly.png" alt="Ledgerly screenshot" loading="lazy" width="1440" height="900">
@@ -1742,7 +1915,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row reverse">
+        <div class="app-row">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/doortracker.png" alt="Door Tracker screenshot" loading="lazy" width="1440" height="900">
@@ -1764,7 +1937,7 @@
                 </div>
             </div>
         </div>
-        <div class="app-row">
+        <div class="app-row reverse">
             <div class="app-row-media">
                     <div class="app-row-chrome"><span></span><span></span><span></span></div>
                     <img src="/software/assets/shots/famping.png" alt="FamPing screenshot" loading="lazy" width="1440" height="900">
@@ -1783,116 +1956,6 @@
                     <span class="price-badge"><span class="amt">$39</span> once</span>
                     <span class="replaces">replaces Life360 ($99.99+/yr (Plus))</span>
                     <a href="/software/famping/" class="btn btn-outline btn-sm">See FamPing &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row reverse">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">😂</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">😂</span><span class="brand">Memeforge</span></div>
-                <h3><a href="/software/memeforge/">Memeforge</a></h3>
-                <p class="tagline">Classic meme captioning with a real template library — no watermark, no upload.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🗂️</span><span>Built-in template library — Dozens of classic formats ready to caption, plus upload your own base image.</span></li>
-                    <li><span class="fi" aria-hidden="true">✍️</span><span>Drag &amp; resize text boxes — Position, scale and rotate top/bottom or freeform text with live preview.</span></li>
-                    <li><span class="fi" aria-hidden="true">🔤</span><span>Custom fonts &amp; stroke — Impact-style outline by default, swap fonts, adjust stroke width, color and shadow.</span></li>
-                    <li><span class="fi" aria-hidden="true">📥</span><span>Upload your own image — Any JPG/PNG becomes a base template — not limited to the built-in set.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces Imgflip Pro ($6.99/mo)</span>
-                    <a href="/software/memeforge/" class="btn btn-outline btn-sm">See Memeforge &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🌳</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🌳</span><span class="brand">Orgtree</span></div>
-                <h3><a href="/software/orgtree/">Orgtree</a></h3>
-                <p class="tagline">Build and maintain your org chart without a seat-priced diagram tool.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">📋</span><span>CSV / spreadsheet import — Paste or upload name, title and manager columns — the chart builds itself.</span></li>
-                    <li><span class="fi" aria-hidden="true">🧩</span><span>Auto-layout engine — Reporting lines position automatically as you add or reassign people.</span></li>
-                    <li><span class="fi" aria-hidden="true">🖱️</span><span>Drag to reparent — Move anyone under a new manager by dragging their card — the tree re-flows instantly.</span></li>
-                    <li><span class="fi" aria-hidden="true">🎨</span><span>Department color coding — Color-code by team or department so structure is visible at a glance.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$19</span> once</span>
-                    <span class="replaces">replaces Lucidchart ($7.95/mo)</span>
-                    <a href="/software/orgtree/" class="btn btn-outline btn-sm">See Orgtree &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row reverse">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🔔</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🔔</span><span class="brand">Renewcheck</span></div>
-                <h3><a href="/software/renewcheck/">Renewcheck</a></h3>
-                <p class="tagline">Track every subscription's renewal date without linking your bank account.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">✍️</span><span>Add subscriptions manually — No bank link, no Plaid, no OAuth to a financial account — just name, price and renewal date.</span></li>
-                    <li><span class="fi" aria-hidden="true">⏰</span><span>Renewal countdown &amp; reminders — Native OS notifications before a charge hits, with enough lead time to actually cancel.</span></li>
-                    <li><span class="fi" aria-hidden="true">💰</span><span>Spend totals — Monthly and yearly totals calculated automatically as you add subscriptions.</span></li>
-                    <li><span class="fi" aria-hidden="true">📊</span><span>Category breakdown — See spend by category — streaming, software, fitness, whatever you define.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces Rocket Money ($6–12/mo (Premium))</span>
-                    <a href="/software/renewcheck/" class="btn btn-outline btn-sm">See Renewcheck &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🎨</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🎨</span><span class="brand">Paletteforge</span></div>
-                <h3><a href="/software/paletteforge/">Paletteforge</a></h3>
-                <p class="tagline">Generate, lock and export brand color palettes — no account, no export limits.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">🎲</span><span>Generate &amp; shuffle palettes — Spacebar-driven random palette generation, five colors at a time.</span></li>
-                    <li><span class="fi" aria-hidden="true">🔒</span><span>Lock colors while regenerating — Keep the ones you like, reroll the rest until the palette clicks.</span></li>
-                    <li><span class="fi" aria-hidden="true">✅</span><span>WCAG contrast checker — Instant AA/AAA pass-fail for any foreground/background pairing in your palette.</span></li>
-                    <li><span class="fi" aria-hidden="true">📤</span><span>Export to CSS, Tailwind, ASE, PNG — Drop straight into a codebase or design tool — no manual re-typing of hex codes.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces Coolors Pro ($5.99/mo)</span>
-                    <a href="/software/paletteforge/" class="btn btn-outline btn-sm">See Paletteforge &rarr;</a>
-                </div>
-            </div>
-        </div>
-        <div class="app-row reverse">
-            <div class="app-row-media app-row-placeholder">
-                    <span class="icon" aria-hidden="true">🔷</span>
-                    <span class="soon">Screenshot coming soon</span>
-                </div>
-            <div class="app-row-content">
-                <div class="eyebrow"><span class="icon" aria-hidden="true">🔷</span><span class="brand">Iconforge</span></div>
-                <h3><a href="/software/iconforge/">Iconforge</a></h3>
-                <p class="tagline">One image in, every favicon and app-icon size out — batched, offline, no watermark.</p>
-                <ul class="app-row-features">
-                    <li><span class="fi" aria-hidden="true">📥</span><span>Drop one source image — PNG, JPG or SVG in — every required size and format generated automatically.</span></li>
-                    <li><span class="fi" aria-hidden="true">🧊</span><span>Full favicon set — 16×16, 32×32, 48×48 packed into a proper multi-resolution ICO, plus standalone PNGs.</span></li>
-                    <li><span class="fi" aria-hidden="true">🍎</span><span>Apple touch icons — All iOS home-screen sizes generated with correct naming and padding.</span></li>
-                    <li><span class="fi" aria-hidden="true">🤖</span><span>Android adaptive icons — Foreground/background layer support for Android's adaptive icon format.</span></li>
-                </ul>
-                <div class="app-row-meta">
-                    <span class="price-badge"><span class="amt">$15</span> once</span>
-                    <span class="replaces">replaces Iconscout ($9.99/mo (Unlimited))</span>
-                    <a href="/software/iconforge/" class="btn btn-outline btn-sm">See Iconforge &rarr;</a>
                 </div>
             </div>
         </div>

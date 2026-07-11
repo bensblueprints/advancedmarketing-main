@@ -84,6 +84,22 @@
         .app-row-meta { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
         .app-row-meta .replaces { font-size:0.8rem; color:var(--text-muted); }
         @media (max-width:760px) { .app-row, .app-row.reverse { grid-template-columns:1fr; } .app-row.reverse .app-row-media { order:0; } }
+        /* ===== nav dropdown: Software > Desktop / Web Hosted / Bundle ===== */
+        .has-dropdown { position:relative; }
+        .nav-dropdown { list-style:none; margin:0; padding:0.5rem; position:absolute; top:calc(100% + 0.75rem); left:50%; transform:translateX(-50%); min-width:260px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:0 20px 40px -15px rgba(0,0,0,0.6); opacity:0; visibility:hidden; transition:opacity 0.2s ease, transform 0.2s ease; z-index:50; }
+        .has-dropdown:hover .nav-dropdown, .has-dropdown:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+        .nav-dropdown li { display:block; }
+        .nav-dropdown a { display:block; padding:0.65rem 0.9rem; border-radius:6px; font-size:0.88rem; white-space:nowrap; color:var(--text); text-decoration:none; }
+        .nav-dropdown a:hover { background:rgba(201,169,98,0.1); color:var(--gold); }
+        .mobile-subnav a { font-size:0.85rem; opacity:0.85; }
+        .category-anchor { scroll-margin-top:90px; }
+        .category-tabs { display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+        .category-tabs a { padding:0.6rem 1.1rem; border:1px solid var(--border); border-radius:999px; font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:all 0.25s; }
+        .category-tabs a:hover { border-color:rgba(201,169,98,0.4); color:var(--gold); }
+        .category-heading { display:flex; align-items:baseline; gap:0.75rem; margin:3.5rem 0 1.75rem; }
+        .category-heading:first-child { margin-top:0; }
+        .category-heading h3 { font-size:1.5rem; }
+        .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }
     </style>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Renewcheck","description":"Manual subscription tracker with renewal reminders, spend totals and category breakdowns — your card numbers never touch a server.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/renewcheck/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"15","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — MIT source at github.com/bensblueprints/subscription-tracker. The $15 buys the packaged installer and updates."}},{"@type":"Question","name":"Why manual entry instead of bank sync?","acceptedAnswer":{"@type":"Answer","text":"Because bank sync means handing a third party read access to your entire transaction history to solve a problem that's really just \"remember these dates.\" If auto-detection from real transactions matters more to you than privacy, Rocket Money is the better fit."}},{"@type":"Question","name":"Does it cancel subscriptions for me?","acceptedAnswer":{"@type":"Answer","text":"No — Renewcheck tracks and reminds; it doesn't call vendors on your behalf like Rocket Money's paid concierge service does."}},{"@type":"Question","name":"How do reminders work?","acceptedAnswer":{"@type":"Answer","text":"Native OS notifications a configurable number of days before each renewal date."}},{"@type":"Question","name":"What happens to my list if I stop using the app?","acceptedAnswer":{"@type":"Answer","text":"Nothing — it's a local file on your disk, exportable to CSV any time. No account to close, nothing held hostage."}}]}</script>
@@ -102,7 +118,14 @@
                 </a>
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="/services" role="menuitem">Services</a></li>
-                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none" class="has-dropdown">
+                        <a href="/software/" role="menuitem" aria-haspopup="true" aria-expanded="false">Software &#9662;</a>
+                        <ul class="nav-dropdown" role="menu">
+                            <li role="none"><a href="/software/#desktop" role="menuitem">Desktop Software Applications</a></li>
+                            <li role="none"><a href="/software/#web-hosted" role="menuitem">Web Hosted Applications</a></li>
+                            <li role="none"><a href="/software/onetime-suite-bundle/" role="menuitem">Advanced Marketing 1 Time Suite</a></li>
+                        </ul>
+                    </li>
                     <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
                     <li role="none"><a href="/team" role="menuitem">Team</a></li>
                     <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
@@ -115,6 +138,15 @@
                     <ul>
                         <li><a href="/services">Services</a></li>
                         <li><a href="/software/">Software</a></li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#desktop">&nbsp;&nbsp;Desktop Software Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#web-hosted">&nbsp;&nbsp;Web Hosted Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/onetime-suite-bundle/">&nbsp;&nbsp;Advanced Marketing 1 Time Suite</a>
+                        </li>
                         <li><a href="/case-studies">Case Studies</a></li>
                         <li><a href="/team">Team</a></li>
                         <li><a href="/#coaching">Coaching</a></li>
