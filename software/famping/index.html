@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>FamPing — Life360 Alternative, $39 One-Time | Advanced Marketing</title>
+    <meta name="description" content="5-minute GPS pings, named-place geofence alerts, and a full day's path per family member — on your own server. Pay once ($39), own it forever. Replaces Life360 ($99.99+/yr (Plus)). MIT source on GitHub.">
+    <link rel="canonical" href="https://advancedmarketing.co/software/famping/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="FamPing — Life360 Alternative, $39 One-Time | Advanced Marketing">
+    <meta property="og:description" content="5-minute GPS pings, named-place geofence alerts, and a full day's path per family member — on your own server. Pay once ($39), own it forever. Replaces Life360 ($99.99+/yr (Plus)). MIT source on GitHub.">
+    <meta property="og:url" content="https://advancedmarketing.co/software/famping/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /software section additions ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .sw-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .sw-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:all 0.4s; text-decoration:none; color:inherit; }
+        .sw-card:hover { border-color:rgba(201,169,98,0.35); transform:translateY(-4px); background:var(--bg-card-hover); }
+        .sw-card .sw-icon { font-size:1.9rem; margin-bottom:1rem; }
+        .sw-card h3 { font-size:1.35rem; margin-bottom:0.4rem; }
+        .sw-card .sw-tag { color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:1.25rem; flex:1; }
+        .sw-card .sw-meta { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; border-top:1px solid var(--border); padding-top:1rem; }
+        .sw-card .sw-price { color:var(--gold); font-weight:700; font-size:1.05rem; white-space:nowrap; }
+        .sw-card .sw-replaces { font-size:0.75rem; color:var(--text-muted); text-align:right; }
+        .soon-strip { display:flex; flex-wrap:wrap; gap:0.6rem; }
+        .soon-pill { font-size:0.78rem; padding:0.5rem 0.95rem; border:1px dashed var(--border); border-radius:999px; color:var(--text-muted); opacity:0.75; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FamPing","description":"5-minute GPS pings, named-place geofence alerts, and a full day's path per family member — on your own server.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/famping/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"39","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the $39 price permanent?","acceptedAnswer":{"@type":"Answer","text":"It's an introductory rate for the first 1,000 licenses. After that cap, new licenses are $299 — but your purchase price never changes once you've bought."}},{"@type":"Question","name":"Does FamPing sell or share location data?","acceptedAnswer":{"@type":"Answer","text":"It can't — there's no company in the middle. Location data goes from the family phone straight to the server you deployed, and nowhere else."}},{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — MIT source at github.com/bensblueprints/famping. The Whop price buys the packaged installer, Android app build and updates."}},{"@type":"Question","name":"How is this different from just sharing location in Find My/Google Maps?","acceptedAnswer":{"@type":"Answer","text":"Those show a live dot but not history — FamPing keeps a searchable log of where someone was and for how long, plus alerts the moment they arrive or leave a named place."}},{"@type":"Question","name":"Can I run this fully offline / local network only?","acceptedAnswer":{"@type":"Answer","text":"Yes — deploy to a machine on your home network instead of a public VPS if you only need in-home dashboard access, or use desktop mode for a single-device setup."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="FamPing">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>FamPing</span></nav>
+                <span class="price-badge"><span class="amt">$39</span> one-time, forever</span>
+                <h1>📍 FamPing</h1>
+                <p class="lead">Real-time family locations and place alerts — without selling your location data.</p>
+                <p class="lead" style="font-size:1.02rem;">Life360's free tier is deliberately crippled to push the $99.99+/year Plus and Platinum plans — and the company has a well-documented history of selling aggregated location data to data brokers. FamPing does the same core job — pings every 5 minutes, named-place arrival/departure alerts, a real-time family map — on a server only you control, with a $39 introductory price locked for the first 1,000 licenses before it moves to $299.</p>
+                <div class="hero-ctas">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/famping" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">What You Get</span>
+                    <h2>Features</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📡</div><h3>5-minute location pings</h3><p>Every family member's phone reports position automatically to your dashboard.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🏠</div><h3>Named-place geofences</h3><p>Mark home, school, work — get an alert the moment someone arrives or leaves, no third party ever sees the address.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🗺️</div><h3>Full-day path per member</h3><p>The same stop-clustering engine as Door Tracker draws each family member's day as a route with numbered, timed stops.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">👨‍👩‍👧‍👦</div><h3>Multiple family members, no per-seat fee</h3><p>Add everyone in the household on one license — Life360 gates member count behind paid tiers.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📱</div><h3>Android app for family phones</h3><p>Simple login, background ping with a visible indicator, battery-friendly interval.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🚫</div><h3>No data-broker business model</h3><p>There's no ad network or data-sale revenue stream to fund — the app has no business reason to look at what it collects.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">📊</div><h3>Place-time history</h3><p>See how long someone was actually at school, practice or a friend's house, not just a pin on a map.</p></div>
+                    <div class="feature-card"><div class="fi" aria-hidden="true">🔒</div><h3>Self-hosted or desktop</h3><p>Deploy to a VPS for real-time family access, or run it as a single desktop dashboard for local-only monitoring.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Comparison with Life360">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">The Math</span>
+                    <h2>FamPing vs Life360</h2>
+                    <p>Life360 at $99.99+/yr (Plus) costs roughly $100/year — $200 over two years. FamPing is $39, once.</p>
+                </div>
+                
+                <div class="compare-wrap">
+                <table class="compare">
+                    <thead><tr><th></th><th class="us">FamPing</th><th>Life360</th></tr></thead>
+                    <tbody>
+                        <tr><td>Price</td><td class="us">$39 intro (1,000 licenses), then $299 — once</td><td>$99.99+/yr, forever</td></tr>
+                        <tr><td>Cost over 3 years</td><td class="us">$39</td><td>$300+</td></tr>
+                        <tr><td>Sells or shares location data</td><td class="us">No — can't, it's your server</td><td>Documented history of data broker deals</td></tr>
+                        <tr><td>Member limit</td><td class="us">Unlimited, one license</td><td>Gated by plan tier</td></tr>
+                        <tr><td>Geofence alerts</td><td class="us">Included</td><td>Included on paid tiers</td></tr>
+                        <tr><td>Full-day path + dwell time</td><td class="us">Yes</td><td>Limited/basic</td></tr>
+                        <tr><td>Account required with the vendor</td><td class="us">No</td><td>Yes</td></tr>
+                        <tr><td>Source code</td><td class="us">MIT, on GitHub</td><td>Closed</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="color:var(--text-muted);margin-top:1.25rem;font-size:0.95rem;">One year of Life360 Plus costs more than 2.5x the FamPing license — and FamPing's price never renews.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">How It Works</span>
+                    <h2>Three Steps, No Subscription</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step"><div class="num">01</div><h3>Buy once on Whop</h3><p>Introductory $39 while the first 1,000 licenses last, rising to $299 after — no per-member or monthly fee ever.</p></div>
+                    <div class="process-step"><div class="num">02</div><h3>Deploy the dashboard</h3><p>docker compose up on a $5 VPS for real-time access anywhere, or run the desktop build for local-only monitoring.</p></div>
+                    <div class="process-step"><div class="num">03</div><h3>Family installs the app</h3><p>Each phone logs in with a device key; the dashboard fills in with live pings, geofence alerts and daily paths.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Frequently asked questions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">FAQ</span>
+                    <h2>Honest Answers</h2>
+                </div>
+                <div style="max-width:760px;margin:0 auto;">
+                    <div class="faq-item"><h3>Is the $39 price permanent?</h3><p>It's an introductory rate for the first 1,000 licenses. After that cap, new licenses are $299 — but your purchase price never changes once you've bought.</p></div>
+                    <div class="faq-item"><h3>Does FamPing sell or share location data?</h3><p>It can't — there's no company in the middle. Location data goes from the family phone straight to the server you deployed, and nowhere else.</p></div>
+                    <div class="faq-item"><h3>Is it really free on GitHub?</h3><p>Yes — MIT source at github.com/bensblueprints/famping. The Whop price buys the packaged installer, Android app build and updates.</p></div>
+                    <div class="faq-item"><h3>How is this different from just sharing location in Find My/Google Maps?</h3><p>Those show a live dot but not history — FamPing keeps a searchable log of where someone was and for how long, plus alerts the moment they arrive or leave a named place.</p></div>
+                    <div class="faq-item"><h3>Can I run this fully offline / local network only?</h3><p>Yes — deploy to a machine on your home network instead of a public VPS if you only need in-home dashboard access, or use desktop mode for a single-device setup.</p></div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get FamPing">
+            <div class="container">
+                <h2>Own FamPing Forever</h2>
+                <p>$39 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://github.com/bensblueprints/famping" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

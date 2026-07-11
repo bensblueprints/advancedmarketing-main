@@ -26,6 +26,16 @@ const COMING_SOON = [
   'Dealstack',
 ];
 
+/* ---------- Advanced Marketing 1 Time Suite (all-access bundle) ---------- */
+const BUNDLE = {
+  slug: 'onetime-suite-bundle',
+  name: 'Advanced Marketing 1 Time Suite',
+  price: 997,
+  tagline: 'Every app in the suite. One payment. Own it all, forever.',
+};
+const bundleValue = products.reduce((sum, p) => sum + p.price, 0);
+const bundleSavings = bundleValue - BUNDLE.price;
+
 /* "a" vs "an" for competitor names, by leading vowel sound */
 const art = name => (/^[aeiou]/i.test(name) ? 'an' : 'a');
 
@@ -365,7 +375,7 @@ function write(rel, html) {
             <div class="container">
                 <div class="section-header">
                     <span class="text-label">Shipped &amp; Ready</span>
-                    <h2>Forty-Nine Apps. Zero Subscriptions.</h2>
+                    <h2>${products.length} Apps. Zero Subscriptions.</h2>
                     <p>Each one replaces a tool that bills you monthly, forever.</p>
                 </div>
                 <div class="sw-grid">${cards}
@@ -373,7 +383,22 @@ function write(rel, html) {
             </div>
         </section>
 
-        <section class="section section-alt" aria-label="Coming soon">
+        <section class="section section-alt" aria-label="All-access bundle">
+            <div class="container">
+                <div class="post-cta" style="max-width:820px;margin:0 auto;text-align:center;">
+                    <span class="text-label">All ${products.length} Apps, One Price</span>
+                    <h2 style="margin:0.5rem 0 1rem;">${BUNDLE.name}</h2>
+                    <p style="margin-bottom:0.5rem;">${BUNDLE.tagline}</p>
+                    <p style="color:var(--text-muted);">Bought individually, these ${products.length} apps run $${bundleValue.toLocaleString()}. The bundle is $${BUNDLE.price.toLocaleString()} — once, for everything, forever. That's $${bundleSavings.toLocaleString()} off, no subscription, on any app you add later at no extra cost.</p>
+                    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;">
+                        <a href="/software/${BUNDLE.slug}/" class="btn btn-primary">See what's included &rarr;</a>
+                        <a href="${WHOP}" class="btn btn-outline" rel="noopener">Get the bundle on Whop &nearr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Coming soon">
             <div class="container">
                 <div class="section-header">
                     <span class="text-label">Coming Soon</span>
@@ -399,11 +424,116 @@ function write(rel, html) {
 
   write('software', page({
     title: 'Software — Pay Once, Own It Forever | Advanced Marketing',
-    desc: 'Forty-nine desktop & self-hosted apps that replace monthly SaaS subscriptions — analytics, uptime & cron monitoring, email campaigns, e-signatures, podcast hosting, rank tracking, backups, screenshots and more. One-time prices from $15.',
+    desc: `${products.length} desktop & self-hosted apps that replace monthly SaaS subscriptions — analytics, uptime & cron monitoring, email campaigns, e-signatures, podcast hosting, rank tracking, field-team GPS tracking, backups, screenshots and more. One-time prices from $15, or get everything in the ${BUNDLE.name} for $${BUNDLE.price}.`,
     canonical: `${SITE}/software/`,
     jsonld: [{
       '@context': 'https://schema.org', '@type': 'ItemList',
       itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/software/${p.slug}/`, name: p.brand })),
+    }],
+    body,
+  }));
+})();
+
+/* ---------- 1b. bundle page ---------- */
+(function bundlePage() {
+  const rows = products.map(p => `
+                        <tr><td>${p.icon} ${p.brand}</td><td>replaces ${p.competitor}</td><td class="us">$${p.price}</td></tr>`).join('');
+
+  const body = `
+        <section class="page-hero" aria-label="${BUNDLE.name}">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/software/">Software</a> &nbsp;/&nbsp; <span>${BUNDLE.name}</span></nav>
+                <span class="price-badge"><span class="amt">$${BUNDLE.price.toLocaleString()}</span> one-time, everything included</span>
+                <h1>📦 ${BUNDLE.name}</h1>
+                <p class="lead">${BUNDLE.tagline}</p>
+                <p class="lead" style="font-size:1.02rem;">All ${products.length} apps in the One-Time Suite, bundled — a $${bundleValue.toLocaleString()} value for $${BUNDLE.price.toLocaleString()}, once. Every future app we ship joins the bundle automatically, at no extra cost, for as long as you own it.</p>
+                <div class="hero-ctas">
+                    <a href="${WHOP}" class="btn btn-primary" rel="noopener">Get the bundle on Whop — $${BUNDLE.price.toLocaleString()} &rarr;</a>
+                    <a href="/software/" class="btn btn-outline">Browse apps individually &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="The math">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">The Math</span>
+                    <h2>$${bundleValue.toLocaleString()} of Software for $${BUNDLE.price.toLocaleString()}</h2>
+                    <p>Buy every app in the suite separately and it adds up to $${bundleValue.toLocaleString()}. The bundle is $${BUNDLE.price.toLocaleString()} flat — a savings of $${bundleSavings.toLocaleString()} — and it's still a one-time payment, not a subscription.</p>
+                </div>
+                <p style="color:var(--text-muted);max-width:640px;">This isn't a curated starter pack — it's the entire catalog. Replace SmallPDF, Remove.bg, Otter.ai, Loom, Bitly, Calendly, Typeform, Mailchimp, Life360, Badger Maps and dozens more with software you install once and own outright.</p>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="What's included">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">Everything, Included</span>
+                    <h2>All ${products.length} Apps</h2>
+                </div>
+                <div class="compare-wrap">
+                <table class="compare">
+                    <thead><tr><th>App</th><th>Replaces</th><th class="us">À la carte price</th></tr></thead>
+                    <tbody>${rows}
+                        <tr><td colspan="2" style="font-weight:600;">Bundle price — everything above, once</td><td class="us" style="font-weight:700;">$${BUNDLE.price.toLocaleString()}</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">How It Works</span>
+                    <h2>One Purchase, Every Installer</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step"><div class="num">01</div><h3>Buy once on Whop</h3><p>One payment of $${BUNDLE.price.toLocaleString()} — no seats, no per-app pricing, no renewal.</p></div>
+                    <div class="process-step"><div class="num">02</div><h3>Download every installer</h3><p>Signed Windows installers for the full catalog, plus MIT source access on GitHub for every app.</p></div>
+                    <div class="process-step"><div class="num">03</div><h3>Install what you need, when you need it</h3><p>Not everything at once — install an app the day you actually need it, at zero incremental cost.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" aria-label="Frequently asked questions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">FAQ</span>
+                    <h2>Honest Answers</h2>
+                </div>
+                <div style="max-width:760px;margin:0 auto;">
+                    <div class="faq-item"><h3>Do I have to install every app right away?</h3><p>No — the bundle is a license to the whole catalog. Install what you need now and grab the rest later, whenever you need it, at no extra cost.</p></div>
+                    <div class="faq-item"><h3>What happens when new apps ship?</h3><p>They join the bundle automatically. The One-Time Suite adds new apps regularly, and bundle owners get every one of them included, forever, with no upsell.</p></div>
+                    <div class="faq-item"><h3>Is this really cheaper than buying a few apps individually?</h3><p>Honestly — if you only need 2-3 apps, buying those individually may cost less than $${BUNDLE.price.toLocaleString()}. The bundle earns its price once you'd want more than a handful, or want the option to grab any future app for free.</p></div>
+                    <div class="faq-item"><h3>Is the source code included too?</h3><p>Yes — every app in the suite is MIT-licensed on GitHub regardless of how you buy it. The bundle price buys the packaged installers, 1-click setup and updates across the whole catalog.</p></div>
+                    <div class="faq-item"><h3>Do Door Tracker and FamPing's introductory pricing apply inside the bundle?</h3><p>The bundle price is fixed regardless of any individual app's current price — you get both, and everything else, at the flat $${BUNDLE.price.toLocaleString()} regardless of where their individual introductory pricing stands.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="contact" aria-label="Get the bundle">
+            <div class="container">
+                <h2>Own the Whole Suite</h2>
+                <p>$${BUNDLE.price.toLocaleString()} once. Every app, every future release, signed installers and MIT source. No renewal, no per-app upsell, no meter.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="${WHOP}" class="btn btn-primary" rel="noopener">Get the bundle on Whop — $${BUNDLE.price.toLocaleString()} &rarr;</a>
+                    <a href="/software/" class="btn btn-outline">Browse apps individually &rarr;</a>
+                </div>
+            </div>
+        </section>`;
+
+  write(`software/${BUNDLE.slug}`, page({
+    title: `${BUNDLE.name} — All ${products.length} Apps, $${BUNDLE.price.toLocaleString()} One-Time | Advanced Marketing`,
+    desc: `${BUNDLE.tagline} All ${products.length} apps in the One-Time Suite for $${BUNDLE.price.toLocaleString()} — a $${bundleValue.toLocaleString()} value. One payment, every installer, every future app included.`,
+    canonical: `${SITE}/software/${BUNDLE.slug}/`,
+    ogType: 'product',
+    jsonld: [{
+      '@context': 'https://schema.org', '@type': 'Product',
+      name: BUNDLE.name, description: BUNDLE.tagline,
+      brand: { '@type': 'Brand', name: 'One-Time Suite' },
+      url: `${SITE}/software/${BUNDLE.slug}/`, image: `${SITE}/logo.png`,
+      offers: { '@type': 'Offer', price: String(BUNDLE.price), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: WHOP },
     }],
     body,
   }));
@@ -646,7 +776,7 @@ posts.forEach(post => {
 
                     <h2>The bottom line</h2>
                     <p>Subscriptions make sense when a service does ongoing work for you — hosting, syncing, multi-region infrastructure, human labor. They make much less sense when the work happens on your own hardware and the monthly bill is just a toll booth. ${p.brand} is our bet that for this job, most people are better served owning the tool: $${p.price} once, ${esc(p.payback.charAt(0).toLowerCase() + p.payback.slice(1))}</p>
-                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — forty-nine desktop and self-hosted apps (analytics, live chat, kanban, email campaigns, e-signatures, podcast hosting, rank tracking, backups, uptime & cron monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry.</p>
+                    <p>${p.brand} is part of the <a href="/software/">One-Time Suite</a> — ${products.length} desktop and self-hosted apps (analytics, live chat, kanban, email campaigns, e-signatures, podcast hosting, rank tracking, backups, uptime & cron monitoring, invoicing, booking, forms and more) built on the same principle: your hardware does the work, so you should not pay rent on it. Every app is a one-time purchase with MIT-licensed source on GitHub, no accounts and no telemetry. Want everything at once? The <a href="/software/${BUNDLE.slug}/">${BUNDLE.name}</a> bundles the whole suite for a single flat price.</p>
 
                     <div class="post-cta">
                         <h3>Try ${p.brand} — $${p.price}, one time</h3>
