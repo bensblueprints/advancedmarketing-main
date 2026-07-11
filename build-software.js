@@ -22,6 +22,16 @@ const products = require('./software-src/products.js');
 const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js'), ...require('./software-src/posts-4.js'), ...require('./software-src/posts-5.js'), ...require('./software-src/posts-6.js')];
 const bySlug = Object.fromEntries(products.map(p => [p.slug, p]));
 
+/* Desktop-only (pure Electron, no server) vs web-hosted (self-hosted on your own VPS/server) */
+const DESKTOP_SLUGS = new Set([
+  'pdfsmith', 'cutaway', 'whisperdesk', 'shrinkray', 'clipdeck', 'sigcraft', 'streakly', 'deepdesk',
+  'quillpad', 'wrangle', 'reelsnag', 'voicebarn', 'textract', 'memeforge', 'orgtree', 'renewcheck',
+  'paletteforge', 'iconforge',
+]);
+const category = (p) => (DESKTOP_SLUGS.has(p.slug) ? 'desktop' : 'web');
+const desktopProducts = products.filter((p) => category(p) === 'desktop');
+const webProducts = products.filter((p) => category(p) === 'web');
+
 /* ---------- real app screenshots (software-src/shots/<slug>.png -> /software/assets/shots/) ---------- */
 const SHOTS_SRC = path.join(ROOT, 'software-src', 'shots');
 const SHOTS_OUT = path.join(ROOT, 'software', 'assets', 'shots');
@@ -149,7 +159,14 @@ const NAV = `
                 </a>
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="/services" role="menuitem">Services</a></li>
-                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
+                    <li role="none" class="has-dropdown">
+                        <a href="/software/" role="menuitem" aria-haspopup="true" aria-expanded="false">Software &#9662;</a>
+                        <ul class="nav-dropdown" role="menu">
+                            <li role="none"><a href="/software/#desktop" role="menuitem">Desktop Software Applications</a></li>
+                            <li role="none"><a href="/software/#web-hosted" role="menuitem">Web Hosted Applications</a></li>
+                            <li role="none"><a href="/software/${BUNDLE.slug}/" role="menuitem">${BUNDLE.name}</a></li>
+                        </ul>
+                    </li>
                     <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
                     <li role="none"><a href="/team" role="menuitem">Team</a></li>
                     <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
@@ -162,6 +179,15 @@ const NAV = `
                     <ul>
                         <li><a href="/services">Services</a></li>
                         <li><a href="/software/">Software</a></li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#desktop">&nbsp;&nbsp;Desktop Software Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#web-hosted">&nbsp;&nbsp;Web Hosted Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/${BUNDLE.slug}/">&nbsp;&nbsp;${BUNDLE.name}</a>
+                        </li>
                         <li><a href="/case-studies">Case Studies</a></li>
                         <li><a href="/team">Team</a></li>
                         <li><a href="/#coaching">Coaching</a></li>
@@ -317,8 +343,8 @@ const SW_CSS = `
         .app-row-media { border-radius:var(--radius-lg); border:1px solid var(--border); overflow:hidden; background:var(--bg-card); box-shadow:0 20px 50px -20px rgba(0,0,0,0.5); }
         .app-row-chrome { display:flex; gap:0.4rem; padding:0.65rem 0.85rem; background:#0d0d0d; border-bottom:1px solid var(--border); }
         .app-row-chrome span { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.15); }
-        .app-row-media img { width:100%; display:block; aspect-ratio:16/10; object-fit:cover; object-position:top; }
-        .app-row-placeholder { aspect-ratio:16/10; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; background:radial-gradient(circle at 50% 30%, var(--gold-glow), transparent 70%); }
+        .app-row-media img { width:100%; display:block; aspect-ratio:2/1; object-fit:cover; object-position:top; }
+        .app-row-placeholder { aspect-ratio:2/1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; background:radial-gradient(circle at 50% 30%, var(--gold-glow), transparent 70%); }
         .app-row-placeholder .icon { font-size:3rem; opacity:0.85; }
         .app-row-placeholder .soon { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
         .app-row-content .eyebrow { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
@@ -334,11 +360,34 @@ const SW_CSS = `
         .app-row-features li .fi { color:var(--gold); flex-shrink:0; }
         .app-row-meta { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
         .app-row-meta .replaces { font-size:0.8rem; color:var(--text-muted); }
-        @media (max-width:760px) { .app-row, .app-row.reverse { grid-template-columns:1fr; } .app-row.reverse .app-row-media { order:0; } }`;
+        @media (max-width:760px) { .app-row, .app-row.reverse { grid-template-columns:1fr; } .app-row.reverse .app-row-media { order:0; } }
+        /* ===== nav dropdown: Software > Desktop / Web Hosted / Bundle ===== */
+        .has-dropdown { position:relative; }
+        .nav-dropdown { list-style:none; margin:0; padding:0.5rem; position:absolute; top:calc(100% + 0.75rem); left:50%; transform:translateX(-50%); min-width:260px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:0 20px 40px -15px rgba(0,0,0,0.6); opacity:0; visibility:hidden; transition:opacity 0.2s ease, transform 0.2s ease; z-index:50; }
+        .has-dropdown:hover .nav-dropdown, .has-dropdown:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+        .nav-dropdown li { display:block; }
+        .nav-dropdown a { display:block; padding:0.65rem 0.9rem; border-radius:6px; font-size:0.88rem; white-space:nowrap; color:var(--text); text-decoration:none; }
+        .nav-dropdown a:hover { background:rgba(201,169,98,0.1); color:var(--gold); }
+        .mobile-subnav a { font-size:0.85rem; opacity:0.85; }
+        .category-anchor { scroll-margin-top:90px; }
+        .category-tabs { display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+        .category-tabs a { padding:0.6rem 1.1rem; border:1px solid var(--border); border-radius:999px; font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:all 0.25s; }
+        .category-tabs a:hover { border-color:rgba(201,169,98,0.4); color:var(--gold); }
+        .category-heading { display:flex; align-items:baseline; gap:0.75rem; margin:3.5rem 0 1.75rem; }
+        .category-heading:first-child { margin-top:0; }
+        .category-heading h3 { font-size:1.5rem; }
+        .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }`;
 
 function esc(s) { return s.replace(/&(?![a-z#0-9]+;)/g, '&amp;'); }
 
+/* onetimesuite.com is now the canonical home of this whole section — same pages,
+   same slugs, minus the /software prefix. These mirror pages defer to it so
+   Google doesn't split rankings between the two domains. */
+const CANON_SITE = 'https://onetimesuite.com';
+const toCanonical = url => url.replace(`${SITE}/software/`, `${CANON_SITE}/`);
+
 function page({ title, desc, canonical, ogType = 'website', jsonld = [], body }) {
+  canonical = toCanonical(canonical);
   const ld = jsonld.map(o => `    <script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
   return `<!DOCTYPE html>
 <html lang="en">
@@ -419,7 +468,7 @@ function appRow(p, i) {
 
 /* ---------- 1. /software/ hub ---------- */
 (function hub() {
-  const cards = products.map(p => `
+  const cardsFor = (list) => list.map(p => `
                     <a class="sw-card" href="/software/${p.slug}/">
                         <div class="sw-icon" aria-hidden="true">${p.icon}</div>
                         <h3>${p.brand}</h3>
@@ -451,7 +500,26 @@ function appRow(p, i) {
                     <h2>${products.length} Apps. Zero Subscriptions.</h2>
                     <p>Each one replaces a tool that bills you monthly, forever.</p>
                 </div>
-                <div class="sw-grid">${cards}
+                <div class="category-tabs">
+                    <a href="#desktop">&#128421;&#65039; Desktop Software Applications (${desktopProducts.length})</a>
+                    <a href="#web-hosted">&#9729;&#65039; Web Hosted Applications (${webProducts.length})</a>
+                    <a href="/software/${BUNDLE.slug}/">&#128230; ${BUNDLE.name}</a>
+                </div>
+
+                <div class="category-anchor" id="desktop"></div>
+                <div class="category-heading">
+                    <h3>&#128421;&#65039; Desktop Software Applications</h3>
+                    <span class="count">${desktopProducts.length} apps — install once, run 100% offline</span>
+                </div>
+                <div class="sw-grid">${cardsFor(desktopProducts)}
+                </div>
+
+                <div class="category-anchor" id="web-hosted"></div>
+                <div class="category-heading">
+                    <h3>&#9729;&#65039; Web Hosted Applications</h3>
+                    <span class="count">${webProducts.length} apps — self-hosted on your own VPS or server</span>
+                </div>
+                <div class="sw-grid">${cardsFor(webProducts)}
                 </div>
             </div>
         </section>
@@ -463,7 +531,19 @@ function appRow(p, i) {
                     <h2>Every App, Screenshotted</h2>
                     <p>Real screenshots from the actual software — not mockups.</p>
                 </div>
-                <div class="app-rows">${products.map((p, i) => appRow(p, i)).join('')}
+
+                <div class="category-heading">
+                    <h3>&#128421;&#65039; Desktop Software Applications</h3>
+                    <span class="count">${desktopProducts.length} apps</span>
+                </div>
+                <div class="app-rows">${desktopProducts.map((p, i) => appRow(p, i)).join('')}
+                </div>
+
+                <div class="category-heading">
+                    <h3>&#9729;&#65039; Web Hosted Applications</h3>
+                    <span class="count">${webProducts.length} apps</span>
+                </div>
+                <div class="app-rows">${webProducts.map((p, i) => appRow(p, i)).join('')}
                 </div>
             </div>
         </section>
