@@ -59,6 +59,31 @@
         .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
         .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
         .hero-ctas .btn { margin-right:0.75rem; margin-bottom:0.75rem; }
+        /* ===== app-row: alternating screenshot + feature walkthrough ===== */
+        .app-rows { display:flex; flex-direction:column; gap:5rem; }
+        .app-row { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+        .app-row.reverse .app-row-media { order:2; }
+        .app-row-media { border-radius:var(--radius-lg); border:1px solid var(--border); overflow:hidden; background:var(--bg-card); box-shadow:0 20px 50px -20px rgba(0,0,0,0.5); }
+        .app-row-chrome { display:flex; gap:0.4rem; padding:0.65rem 0.85rem; background:#0d0d0d; border-bottom:1px solid var(--border); }
+        .app-row-chrome span { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.15); }
+        .app-row-media img { width:100%; display:block; aspect-ratio:2/1; object-fit:cover; object-position:top; }
+        .app-row-placeholder { aspect-ratio:2/1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; background:radial-gradient(circle at 50% 30%, var(--gold-glow), transparent 70%); }
+        .app-row-placeholder .icon { font-size:3rem; opacity:0.85; }
+        .app-row-placeholder .soon { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
+        .app-row-content .eyebrow { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
+        .app-row-content .eyebrow .icon { font-size:1.6rem; }
+        .app-row-content .eyebrow .brand { font-family:var(--font-body); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+        .app-row-content h3 { font-size:clamp(1.5rem,2.4vw,1.9rem); margin-bottom:0.6rem; }
+        .app-row-content h3 a { color:inherit; text-decoration:none; }
+        .app-row-content h3 a:hover { color:var(--gold); }
+        .btn-sm { padding:0.55rem 1.1rem; font-size:0.85rem; }
+        .app-row-content .tagline { color:var(--text-muted); line-height:1.65; margin-bottom:1.25rem; }
+        .app-row-features { display:grid; gap:0.55rem; margin-bottom:1.5rem; }
+        .app-row-features li { display:flex; gap:0.6rem; color:var(--text-muted); font-size:0.92rem; line-height:1.5; }
+        .app-row-features li .fi { color:var(--gold); flex-shrink:0; }
+        .app-row-meta { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+        .app-row-meta .replaces { font-size:0.8rem; color:var(--text-muted); }
+        @media (max-width:760px) { .app-row, .app-row.reverse { grid-template-columns:1fr; } .app-row.reverse .app-row-media { order:0; } }
     </style>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Hearback","description":"Self-hosted feedback + NPS widget with an inbox, dashboard and CSV export — unlimited responses.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/hearback/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"29","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — MIT source at github.com/bensblueprints/feedback-widget. $29 buys the packaged version, 1-click setup and updates."}},{"@type":"Question","name":"Does it do heatmaps or session recordings?","acceptedAnswer":{"@type":"Answer","text":"No — and we'll be straight about that. Heatmaps and recordings are Hotjar's other half, and Hearback doesn't attempt them. If you need to watch session replays, keep Hotjar. If what you actually use is surveys and feedback, Hearback covers it for 1/12th of one year's bill."}},{"@type":"Question","name":"Are responses really unlimited?","acceptedAnswer":{"@type":"Answer","text":"Yes — they're rows in your own SQLite file. Hotjar's entry plan caps you at 500 survey responses a month; your disk is the only cap here."}},{"@type":"Question","name":"Will the widget break my site's styles?","acceptedAnswer":{"@type":"Answer","text":"No — everything renders inside a shadow DOM, so your CSS and the widget's can't touch each other. The whole thing is ~9 KB of dependency-free vanilla JS."}},{"@type":"Question","name":"Do I need a server?","acceptedAnswer":{"@type":"Answer","text":"For public sites, yes — a $5 VPS with the included Docker setup. It also works on intranets and behind VPNs, where third-party tools like Hotjar can't go at all."}}]}</script>
