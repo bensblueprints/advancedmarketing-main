@@ -101,7 +101,7 @@
         .category-heading h3 { font-size:1.5rem; }
         .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }
     </style>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vaultkeeper","description":"Postgres, MySQL, SQLite & Mongo dumps on cron — encrypted, shipped to S3/FTP/disk, with failure alerts.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/vaultkeeper/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"39","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vaultkeeper","description":"Postgres, MySQL, SQLite & Mongo dumps on cron — encrypted, shipped to S3/FTP/disk, with failure alerts.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/vaultkeeper/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"39","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/benjisaiempire/vaultkeeper"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — MIT source at github.com/bensblueprints/vaultkeeper, always. The $39 buys the packaged installer and funds development. One month of the competition, forever."}},{"@type":"Question","name":"What happens to my backups if Vaultkeeper disappears?","acceptedAnswer":{"@type":"Answer","text":"They still open. The VK1 encryption format is documented in the README (AES-256-GCM, scrypt key derivation) and the repo ships a zero-dependency decrypt script — plus you can use age instead. Your backups outlive the software by design."}},{"@type":"Question","name":"Do I need database tools installed?","acceptedAnswer":{"@type":"Answer","text":"For Postgres/MySQL/Mongo, yes — Vaultkeeper shells out to the official dump tools, and a tool-check panel shows what's found on PATH with install hints. SQLite needs nothing installed. The Docker image bundles all of them."}},{"@type":"Question","name":"Is restore one-click?","acceptedAnswer":{"@type":"Answer","text":"Deliberately not. The restore helper generates the exact command chain — download, decrypt, gunzip, psql/mysql/mongorestore — so you can read every command before it touches your production database. SimpleBackups' managed one-click restores are genuinely more convenient; we chose transparency."}},{"@type":"Question","name":"Why not just a cron script?","acceptedAnswer":{"@type":"Answer","text":"Because your script doesn't alert you when it silently breaks — the classic failure mode is a backup job that's been exiting 1 for six weeks. Vaultkeeper adds encryption, retention pruning, checksums, and loud failure alerts around the same dump tools you'd script by hand."}}]}</script>
 </head>
 <body>
@@ -168,7 +168,7 @@
                 <p class="lead">Scheduled, encrypted database backups you actually own.</p>
                 <p class="lead" style="font-size:1.02rem;">SimpleBackups charges $29–$99 a month to run pg_dump on a timer — and wants your production database credentials on their cloud. The DIY cron script is free but fails silently until the day you need the backup. Vaultkeeper fixes both: scheduled, encrypted dumps of Postgres, MySQL, SQLite and MongoDB, shipped to disk, S3 or FTP, pruned by retention policy, with alerts the moment a run fails. $39, once, on your own hardware.</p>
                 <div class="hero-ctas">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/vaultkeeper" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
                     <a href="https://github.com/bensblueprints/vaultkeeper" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -261,7 +261,7 @@
                 <h2>Own Vaultkeeper Forever</h2>
                 <p>$39 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/vaultkeeper" class="btn btn-primary" rel="noopener">Get it on Whop — $39 &rarr;</a>
                     <a href="https://github.com/bensblueprints/vaultkeeper" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -292,7 +292,7 @@
                     <h4>Software</h4>
                     <a href="/software/">Pay-Once Suite</a>
                     <a href="/software/comparison/">Alternatives Blog</a>
-                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                    <a href="https://whop.com/benjisaiempire" rel="noopener">Get it on Whop</a>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>

@@ -101,7 +101,7 @@
         .category-heading h3 { font-size:1.5rem; }
         .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }
     </style>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Overlayr","description":"Self-hosted stream overlays — countdowns, goal bars, tickers, alerts — each just a URL in an OBS Browser Source.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/overlayr/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"24","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Overlayr","description":"Self-hosted stream overlays — countdowns, goal bars, tickers, alerts — each just a URL in an OBS Browser Source.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/overlayr/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"24","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/benjisaiempire/overlayr"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — the full source is MIT at github.com/bensblueprints/overlayr. The $24 buys the packaged installer, guided VPS deploy and lifetime updates instead of running npm and docker yourself."}},{"@type":"Question","name":"Isn't StreamElements free?","acceptedAnswer":{"@type":"Answer","text":"The core is, and it's genuinely good — that's the honest answer. But the polished themes, extras and watermark removal live in paid tiers (Streamlabs Ultra is $19/mo, OWN3D Pro $12.99/mo), and your overlays live on their cloud either way. Overlayr is for streamers who want to own the whole stack and never see a \"premium\" upsell again."}},{"@type":"Question","name":"Does it do follower/sub alerts from Twitch automatically?","acceptedAnswer":{"@type":"Answer","text":"Not natively — alerts fire from the dashboard or a webhook (POST /hook/:token). If you already run Streamer.bot or any EventSub relay, point it at the webhook and platform events flow through. If you want zero-setup native platform alerts, StreamElements still does that out of the box."}},{"@type":"Question","name":"Why don't my timers reset when OBS reloads the source?","acceptedAnswer":{"@type":"Answer","text":"Because the server owns the clock. Overlayr stores started_at/ends_at in SQLite and recomputes remaining time on every WebSocket reconnect — scene switches and Browser Source reloads always resync to the correct time."}},{"@type":"Question","name":"Do I need a VPS?","acceptedAnswer":{"@type":"Answer","text":"No — desktop mode runs the whole server locally and OBS points at 127.0.0.1 URLs. A $5 VPS only matters if you want to control overlays from another machine or keep them up while your PC reboots."}}]}</script>
 </head>
 <body>
@@ -168,7 +168,7 @@
                 <p class="lead">Your OBS overlays, your server. No watermarks, no subscription, no desync.</p>
                 <p class="lead" style="font-size:1.02rem;">StreamElements and Streamlabs gate the good stuff — premium themes, watermark removal, extras — behind paid tiers like Streamlabs Ultra at $19/mo ($149/yr). Overlayr is a self-hosted overlay suite: countdown timers, goal bars, tickers, starting-soon scenes and alerts, each a tokenized URL you drop into an OBS Browser Source, updated live over WebSocket from your own server. $24 once, no watermark, no cloud lag.</p>
                 <div class="hero-ctas">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/overlayr" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
                     <a href="https://github.com/bensblueprints/overlayr" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -261,7 +261,7 @@
                 <h2>Own Overlayr Forever</h2>
                 <p>$24 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/overlayr" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
                     <a href="https://github.com/bensblueprints/overlayr" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -292,7 +292,7 @@
                     <h4>Software</h4>
                     <a href="/software/">Pay-Once Suite</a>
                     <a href="/software/comparison/">Alternatives Blog</a>
-                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                    <a href="https://whop.com/benjisaiempire" rel="noopener">Get it on Whop</a>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>

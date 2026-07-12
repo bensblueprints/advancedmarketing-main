@@ -101,7 +101,7 @@
         .category-heading h3 { font-size:1.5rem; }
         .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }
     </style>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pingcron","description":"Your jobs ping a URL when they run — Pingcron alerts you when a ping is late or missing.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/pingcron/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"29","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pingcron","description":"Your jobs ping a URL when they run — Pingcron alerts you when a ping is late or missing.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/pingcron/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"29","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/benjisaiempire/pingcron"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — the full source is MIT-licensed at github.com/bensblueprints/pingcron and always will be. The $29 buys the 1-click Windows installer and lifetime updates for people who don't want to touch a terminal."}},{"@type":"Question","name":"How is this different from an uptime monitor?","acceptedAnswer":{"@type":"Answer","text":"Uptime monitors watch whether your site is up. They can't see a backup cron that \"ran\" but wrote to a read-only mount. Pingcron watches for the absence of a signal — your job pings when it finishes, and Pingcron yells when the ping doesn't arrive."}},{"@type":"Question","name":"Will it spam me with repeat alerts?","acceptedAnswer":{"@type":"Answer","text":"No. Alerts fire only on state transitions — down, recovery, explicit failure — and the state machine is persisted, so a restart never double-alerts. If you want repeat-nagging until acknowledged, that's a thing Cronitor does that Pingcron deliberately doesn't."}},{"@type":"Question","name":"Why not just self-host Healthchecks.io?","acceptedAnswer":{"@type":"Answer","text":"Honestly? Healthchecks.io's OSS self-host is excellent and more mature — if you're happy assembling a Django/Postgres deployment, use it. Pingcron is the \"one process, one file, five minutes\" version, with a desktop mode nobody else has."}},{"@type":"Question","name":"Are the ping endpoints secure?","acceptedAnswer":{"@type":"Answer","text":"They're deliberately unauthenticated so plain curl works from any crontab — the unguessable token is the secret, with per-token rate limiting on top. Dashboard and API sit behind a password (set ADMIN_PASSWORD before exposing it)."}}]}</script>
 </head>
 <body>
@@ -168,7 +168,7 @@
                 <p class="lead">Dead-man's-switch monitoring for cron jobs &amp; backups. Pay once, own it forever.</p>
                 <p class="lead" style="font-size:1.02rem;">Every sysadmin has the same scar: a backup cron that silently died months ago, discovered only when the restore was needed. Cronitor charges $10/month, forever, to catch that. Pingcron is the same dead-man's switch — ping URLs, cron expressions, grace periods, webhook and email alerts — running on your own box for a one-time $29.</p>
                 <div class="hero-ctas">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $29 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/pingcron" class="btn btn-primary" rel="noopener">Get it on Whop — $29 &rarr;</a>
                     <a href="https://github.com/bensblueprints/pingcron" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -262,7 +262,7 @@
                 <h2>Own Pingcron Forever</h2>
                 <p>$29 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $29 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/pingcron" class="btn btn-primary" rel="noopener">Get it on Whop — $29 &rarr;</a>
                     <a href="https://github.com/bensblueprints/pingcron" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -293,7 +293,7 @@
                     <h4>Software</h4>
                     <a href="/software/">Pay-Once Suite</a>
                     <a href="/software/comparison/">Alternatives Blog</a>
-                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                    <a href="https://whop.com/benjisaiempire" rel="noopener">Get it on Whop</a>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>

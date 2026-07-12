@@ -101,7 +101,7 @@
         .category-heading h3 { font-size:1.5rem; }
         .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }
     </style>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Signboard","description":"Playlists, scheduling, screen health and emergency takeover — any browser is a player, no per-screen rent.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/signboard/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"49","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Signboard","description":"Playlists, scheduling, screen health and emergency takeover — any browser is a player, no per-screen rent.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/signboard/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"49","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/benjisaiempire/signboard"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — the full source is MIT at github.com/bensblueprints/signboard. The $49 buys the packaged installer, guided VPS deploy and lifetime updates instead of doing the docker compose setup yourself."}},{"@type":"Question","name":"What hardware do the screens need?","acceptedAnswer":{"@type":"Answer","text":"Anything with a browser: a smart TV's built-in browser, a $35 Raspberry Pi in kiosk Chromium, an old Fire tablet. The player is plain ES2017-safe JavaScript built for ancient smart-TV browsers, with double-buffered swaps to avoid flicker."}},{"@type":"Question","name":"Does offline caching always work?","acceptedAnswer":{"@type":"Answer","text":"Honest caveat: browsers only allow service workers on HTTPS or localhost. On a plain-http LAN address the player degrades gracefully to no-cache mode — it still plays fine, it just re-fetches media each loop. For real offline resilience put a reverse proxy with TLS (or Tailscale) in front, or run the desktop app, which loads 127.0.0.1 and gets full caching."}},{"@type":"Question","name":"How does scheduling handle wrong clocks on kiosk devices?","acceptedAnswer":{"@type":"Answer","text":"All daypart rules are evaluated server-side in each screen's own IANA timezone — the kiosk's (often drifting, often wrong) hardware clock is never trusted."}},{"@type":"Question","name":"Where does Yodeck still win?","acceptedAnswer":{"@type":"Answer","text":"Its dedicated player app and managed hardware program are genuinely more turnkey for non-technical multi-site chains, and there's a free single-screen tier. Signboard is for people running 1-10 screens who'd rather own the stack than pay per-screen rent."}}]}</script>
 </head>
 <body>
@@ -168,7 +168,7 @@
                 <p class="lead">Every screen you own, one price, forever. Self-hosted digital signage.</p>
                 <p class="lead" style="font-size:1.02rem;">Yodeck charges $8 per screen per month. ScreenCloud is $20+, OptiSigns $10. Run five screens and you're paying $480–$1,200 a year, forever, for what is at its core a scheduled slideshow with a health dashboard. Signboard is the self-hosted version: pair any browser with a 6-character code, build playlists, schedule by time of day, watch every screen's health — $49 once, unlimited screens.</p>
                 <div class="hero-ctas">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $49 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/signboard" class="btn btn-primary" rel="noopener">Get it on Whop — $49 &rarr;</a>
                     <a href="https://github.com/bensblueprints/signboard" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -261,7 +261,7 @@
                 <h2>Own Signboard Forever</h2>
                 <p>$49 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $49 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/signboard" class="btn btn-primary" rel="noopener">Get it on Whop — $49 &rarr;</a>
                     <a href="https://github.com/bensblueprints/signboard" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -292,7 +292,7 @@
                     <h4>Software</h4>
                     <a href="/software/">Pay-Once Suite</a>
                     <a href="/software/comparison/">Alternatives Blog</a>
-                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                    <a href="https://whop.com/benjisaiempire" rel="noopener">Get it on Whop</a>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>

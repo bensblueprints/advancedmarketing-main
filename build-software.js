@@ -15,8 +15,13 @@ const path = require('path');
 
 const ROOT = __dirname;
 const SITE = 'https://advancedmarketing.co';
-const WHOP = 'https://whop.com/onetime-suite';
+const WHOP = 'https://whop.com/benjisaiempire';
 const GH = 'https://github.com/bensblueprints';
+
+/* Real Whop listings per product slug (source: onetime-suite/whop-publish-results.json) */
+const whopLinks = require('./software-src/whop-links.json');
+const buyFor = (slug) => (whopLinks[slug] && whopLinks[slug].productUrl) || WHOP;
+const BUNDLE_CHECKOUT = (whopLinks['onetimesuite-complete'] && whopLinks['onetimesuite-complete'].checkoutUrl) || 'https://whop.com/checkout/plan_5Mv4jYmDfZH3a';
 
 const products = require('./software-src/products.js');
 const posts = [...require('./software-src/posts-1.js'), ...require('./software-src/posts-2.js'), ...require('./software-src/posts-3.js'), ...require('./software-src/posts-4.js'), ...require('./software-src/posts-5.js'), ...require('./software-src/posts-6.js')];
@@ -557,7 +562,7 @@ function appRow(p, i) {
                     <p style="color:var(--text-muted);">Bought individually, these ${products.length} apps run $${bundleValue.toLocaleString()}. The bundle is $${BUNDLE.price.toLocaleString()} — once, for everything, forever. That's $${bundleSavings.toLocaleString()} off, no subscription, on any app you add later at no extra cost.</p>
                     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;">
                         <a href="/software/${BUNDLE.slug}/" class="btn btn-primary">See what's included &rarr;</a>
-                        <a href="${WHOP}" class="btn btn-outline" rel="noopener">Get the bundle on Whop &nearr;</a>
+                        <a href="${BUNDLE_CHECKOUT}" class="btn btn-outline" rel="noopener">Get the bundle on Whop &nearr;</a>
                     </div>
                 </div>
             </div>
@@ -613,7 +618,7 @@ function appRow(p, i) {
                 <p class="lead">${BUNDLE.tagline}</p>
                 <p class="lead" style="font-size:1.02rem;">All ${products.length} apps in the One-Time Suite, bundled — a $${bundleValue.toLocaleString()} value for $${BUNDLE.price.toLocaleString()}, once. Every future app we ship joins the bundle automatically, at no extra cost, for as long as you own it.</p>
                 <div class="hero-ctas">
-                    <a href="${WHOP}" class="btn btn-primary" rel="noopener">Get the bundle on Whop — $${BUNDLE.price.toLocaleString()} &rarr;</a>
+                    <a href="${BUNDLE_CHECKOUT}" class="btn btn-primary" rel="noopener">Get the bundle on Whop — $${BUNDLE.price.toLocaleString()} &rarr;</a>
                     <a href="/software/" class="btn btn-outline">Browse apps individually &rarr;</a>
                 </div>
             </div>
@@ -694,7 +699,7 @@ function appRow(p, i) {
                 <h2>Own the Whole Suite</h2>
                 <p>$${BUNDLE.price.toLocaleString()} once. Every app, every future release, signed installers and MIT source. No renewal, no per-app upsell, no meter.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="${WHOP}" class="btn btn-primary" rel="noopener">Get the bundle on Whop — $${BUNDLE.price.toLocaleString()} &rarr;</a>
+                    <a href="${BUNDLE_CHECKOUT}" class="btn btn-primary" rel="noopener">Get the bundle on Whop — $${BUNDLE.price.toLocaleString()} &rarr;</a>
                     <a href="/software/" class="btn btn-outline">Browse apps individually &rarr;</a>
                 </div>
             </div>
@@ -710,7 +715,7 @@ function appRow(p, i) {
       name: BUNDLE.name, description: BUNDLE.tagline,
       brand: { '@type': 'Brand', name: 'One-Time Suite' },
       url: `${SITE}/software/${BUNDLE.slug}/`, image: `${SITE}/logo.png`,
-      offers: { '@type': 'Offer', price: String(BUNDLE.price), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: WHOP },
+      offers: { '@type': 'Offer', price: String(BUNDLE.price), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: BUNDLE_CHECKOUT },
     }],
     body,
   }));
@@ -739,7 +744,7 @@ products.forEach(p => {
                 <p class="lead">${esc(p.tagline)}</p>
                 <p class="lead" style="font-size:1.02rem;">${esc(p.heroLead)}</p>
                 <div class="hero-ctas">
-                    <a href="${WHOP}" class="btn btn-primary" rel="noopener">Get it on Whop — $${p.price} &rarr;</a>
+                    <a href="${buyFor(p.slug)}" class="btn btn-primary" rel="noopener">Get it on Whop — $${p.price} &rarr;</a>
                     <a href="${GH}/${p.repo}" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -804,7 +809,7 @@ products.forEach(p => {
                 <h2>Own ${p.brand} Forever</h2>
                 <p>$${p.price} once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="${WHOP}" class="btn btn-primary" rel="noopener">Get it on Whop — $${p.price} &rarr;</a>
+                    <a href="${buyFor(p.slug)}" class="btn btn-primary" rel="noopener">Get it on Whop — $${p.price} &rarr;</a>
                     <a href="${GH}/${p.repo}" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -821,7 +826,7 @@ products.forEach(p => {
         name: p.brand, description: p.oneliner,
         brand: { '@type': 'Brand', name: 'One-Time Suite' },
         url: `${SITE}/software/${p.slug}/`, image: `${SITE}/logo.png`,
-        offers: { '@type': 'Offer', price: String(p.price), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: WHOP },
+        offers: { '@type': 'Offer', price: String(p.price), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: buyFor(p.slug) },
       },
       {
         '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -959,7 +964,7 @@ posts.forEach(post => {
                         <h3>Try ${p.brand} — $${p.price}, one time</h3>
                         <p>Signed installer on Whop, or build it free from the MIT source. Your call.</p>
                         <a href="/software/${p.slug}/" class="btn btn-primary">See ${p.brand} features &rarr;</a>
-                        <a href="${WHOP}" class="btn btn-outline" rel="noopener" style="margin-left:0.75rem;">Get it on Whop &nearr;</a>
+                        <a href="${buyFor(p.slug)}" class="btn btn-outline" rel="noopener" style="margin-left:0.75rem;">Get it on Whop &nearr;</a>
                     </div>
 
                     ${related.length ? `<p style="font-size:0.9rem;">Related comparisons: ${related.map(x => `<a href="/software/comparison/${x.slug}/">${x.competitor} alternative</a>`).join(' · ')} — or browse <a href="/software/">the whole pay-once suite</a>.</p>` : `<p style="font-size:0.9rem;">Browse <a href="/software/">the whole pay-once suite</a> or <a href="/software/comparison/">all comparisons</a>.</p>`}

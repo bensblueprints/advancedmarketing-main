@@ -101,7 +101,7 @@
         .category-heading h3 { font-size:1.5rem; }
         .category-heading .count { font-size:0.8rem; color:var(--text-muted); font-family:var(--font-body); }
     </style>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Chatterbox","description":"Threaded comments, votes, moderation and Disqus import — embedded with one script tag, hosted by you.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/chatterbox/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"24","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/onetime-suite"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Chatterbox","description":"Threaded comments, votes, moderation and Disqus import — embedded with one script tag, hosted by you.","brand":{"@type":"Brand","name":"One-Time Suite"},"url":"https://advancedmarketing.co/software/chatterbox/","image":"https://advancedmarketing.co/logo.png","offers":{"@type":"Offer","price":"24","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://whop.com/benjisaiempire/chatterbox-app"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — the full source is MIT at github.com/bensblueprints/chatterbox-comments. The $24 buys the packaged installer and updates instead of npm-and-docker setup."}},{"@type":"Question","name":"Can I migrate from Disqus?","acceptedAnswer":{"@type":"Answer","text":"Yes — upload your Disqus XML export, dry-run to see the counts, then commit. The import is idempotent by disqus_id, so re-running the same file never double-imports."}},{"@type":"Question","name":"Do I need a server?","acceptedAnswer":{"@type":"Answer","text":"For a public site, yes — a $5 VPS with the included docker compose file covers it. That's the honest trade-off vs Hyvor Talk: they host everything for you, and if you never want to touch a server, a hosted service is genuinely simpler. Chatterbox is for people who'd rather own the data and skip the monthly bill."}},{"@type":"Question","name":"How does it handle spam without CAPTCHAs?","acceptedAnswer":{"@type":"Answer","text":"Layered, invisible defenses: a hidden honeypot field, a minimum time-to-submit, per-IP rate limiting (5 per 10 minutes by default), and a link-count threshold — plus an approve-first mode and blocklists when you want a human in the loop."}},{"@type":"Question","name":"Is it safe to embed on my site?","acceptedAnswer":{"@type":"Answer","text":"The widget runs in a shadow DOM so styles can't leak either way, and comment bodies are only ever rendered as text nodes — autolinked URLs are built as real anchor elements with rel=\"nofollow noopener ugc\", never concatenated HTML. The test suite includes an explicit XSS check."}}]}</script>
 </head>
 <body>
@@ -168,7 +168,7 @@
                 <p class="lead">Self-hosted threaded comments for any site. One script tag, one SQLite file, $24 once.</p>
                 <p class="lead" style="font-size:1.02rem;">Disqus puts ads next to your writing and sells your readers' data unless you pay $12-95/month. Hyvor Talk is ad-free but still $8-24+/month, forever. Chatterbox is the same idea — one script tag adds threaded comments, votes, moderation and reply-email notifications to any site — running on your server, with your SQLite file, for a one-time $24.</p>
                 <div class="hero-ctas">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/chatterbox-app" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
                     <a href="https://github.com/bensblueprints/chatterbox-comments" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -262,7 +262,7 @@
                 <h2>Own Chatterbox Forever</h2>
                 <p>$24 once. Signed installer, 1-click setup, updates included. No renewal, no account with us, no meter. Or build it yourself from the MIT source — it's the same app.</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="https://whop.com/onetime-suite" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
+                    <a href="https://whop.com/benjisaiempire/chatterbox-app" class="btn btn-primary" rel="noopener">Get it on Whop — $24 &rarr;</a>
                     <a href="https://github.com/bensblueprints/chatterbox-comments" class="btn btn-outline" rel="noopener">View source on GitHub &nearr;</a>
                 </div>
             </div>
@@ -293,7 +293,7 @@
                     <h4>Software</h4>
                     <a href="/software/">Pay-Once Suite</a>
                     <a href="/software/comparison/">Alternatives Blog</a>
-                    <a href="https://whop.com/onetime-suite" rel="noopener">Get it on Whop</a>
+                    <a href="https://whop.com/benjisaiempire" rel="noopener">Get it on Whop</a>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
