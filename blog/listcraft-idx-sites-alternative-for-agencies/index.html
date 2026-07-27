@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>IDX Sites Alternative for Marketing Teams: Listcraft</title>
+    <meta name="description" content="IDX site providers costs ~$600/yr. Listcraft is a $99 one-time listings alternative for agencies — features, 3-year math, and who should stay on IDX Sites.">
+    <link rel="canonical" href="https://advancedmarketing.co/blog/listcraft-idx-sites-alternative-for-agencies/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="IDX Sites Alternative for Marketing Teams: Listcraft">
+    <meta property="og:description" content="IDX site providers costs ~$600/yr. Listcraft is a $99 one-time listings alternative for agencies — features, 3-year math, and who should stay on IDX Sites.">
+    <meta property="og:url" content="https://advancedmarketing.co/blog/listcraft-idx-sites-alternative-for-agencies/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /blog section (reuses the /software section styles) ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body h3 { font-size:1.15rem; margin:1.5rem 0 0.75rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul, .post-body ol { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li, .post-body ol li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-cta .svc-note { font-size:0.85rem; margin-top:1rem; margin-bottom:0; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .intent-group { margin-bottom:3rem; }
+        .intent-group h2 { font-size:1.6rem; margin-bottom:0.4rem; }
+        .intent-group .intent-blurb { color:var(--text-muted); font-size:0.92rem; margin-bottom:1.25rem; max-width:640px; }
+        /* ===== nav dropdown: Software > Desktop / Web Hosted / Bundle ===== */
+        .has-dropdown { position:relative; }
+        .nav-dropdown { list-style:none; margin:0; padding:0.5rem; position:absolute; top:calc(100% + 0.75rem); left:50%; transform:translateX(-50%); min-width:260px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:0 20px 40px -15px rgba(0,0,0,0.6); opacity:0; visibility:hidden; transition:opacity 0.2s ease, transform 0.2s ease; z-index:50; }
+        .has-dropdown:hover .nav-dropdown, .has-dropdown:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+        .nav-dropdown li { display:block; }
+        .nav-dropdown a { display:block; padding:0.65rem 0.9rem; border-radius:6px; font-size:0.88rem; white-space:nowrap; color:var(--text); text-decoration:none; }
+        .nav-dropdown a:hover { background:rgba(201,169,98,0.1); color:var(--gold); }
+        .mobile-subnav a { font-size:0.85rem; opacity:0.85; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"IDX Sites Alternative for Marketing Teams: Listcraft","description":"IDX site providers costs ~$600/yr. Listcraft is a $99 one-time listings alternative for agencies — features, 3-year math, and who should stay on IDX Sites.","author":{"@type":"Organization","name":"Advanced Marketing","url":"https://advancedmarketing.co"},"publisher":{"@type":"Organization","name":"Advanced Marketing","logo":{"@type":"ImageObject","url":"https://advancedmarketing.co/logo.png"}},"mainEntityOfPage":"https://advancedmarketing.co/blog/listcraft-idx-sites-alternative-for-agencies/","datePublished":"2026-07-27","dateModified":"2026-07-27","about":{"@type":"Product","name":"Listcraft","offers":{"@type":"Offer","price":"99","priceCurrency":"USD"}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://advancedmarketing.co/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://advancedmarketing.co/blog/"},{"@type":"ListItem","position":3,"name":"IDX Sites Alternative for Marketing Teams: Listcraft","item":"https://advancedmarketing.co/blog/listcraft-idx-sites-alternative-for-agencies/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — Listcraft is MIT-licensed at github.com/bensblueprints/property-listing-site-mvp, and it always will be. The $99 buys the packaged, zero-config Windows installer; building from source is free."}},{"@type":"Question","name":"Who owns the leads and data?","acceptedAnswer":{"@type":"Answer","text":"You do. Leads go straight to your own inbox, and the SQLite file plus photos live on your disk — nothing is shared or resold."}},{"@type":"Question","name":"Does it need any external services?","acceptedAnswer":{"@type":"Answer","text":"No. Maps are bundled locally with no CDN, SMTP for lead emails is optional, and geocoding is only called when you explicitly click Geocode address."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none" class="has-dropdown">
+                        <a href="/software/" role="menuitem" aria-haspopup="true" aria-expanded="false">Software &#9662;</a>
+                        <ul class="nav-dropdown" role="menu">
+                            <li role="none"><a href="/software/#desktop" role="menuitem">Desktop Software Applications</a></li>
+                            <li role="none"><a href="/software/#web-hosted" role="menuitem">Web Hosted Applications</a></li>
+                            <li role="none"><a href="/software/onetime-suite-bundle/" role="menuitem">Advanced Marketing 1 Time Suite</a></li>
+                        </ul>
+                    </li>
+                    <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#desktop">&nbsp;&nbsp;Desktop Software Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#web-hosted">&nbsp;&nbsp;Web Hosted Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/onetime-suite-bundle/">&nbsp;&nbsp;Advanced Marketing 1 Time Suite</a>
+                        </li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Article">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; <span>🏘️ Listcraft</span></nav>
+                <span class="text-label">🏘️ Listcraft · replaces IDX site providers</span>
+                <h1 style="font-size:clamp(2rem,4.5vw,3.1rem);">IDX Sites Alternative for Marketing Teams: Listcraft</h1>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Article body">
+            <div class="container">
+                <article class="post-body">
+                    
+                    <p class="post-meta">By Advanced Marketing · 2026-07-27 · Filed under <a href="/blog/#alternatives">IDX Sites alternatives</a></p>
+
+                    <p>Every month, IDX site providers bills your card again — $50–300+/mo, roughly $600 a year, for as long as you need the tool. For a marketing agency that line item multiplies fast: across seats, across client accounts, across years. Run it for three years and you have spent about $1800 on software you never get to keep.</p>
+                    <p>Listcraft takes the other side of that trade. A self-hosted property listing website — your listings, your domain, no monthly IDX bill. It is a one-time $99 purchase — a self-hosted web app that runs on your own server — and the jobs it does are everyday agency jobs: self-hosted property listing site with galleries, maps, MLS-style search and lead capture.</p>
+
+                    <h2>What IDX site providers actually costs a marketing team</h2>
+                    <p>The sticker price is only the start. IDX website providers charge $50–300+ a month, forever, to host your photos and a contact form — and if you cancel, the site and its SEO disappear. Listcraft is a self-hosted listing website for independent agents and small brokerages. $99, once. Your data is a SQLite file plus photos on your own disk, and your leads come straight to you.</p>
+                    
+                    <div class="compare-wrap">
+                    <table class="compare">
+                        <thead><tr><th></th><th class="us">Listcraft</th><th>IDX Sites</th></tr></thead>
+                        <tbody>
+                            <tr><td>Price</td><td class="us">$99 once</td><td>$50–300+/mo</td></tr>
+                            <tr><td>Cost in year one</td><td class="us">$99</td><td>~$600</td></tr>
+                            <tr><td>Cost over 3 years</td><td class="us">$99</td><td>~$1800</td></tr>
+                            <tr><td>Renewal</td><td class="us">Never — you own it</td><td>Monthly/annual, forever</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <p>Listcraft costs less than a single month at the cheap end of an IDX provider — every month after year one is money you keep. For an agency billing retainers, that difference is pure margin — money that currently leaves the business every month simply so your team can keep doing work it already knows how to do.</p>
+
+                    <h2>Meet Listcraft</h2>
+                    <p>Listcraft is part of the OneTimeSuite catalog of pay-once software. Self-hosted property listing site with galleries, maps, MLS-style search and lead capture. The feature set is built around the jobs marketing teams actually do every week:</p>
+                    <ul>
+                        <li><strong style="color:var(--text);">Listings</strong> — Address, price, beds/baths/sqft, description and active/pending/sold status on premium dark-mode cards.</li>
+                        <li><strong style="color:var(--text);">Photo galleries</strong> — Multi-upload with drag-to-reorder, first photo as the cover, stored on your own disk.</li>
+                        <li><strong style="color:var(--text);">Local maps</strong> — Leaflet and OpenStreetMap bundled locally with no CDN, showing pins on search and every listing.</li>
+                        <li><strong style="color:var(--text);">MLS-style search</strong> — Price range, beds, baths, status, text search and sorting, with a live map of results.</li>
+                        <li><strong style="color:var(--text);">Lead capture</strong> — A request-a-showing form on every listing lands in your leads inbox with optional SMTP email notification.</li>
+                        <li><strong style="color:var(--text);">Agent profiles</strong> — Multi-agent brokerages get a profile page per agent listing their properties.</li>
+                        <li><strong style="color:var(--text);">Simple CMS</strong> — About page, market updates and neighborhood guides in markdown with publish/unpublish.</li>
+                        <li><strong style="color:var(--text);">100% yours</strong> — One Node process, one SQLite file and images on local disk, with no telemetry and no required external services.</li>
+                    </ul>
+
+                    <h2>How agencies put it to work</h2>
+                    <ul>
+                        <li><strong style="color:var(--text);">Client work:</strong> Listings — address, price, beds/baths/sqft, description and active/pending/sold status on premium dark-mode cards, which means one less shared login and one less quota to babysit.</li>
+                        <li><strong style="color:var(--text);">Campaign production:</strong> Photo galleries — multi-upload with drag-to-reorder, first photo as the cover, stored on your own disk, so the tenth revision costs the same as the first — nothing.</li>
+                        <li><strong style="color:var(--text);">Reporting &amp; handoff:</strong> Local maps — leaflet and OpenStreetMap bundled locally with no CDN, showing pins on search and every listing, and every deliverable stays under your agency&rsquo;s brand, not a vendor&rsquo;s.</li>
+                        <li><strong style="color:var(--text);">Retainer margins:</strong> MLS-style search — price range, beds, baths, status, text search and sorting, with a live map of results, which keeps client data on hardware you control instead of a third-party cloud.</li>
+                        <li><strong style="color:var(--text);">Volume days:</strong> Lead capture — a request-a-showing form on every listing lands in your leads inbox with optional SMTP email notification, so junior staff can run it without buying another seat.</li>
+                    </ul>
+
+                    <h2>Where IDX site providers is still the better call</h2>
+                    <p>An honest alternative page has to say this part out loud. IDX site providers is the incumbent for a reason: it is polished, your clients may already know it, and if your whole workflow is wired into its cloud ecosystem, switching costs are real. Teams that need IDX site providers's specific hosted integrations, or that genuinely cannot run anything on their own server, should probably stay put.</p>
+                    <p>But if the bill is what bothers you — the renewal, the seats, the meter — Listcraft does the same core job for $99, once. You can <a href="https://onetimesuite.com/listcraft/">get Listcraft on OneTimeSuite</a>, or <a href="/software/">browse the software shelf</a> for the rest of the pay-once catalog.</p>
+
+                    <h2>Common questions</h2>
+                    <p><strong style="color:var(--text);">Is it really free on GitHub?</strong><br>Yes — Listcraft is MIT-licensed at github.com/bensblueprints/property-listing-site-mvp, and it always will be. The $99 buys the packaged, zero-config Windows installer; building from source is free.</p>
+                    <p><strong style="color:var(--text);">Who owns the leads and data?</strong><br>You do. Leads go straight to your own inbox, and the SQLite file plus photos live on your disk — nothing is shared or resold.</p>
+                    <p><strong style="color:var(--text);">Does it need any external services?</strong><br>No. Maps are bundled locally with no CDN, SMTP for lead emails is optional, and geocoding is only called when you explicitly click Geocode address.</p>
+
+                    <div class="post-cta">
+                        <h3>Listcraft — $99, one time</h3>
+                        <p>Pay once, own it forever. No seats, no renewal, no meter.</p>
+                        <a href="https://onetimesuite.com/listcraft/" class="btn btn-primary" rel="noopener">Get Listcraft on OneTimeSuite &nearr;</a>
+                        <a href="/software/" class="btn btn-outline" style="margin-left:0.75rem;">Browse the software shelf &rarr;</a>
+                        <p class="svc-note">Rather hand this to a team that does it daily? Our <a href="/services/google-ads/">Google Ads</a> service covers it end to end.</p>
+                    </div>
+
+                    <p style="font-size:0.9rem;">More on Listcraft: <a href="/blog/how-agencies-use-listcraft/">agency use case</a> · <a href="/blog/listcraft-vs-idx-sites-honest-comparison/">vs IDX Sites</a> · <a href="/blog/list-properties-without-idx-sites/">without IDX Sites</a> · <a href="/blog/listcraft-review-pay-once-listings/">review</a> — or browse <a href="/blog/">the blog</a> and <a href="/software/">the software shelf</a>.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="/blog/">Marketing Blog</a>
+                    <a href="https://whop.com/benjisaiempire" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

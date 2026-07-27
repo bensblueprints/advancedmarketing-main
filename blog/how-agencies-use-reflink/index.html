@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>How Agencies Use Reflink to Run Affiliate Programs</title>
+    <meta name="description" content="How agencies run affiliate programs with Reflink — a $99 one-time affiliate tool that replaces Tapfiliate ($89/mo). Steps, features and real client-work angles.">
+    <link rel="canonical" href="https://advancedmarketing.co/blog/how-agencies-use-reflink/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Agencies Use Reflink to Run Affiliate Programs">
+    <meta property="og:description" content="How agencies run affiliate programs with Reflink — a $99 one-time affiliate tool that replaces Tapfiliate ($89/mo). Steps, features and real client-work angles.">
+    <meta property="og:url" content="https://advancedmarketing.co/blog/how-agencies-use-reflink/">
+    <meta property="og:image" content="https://advancedmarketing.co/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        /* ===== /blog section (reuses the /software section styles) ===== */
+        .price-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,169,98,0.12); border:1px solid rgba(201,169,98,0.35); color:var(--gold); border-radius:999px; padding:0.45rem 1.1rem; font-size:0.85rem; font-weight:600; letter-spacing:0.02em; }
+        .price-badge .amt { font-size:1.05rem; }
+        .compare-wrap { overflow-x:auto; }
+        table.compare { width:100%; border-collapse:collapse; font-size:0.92rem; min-width:560px; }
+        table.compare th, table.compare td { padding:0.85rem 1rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+        table.compare thead th { font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); }
+        table.compare thead th.us { color:var(--gold); }
+        table.compare td.us { color:var(--gold); font-weight:600; }
+        table.compare td:first-child { color:var(--text-muted); }
+        .post-body { max-width:760px; margin:0 auto; }
+        .post-body h2 { font-size:clamp(1.6rem,3vw,2.1rem); margin:2.75rem 0 1rem; }
+        .post-body h3 { font-size:1.15rem; margin:1.5rem 0 0.75rem; }
+        .post-body p { color:var(--text-muted); line-height:1.75; margin-bottom:1.25rem; font-size:1.02rem; }
+        .post-body ul, .post-body ol { margin:0 0 1.25rem 1.25rem; display:grid; gap:0.6rem; }
+        .post-body ul li, .post-body ol li { color:var(--text-muted); line-height:1.65; }
+        .post-body a { color:var(--gold); }
+        .post-meta { font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; }
+        .post-cta { background:var(--bg-card); border:1px solid rgba(201,169,98,0.3); border-radius:var(--radius-lg); padding:2rem; margin:2.5rem 0; text-align:center; }
+        .post-cta h3 { font-size:1.3rem; margin-bottom:0.5rem; }
+        .post-cta p { margin-bottom:1.25rem; }
+        .post-cta .svc-note { font-size:0.85rem; margin-top:1rem; margin-bottom:0; }
+        .post-list { display:grid; gap:1rem; }
+        .post-list a.post-item { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:all 0.3s; }
+        .post-list a.post-item:hover { border-color:rgba(201,169,98,0.35); background:var(--bg-card-hover); }
+        .post-list a.post-item h3 { font-size:1.05rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.25rem; }
+        .post-list a.post-item p { color:var(--text-muted); font-size:0.85rem; }
+        .related-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+        .related-links a { font-size:0.78rem; padding:0.45rem 0.9rem; background:rgba(201,169,98,0.1); color:var(--gold); border-radius:4px; text-decoration:none; }
+        .intent-group { margin-bottom:3rem; }
+        .intent-group h2 { font-size:1.6rem; margin-bottom:0.4rem; }
+        .intent-group .intent-blurb { color:var(--text-muted); font-size:0.92rem; margin-bottom:1.25rem; max-width:640px; }
+        /* ===== nav dropdown: Software > Desktop / Web Hosted / Bundle ===== */
+        .has-dropdown { position:relative; }
+        .nav-dropdown { list-style:none; margin:0; padding:0.5rem; position:absolute; top:calc(100% + 0.75rem); left:50%; transform:translateX(-50%); min-width:260px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:0 20px 40px -15px rgba(0,0,0,0.6); opacity:0; visibility:hidden; transition:opacity 0.2s ease, transform 0.2s ease; z-index:50; }
+        .has-dropdown:hover .nav-dropdown, .has-dropdown:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+        .nav-dropdown li { display:block; }
+        .nav-dropdown a { display:block; padding:0.65rem 0.9rem; border-radius:6px; font-size:0.88rem; white-space:nowrap; color:var(--text); text-decoration:none; }
+        .nav-dropdown a:hover { background:rgba(201,169,98,0.1); color:var(--gold); }
+        .mobile-subnav a { font-size:0.85rem; opacity:0.85; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Agencies Use Reflink to Run Affiliate Programs","description":"How agencies run affiliate programs with Reflink — a $99 one-time affiliate tool that replaces Tapfiliate ($89/mo). Steps, features and real client-work angles.","author":{"@type":"Organization","name":"Advanced Marketing","url":"https://advancedmarketing.co"},"publisher":{"@type":"Organization","name":"Advanced Marketing","logo":{"@type":"ImageObject","url":"https://advancedmarketing.co/logo.png"}},"mainEntityOfPage":"https://advancedmarketing.co/blog/how-agencies-use-reflink/","datePublished":"2026-07-27","dateModified":"2026-07-27","about":{"@type":"Product","name":"Reflink","offers":{"@type":"Offer","price":"99","priceCurrency":"USD"}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://advancedmarketing.co/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://advancedmarketing.co/blog/"},{"@type":"ListItem","position":3,"name":"How Agencies Use Reflink to Run Affiliate Programs","item":"https://advancedmarketing.co/blog/how-agencies-use-reflink/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free on GitHub?","acceptedAnswer":{"@type":"Answer","text":"Yes — the source is MIT and always will be at github.com/bensblueprints/affiliate-tracker-mvp. The $99 buys a packaged Windows installer with updates; building from source is free."}},{"@type":"Question","name":"Where does my affiliate data live?","acceptedAnswer":{"@type":"Answer","text":"On your server. Reflink is one Node process and one SQLite file that you own, and visitor IPs are stored only as salted hashes, never raw."}},{"@type":"Question","name":"Does it replace Tapfiliate entirely?","acceptedAnswer":{"@type":"Answer","text":"No, on purpose. If you need multi-level marketing trees and 40 native integrations, buy Tapfiliate. If you need who sent this sale and what do I owe them, that's Reflink."}}]}</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" aria-label="Advanced Marketing - Home">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                </a>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none" class="has-dropdown">
+                        <a href="/software/" role="menuitem" aria-haspopup="true" aria-expanded="false">Software &#9662;</a>
+                        <ul class="nav-dropdown" role="menu">
+                            <li role="none"><a href="/software/#desktop" role="menuitem">Desktop Software Applications</a></li>
+                            <li role="none"><a href="/software/#web-hosted" role="menuitem">Web Hosted Applications</a></li>
+                            <li role="none"><a href="/software/onetime-suite-bundle/" role="menuitem">Advanced Marketing 1 Time Suite</a></li>
+                        </ul>
+                    </li>
+                    <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
+                    <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/team" role="menuitem">Team</a></li>
+                    <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
+                    <li role="none"><a href="/about" role="menuitem">About</a></li>
+                    <li role="none"><a href="/pay/" role="menuitem">Pay Invoice</a></li>
+                    <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Book a Call</a></li>
+                </ul>
+                <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileNav()">&#9776;</button>
+                <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#desktop">&nbsp;&nbsp;Desktop Software Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/#web-hosted">&nbsp;&nbsp;Web Hosted Applications</a>
+                        </li>
+                        <li class="mobile-subnav">
+                            <a href="/software/onetime-suite-bundle/">&nbsp;&nbsp;Advanced Marketing 1 Time Suite</a>
+                        </li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/#coaching">Coaching</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pay/">Pay Invoice</a></li>
+                        <li><a href="#contact" class="nav-cta" style="display:inline-block;margin-top:0.5rem;">Book a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" role="main">
+
+        <section class="page-hero" aria-label="Article">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; <span>🤝 Reflink</span></nav>
+                <span class="text-label">🤝 Reflink · replaces Tapfiliate</span>
+                <h1 style="font-size:clamp(2rem,4.5vw,3.1rem);">How Agencies Use Reflink to Run Affiliate Programs</h1>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Article body">
+            <div class="container">
+                <article class="post-body">
+                    
+                    <p class="post-meta">By Advanced Marketing · 2026-07-27 · Filed under <a href="/blog/#use-cases">agency use cases</a></p>
+
+                    <p>Ask an account manager what actually eats the week and the answer is rarely strategy — it is production. Self-hosted affiliate tracking with attribution, commissions, approvals and payout CSV export. That single job, repeated across every client account, is where agency hours go to die. It is also where a monthly tool like Tapfiliate quietly becomes a permanent line item at $89/mo.</p>
+                    <p>This is the workflow agencies run with Reflink to run affiliate programs — a $99, pay-once self-hosted web app that does the job on hardware you control, with no subscription attached.</p>
+
+                    <h2>The Reflink workflow, step by step</h2>
+                    <p>The whole point is that there is no ceremony. Three steps and the job is done:</p>
+                    <ol>
+                        <li><strong style="color:var(--text);">Buy once on Whop.</strong> One payment of $99 gets you the packaged Windows installer, or clone the MIT source and deploy it yourself for free.</li>
+                        <li><strong style="color:var(--text);">Deploy and wire your checkout.</strong> Run it as a desktop app or on a $5 VPS, then call the postback from your checkout webhook on each purchase.</li>
+                        <li><strong style="color:var(--text);">Approve and pay.</strong> Approve conversions in the dashboard, bundle them into a payout, export the CSV and pay via Stripe or PayPal.</li>
+                    </ol>
+
+                    <h2>The features that matter in client work</h2>
+                    <p>Tapfiliate is $89 a month and FirstPromoter starts at $49 a month, forever, to answer one question: who sent this sale and what do I owe them. Reflink is $99 once. Give every affiliate a tracking link, count their clicks, attribute their conversions, compute their commissions, and export the payout CSV — from one Node process and one SQLite file that you own. No subscription.</p>
+                    <ul>
+                        <li><strong style="color:var(--text);">Tracking links</strong> — A short link records the click and 302-redirects to your landing page with a ref code appended for client-side pickup.</li>
+                        <li><strong style="color:var(--text);">Cookie-based attribution</strong> — A configurable window of 30, 60 or 90 days is your call.</li>
+                        <li><strong style="color:var(--text);">Conversion tracking two ways</strong> — A server-to-server postback from your checkout webhook, or a JS pixel with a convert call.</li>
+                        <li><strong style="color:var(--text);">Order-ID dedupe</strong> — The same order can never pay commission twice.</li>
+                        <li><strong style="color:var(--text);">Commission rules per affiliate</strong> — Percent of sale or a flat amount.</li>
+                        <li><strong style="color:var(--text);">Approval workflow</strong> — Pending to approved or rejected to paid, so nothing pays out by accident.</li>
+                        <li><strong style="color:var(--text);">Affiliate portal</strong> — Affiliates sign in with an access key and see only their own clicks, conversions, earnings, link and your banners.</li>
+                        <li><strong style="color:var(--text);">Privacy-sane</strong> — Visitor IPs are stored only as salted hashes, never raw.</li>
+                    </ul>
+
+                    <h2>How agencies put it to work</h2>
+                    <ul>
+                        <li><strong style="color:var(--text);">Client work:</strong> Tracking links — a short link records the click and 302-redirects to your landing page with a ref code appended for client-side pickup, which is margin you keep instead of handing to a SaaS vendor.</li>
+                        <li><strong style="color:var(--text);">Campaign production:</strong> Cookie-based attribution — a configurable window of 30, 60 or 90 days is your call, and there is no per-seat cost when the whole team piles in.</li>
+                        <li><strong style="color:var(--text);">Reporting &amp; handoff:</strong> Conversion tracking two ways — a server-to-server postback from your checkout webhook, or a JS pixel with a convert call, which means one less shared login and one less quota to babysit.</li>
+                        <li><strong style="color:var(--text);">Retainer margins:</strong> Order-ID dedupe — the same order can never pay commission twice, so the tenth revision costs the same as the first — nothing.</li>
+                        <li><strong style="color:var(--text);">Volume days:</strong> Commission rules per affiliate — percent of sale or a flat amount, and every deliverable stays under your agency&rsquo;s brand, not a vendor&rsquo;s.</li>
+                    </ul>
+
+                    <h2>What it costs vs Tapfiliate</h2>
+                    <p>Tapfiliate runs about $1068 a year — $3204 over three years, per the current pricing. Reflink is $99, once. Pays for itself in the first two weeks of a Tapfiliate subscription, then keeps running for free.</p>
+                    <p>If you want the full side-by-side, we published <a href="/blog/reflink-tapfiliate-honest-comparison/">an honest Reflink vs Tapfiliate comparison</a> with the complete feature table. And if run affiliate programs is something you would rather outsource entirely, our <a href="/services/ecommerce-website/">E-commerce</a> team does this for clients every day.</p>
+
+                    <h2>Common questions</h2>
+                    <p><strong style="color:var(--text);">Is it really free on GitHub?</strong><br>Yes — the source is MIT and always will be at github.com/bensblueprints/affiliate-tracker-mvp. The $99 buys a packaged Windows installer with updates; building from source is free.</p>
+                    <p><strong style="color:var(--text);">Where does my affiliate data live?</strong><br>On your server. Reflink is one Node process and one SQLite file that you own, and visitor IPs are stored only as salted hashes, never raw.</p>
+                    <p><strong style="color:var(--text);">Does it replace Tapfiliate entirely?</strong><br>No, on purpose. If you need multi-level marketing trees and 40 native integrations, buy Tapfiliate. If you need who sent this sale and what do I owe them, that's Reflink.</p>
+
+                    <div class="post-cta">
+                        <h3>Reflink — $99, one time</h3>
+                        <p>Pay once, own it forever. No seats, no renewal, no meter.</p>
+                        <a href="https://onetimesuite.com/reflink/" class="btn btn-primary" rel="noopener">Get Reflink on OneTimeSuite &nearr;</a>
+                        <a href="/software/" class="btn btn-outline" style="margin-left:0.75rem;">Browse the software shelf &rarr;</a>
+                        <p class="svc-note">Rather hand this to a team that does it daily? Our <a href="/services/ecommerce-website/">E-commerce</a> service covers it end to end.</p>
+                    </div>
+
+                    <p style="font-size:0.9rem;">More on Reflink: <a href="/blog/reflink-tapfiliate-alternative-for-agencies/">Tapfiliate alternative</a> · <a href="/blog/reflink-vs-tapfiliate-honest-comparison/">vs Tapfiliate</a> · <a href="/blog/track-affiliates-without-tapfiliate/">without Tapfiliate</a> · <a href="/blog/reflink-review-pay-once-affiliate/">review</a> — or browse <a href="/blog/">the blog</a> and <a href="/software/">the software shelf</a>.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <picture>
+                        <source srcset="/logo.webp" type="image/webp">
+                        <img src="/logo.png" alt="Advanced Marketing" width="120" height="36">
+                    </picture>
+                    <p>Full-service marketing agency headquartered in Hong Kong. We help ambitious brands grow through strategic digital marketing, advertising, and business development worldwide.</p>
+                    <address style="font-style:normal;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">Advanced Marketing Limited<br>Hong Kong, SAR China</address>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/facebook-ads">Facebook Ads</a>
+                    <a href="/services/google-ads">Google AdWords</a>
+                    <a href="/services/pr-press">PR &amp; Press</a>
+                    <a href="/services/ecommerce-website">E-commerce</a>
+                    <a href="/services/ai-software">AI Software</a>
+                    <a href="/services/cro">CRO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Software</h4>
+                    <a href="/software/">Pay-Once Suite</a>
+                    <a href="/software/comparison/">Alternatives Blog</a>
+                    <a href="/blog/">Marketing Blog</a>
+                    <a href="https://whop.com/benjisaiempire" rel="noopener">Get it on Whop</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about">About Us</a>
+                    <a href="/team">Team</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/pay/">Pay Invoice</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:ben@advancedmarketing.co">ben@advancedmarketing.co</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Advanced Marketing Limited. All rights reserved.</p>
+                <nav aria-label="Legal">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <button class="floating-call-btn" onclick="openVoiceChat('agent_0901khqt9q1jfazs86en39aeb0nr', 'Talk to Our AI Assistant', 'Ask about our services, pricing, or book a strategy call')" aria-label="Talk to AI Assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </button>
+
+    <div class="voice-modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-label="Voice chat">
+        <div class="voice-modal">
+            <button class="voice-modal-close" onclick="closeVoiceChat()" aria-label="Close voice chat">&times;</button>
+            <h3 id="voiceModalTitle">AI Voice Demo</h3>
+            <p id="voiceModalSubtitle">Click the microphone to start talking</p>
+            <div id="voiceWidgetContainer"></div>
+        </div>
+    </div>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobile-nav');
+        var btn = document.querySelector('.mobile-toggle');
+        var isActive = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
+        btn.innerHTML = isActive ? '&times;' : '&#9776;';
+    }
+    function openVoiceChat(agentId, title, subtitle) {
+        document.getElementById('voiceModalTitle').textContent = title;
+        document.getElementById('voiceModalSubtitle').textContent = subtitle;
+        var container = document.getElementById('voiceWidgetContainer');
+        container.innerHTML = '';
+        var widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', agentId);
+        container.appendChild(widget);
+        document.getElementById('voiceModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVoiceChat() {
+        document.getElementById('voiceModal').classList.remove('active');
+        document.getElementById('voiceWidgetContainer').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.getElementById('voiceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeVoiceChat();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVoiceChat();
+    });
+    </script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+</body>
+</html>

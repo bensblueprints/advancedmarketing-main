@@ -19,6 +19,27 @@ const NAV = about.slice(navStart, navEnd);
 const footStart = about.indexOf('<footer class="site-footer">');
 const FOOTER = about.slice(footStart, about.indexOf('</html>') + '</html>'.length);
 
+/* Reuse the sitewide Organization/ProfessionalService/WebSite schema that
+ * build-pages.js injects into every generated page (about is the source). */
+const schemaMatch = about.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/);
+const SHARED_SCHEMA_TAG = schemaMatch ? schemaMatch[0] : '';
+
+function breadcrumbSchema(items) {
+    return {
+        '@type': 'BreadcrumbList',
+        itemListElement: items.map((it, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: it.name,
+            item: it.url
+        }))
+    };
+}
+
+function graph(nodes) {
+    return { '@context': 'https://schema.org', '@graph': nodes.map(x => { const { '@context': _c, ...rest } = x; return rest; }) };
+}
+
 function page({ canonical, title, desc, schema, body }) {
     return `<!DOCTYPE html>
 <html lang="en">
@@ -41,6 +62,7 @@ function page({ canonical, title, desc, schema, body }) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/site.css">
+    ${SHARED_SCHEMA_TAG}
     ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ''}
 </head>
 <body>
@@ -135,11 +157,17 @@ ${burgerCard}
             </div>
         </section>
 ${CTA_SECTION}`;
-    const schema = {
-        '@context': 'https://schema.org', '@type': 'CollectionPage', url: canonical,
-        name: 'Case Studies | Advanced Marketing',
-        publisher: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' }
-    };
+    const schema = graph([
+        {
+            '@type': 'CollectionPage', url: canonical,
+            name: 'Case Studies | Advanced Marketing',
+            publisher: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' }
+        },
+        breadcrumbSchema([
+            { name: 'Home', url: 'https://advancedmarketing.co/' },
+            { name: 'Case Studies', url: canonical }
+        ])
+    ]);
     return page({ canonical, title: 'Case Studies | Advanced Marketing', desc: 'Real client results: $30K in 30 days for Herban Bud, dollar-for-dollar acquisition for Quarter Pounder, and more measurable growth stories from Advanced Marketing.', schema, body });
 }
 
@@ -228,11 +256,19 @@ function buildHerbanBud() {
         lead: 'How we took a brand-new cannabis e-commerce brand from launch to $30,000 in revenue within 30 days through targeted Facebook advertising and strategic brand positioning.',
         statRow, sections, otherCard: burgerCard
     });
-    const schema = {
-        '@context': 'https://schema.org', '@type': 'Article', headline: 'Herban Bud Case Study: $30K in 30 Days', url: canonical,
-        image: 'https://advancedmarketing.co/herban-bud-ad.png',
-        author: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' }
-    };
+    const schema = graph([
+        {
+            '@type': 'Article', headline: 'Herban Bud Case Study: $30K in 30 Days', url: canonical, mainEntityOfPage: canonical,
+            image: 'https://advancedmarketing.co/herban-bud-ad.png',
+            author: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
+            publisher: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co', logo: { '@type': 'ImageObject', url: 'https://advancedmarketing.co/logo.png' } }
+        },
+        breadcrumbSchema([
+            { name: 'Home', url: 'https://advancedmarketing.co/' },
+            { name: 'Case Studies', url: 'https://advancedmarketing.co/case-studies' },
+            { name: 'Herban Bud', url: canonical }
+        ])
+    ]);
     return page({ canonical, title: 'Herban Bud Case Study: $30K in 30 Days | Advanced Marketing', desc: 'How Advanced Marketing took cannabis e-commerce brand Herban Bud from launch to $30K revenue in 30 days with compliant Facebook ads and strategic positioning.', schema, body });
 }
 
@@ -259,11 +295,19 @@ function buildBurger() {
         lead: 'A creative cannabis marketing campaign with strategic positioning that achieved dollar-for-dollar returns on customer acquisition — every new customer paid for themselves on day one.',
         statRow, sections, otherCard: herbanCard
     });
-    const schema = {
-        '@context': 'https://schema.org', '@type': 'Article', headline: 'Quarter Pounder Case Study: Dollar-for-Dollar Acquisition', url: canonical,
-        image: 'https://advancedmarketing.co/burger-ad-1.png',
-        author: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' }
-    };
+    const schema = graph([
+        {
+            '@type': 'Article', headline: 'Quarter Pounder Case Study: Dollar-for-Dollar Acquisition', url: canonical, mainEntityOfPage: canonical,
+            image: 'https://advancedmarketing.co/burger-ad-1.png',
+            author: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
+            publisher: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co', logo: { '@type': 'ImageObject', url: 'https://advancedmarketing.co/logo.png' } }
+        },
+        breadcrumbSchema([
+            { name: 'Home', url: 'https://advancedmarketing.co/' },
+            { name: 'Case Studies', url: 'https://advancedmarketing.co/case-studies' },
+            { name: 'Quarter Pounder', url: canonical }
+        ])
+    ]);
     return page({ canonical, title: 'Quarter Pounder Case Study | Advanced Marketing', desc: 'How a creative cannabis marketing campaign achieved a $99 customer acquisition cost against a $99 average order value — dollar-for-dollar returns from day one.', schema, body });
 }
 
@@ -344,12 +388,18 @@ ${moduleCards}
                 <a href="/pay/" class="btn btn-primary">Get Instant Access &rarr;</a>
             </div>
         </section>`;
-    const schema = {
-        '@context': 'https://schema.org', '@type': 'Course', name: 'E-commerce Blueprint', url: canonical,
-        description: 'The exact playbook that generated $35,000+ in 90 days — systems, team building, and marketing strategies for scaling an online brand from zero to profitability.',
-        provider: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
-        offers: { '@type': 'Offer', price: '27', priceCurrency: 'USD' }
-    };
+    const schema = graph([
+        {
+            '@type': 'Course', name: 'E-commerce Blueprint', url: canonical,
+            description: 'The exact playbook that generated $35,000+ in 90 days — systems, team building, and marketing strategies for scaling an online brand from zero to profitability.',
+            provider: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
+            offers: { '@type': 'Offer', price: '27', priceCurrency: 'USD' }
+        },
+        breadcrumbSchema([
+            { name: 'Home', url: 'https://advancedmarketing.co/' },
+            { name: 'E-commerce Blueprint', url: canonical }
+        ])
+    ]);
     return page({ canonical, title: 'E-commerce Blueprint Course — $27 | Advanced Marketing', desc: 'The exact playbook that generated $35,000+ in 90 days. 8 modules, 5 bonus templates, and a 90-day action plan for scaling an online brand from zero to profitability.', schema, body });
 }
 

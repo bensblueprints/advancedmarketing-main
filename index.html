@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <title>Advanced Marketing | Full-Service Marketing Agency</title>
-    <meta name="description" content="Advanced Marketing is a full-service marketing agency specializing in Facebook advertising, Google Ads, PR, e-commerce, AI software, and local business websites. Over 500 clients served with an average 3.2x ROI.">
+    <meta name="description" content="Full-service marketing agency for Facebook Ads, Google Ads, PR, e-commerce, AI software and CRO. 500+ clients served with an average 3.2x ROI.">
     <link rel="canonical" href="https://advancedmarketing.co/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
@@ -16,26 +16,63 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "MarketingAgency",
-        "name": "Advanced Marketing",
-        "url": "https://advancedmarketing.co",
-        "logo": "https://advancedmarketing.co/logo.png",
-        "description": "Full-service marketing agency specializing in Facebook advertising, Google Ads, PR, e-commerce, AI software, and local business websites.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Hong Kong",
-            "addressCountry": "HK"
-        },
-        "email": "ben@advancedmarketing.co",
-        "foundingDate": "2020",
-        "numberOfEmployees": {
-            "@type": "QuantitativeValue",
-            "minValue": 2,
-            "maxValue": 10
-        },
-        "areaServed": "Worldwide",
-        "knowsAbout": ["Facebook Advertising", "Google Ads", "PR", "E-commerce", "AI Software", "Web Design", "Conversion Rate Optimization"],
-        "sameAs": []
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://advancedmarketing.co/#org",
+                "name": "Advanced Marketing",
+                "url": "https://advancedmarketing.co",
+                "logo": { "@type": "ImageObject", "url": "https://advancedmarketing.co/logo.png" },
+                "description": "Full-service marketing agency specializing in Facebook advertising, Google Ads, PR, e-commerce, AI software, and local business websites.",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Hong Kong",
+                    "addressCountry": "HK"
+                },
+                "email": "ben@advancedmarketing.co",
+                "foundingDate": "2020",
+                "numberOfEmployees": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 2,
+                    "maxValue": 10
+                },
+                "areaServed": "Worldwide",
+                "knowsAbout": ["Facebook Advertising", "Google Ads", "PR", "E-commerce", "AI Software", "Web Design", "Conversion Rate Optimization"],
+                "sameAs": [
+                    "https://github.com/bensblueprints",
+                    "https://onetimesuite.com"
+                ],
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "bestRating": "5",
+                    "reviewCount": "500"
+                }
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "https://advancedmarketing.co/#localservice",
+                "name": "Advanced Marketing",
+                "url": "https://advancedmarketing.co",
+                "image": "https://advancedmarketing.co/logo.png",
+                "priceRange": "$$",
+                "areaServed": "Worldwide",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Hong Kong",
+                    "addressCountry": "HK"
+                },
+                "knowsAbout": ["Facebook Ads", "Google Ads", "PR", "E-commerce", "AI Software", "Conversion Rate Optimization"],
+                "parentOrganization": { "@id": "https://advancedmarketing.co/#org" }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://advancedmarketing.co/#website",
+                "url": "https://advancedmarketing.co",
+                "name": "Advanced Marketing",
+                "publisher": { "@id": "https://advancedmarketing.co/#org" }
+            }
+        ]
     }
     </script>
     <style>
@@ -533,6 +570,7 @@
                     <li role="none"><a href="/services" role="menuitem">Services</a></li>
                     <li role="none"><a href="/software/" role="menuitem">Software</a></li>
                     <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
                     <li role="none"><a href="/team" role="menuitem">Team</a></li>
                     <li role="none"><a href="#coaching" role="menuitem">Coaching</a></li>
                     <li role="none"><a href="/about" role="menuitem">About</a></li>
@@ -545,6 +583,7 @@
                         <li><a href="/services">Services</a></li>
                         <li><a href="/software/">Software</a></li>
                         <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/blog/">Blog</a></li>
                         <li><a href="/team">Team</a></li>
                         <li><a href="#coaching">Coaching</a></li>
                         <li><a href="/about">About</a></li>
@@ -910,6 +949,7 @@
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
+                    <a href="/blog/">Blog</a>
                     <a href="/ecommerce-blueprint">E-commerce Blueprint</a>
                     <a href="/case-studies">Case Studies</a>
                     <a href="https://website.advancedmarketing.co">Local Business Sites</a>

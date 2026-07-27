@@ -98,7 +98,9 @@ const NAV = `
                 </a>
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="/services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="/software/" role="menuitem">Software</a></li>
                     <li role="none"><a href="/case-studies" role="menuitem">Case Studies</a></li>
+                    <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
                     <li role="none"><a href="/team" role="menuitem">Team</a></li>
                     <li role="none"><a href="/#coaching" role="menuitem">Coaching</a></li>
                     <li role="none"><a href="/about" role="menuitem">About</a></li>
@@ -109,7 +111,9 @@ const NAV = `
                 <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
                     <ul>
                         <li><a href="/services">Services</a></li>
+                        <li><a href="/software/">Software</a></li>
                         <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/blog/">Blog</a></li>
                         <li><a href="/team">Team</a></li>
                         <li><a href="/#coaching">Coaching</a></li>
                         <li><a href="/about">About</a></li>
@@ -178,6 +182,7 @@ const FOOTER = `
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
+                    <a href="/blog/">Blog</a>
                     <a href="/ecommerce-blueprint">E-commerce Blueprint</a>
                     <a href="/case-studies">Case Studies</a>
                     <a href="https://website.advancedmarketing.co">Local Business Sites</a>
@@ -255,6 +260,64 @@ function jsonLd(obj) {
     return '<script type="application/ld+json">' + JSON.stringify(obj) + '</script>';
 }
 
+/* ---------- Sitewide schema (every generated page) ---------- */
+const ORG_ID = 'https://advancedmarketing.co/#org';
+const SHARED_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'Organization',
+            '@id': ORG_ID,
+            name: 'Advanced Marketing',
+            url: 'https://advancedmarketing.co',
+            logo: { '@type': 'ImageObject', url: 'https://advancedmarketing.co/logo.png' },
+            description: 'Full-service marketing agency specializing in Facebook advertising, Google Ads, PR, e-commerce, AI software, and local business websites.',
+            email: 'ben@advancedmarketing.co',
+            foundingDate: '2020',
+            address: { '@type': 'PostalAddress', addressLocality: 'Hong Kong', addressCountry: 'HK' },
+            areaServed: 'Worldwide',
+            knowsAbout: ['Facebook Advertising', 'Google Ads', 'PR', 'E-commerce', 'AI Software', 'Web Design', 'Conversion Rate Optimization'],
+            sameAs: ['https://github.com/bensblueprints', 'https://onetimesuite.com']
+        },
+        {
+            '@type': 'ProfessionalService',
+            '@id': 'https://advancedmarketing.co/#localservice',
+            name: 'Advanced Marketing',
+            url: 'https://advancedmarketing.co',
+            image: 'https://advancedmarketing.co/logo.png',
+            priceRange: '$$',
+            areaServed: 'Worldwide',
+            address: { '@type': 'PostalAddress', addressLocality: 'Hong Kong', addressCountry: 'HK' },
+            knowsAbout: ['Facebook Ads', 'Google Ads', 'PR', 'E-commerce', 'AI Software', 'Conversion Rate Optimization'],
+            parentOrganization: { '@id': ORG_ID }
+        },
+        {
+            '@type': 'WebSite',
+            '@id': 'https://advancedmarketing.co/#website',
+            url: 'https://advancedmarketing.co',
+            name: 'Advanced Marketing',
+            publisher: { '@id': ORG_ID }
+        }
+    ]
+};
+
+function breadcrumbSchema(items) {
+    return {
+        '@type': 'BreadcrumbList',
+        itemListElement: items.map((it, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: it.name,
+            item: it.url
+        }))
+    };
+}
+
+function graph(schema) {
+    const nodes = Array.isArray(schema) ? schema : [schema];
+    return { '@context': 'https://schema.org', '@graph': nodes.map(x => { const { '@context': _c, ...rest } = x; return rest; }) };
+}
+
 function page({ canonical, title, desc, schema, body }) {
     const head = `<!DOCTYPE html>
 <html lang="en">
@@ -277,6 +340,7 @@ function page({ canonical, title, desc, schema, body }) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/site.css">
+    ${jsonLd(SHARED_SCHEMA)}
     ${schema ? jsonLd(schema) : ''}
 </head>
 <body>
@@ -400,6 +464,60 @@ function includesSection(label, heading, intro, items) {
         </section>`;
 }
 
+function engagementSection(eng) {
+    return `
+        <section class="section section-alt" aria-label="Engagement model and pricing">
+            <div class="container">
+                <div class="two-col">
+                    <div>
+                        <span class="text-label">Pricing &amp; Engagement</span>
+                        <h2 style="font-size:clamp(2rem,4vw,3rem);margin:0.75rem 0 1rem;">${eng.heading}</h2>
+                        <p style="color:var(--text-muted);margin-bottom:2rem;">${eng.intro}</p>
+                        <a href="#contact" class="btn btn-primary">Get a Custom Quote &rarr;</a>
+                    </div>
+                    <ul class="check-list">
+                        ${eng.points.map(i => `<li>${i}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+        </section>`;
+}
+
+function relatedSection(slug) {
+    const all = [
+        { slug: 'facebook-ads', bg: 'rgba(59,130,246,0.15)', icon: '\u{1F4E3}', h: 'Facebook & Instagram Ads', p: 'Full-funnel Meta campaigns engineered around return on ad spend.' },
+        { slug: 'google-ads', bg: 'rgba(16,185,129,0.15)', icon: '\u{1F50D}', h: 'Google Ads', p: 'Capture high-intent demand the moment people search.' },
+        { slug: 'pr-press', bg: 'rgba(245,158,11,0.15)', icon: '\u{1F4F0}', h: 'PR & Press Relations', p: 'Earned media coverage that builds lasting authority.' },
+        { slug: 'ecommerce-website', bg: 'rgba(168,85,247,0.15)', icon: '\u{1F6D2}', h: 'E-commerce Websites', p: 'High-converting Shopify stores built around the buyer\u2019s journey.' },
+        { slug: 'ai-software', bg: 'rgba(6,182,212,0.15)', icon: '\u{1F916}', h: 'AI Software & Automation', p: 'AI voice agents, chatbots and workflows that run 24/7.' },
+        { slug: 'cro', bg: 'rgba(244,63,94,0.15)', icon: '\u{1F4C8}', h: 'Conversion Rate Optimization', p: 'Turn more of your existing traffic into customers.' }
+    ];
+    const siblings = all.filter(c => c.slug !== slug).slice(0, 2);
+    return `
+        <section class="section" aria-label="Related services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="text-label">Keep Exploring</span>
+                    <h2>Works Even Better Together</h2>
+                    <p>Most clients pair this service with another lever &mdash; and see the compounding effect in their numbers. See the proof in our <a href="/case-studies" style="color:var(--gold);">case studies</a>, or check out <a href="/software/" style="color:var(--gold);">our own pay-once software tools</a>.</p>
+                </div>
+                <div class="services-grid">
+                    ${siblings.map(c => `
+                    <a href="/services/${c.slug}" class="service-card">
+                        <div class="service-icon" style="background:${c.bg};" aria-hidden="true">${c.icon}</div>
+                        <h3>${c.h}</h3>
+                        <p>${c.p}</p>
+                    </a>`).join('')}
+                    <a href="/case-studies" class="service-card">
+                        <div class="service-icon" style="background:rgba(201,169,98,0.15);" aria-hidden="true">\u{1F3C6}</div>
+                        <h3>Case Studies</h3>
+                        <p>Real client results &mdash; $30K in 30 days, dollar-for-dollar acquisition and more.</p>
+                    </a>
+                </div>
+            </div>
+        </section>`;
+}
+
 function faqSchema(canonical, faqs) {
     return {
         '@context': 'https://schema.org',
@@ -417,10 +535,17 @@ function serviceSchema(canonical, name, desc) {
         '@context': 'https://schema.org',
         '@type': 'Service',
         serviceType: name,
-        provider: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
+        provider: { '@id': ORG_ID, '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
         areaServed: 'Worldwide',
         url: canonical,
-        description: desc
+        description: desc,
+        offers: {
+            '@type': 'Offer',
+            url: canonical,
+            priceCurrency: 'USD',
+            description: 'Custom quote based on scope — book a free strategy call for a tailored proposal.',
+            availability: 'https://schema.org/InStock'
+        }
     };
 }
 
@@ -430,9 +555,10 @@ const services = [
         slug: 'facebook-ads',
         label: 'Facebook & Instagram Advertising',
         crumb: 'Facebook Ads',
-        title: 'Facebook & Instagram Ads Management | Advanced Marketing',
-        desc: 'Profitable Facebook and Instagram ad campaigns managed end-to-end — creative, targeting, testing and scaling. Average 3.2x ROI across 500+ clients.',
-        h1: 'Facebook Ads That <span class="text-gradient">Actually Turn a Profit</span>',
+        title: 'Facebook Ads Management | Advanced Marketing',
+        desc: 'Facebook Ads management that pays for itself — creative, targeting, testing and scaling across Meta. 500+ clients, 3.2x average ROI. Free strategy call.',
+        serviceType: 'Facebook Ads Management',
+        h1: 'Facebook Ads Management That <span class="text-gradient">Actually Turns a Profit</span>',
         lead: 'Most agencies "boost posts" and call it a day. We build full-funnel Facebook & Instagram campaigns engineered around one number that matters: your return on ad spend.',
         includes: {
             heading: 'Everything Handled, End to End',
@@ -464,8 +590,20 @@ const services = [
             { h: 'Scale', p: 'Once we hit profitable, predictable results, we scale spend while defending ROAS.' }
         ],
         stats: [{ v: '$50M+', l: 'Ad Spend Managed' }, { v: '3.2x', l: 'Average ROI' }, { v: '500+', l: 'Clients Served' }, { v: '98%', l: 'Retention Rate' }],
+        engagement: {
+            heading: 'Month-to-Month Management, Custom-Quoted',
+            intro: 'Every account is different — spend levels, creative volume and funnel complexity all shape the work. We quote a flat monthly management fee after your free strategy call, so you know exactly what you’re paying before anything starts. No percentage-of-spend surprises, no long lock-ins.',
+            points: [
+                'Flat monthly management fee quoted upfront — no hidden margins on your ad spend',
+                'Month-to-month engagement — we keep your account by earning it',
+                'Ad spend paid directly to Meta, always from your own account',
+                'Weekly reporting on spend, ROAS and cost per acquisition',
+                'Free strategy call and account audit before you commit to anything'
+            ]
+        },
         faqs: [
-            { q: 'How much should I budget for ad spend?', a: 'Most clients start between $50–$150/day in ad spend so we can gather data quickly. We’ll recommend a starting budget based on your offer, margins and goals during your free strategy call.' },
+            { q: 'How much does Facebook Ads management cost?', a: 'We charge a flat monthly management fee quoted after a free strategy call — it depends on your ad spend, creative volume and funnel complexity, with no hidden margins on spend. Ad spend itself is separate and paid directly to Meta from your own account; most clients start between $50–$150/day so we can gather data quickly.' },
+            { q: 'Is Facebook Ads worth it for a small business?', a: 'Yes — if your offer and margins support it. Meta is often the fastest way for a small business to reach new customers profitably, because you can start small, test cheaply and scale only what works. On your call we’ll tell you honestly whether the numbers can work for you.' },
             { q: 'How fast will I see results?', a: 'We typically have campaigns live within a week. The first 2–4 weeks are the learning and testing phase; profitable scaling usually follows once we’ve found winning creative and audiences.' },
             { q: 'Do you create the ad creative?', a: 'Yes. Creative is where most campaigns are won or lost. We produce statics, carousels and short-form video, and continually test new angles.' },
             { q: 'Is there a long-term contract?', a: 'No long lock-ins. We earn your business month to month with results and transparent reporting.' }
@@ -475,9 +613,10 @@ const services = [
         slug: 'google-ads',
         label: 'Google Ads Management',
         crumb: 'Google AdWords',
-        title: 'Google Ads Management | Search, Shopping & Display | Advanced Marketing',
-        desc: 'Expert Google Ads management — Search, Shopping, Performance Max and Display. Keyword research, ad copy, bid strategy and conversion tracking that drives qualified leads.',
-        h1: 'Capture Demand the Moment <span class="text-gradient">People Search</span>',
+        title: 'Google Ads Management | Advanced Marketing',
+        desc: 'Google Ads management across Search, Shopping and Performance Max. Keyword research, ad copy, bidding and tracking that lower your cost per lead. Free audit.',
+        serviceType: 'Google Ads Management',
+        h1: 'Google Ads Management That <span class="text-gradient">Pays for Itself</span>',
         lead: 'When someone Googles exactly what you sell, you should be the first thing they see — and the easiest to choose. We build Google Ads campaigns that turn high-intent searches into customers.',
         includes: {
             heading: 'Full-Funnel Google Coverage',
@@ -509,10 +648,22 @@ const services = [
             { h: 'Scale Profitably', p: 'We expand into new keywords, Shopping and Performance Max as ROI proves out.' }
         ],
         stats: [{ v: '3.2x', l: 'Average ROI' }, { v: '500+', l: 'Clients Served' }, { v: '24/7', l: 'AI Support' }, { v: '98%', l: 'Retention Rate' }],
+        engagement: {
+            heading: 'A Flat Monthly Fee. Your Account, Your Data.',
+            intro: 'We quote a custom monthly management fee after a free audit of your account and market — based on campaign count, spend and goals. You keep full ownership of your Google Ads account and data; we work inside it, so everything we build stays yours.',
+            points: [
+                'Custom monthly quote after a free account audit — no percentage-of-spend fees',
+                'You own the account, the data and the history, forever',
+                'Ad spend paid directly to Google from your own billing',
+                'Weekly optimization and transparent reporting on cost per lead',
+                'No long-term contracts — month to month, earned with results'
+            ]
+        },
         faqs: [
+            { q: 'How much does Google Ads management cost?', a: 'We charge a flat monthly management fee quoted after a free audit — sized to your campaign count, spend and goals, never a percentage of your ad spend. Ad spend is paid directly to Google from your own account; most small businesses start with $1,500–$3,000/month in spend.' },
+            { q: 'Is Google Ads worth it for a small business?', a: 'For businesses whose customers search before they buy — most local and service businesses — it’s often the highest-intent channel there is. Tight keyword and negative-keyword discipline keeps budgets small-business friendly while you prove ROI.' },
             { q: 'Search, Shopping or Performance Max — which do I need?', a: 'It depends on your business. Service businesses usually start with Search; e-commerce brands benefit from Shopping and Performance Max. We’ll recommend the right mix on your strategy call.' },
             { q: 'Will I own my Google Ads account?', a: 'Always. We build inside your own account so you keep full ownership of the data and history if we ever part ways.' },
-            { q: 'How is Google Ads different from Facebook Ads?', a: 'Google captures existing demand (people already searching), while Facebook creates demand. Most growing businesses benefit from both — we run them together.' },
             { q: 'How soon will I get leads?', a: 'Search campaigns can produce leads within days of launch. We then spend the following weeks optimizing to lower your cost per lead.' }
         ]
     },
@@ -520,9 +671,10 @@ const services = [
         slug: 'pr-press',
         label: 'PR & Press Relations',
         crumb: 'PR & Press',
-        title: 'PR & Press Relations | Media Coverage & Brand Authority | Advanced Marketing',
-        desc: 'Strategic PR and media outreach that earns coverage in major publications, builds brand authority and drives qualified traffic that converts.',
-        h1: 'Get Featured Where Your <span class="text-gradient">Customers Already Trust</span>',
+        title: 'PR & Press Relations | Advanced Marketing',
+        desc: 'PR and press relations that earn coverage in publications your audience trusts. Story strategy, press releases and journalist outreach that convert.',
+        serviceType: 'PR & Press Relations',
+        h1: 'PR & Press Relations That Make You <span class="text-gradient">Impossible to Ignore</span>',
         lead: 'A logo from a publication your audience respects does what ads can’t — it borrows credibility instantly. We secure the coverage that makes prospects say "I’ve heard of them."',
         includes: {
             heading: 'PR That Drives Business, Not Just Clippings',
@@ -554,10 +706,22 @@ const services = [
             { h: 'Amplify', p: 'We help you turn coverage into trust assets across your site, ads and sales process.' }
         ],
         stats: [{ v: '500+', l: 'Clients Served' }, { v: '3.2x', l: 'Average ROI' }, { v: 'Global', l: 'Media Reach' }, { v: '98%', l: 'Retention Rate' }],
+        engagement: {
+            heading: 'Campaign-Based PR, Quoted Per Scope',
+            intro: 'PR engagements are scoped around your goals — a single launch push or an ongoing authority campaign. After a free strategy call you get a fixed quote for the campaign, so costs are clear before any outreach begins.',
+            points: [
+                'Fixed campaign quote after a free strategy call — no open-ended retainers required',
+                'Story strategy, press assets and journalist outreach included',
+                '"As Featured In" assets delivered for your site, ads and sales deck',
+                'Honest assessment first — if PR isn’t the right lever yet, we’ll say so',
+                'Ongoing authority campaigns available for compounding coverage'
+            ]
+        },
         faqs: [
+            { q: 'How much does PR and press outreach cost?', a: 'PR is quoted per campaign scope after a free strategy call — a single product launch push costs less than an ongoing authority campaign. You get a fixed quote before any work begins, so there are no open-ended retainer surprises.' },
+            { q: 'Is PR worth it for a small business?', a: 'If your buyers research before they purchase, yes. A handful of placements in publications your audience trusts lifts conversion rates across every other channel — ads, email and sales calls all close easier with third-party credibility behind you.' },
             { q: 'Can you guarantee coverage in a specific publication?', a: 'No reputable PR firm can guarantee a specific outlet — editorial decisions belong to journalists. What we guarantee is a strong, persistent, professional outreach effort built on genuinely newsworthy angles.' },
             { q: 'How is this different from buying ads?', a: 'Ads are paid and stop the moment you stop paying. Earned media is credibility you can’t buy directly — it builds trust, SEO authority and brand recall that compound over time.' },
-            { q: 'What kinds of businesses do you do PR for?', a: 'Founders, e-commerce brands, agencies and local businesses looking to build authority. On your call we’ll assess whether PR is the right lever for your stage.' },
             { q: 'How long until we see coverage?', a: 'PR is a longer game than ads. Initial placements often land within the first 1–3 months as relationships and pitches mature.' }
         ]
     },
@@ -565,9 +729,10 @@ const services = [
         slug: 'ecommerce-website',
         label: 'E-commerce Websites',
         crumb: 'E-commerce',
-        title: 'E-commerce Website Design | High-Converting Shopify Stores | Advanced Marketing',
-        desc: 'Custom, high-converting Shopify stores with payment integration, inventory setup and conversion rate optimization built to turn visitors into loyal customers.',
-        h1: 'Online Stores Built to <span class="text-gradient">Sell, Not Just Sit There</span>',
+        title: 'E-commerce Website Design | Advanced Marketing',
+        desc: 'E-commerce website design for high-converting Shopify stores — custom design, payments, checkout optimization and ad-ready tracking. 500+ clients served.',
+        serviceType: 'E-commerce Website Design',
+        h1: 'E-commerce Website Design That <span class="text-gradient">Sells, Not Just Sits There</span>',
         lead: 'A beautiful store that doesn’t convert is an expensive brochure. We design and build Shopify stores engineered around the buyer’s journey — fast, trustworthy and optimized to close the sale.',
         includes: {
             heading: 'A Complete, Conversion-Ready Storefront',
@@ -599,8 +764,20 @@ const services = [
             { h: 'Launch & Grow', p: 'We launch, connect your ads and support ongoing conversion improvements.' }
         ],
         stats: [{ v: '$35K+', l: 'Generated in 90 Days*' }, { v: '500+', l: 'Clients Served' }, { v: '3.2x', l: 'Average ROI' }, { v: '98%', l: 'Retention Rate' }],
+        engagement: {
+            heading: 'Fixed-Scope Builds, Quoted Upfront',
+            intro: 'Store builds are quoted as a fixed project price after a free discovery call — based on catalog size, design complexity and integrations. You approve the full scope and price before we start; no hourly billing creep.',
+            points: [
+                'Fixed project quote before work begins — no hourly surprises',
+                'Custom Shopify design, build and launch included end to end',
+                'Payments, shipping, tax and ad tracking configured for you',
+                'Post-launch support and CRO retainers available, never required',
+                'You own the store, the domain and all the data'
+            ]
+        },
         faqs: [
-            { q: 'Do you build on Shopify or something else?', a: 'We specialize in Shopify because it’s the most reliable, scalable platform for serious e-commerce. If you have a specific need, we’ll discuss the best fit on your call.' },
+            { q: 'How much does an e-commerce website cost?', a: 'It depends on catalog size, design complexity and integrations — which is why we quote a fixed project price after a free discovery call. You approve the exact scope and price before any work starts, so there’s never billing creep.' },
+            { q: 'Is Shopify worth it for a small business?', a: 'For most small e-commerce brands, yes — it’s reliable, secure and scales without a developer on retainer. We specialize in Shopify because it lets us launch fast and keeps your running costs predictable.' },
             { q: 'Can you redesign my existing store?', a: 'Yes. We can rebuild or optimize an existing Shopify store to improve conversion rate, speed and trust without losing your history.' },
             { q: 'Will the store be ready for paid ads?', a: 'Absolutely — we set up the pixel/tracking, capture flows and analytics so your Facebook and Google Ads can convert profitably from launch.' },
             { q: 'Do you offer ongoing support?', a: 'Yes. Many clients keep us on for conversion optimization, new product launches and ad management after launch.' }
@@ -610,9 +787,10 @@ const services = [
         slug: 'ai-software',
         label: 'AI Software & Automation',
         crumb: 'AI Software',
-        title: 'AI Software & Automation | Custom Chatbots, Voice Agents & Workflows | Advanced Marketing',
-        desc: 'Custom AI tools, chatbots, voice agents and workflow automation that cut operational costs, capture more leads and improve customer experience around the clock.',
-        h1: 'Put an <span class="text-gradient">AI Team</span> to Work in Your Business',
+        title: 'AI Software & Automation | Advanced Marketing',
+        desc: 'Custom AI software and automation — voice agents, chatbots and workflows that cut costs, answer every lead 24/7 and plug into the tools you already use.',
+        serviceType: 'AI Software & Automation',
+        h1: 'AI Software & Automation That <span class="text-gradient">Works While You Sleep</span>',
         lead: 'Imagine a tireless employee that answers every lead in seconds, books calls while you sleep and handles the repetitive work eating your team’s day. That’s what we build — custom AI tools wired into how you actually operate.',
         includes: {
             heading: 'Automation That Pays for Itself',
@@ -644,10 +822,22 @@ const services = [
             { h: 'Refine', p: 'We monitor, tune and expand automations as they prove their ROI.' }
         ],
         stats: [{ v: '24/7', l: 'AI Availability' }, { v: '500+', l: 'Clients Served' }, { v: '3.2x', l: 'Average ROI' }, { v: '98%', l: 'Retention Rate' }],
+        engagement: {
+            heading: 'Scoped Builds With a Clear Payback',
+            intro: 'We scope each automation around a measurable outcome — leads captured, hours saved, calls answered — then quote a fixed build price. Ongoing optimization is optional and month to month. Prefer owning tools outright? We also sell <a href="/software/" style="color:var(--gold);">pay-once software</a> we built and use ourselves.',
+            points: [
+                'Fixed build quote tied to a measurable business outcome',
+                'Integrates with your existing CRM, calendar and messaging tools',
+                'Training, documentation and handover included',
+                'Optional month-to-month optimization and expansion',
+                'Try a live example — the AI voice chat on this very site'
+            ]
+        },
         faqs: [
+            { q: 'How much does custom AI software cost?', a: 'Each build is quoted as a fixed price after we map your workflows on a free strategy call — scoped to a measurable outcome like leads captured or hours saved. Most automations pay for themselves by catching leads you’d otherwise miss. If you want a lower-cost starting point, our pay-once tools in the software section are a good fit.' },
+            { q: 'Is AI automation worth it for a small business?', a: 'Small businesses often benefit most — speed-to-lead is the biggest driver of conversion, and an AI agent answers every inquiry in seconds, 24/7, without adding headcount. Start with one high-leverage automation and expand as it proves ROI.' },
             { q: 'What can the AI voice agent actually do?', a: 'It can answer calls and website chats, answer common questions, qualify prospects and book them straight into your calendar — in a natural, on-brand voice, 24/7. The chat widget on this site is a live example.' },
             { q: 'Will this integrate with my current tools?', a: 'Yes. We connect AI agents and automations to your CRM, calendar, email and messaging tools so everything flows into your existing systems.' },
-            { q: 'Is custom AI expensive?', a: 'Most automations pay for themselves by capturing leads you’d otherwise miss and freeing your team’s time. We’ll scope a solution to your budget on your strategy call.' },
             { q: 'Do I need technical knowledge?', a: 'Not at all. We handle the build, integration and training — you just get the results and a simple way to manage them.' }
         ]
     },
@@ -655,9 +845,10 @@ const services = [
         slug: 'cro',
         label: 'Conversion Rate Optimization',
         crumb: 'CRO',
-        title: 'Conversion Rate Optimization (CRO) | A/B Testing & Funnel Audits | Advanced Marketing',
-        desc: 'Data-driven conversion rate optimization — A/B testing, landing page optimization and UX improvements that turn more of your existing traffic into customers.',
-        h1: 'Turn the Traffic You Already Have Into <span class="text-gradient">More Customers</span>',
+        title: 'Conversion Rate Optimization | Advanced Marketing',
+        desc: 'Conversion rate optimization that turns existing traffic into more revenue — funnel audits, A/B testing and landing page optimization with clear reporting.',
+        serviceType: 'Conversion Rate Optimization',
+        h1: 'Conversion Rate Optimization That <span class="text-gradient">Multiplies Every Dollar</span>',
         lead: 'You don’t always need more traffic — you need more of it to convert. CRO is the highest-leverage marketing investment there is: the same visitors, the same spend, more revenue.',
         includes: {
             heading: 'Find the Leaks. Fix Them. Repeat.',
@@ -689,8 +880,20 @@ const services = [
             { h: 'Scale Wins', p: 'Winning variations get rolled out, and we move to the next highest-impact test.' }
         ],
         stats: [{ v: '3.2x', l: 'Average ROI' }, { v: '500+', l: 'Clients Served' }, { v: 'Data', l: 'Driven Decisions' }, { v: '98%', l: 'Retention Rate' }],
+        engagement: {
+            heading: 'A Month-to-Month Testing Program',
+            intro: 'CRO is an ongoing discipline, so we run it as a monthly testing program quoted after a free funnel audit. Every month has a clear testing roadmap and a report on lift and revenue impact — you always know what ran and what it earned.',
+            points: [
+                'Custom monthly quote after a free funnel audit',
+                'Prioritized testing roadmap reviewed with you each month',
+                'We design, build and run the experiments — you approve what ships',
+                'Clear reporting on conversion lift and revenue impact',
+                'No long contracts — compounding wins are the reason to stay'
+            ]
+        },
         faqs: [
-            { q: 'How much can CRO realistically improve conversions?', a: 'It varies, but even modest lifts compound powerfully — a jump from 2% to 3% conversion is a 50% increase in revenue from the same traffic. We focus on the changes with the biggest expected impact first.' },
+            { q: 'How much does conversion rate optimization cost?', a: 'CRO runs as a month-to-month program quoted after a free funnel audit — sized to your traffic volume and testing velocity. The audit itself is free, and even the first round of quick fixes often pays for the program.' },
+            { q: 'Is CRO worth it for a small business?', a: 'If you’re paying for any traffic at all, yes — a lift from 2% to 3% conversion is a 50% revenue increase from the same spend. Lower-traffic sites still benefit from expert audits and best-practice fixes before formal A/B testing becomes viable.' },
             { q: 'Do I need a lot of traffic for CRO to work?', a: 'More traffic lets tests reach significance faster, but even lower-traffic sites benefit from expert audits and best-practice fixes. We’ll assess your situation on the call.' },
             { q: 'Does CRO work with my ad campaigns?', a: 'It supercharges them. Lifting conversion rate lowers your effective cost per acquisition, making every ad dollar go further — which is why we often pair CRO with paid media.' },
             { q: 'What do you actually test?', a: 'Headlines, offers, page layouts, calls-to-action, forms, checkout flow and trust elements — anything that influences whether a visitor takes action.' }
@@ -706,14 +909,24 @@ function buildServicePage(s) {
         featureSection(s.features.label, s.features.heading, s.features.intro, s.features.cards) +
         processSection(s.process) +
         statBand(s.stats) +
+        engagementSection(s.engagement) +
         faqSection(s.faqs) +
+        relatedSection(s.slug) +
         CTA_SECTION;
-    const schema = [serviceSchema(canonical, s.label, s.desc), faqSchema(canonical, s.faqs)];
+    const schema = graph([
+        serviceSchema(canonical, s.serviceType || s.label, s.desc),
+        faqSchema(canonical, s.faqs),
+        breadcrumbSchema([
+            { name: 'Home', url: 'https://advancedmarketing.co/' },
+            { name: 'Services', url: 'https://advancedmarketing.co/services' },
+            { name: s.crumb, url: canonical }
+        ])
+    ]);
     return page({
         canonical,
         title: s.title,
         desc: s.desc,
-        schema: { '@context': 'https://schema.org', '@graph': schema.map(x => { const { '@context': _c, ...rest } = x; return rest; }) },
+        schema,
         body
     });
 }
@@ -779,15 +992,20 @@ function buildServicesHub() {
 
         ${CTA_SECTION}`;
 
-    const schema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        provider: { '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
-        areaServed: 'Worldwide',
-        url: canonical,
-        description: 'Full-service marketing agency offering Facebook & Instagram ads, Google Ads, PR, e-commerce websites, AI software and conversion rate optimization.'
-    };
-    return page({ canonical, title: 'Marketing Services | Facebook Ads, Google Ads, PR, AI & CRO | Advanced Marketing', desc: 'Full-service marketing: Facebook & Instagram ads, Google Ads, PR, e-commerce websites, AI automation and conversion rate optimization. 500+ clients, 3.2x average ROI.', schema, body });
+    const schema = graph([
+        {
+            '@type': 'Service',
+            provider: { '@id': ORG_ID, '@type': 'Organization', name: 'Advanced Marketing', url: 'https://advancedmarketing.co' },
+            areaServed: 'Worldwide',
+            url: canonical,
+            description: 'Full-service marketing agency offering Facebook & Instagram ads, Google Ads, PR, e-commerce websites, AI software and conversion rate optimization.'
+        },
+        breadcrumbSchema([
+            { name: 'Home', url: 'https://advancedmarketing.co/' },
+            { name: 'Services', url: canonical }
+        ])
+    ]);
+    return page({ canonical, title: 'Marketing Services | Advanced Marketing', desc: 'Full-service marketing: Facebook & Google Ads, PR, e-commerce websites, AI automation and CRO. 500+ clients served, 3.2x average ROI.', schema, body });
 }
 
 /* ---------- 6. About page ---------- */
@@ -860,20 +1078,18 @@ function buildAbout() {
 
         ${CTA_SECTION}`;
 
-    const schema = {
-        '@context': 'https://schema.org',
-        '@type': 'AboutPage',
-        url: canonical,
-        mainEntity: {
-            '@type': 'Organization',
-            name: 'Advanced Marketing',
-            url: 'https://advancedmarketing.co',
-            foundingDate: '2020',
-            email: 'ben@advancedmarketing.co',
-            address: { '@type': 'PostalAddress', addressLocality: 'Hong Kong', addressCountry: 'HK' }
-        }
-    };
-    return page({ canonical, title: 'About Advanced Marketing | Full-Service Marketing Agency', desc: 'Advanced Marketing is a full-service agency founded in 2020 in Hong Kong. 500+ clients, $50M+ ad spend managed, 3.2x average ROI — marketing accountable to revenue.', schema, body });
+    const schema = graph([
+        {
+            '@type': 'AboutPage',
+            url: canonical,
+            mainEntity: { '@id': ORG_ID }
+        },
+        breadcrumbSchema([
+            { name: 'Home', url: 'https://advancedmarketing.co/' },
+            { name: 'About', url: canonical }
+        ])
+    ]);
+    return page({ canonical, title: 'About Advanced Marketing | Full-Service Marketing Agency', desc: 'Full-service agency founded in 2020 in Hong Kong. 500+ clients, $50M+ ad spend managed, 3.2x average ROI — marketing accountable to revenue.', schema, body });
 }
 
 /* ---------- 7. Write everything ---------- */
